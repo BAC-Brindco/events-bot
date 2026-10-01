@@ -1,0 +1,494 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><title>
+	Press Release Page | Press Information Bureau
+</title><link href="css/style.css" rel="stylesheet" type="text/css" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="alternate stylesheet" href="css/change.css" media="screen" title="change" /><link rel="alternate stylesheet" href="css/green.css" media="screen" title="green" /><link rel="alternate stylesheet" href="css/yellow.css" media="screen" title="yellow" /><link rel="stylesheet" type="text/css" href="css/prtint.css" media="print" /><link rel="stylesheet" href="css/style3.1.css" type="text/css" /><link id="pibA11yCss" rel="stylesheet" href="/css/accessibility.css?v=3" type="text/css" />
+      <script type="text/javascript">
+        /* Stamps the saved theme on <html> before the page paints. The
+           switcher in js/accessibility.js settles the rest, but on inner
+           pages it does not run until the end of the body and inside the
+           release frame it is a separate download - either way the reader
+           would otherwise watch a light page turn dark in front of them. */
+        (function (d) {
+            var t = "";
+            try {
+                t = window.localStorage.getItem("pibStyle") || "";
+            } catch (e) {
+                t = "";
+            }
+            if (t === "orange") {
+                t = "yellow";
+            }
+            var c = t === "change" ? " pib-hc"
+                : t === "green" ? " pib-theme-green"
+                : t === "yellow" ? " pib-theme-yellow" : "";
+            d.documentElement.className += c + " pib-a11y-content";
+        }(document));
+      </script>
+
+
+      <script src="js/jquery.min.js" type="text/javascript"></script>
+      <script type="text/javascript" src="/js/accessibility.js?v=7"></script>
+
+      <script type="text/javascript">
+            $(document).ready(function () {
+                  function getParameterByName(name) {
+                        var url = window.location.href;
+                        name = name.replace(/[\[\]]/g, '\\$&');
+                        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                              results = regex.exec(url);
+                        if (!results) return null;
+                        if (!results[2]) return '';
+                        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                  }
+                  // Get the IDs from the current page's URL
+                  let prid = parseInt(getParameterByName('PRID'), 10);
+
+                  if (!isNaN(prid) && prid > 0) {
+                        $.ajax({
+                              type: "POST",
+                              url: "AjaxMethod.aspx/UpdatePRHitCount",
+                              async: false,
+                              data: JSON.stringify({ 'PermId': prid }),
+                              contentType: "application/json; charset=utf-8",
+                              dataType: "json",
+                              success: function (response) {
+                                    console.log(response);
+                              },
+                              error: function (error) {
+                                    console.log("Error in AJAX request", error);
+                              }
+                        });
+                  } else {
+                        console.log("Invalid parameters:", prid);
+                  }
+
+            });
+      </script>
+      <style type="text/css">
+            .table-responsive {
+                  width: 100%;
+                  overflow-x: auto;
+            }
+
+            .banner {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  background-color: #000;
+                  color: #fff;
+                  padding: 20px;
+            }
+
+            full-width {
+                  width: 100%;
+            }
+
+            .logo-left, .logo-center, .countdown {
+                  display: flex;
+                  align-items: center;
+            }
+
+                  .logo-left img, .logo-center img {
+                        height: 70px;
+                  }
+
+            .countdown {
+                  text-align: center;
+                  background-color: #444;
+                  border-radius: 10px;
+                  padding: 10px;
+                  border: 2px solid grey;
+            }
+
+            .firstnumber {
+                  color: #000000;
+                  position: absolute;
+                  top: 50px;
+                  right: 90px;
+                  font-size: 30px;
+            }
+
+            .secondnumber {
+                  position: absolute;
+                  color: #000000;
+                  right: 45px;
+                  top: 50px;
+                  font-size: 30px;
+            }
+
+            .countdown .days {
+                  font-size: 35px;
+                  color: gold;
+            }
+
+            .countdown p {
+                  margin: 0;
+            }
+
+            .countdown .text {
+                  font-size: 16px;
+            }
+
+            a {
+                  word-break: break-all;
+            }
+
+            iframe, img {
+                  max-width: 100%;
+            }
+
+            @media(max-width:1199px) {
+                  .firstnumber {
+                        top: 40px;
+                        right: 72px;
+                        font-size: 30px;
+                  }
+
+                  .secondnumber {
+                        right: 35px;
+                        top: 40px;
+                        font-size: 30px;
+                  }
+            }
+
+            @media(max-width:990px) {
+                  .firstnumber {
+                        top: 25px;
+                        right: 54px;
+                        font-size: 30px;
+                  }
+
+                  .secondnumber {
+                        right: 25px;
+                        top: 25px;
+                        font-size: 30px;
+                  }
+            }
+
+            @media(max-width:768px) {
+                  .countdown, .days {
+                        font-size: 12px !important;
+                  }
+
+
+                  .firstnumber {
+                        top: 25%;
+                        right: 8%;
+                        font-size: 30px;
+                  }
+
+                  .secondnumber {
+                        right: 4.5%;
+                        top: 25%;
+                        font-size: 30px;
+                  }
+            }
+
+            @media(max-width:475px) {
+                  .countdown, .days {
+                        font-size: 10px !important;
+                        top: 20%;
+                  }
+
+                  .bannerimgdiv {
+                        padding: 0 !important;
+                  }
+
+                  .bannerimg {
+                        width: 108% !important;
+                  }
+            }
+      </style>
+      <script type="text/javascript">
+            $(function () {
+                  $("[id*=printPDF]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+            $(function () {
+                  $("[id*=printPDFEvent]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+      </script>
+
+      
+
+      <link id="pibConsentCss" href="/css/consent.css?v=1" rel="stylesheet" type="text/css" /><meta property="og:title" content="Monthly Review of Accounts of Union Government of India  upto the month of August 2026 (FY 2026-27)" /><meta property="og:url" content="www.pib.gov.in/Pressreleaseshare.aspx?PRID=2317034" /><meta property="og:description" content="The Monthly Accounts of the Union Government of India upto the month of August, 2026 has been consol" /><meta property="og:image" content="https:/pib.gov.in/images/indian-emblem.png" />
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="C4E7H-KSCMC-422L4-W3EM5-U36MF",function(){function e(){if(!i){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.parentNode.appendChild(e),i=!0}}function t(e){i=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",o.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"C4E7H-KSCMC-422L4-W3EM5-U36MF";var o=document.currentScript||document.getElementsByTagName("script")[0],i=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!i)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="wzgtgeaxzvmju2v6gv4a-f-2bff9c92e-clientnsv4-s.akamaihd.net",o="false"=="true"?2:1,i={"ak.v":"41","ak.cp":"1825201","ak.ai":parseInt("1215205",10),"ak.ol":"0","ak.cr":68,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"130bb96","ak.r":40698,"ak.a2":n,"ak.m":"dscb","ak.n":"ff","ak.cport":57672,"ak.gh":"23.205.88.159","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1790850424","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==F/gLTDH2mjTE7SCEutV8DPe6AYBc9FEFRgga9RHML+M9cIvsHvYPC9kibWxM+O2sCE4Ra371h1pJcPRxnk2u1cqo2nplL0rSTBt+th1yEK3aK2w3cZnb7HqtlzUVGOdx0SJHfhI0057uUfgcuZc1N3W0qZNV0aHH67Qu0UkE57s+I8dAihMDyngYDhSgJR9lwMz15P2uat2EVqBsZdB5DpH0CFYUCQngllsWWfx1iRCqggiII4CcZ3lDmd0ZGXG/mKYeQrZNwsZ6nLqG1zU7rlPt9dFn5vpsnIl9rYCRb5kNFhLzagC4CKDkGRbaYtPt9OryG2gYcBLV5IiDdnRCDOLnyD5fkEaGXp2Zlu+Wnvk9mJQvU9mnIg/spJgbQ/EOApQTb1KG2J5DpYAY9YQ8K+WjfPIVlLtxyId2hSuymjI=","ak.pv":"9","ak.dpoabenc":"","ak.tf":o};if(""!==t)i["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))i["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body>
+      <form method="post" action="./PressReleasePage.aspx?PRID=2317034&amp;reg=3&amp;lang=1" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="sc_HiddenField" id="sc_HiddenField" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZPQet1wIx1Q48y3xJY2k25Y7qxH5RrQ9qQcN-OiTC9guZtri9w2&amp;t=639246315009809930" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=x6wALODbMJK5e0eRC_p1LdIxBJXt0U_WW5GWfJqHAqo6frgCmGRfEywglicTersO2OKrFhK1gAIp0Wk2al2YrpdR3uWqH6f4nfjBsCyRUfTUUVmb0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=P5lTttoqSeZXoYRLQMIScH645UK3RD852IErF2548Wz9Ssv0rLjB4fhVKnHcMpqkaMHpNAGOeWY02Lf4aBYN9-dVBme_SNK5KJwmFQNpMixYDZ7M0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/PressReleasePage.aspx?_TSM_HiddenField_=sc_HiddenField&amp;_TSM_CombinedScripts_=%3b%3bAjaxControlToolkit%2c+Version%3d3.5.7.123%2c+Culture%3dneutral%2c+PublicKeyToken%3d28f01b0e84b6d53e%3aen-US%3a5a4df314-b4a2-4da2-a207-9284f1b1e96c%3ade1feab2%3af2c8e708%3a8613aea7%3af9cec9bc%3a3202a5a2%3aab09e3fe%3a87104b7c%3a720a52bf%3a589eaa30%3aa67c2700%3abe6fb298" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="59B53027" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="TKLyeG1kraziJJPt89cN/hTNeOIhjBwxx+deusKUoOjSwf6Xjzs+rQWYEaPDk8mhoeAtFJ7KN2m/R8bWixIRcoAiiHFA1acoqPOTjJrxjw/8bg6kjOGqSGlEtRIAl56t85HKpBcDaRKEBLD6mNMcLtDUEH+bWQp2vp9AmKXm5m0rurHukNb5o998TPo5lsfrxq6td0traepLbTKhuK/IorjmnbqkVUVxgg8AIosC/MBypLOqSoVHGiIsIlP/zUDS8G4Iyz7cskmoT3e6ETylcAAyYag=" />
+</div>
+                              
+            <div id="templateCss"></div>
+            <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('sc', 'form1', ['tupdate12','update12'], [], [], 90, '');
+//]]>
+</script>
+
+            <input type="hidden" name="hfGridHtml" id="hfGridHtml" />
+            <div class="container" style='margin-bottom: 50px;'>
+                  <div id="accessories">
+
+                        
+                        <div class="pull-right" style="display: flex">
+                              <div id="voll"></div>
+                              <div id="vollDT"></div>
+                              
+                              
+<div class="print-icons">
+<input type="image" name="Print1$print" id="Print1_print" aria-label="Print" src="images/printer_icon.png" alt="print page button" style="padding: 5px 10px 5px 10px;" />
+</div>
+                        </div>
+                  </div>
+                  <input type="hidden" name="hydpermid" id="hydpermid" value="2317034" />
+                  
+
+
+
+                  <div class="innner-page-main-about-us-content-right-part">
+
+                        <div id="MinistryName" class="MinistryNameSubhead text-center">
+                              Ministry of Finance
+                        </div>
+                        
+                        <div id="lg_g"><div class='log_oo'>  <img src='https://static.pib.gov.in/WriteReadData/specificdocs/photo/2026/sep/ph_9768_20260902_10000501.png' alt='azadi ka amrit mahotsav' /> </div></div>
+
+
+
+
+
+                        <div class="text-center event-heading-background">
+                              
+                              <h1 id="Titleh2">
+                                    Monthly Review of Accounts of Union Government of India  upto the month of August 2026 (FY 2026-27)
+                              </h1>
+                              <h3 id="Subtitleh3">
+                                    <span id="ltrSubtitle"></span>
+                              </h3>
+                        </div>
+
+                        <div id="PrDateTime" class="ReleaseDateSubHeaddateTime text-center pt20">
+                              Posted On:
+                30 SEP 2026 4:41PM by PIB Delhi
+                        </div>
+                        
+                        <div class='pt20'>
+                        </div>
+                        <input type="hidden" name="hydphotoUrl" id="hydphotoUrl" />
+                        
+                        <p style="margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Monthly Accounts of the Union Government of India upto the month of August, 2026 has been consolidated and reports published. The highlights are given below: -</span></span></p>
+
+<p style="margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Government of India has received ₹13,67,709 crore (37.5% of corresponding BE 2026-27 of Total Receipts) upto August, 2026 comprising ₹8,37,921 crore Tax Revenue (Net to Centre), ₹4,54,549 crore of Non-Tax Revenue and ₹75,239 crore of Non-Debt Capital Receipts. ₹5,90,391 crore has been transferred to State Governments as Devolution of Share of Taxes by Government of India during this period which is ₹60,243 crore lower than the previous year. </span></span></p>
+
+<p style="margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Total Expenditure incurred by Government of India is ₹20,77,958 crore (38.9% of corresponding BE 2026-27), out of which ₹15,68,009 crore is on Revenue Account and ₹5,09,949 crore is on Capital Account. Out of the Total Revenue Expenditure, ₹5,14,810 crore is on account of Interest Payments and ₹1,87,037 crore is on account of Major Subsidies. </span></span></p>
+
+<p style="margin-left:36pt; margin-right:0cm; text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><img alt="" src="https://static.pib.gov.in/WriteReadData/userfiles/image/2026/sep/image001_20260930164330_f62f9f.png" style="height:300px; width:300px" /><img alt="" src="https://static.pib.gov.in/WriteReadData/userfiles/image/2026/sep/image002_20260930164358_610efa.png" style="height:300px; width:300px" /></span></span></p>
+
+<p style="margin-left:36pt; margin-right:0cm; text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">****</span></span></p>
+
+<p style="margin-right:0cm"><strong><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">SR/Sri</span></span></strong></p>
+
+
+                        
+                        <div id="reel_pic">
+                        </div>
+
+
+
+                        
+                        <br />
+                        <span id="ReleaseId">(Release ID: 2317034)</span>
+                        <span id="lblViews">Visitor Counter : 519</span>
+                        <div>
+                              
+                        </div>
+                        
+
+                        <span id="lblRefPhoto"></span>
+
+                        <div class="BackgroundRelease">
+                              
+                        </div>
+                        <div>
+                              
+                        </div>
+                        <div class="ReleaseLang">Read this release in: 
+                        
+                                    
+                                    <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2317199' target="_blank">
+                                          Urdu </a>
+                              
+                                    ,
+                              
+                                    
+                                    <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2317114' target="_blank">
+                                          हिन्दी </a>
+                              
+                                    ,
+                              
+                                    
+                                    <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2317086' target="_blank">
+                                          Gujarati </a>
+                              
+                        </div>
+
+                        <div class="RelTag">
+                              <ul>
+                                    
+                              </ul>
+                        </div>
+                        <div class="clear">
+                        </div>
+                        <div id="RelLink" class="RelLink">
+                              <ul>
+                                    
+                                    
+                              </ul>
+                        </div>
+                        <center>
+                              
+                        </center>
+                  </div>
+
+                  <div id="update12">
+	
+                              
+                              <input type="hidden" name="Hidden" id="Hidden" />
+                              <div id="P_CategoryManagement" class="ModalWindow" style="border-width:0px;height:60%;width:60%;overflow:auto;display: none">
+		
+                                    <div>
+                                          <input type="image" name="btnClose" id="btnClose" src="images/close_flat_icon.png" />
+                                    </div>
+                                    <div id="description">
+                                    </div>
+                                    <div class="text-center">
+                                          <h2>
+                                                
+                                                <br>
+                                                
+                                          </h2>
+                                    </div>
+                                    <br />
+                                    <div class="clear">
+                                    </div>
+                                    
+                              
+	</div>
+                        
+</div>
+            </div>
+            
+            <div id="PdfDiv" style="display: none;">
+                  <table width="100%">
+                        <tr>
+                              <td style="font-weight: 200; text-align: center">
+                                    Ministry of Finance
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                                          Monthly Review of Accounts of Union Government of India  upto the month of August 2026 (FY 2026-27)
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                                          
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="text-align: center; font-size: 14px;">
+                                          Posted On:
+                        30 SEP 2026 4:41PM by PIB Delhi
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="font-weight: 200; text-align: left; font-size: 16px;">
+                                          <p style="margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Monthly Accounts of the Union Government of India upto the month of August, 2026 has been consolidated and reports published. The highlights are given below: -</span></span></p>
+
+<p style="margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Government of India has received ₹13,67,709 crore (37.5% of corresponding BE 2026-27 of Total Receipts) upto August, 2026 comprising ₹8,37,921 crore Tax Revenue (Net to Centre), ₹4,54,549 crore of Non-Tax Revenue and ₹75,239 crore of Non-Debt Capital Receipts. ₹5,90,391 crore has been transferred to State Governments as Devolution of Share of Taxes by Government of India during this period which is ₹60,243 crore lower than the previous year. </span></span></p>
+
+<p style="margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Total Expenditure incurred by Government of India is ₹20,77,958 crore (38.9% of corresponding BE 2026-27), out of which ₹15,68,009 crore is on Revenue Account and ₹5,09,949 crore is on Capital Account. Out of the Total Revenue Expenditure, ₹5,14,810 crore is on account of Interest Payments and ₹1,87,037 crore is on account of Major Subsidies. </span></span></p>
+
+<p style="margin-left:36pt; margin-right:0cm; text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><img alt="" src="https://static.pib.gov.in/WriteReadData/userfiles/image/2026/sep/image001_20260930164330_f62f9f.png" style="height:300px; width:300px" /><img alt="" src="https://static.pib.gov.in/WriteReadData/userfiles/image/2026/sep/image002_20260930164358_610efa.png" style="height:300px; width:300px" /></span></span></p>
+
+<p style="margin-left:36pt; margin-right:0cm; text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">****</span></span></p>
+
+<p style="margin-right:0cm"><strong><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">SR/Sri</span></span></strong></p>
+
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="font-weight: 100; text-align: left; font-size: 16px;">
+                                          (Release ID: 2317034)
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                              </td>
+                        </tr>
+                        <tr>
+                              <td style="font-weight: 200; text-align: center; font-size: 24px;"></td>
+                        </tr>
+                  </table>
+            </div>
+            <div class="clearfix">
+            </div>
+
+            
+
+            <div class="section1">
+                  <div id="frst_t">
+                        <div id="arr_rm"><div class='sticky-social_mb'><ul class='social_mb'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2317034' target='_blank'><li class='fb_b'   ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/facebook.jpg' alt='Share on facebook'  width='40' /></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2317034&text=Monthly Review of Accounts of Union Government of India  upto the month of August 2026 (FY 2026-27)' target='_blank'><li class='twitter_r'  ><img  src='https://static.pib.gov.in/WriteReadData/specificdocs/photo/2023/aug/ph2023818240601.jpg' alt='Share on twitter' width='40' /> </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2317034' target='_blank'><li class='whatsapp_r'  ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/whatsapp1.png' alt='Share on whatsapp' width='40' /></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Monthly Review of Accounts of Union Government of India  upto the month of August 2026 (FY 2026-27)&body=https://pib.gov.in/PressReleasePage.aspx?PRID=2317034&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/email1.png' alt='Share on email'  width='40' /></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2317034&title=Monthly Review of Accounts of Union Government of India  upto the month of August 2026 (FY 2026-27)&summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/linkedin.png' alt='Share on linkedin' width='40' /></li></a></ul></div></div>
+                  </div>
+                  <div id="second_t">
+                        <div id="sndr_rm"><div class='sticky-social'><ul class='social'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2317034' target='_blank'><li class='fb_b'   ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/facebook.jpg' alt='Share on facebook'  width='35' /></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2317034&text=Monthly Review of Accounts of Union Government of India  upto the month of August 2026 (FY 2026-27)' target='_blank'><li class='twitter_r'  ><img  src='https://static.pib.gov.in/WriteReadData/specificdocs/photo/2023/aug/ph2023818240601.jpg' alt='Share on twitter' width='35' /> </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2317034' target='_blank'><li class='whatsapp_r'  ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/whatsapp1.png' alt='Share on whatsapp' width='35' /></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Monthly Review of Accounts of Union Government of India  upto the month of August 2026 (FY 2026-27)&body=https://pib.gov.in/PressReleasePage.aspx?PRID=2317034&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/email1.png' alt='Share on email'  width='35' /></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2317034&title=Monthly Review of Accounts of Union Government of India  upto the month of August 2026 (FY 2026-27)&summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/linkedin.png' alt='Share on linkedin' width='35' /></li></a></ul></div></div>
+                  </div>
+            </div>
+            <input type="hidden" name="ltrTitlee" id="ltrTitlee" value="Monthly Review of Accounts of Union Government of India  upto the month of August 2026 (FY 2026-27)" />
+            <input type="hidden" name="ltrSubtitlee" id="ltrSubtitlee" />
+            <input type="hidden" name="ltrDescriptionn" id="ltrDescriptionn" value="&lt;p style=&quot;margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The Monthly Accounts of the Union Government of India upto the month of August, 2026 has been consolidated and reports published. The highlights are given below: -&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The Government of India has received ₹13,67,709 crore (37.5% of corresponding BE 2026-27 of Total Receipts) upto August, 2026 comprising ₹8,37,921 crore Tax Revenue (Net to Centre), ₹4,54,549 crore of Non-Tax Revenue and ₹75,239 crore of Non-Debt Capital Receipts. ₹5,90,391 crore has been transferred to State Governments as Devolution of Share of Taxes by Government of India during this period which is ₹60,243 crore lower than the previous year. &lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Total Expenditure incurred by Government of India is ₹20,77,958 crore (38.9% of corresponding BE 2026-27), out of which ₹15,68,009 crore is on Revenue Account and ₹5,09,949 crore is on Capital Account. Out of the Total Revenue Expenditure, ₹5,14,810 crore is on account of Interest Payments and ₹1,87,037 crore is on account of Major Subsidies. &lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:36pt; margin-right:0cm; text-align:center&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;img alt=&quot;&quot; src=&quot;https://static.pib.gov.in/WriteReadData/userfiles/image/2026/

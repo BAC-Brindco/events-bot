@@ -1,0 +1,122 @@
+[
+ {
+  "name": "pw_nyfed_rss",
+  "url": "https://www.newyorkfed.org/rss",
+  "via": "playwright",
+  "status": 200,
+  "feed_links": [],
+  "xhr_json": [
+   "https://c.go-mpulse.net/api/config.json?key=6S5R6-KN95T-HP8YC-HYFLF-GA6UP&d=www.newyorkfed.org&t=5969498&v=1.792.0&if=&sl=0&si=11bd4639-0eb8-4451-ad4f-f0d05e392978-tm8450&plugins=AK,ConfigOverride,Continuity,PageParams,IFrameDelay,AutoXHR,SPA,History,Angular,Backbone,Ember,RT,CrossDomain,BW,PaintTiming,NavigationTiming,ResourceTiming,Memory,CACHE_RELOAD,Errors,TPAnalytics,UserTiming,Akamai,Early,EventTiming,BFCache,LOGN&acao=&ak.ai=322044",
+   "https://www.newyorkfed.org/api/sitemap",
+   "https://www.newyorkfed.org/medialibrary/media/v4/components/conf/components.json.txt",
+   "https://www.newyorkfed.org/medialibrary/media/v4/components/conf/markets_module.json.txt",
+   "https://www.newyorkfed.org/medialibrary/media/v4/components/conf/sitemap.json.txt",
+   "https://www.newyorkfed.org/rss"
+  ]
+ },
+ {
+  "name": "pw_stlouisfed_speeches",
+  "url": "https://www.stlouisfed.org/from-the-president/speeches",
+  "via": "playwright",
+  "status": 200,
+  "feed_links": [],
+  "xhr_json": [
+   "https://script.crazyegg.com/pages/data-scripts/0067/6278/sampling/www.stlouisfed.org.json?t=1",
+   "https://script.crazyegg.com/pages/data-scripts/0067/6278/site/www.stlouisfed.org.json?t=1"
+  ]
+ },
+ {
+  "name": "pw_kcfed_speeches",
+  "url": "https://www.kansascityfed.org/speeches/",
+  "via": "playwright",
+  "status": 200,
+  "feed_links": [],
+  "xhr_json": [
+   "https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js",
+   "https://script.crazyegg.com/pages/data-scripts/0028/8340/sampling/www.kansascityfed.org.json?t=1",
+   "https://script.crazyegg.com/pages/data-scripts/0028/8340/site/www.kansascityfed.org.json?t=1",
+   "https://www.kansascityfed.org/jMRvrSriBhItYfgDqQ/iDzarSStkbrpXpEVm3/OE1GanRlDQE/Yz/cJZiNJaiM"
+  ]
+ },
+ {
+  "name": "pw_philfed_home",
+  "url": "https://www.philadelphiafed.org/",
+  "via": "playwright",
+  "status": 200,
+  "feed_links": [],
+  "xhr_json": []
+ },
+ {
+  "name": "pw_minneapolisfed_speeches",
+  "url": "https://www.minneapolisfed.org/speeches",
+  "via": "playwright",
+  "status": 200,
+  "feed_links": [],
+  "xhr_json": [
+   "https://listgrowth.ctctcdn.com/v1/893dd8ef8163c5909e767b76354dca4e.json",
+   "https://www.minneapolisfed.org/api/sitesearch?searchTerm=&appliedFacets=ess%3Apagetype&sortBy=rel&startingResult=0&resultsPerPage=10"
+  ]
+ },
+ {
+  "name": "pw_chicagofed_rss",
+  "url": "https://www.chicagofed.org/rss",
+  "via": "playwright",
+  "status": 200,
+  "feed_links": [
+   "https://www.chicagofed.org/forms/rss/DataReleases",
+   "https://www.chicagofed.org/forms/rss/NewsReleases",
+   "https://www.chicagofed.org/forms/rss/Speeches",
+   "https://www.chicagofed.org/forms/rss/cdps",
+   "https://www.chicagofed.org/forms/rss/insights",
+   "https://www.chicagofed.org/forms/rss/michiganeconomy",
+   "https://www.chicagofed.org/forms/rss/midwesteconomy",
+   "https://www.chicagofed.org/rss",
+   "https://www.chicagofed.org/rss#collapseAboutUs",
+   "https://www.chicagofed.org/rss#collapseAboutUsMobile",
+   "https://www.chicagofed.org/rss#collapseBanking",
+   "https://www.chicagofed.org/rss#collapseBankingMobile",
+   "https://www.chicagofed.org/rss#collapseBankingResources",
+   "https://www.chicagofed.org/rss#collapseBankingResourcesMobile",
+   "https://www.chicagofed.org/rss#collapseCareers",
+   "https://www.chicagofed.org/rss#collapseCareersMobile",
+   "https://www.chicagofed.org/rss#collapseConsumerResources",
+   "https://www.chicagofed.org/rss#collapseConsumerResourcesMobile",
+   "https://www.chicagofed.org/rss#collapseEconomicData",
+   "https://www.chicagofed.org/rss#collapseEconomicDataMobile",
+   "https://www.chicagofed.org/rss#collapseEducation",
+   "https://www.chicagofed.org/rss#collapseEducationMobile",
+   "https://www.chicagofed.org/rss#collapseEvents",
+   "https://www.chicagofed.org/rss#collapseEventsMobile",
+   "https://www.chicagofed.org/rss#collapseOurPeople",
+   "https://www.chicagofed.org/rss#collapseOurPeopleMobile",
+   "https://www.chicagofed.org/rss#collapsePeople",
+   "https://www.chicagofed.org/rss#collapsePeopleMobile",
+   "https://www.chicagofed.org/rss#collapsePublications",
+   "https://www.chicagofed.org/rss#collapsePublicationsMobile",
+   "https://www.chicagofed.org/rss#collapseRegion",
+   "https://www.chicagofed.org/rss#collapseRegionMobile",
+   "https://www.chicagofed.org/rss#collapseResearch",
+   "https://www.chicagofed.org/rss#collapseResearchMobile",
+   "https://www.chicagofed.org/rss#collapseResearchTeams",
+   "https://www.chicagofed.org/rss#collapseResearchTeamsMobile",
+   "https://www.chicagofed.org/rss#collapseSpecialtyResearch",
+   "https://www.chicagofed.org/rss#collapseSpecialtyResearchMobile",
+   "mailto:?subject=The%20Chicago%20Fed%20has%20posted%20something%20interesting!&body=Hi,%0A%0ACheck%20out%20this%20link%20from%20the%20Federal%20Reserve%20Bank%20of%20Chicago%E2%80%99s%20public%20website:%0A%0Ahttps://www.chicagofed.org//rss"
+  ],
+  "xhr_json": [
+   "https://www.chicagofed.org/-/media/admin/images/footer/rss-png.svg?sc_lang=en&hash=6A76818A37C7C443BE74C249BB1D4EEB",
+   "https://www.chicagofed.org/rss",
+   "https://www.google-analytics.com/g/collect?v=2&tid=G-970V6TDQ5K&gtm=45je69t1v9104156456za200zd9104156456xf1&_p=1790849327265&gcd=13l3l3l3l1l1&npa=0&dma=0&cid=2128589095.1790849328&frm=0&ngs=1&pscdl=noapi&rcb=2&sr=1280x720&uaa=x86&uab=64&uafvl=Chromium%3B154.0.8037.58%7CGoogle%2520Chrome%3B154.0.8037.58%7CNot%2520A(Brand%3B99.0.0.0&uam=&uamb=0&uap=Windows&uapv=10.0&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153~121280969&sid=1790849328&sct=1&seg=0&dl=https%3A%2F%2Fwww.chicagofed.org%2Frss&dt=RSS%20Feeds%20-%20Federal%20Reserve%20Bank%20of%20Chicago&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=3094"
+  ]
+ },
+ {
+  "name": "pw_clevelandfed_speeches",
+  "url": "https://www.clevelandfed.org/collections/speeches",
+  "via": "playwright",
+  "status": 200,
+  "feed_links": [],
+  "xhr_json": [
+   "https://forms.hsforms.com/embed/v3/form/8397508/beae9a12-2d29-42d3-a5a9-20abfb2733d4/json?hs_static_app=forms-embed&hs_static_app_version=1.11349&X-HubSpot-Static-App-Info=forms-embed-1.11349"
+  ]
+ }
+]

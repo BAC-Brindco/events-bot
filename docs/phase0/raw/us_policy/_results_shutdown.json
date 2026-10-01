@@ -1,0 +1,41 @@
+[
+ {
+  "name": "opm_operating_status_json",
+  "url": "https://www.opm.gov/json/operatingstatus.json",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:20:59.216298+00:00",
+  "status": 200,
+  "final_url": "https://www.opm.gov/json/operatingstatus.json",
+  "headers": {
+   "content-length": "800",
+   "cache-control": "private, max-age=63789",
+   "date": "Thu, 01 Oct 2026 10:21:04 GMT",
+   "content-type": "application/json"
+  },
+  "bytes": 1791,
+  "sample": "opm_operating_status_json.json",
+  "conditional_get": "no validators returned"
+ },
+ {
+  "name": "congress_law_119",
+  "url": "https://api.congress.gov/v3/law/119?api_key=DEMO_KEY&format=json&limit=5",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:21:00.643458+00:00",
+  "status": 200,
+  "final_url": "https://api.congress.gov/v3/law/119?api_key=DEMO_KEY&format=json&limit=5",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:21:06 GMT",
+   "content-type": "application/json",
+   "age": "0",
+   "cache-control": "public, max-age=1800",
+   "expires": "Thu, 01 Oct 2026 10:51:06 GMT",
+   "last-modified": "Thu, 01 Oct 2026 10:21:06 GMT",
+   "via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+   "x-cache": "MISS",
+   "x-ratelimit-limit": "10",
+   "x-ratelimit-remaining": "4"
+  },
+  "bytes": 4231,
+  "sample": "congress_law_119.json"
+ }
+]

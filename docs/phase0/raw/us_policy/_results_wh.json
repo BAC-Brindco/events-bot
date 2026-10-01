@@ -1,0 +1,303 @@
+[
+ {
+  "name": "wh_feed_all",
+  "url": "https://www.whitehouse.gov/feed/",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:02.735592+00:00",
+  "status": 404,
+  "final_url": "https://www.whitehouse.gov/feed/",
+  "headers": {
+   "server": "nginx",
+   "date": "Thu, 01 Oct 2026 10:19:06 GMT",
+   "content-type": "text/html; charset=utf-8",
+   "cache-control": "public, must-revalidate, max-age=1800",
+   "x-cache": "HIT"
+  },
+  "bytes": 30829,
+  "sample": "wh_feed_all.html"
+ },
+ {
+  "name": "wh_feed_presidential_actions",
+  "url": "https://www.whitehouse.gov/presidential-actions/feed/",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:03.836024+00:00",
+  "status": 200,
+  "final_url": "https://www.whitehouse.gov/presidential-actions/feed/",
+  "headers": {
+   "server": "nginx",
+   "date": "Thu, 01 Oct 2026 10:19:07 GMT",
+   "content-type": "application/rss+xml; charset=UTF-8",
+   "last-modified": "Wed, 30 Sep 2026 21:28:24 GMT",
+   "etag": "W/\"e258b719e289b57b568d6f820556e76e\"",
+   "cache-control": "max-age=300, must-revalidate",
+   "x-cache": "HIT"
+  },
+  "bytes": 593364,
+  "sample": "wh_feed_presidential_actions.xml",
+  "conditional_get": {
+   "sent": {
+    "If-None-Match": "W/\"e258b719e289b57b568d6f820556e76e\"",
+    "If-Modified-Since": "Wed, 30 Sep 2026 21:28:24 GMT"
+   },
+   "status": 304,
+   "bytes": 0
+  },
+  "feed": {
+   "feed_title": "Presidential Actions \u2013 The White House",
+   "bozo": false,
+   "n_entries": 30,
+   "newest": "2026-09-29 21:23:48",
+   "oldest": "2026-08-26 19:59:10",
+   "first": [
+    {
+     "title": "Eliminating Disease-Carrying Pests And Restoring Enjoyment Of The Great Outdoors",
+     "link": "https://www.whitehouse.gov/presidential-actions/2026/09/eliminating-disease-carrying-pests-and-restoring-enjoyment-of-the-great-outdoors/",
+     "date": "Tue, 29 Sep 2026 21:23:48 +0000"
+    },
+    {
+     "title": "Inaugurating The Era Of Super Intelligence",
+     "link": "https://www.whitehouse.gov/presidential-actions/2026/09/inaugurating-the-era-of-super-intelligence/",
+     "date": "Tue, 29 Sep 2026 21:17:25 +0000"
+    },
+    {
+     "title": "Streamlining Access to Government Services Through America.gov",
+     "link": "https://www.whitehouse.gov/presidential-actions/2026/09/streamlining-access-to-government-services-through-america-gov/",
+     "date": "Tue, 29 Sep 2026 14:50:54 +0000"
+    },
+    {
+     "title": "Nominations Sent to the Senate",
+     "link": "https://www.whitehouse.gov/presidential-actions/2026/09/nominations-sent-to-the-senate-e1fc/",
+     "date": "Mon, 28 Sep 2026 19:59:28 +0000"
+    },
+    {
+     "title": "Gold Star Mother\u2019s And Family\u2019s Day, 2026",
+     "link": "https://www.whitehouse.gov/presidential-actions/2026/09/gold-star-mothers-and-familys-day-2026/",
+     "date": "Fri, 25 Sep 2026 19:47:32 +0000"
+    }
+   ]
+  }
+ },
+ {
+  "name": "wh_feed_executive_orders",
+  "url": "https://www.whitehouse.gov/presidential-actions/executive-orders/feed/",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:06.037015+00:00",
+  "status": 200,
+  "final_url": "https://www.whitehouse.gov/presidential-actions/executive-orders/feed/",
+  "headers": {
+   "server": "nginx",
+   "date": "Thu, 01 Oct 2026 10:19:10 GMT",
+   "content-type": "application/rss+xml; charset=UTF-8",
+   "last-modified": "Wed, 30 Sep 2026 21:28:24 GMT",
+   "etag": "W/\"e258b719e289b57b568d6f820556e76e\"",
+   "cache-control": "max-age=300, must-revalidate",
+   "x-cache": "MISS"
+  },
+  "bytes": 683253,
+  "sample": "wh_feed_executive_orders.xml",
+  "conditional_get": {
+   "sent": {
+    "If-None-Match": "W/\"e258b719e289b57b568d6f820556e76e\"",
+    "If-Modified-Since": "Wed, 30 Sep 2026 21:28:24 GMT"
+   },
+   "status": 304,
+   "bytes": 0
+  },
+  "feed": {
+   "feed_title": "Executive Orders \u2013 The White House",
+   "bozo": false,
+   "n_entries": 30,
+   "newest": "2026-09-29 21:23:48",
+   "oldest": "2026-05-01 17:22:39",
+   "first": [
+    {
+     "title": "Eliminating Disease-Carrying Pests And Restoring Enjoyment Of The Great Outdoors",
+     "link": "https://www.whitehouse.gov/presidential-actions/2026/09/eliminating-disease-carrying-pests-and-restoring-enjoyment-of-the-great-outdoors/",
+     "date": "Tue, 29 Sep 2026 21:23:48 +0000"
+    },
+    {
+     "title": "Inaugurating The Era Of Super Intelligence",
+     "link": "https://www.whitehouse.gov/presidential-actions/2026/09/inaugurating-the-era-of-super-intelligence/",
+     "date": "Tue, 29 Sep 2026 21:17:25 +0000"
+    },
+    {
+     "title": "Streamlining Access to Government Services Through America.gov",
+     "link": "https://www.whitehouse.gov/presidential-actions/2026/09/streamlining-access-to-government-services-through-america-gov/",
+     "date": "Tue, 29 Sep 2026 14:50:54 +0000"
+    },
+    {
+     "title": "Enhancing Program Integrity and Integrity and Interagency Coordination in the Administration of the H-1B Nonimmigrant Visa Program",
+     "link": "https://www.whitehouse.gov/presidential-actions/2026/09/enhancing-program-integrity-and-integrity-and-interagency-coordination-in-the-administration-of-the-h-1b-nonimmigrant-visa-program/",
+     "date": "Fri, 18 Sep 2026 22:02:43 +0000"
+    },
+    {
+     "title": "RESTORING AMERICAN SALTWATER ANGLING AND RECREATION",
+     "link": "https://www.whitehouse.gov/presidential-actions/2026/09/restoring-american-saltwater-angling-and-recreation/",
+     "date": "Thu, 17 Sep 2026 21:31:50 +0000"
+    }
+   ]
+  }
+ },
+ {
+  "name": "wh_feed_proclamations",
+  "url": "https://www.whitehouse.gov/presidential-actions/proclamations/feed/",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:08.237636+00:00",
+  "status": 200,
+  "final_url": "https://www.whitehouse.gov/presidential-actions/proclamations/feed/",
+  "headers": {
+   "server": "nginx",
+   "date": "Thu, 01 Oct 2026 10:19:12 GMT",
+   "content-type": "application/rss+xml; charset=UTF-8",
+   "last-modified": "Wed, 30 Sep 2026 21:28:24 GMT",
+   "etag": "W/\"e258b719e289b57b568d6f820556e76e\"",
+   "cache-control": "max-age=300, must-revalidate",
+   "x-cache": "MISS"
+  },
+  "bytes": 700632,
+  "sample": "wh_feed_proclamations.xml",
+  "conditional_get": {
+   "sent": {
+    "If-None-Match": "W/\"e258b719e289b57b568d6f820556e76e\"",
+    "If-Modified-Since": "Wed, 30 Sep 2026 21:28:24 GMT"
+   },
+   "status": 304,
+   "bytes": 0
+  },
+  "feed": {
+   "feed_title": "Proclamations \u2013 The White House",
+   "bozo": false,
+   "n_entries": 30,
+   "newest": "2026-09-25 19:47:32",
+   "oldest": "2026-07-13 22:10:38",
+   "first": [
+    {
+     "title": "Gold Star Mother\u2019s And Family\u2019s Day, 2026",
+     "link": "https://www.whitehouse.gov/presidential-actions/2026/09/gold-star-mothers-and-familys-day-2026/",
+     "date": "Fri, 25 Sep 2026 19:47:32 +0000"
+    },
+    {
+     "title": "Restriction on Entry of Certain Nonimmigrant Workers",
+     "link": "https://www.whitehouse.gov/presidential-actions/2026/09/restriction-on-entry-of-certain-nonimmigrant-workers-faad/",
+     "date": "Fri, 18 Sep 2026 21:42:13 +0000"
+    },
+    {
+     "title": "Constitution Day, Citizenship Day, and Constitution Week, 2026",
+     "link": "https://www.whitehouse.gov/presidential-actions/2026/09/constitution-day-citizenship-day-and-constitution-week-2026/",
+     "date": "Wed, 16 Sep 2026 20:09:16 +0000"
+    },
+    {
+     "title": "National POW/MIA Recognition Day, 2026",
+     "link": "https://www.whitehouse.gov/presidential-actions/2026/09/national-pow-mia-recognition-day-2026/",
+     "date": "Wed, 16 Sep 2026 20:05:04 +0000"
+    },
+    {
+     "title": "Patriot Day 2026, The 25th Anniversary of the September 11 Terrorist Attacks",
+     "link": "https://www.whitehouse.gov/presidential-actions/2026/09/patriot-day-2026-the-25th-anniversary-of-the-september-11-terrorist-attacks/",
+     "date": "Wed, 09 Sep 2026 23:23:01 +0000"
+    }
+   ]
+  }
+ },
+ {
+  "name": "wh_presidential_actions_page",
+  "url": "https://www.whitehouse.gov/presidential-actions/",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:10.438205+00:00",
+  "status": 200,
+  "final_url": "https://www.whitehouse.gov/presidential-actions/",
+  "headers": {
+   "server": "nginx",
+   "date": "Thu, 01 Oct 2026 10:19:14 GMT",
+   "content-type": "text/html; charset=UTF-8",
+   "cache-control": "max-age=300, must-revalidate",
+   "x-cache": "HIT"
+  },
+  "bytes": 262983,
+  "sample": "wh_presidential_actions_page.html",
+  "links": {
+   "rss|feed|\\.xml|atom": []
+  }
+ },
+ {
+  "name": "ustr_press_releases_page",
+  "url": "https://ustr.gov/about-us/policy-offices/press-office/press-releases",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:10.512111+00:00",
+  "status": 200,
+  "final_url": "https://ustr.gov/about-us/policy-offices/press-office/press-releases",
+  "headers": {
+   "content-type": "text/html; charset=UTF-8",
+   "date": "Thu, 01 Oct 2026 10:13:32 GMT",
+   "server": "Apache",
+   "cache-control": "max-age=600, public",
+   "expires": "Sun, 19 Nov 1978 05:00:00 GMT",
+   "last-modified": "Thu, 01 Oct 2026 10:13:32 GMT",
+   "etag": "\"1790849612-gzip\"",
+   "x-cache": "Hit from cloudfront",
+   "via": "1.1 084aee51c27f761149c5fc97f2b483ca.cloudfront.net (CloudFront)",
+   "age": "343"
+  },
+  "bytes": 35883,
+  "sample": "ustr_press_releases_page.html",
+  "links": {
+   "rss|feed|\\.xml|atom|/press-releases/20": [
+    "/about/policy-offices/press-office/press-releases/2026",
+    "/about-us/policy-offices/press-office/press-releases/2025-0",
+    "/about/policy-offices/press-office/press-releases/2026/september/ambassador-greer-delivers-opening-remarks-2026-g20-trade-ministerial",
+    "/about/policy-offices/press-office/press-releases/2026/september/ambassador-greer-issues-statement-following-ministerial-meeting-global-forum-steel-excess-capacity",
+    "/about/policy-offices/press-office/press-releases/2026/september/united-states-and-mexico-announce-successful-resolution-rapid-response-labor-mechanism-matter-akwel",
+    "/about/policy-offices/press-office/press-releases/2026/september/ambassador-greer-issues-statement-announcement-recommendations-us-china-board-trade",
+    "/about/policy-offices/press-office/press-releases/2026/september/united-states-seeks-mexicos-review-alleged-denial-workers-rights-yokohama-tire-manufacturing-mexico",
+    "/about/policy-offices/press-office/press-releases/2026/september/ambassador-greer-travel-milwaukee-wisconsin-host-g20-trade-ministerial",
+    "/about/policy-offices/press-office/press-releases/2026/september/ustr-announces-fiscal-year-2027-wto-tariff-rate-quota-allocations-raw-cane-sugar",
+    "/about/policy-offices/press-office/press-releases/2026/september/public-hearing-regarding-section-301-investigation-germanys-persistent-underpayment-innovative",
+    "/about/policy-offices/press-office/press-releases/2026/september/ustr-convenes-over-50-trading-partners-provide-training-related-imposing-and-enforcing-forced-labor",
+    "/about/policy-offices/press-office/press-releases/2026/september/ustr-seeks-public-comment-foreign-trade-barriers-2027-national-trade-estimate-report",
+    "/about/policy-offices/press-office/press-releases/2026/september/ustr-commerce-and-uk-government-convene-10th-united-states-united-kingdom-small-and-medium",
+    "/about/policy-offices/press-office/press-releases/2026/september/ambassador-greer-joins-ft-news-briefing-podcast-financial-times-aime-williams",
+    "/about/policy-offices/press-office/press-releases/2026/september/ambassador-greer-issues-statement-president-trumps-response-canadas-continued-retaliation-against",
+    "/about/policy-offices/press-office/press-releases/2026/august/media-credentialing-opens-g20-trade-ministerial-milwaukee-wisconsin",
+    "/about/policy-offices/press-office/press-releases/2026/august/road-iowa-america-first-trade-raising-wages-reshoring-jobs-and-restoring-americas-global",
+    "/about/policy-offices/press-office/press-releases/2026/august/united-states-announces-successful-resolution-rapid-response-labor-mechanism-matter-grupo-yazaki-sa",
+    "/about/policy-offices/press-office/press-releases/2026/august/ambassador-greer-travel-hawkeye-state-tour-des-moines-manufacturer-and-visit-dozens-vendors-iowa",
+    "/about/policy-offices/press-office/press-releases/2026/august/ambassador-greer-issues-statement-welcoming-sp-globals-release-critical-minerals-pricing-benchmarks",
+    "/about/policy-offices/press-office/press-releases/2026/july/american-steelworkers-manufacturers-and-farmers-praise-president-trumps-tariff-action-combat-forced",
+    "/about/policy-offices/press-office/press-releases/2026/july/joint-statement-ambassador-jamieson-greer-and-mexican-secretary-economy-marcelo-ebrard",
+    "/about/policy-offices/press-office/press-releases/2026/july/ustr-takes-action-forced-labor-section-301-investigations",
+    "/about/policy-offices/press-office/press-releases/2026/july/ambassador-greer-issues-statement-european-union-creating-uncertainty-our-transatlantic-trade",
+    "/about/policy-offices/press-office/press-releases/2026/july/ustr-announces-fiscal-year-2027-wto-tariff-rate-quota-allocations-raw-cane-sugar-refined-sugar-and",
+    "/about/policy-offices/press-office/press-releases/2026/july/american-farmers-workers-and-businesses-are-reaping-benefits-president-trumps-trade-program",
+    "/about/policy-offices/press-office/press-releases/2026/july/ambassador-greer-signs-us-jordan-agreement-reciprocal-trade",
+    "/about/policy-offices/press-office/press-releases/2026/july/road-colorado-and-utah-ambassador-greer-highlights-how-tariffs-are-delivering-american-ranchers",
+    "/about/policy-offices/press-office/press-releases/2026/july/ambassador-greer-issues-statement-president-trump-imposing-section-338-tariffs-canada",
+    "/about/policy-offices/press-office/press-releases/2026/july/ambassador-greer-joins-daily-new-york-times-ana-swanson-0"
+   ]
+  }
+ },
+ {
+  "name": "ustr_home",
+  "url": "https://ustr.gov/",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:12.157176+00:00",
+  "status": 200,
+  "final_url": "https://ustr.gov/",
+  "headers": {
+   "content-type": "text/html; charset=UTF-8",
+   "date": "Thu, 01 Oct 2026 10:18:02 GMT",
+   "server": "Apache",
+   "cache-control": "max-age=600, public",
+   "expires": "Sun, 19 Nov 1978 05:00:00 GMT",
+   "last-modified": "Thu, 01 Oct 2026 10:18:02 GMT",
+   "etag": "\"1790849882-gzip\"",
+   "x-cache": "Hit from cloudfront",
+   "via": "1.1 084aee51c27f761149c5fc97f2b483ca.cloudfront.net (CloudFront)",
+   "age": "74"
+  },
+  "bytes": 53516,
+  "sample": "ustr_home.html",
+  "links": {
+   "rss|feed|\\.xml|atom": []
+  }
+ }
+]

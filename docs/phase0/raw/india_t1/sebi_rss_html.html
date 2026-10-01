@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+	<title>SEBI | RSS Feed</title>
+	<link rel="shortcut icon" href="images/icons/sebi-icon.png" type="text/css" media="all" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="stylesheet" href="fonts/fonts.css" type="text/css" />
+	<link rel="stylesheet" href="css/reset.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/modal.css" type="text/css" />
+	<link rel="stylesheet" href="css/webslidemenu.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/responsive.css" type="text/css" media="all" />
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/b_min.js"></script>
+	<script type="text/javascript" src="js/webslidemenu1.js"></script>
+	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+	<script type="text/javascript" src="js/commonsite.js"></script>
+
+	<script type="text/javascript" src="js/jquery.flexslider.js"></script>
+	<script type="text/javascript" src="js/cufon-yui.js"></script>	
+	<script type="text/javascript" src="js/jquery.carouFredSel-5.6.1.js"></script>
+	<script type="text/javascript" src="js/kendo.web.min.js"></script>
+	<script type="text/javascript" src="js/jflickrfeed.min.js"></script>
+	<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+	<script type="text/javascript" src="js/sticky.js"></script>
+	<!--[if IE 7]><link rel="stylesheet" href="css/ie7.css" type="text/css" media="all" /><![endif]-->
+	<!-- Javascript	================================================== -->
+	<!--[if lt IE 9]>
+	<script src="js/html5.js"></script>
+	<script src="js/css3-mediaqueries.js"></script>
+	<link rel="stylesheet" href="css/ie.css" type="text/css" media="all" />
+	<![endif]-->
+</head>
+<body id="mainContainer">
+<form name="homeForm" method="post" onsubmit="return false;">
+    <header id="header">
+        <script type="text/javascript" src="js/header.js"></script>
+	</header>
+    <div class="full_width_menu">
+		<div id="header-bottom" class="wrapper clearfix" >
+			<div class="wsmenucontainer clearfix">
+				<div class="overlapblackbg"></div>
+				<div class="wsmobileheader clearfix">
+					<a id="wsnavtoggle" class="animated-arrow"><span></span></a>
+				</div>
+				<div class="header">
+					<nav class="wsmenu clearfix">
+						<script type="text/javascript" src="js/menu.js"></script>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<div class="header-marquee">
+		<div id="marquee-horizontal"></div>
+	</div>
+    <div class="wrapper clearfix" id="main-content">
+        <div class="cfc-main-header">
+            <ul class="cfc-breadcrumb">
+                <li><a href="index.html" title="Go to Home Page">Home</a></li>
+                 <li>&raquo;</li>
+                <li class="active_page">SEBI RSS Feed</li>
+            </ul>
+        </div>
+        <div id="member-wrapper" class="clearfix" style="background-color:#fff;">
+            <section class="inner-box clearfix">
+				<h1>SEBI RSS Feed<div class="social-share-btn">
+					<script type="text/javascript" src="js/sharenew.js"></script>
+				</div></h1>
+		        <div class="redirect">
+					<p><strong>RSS</strong> - Rich Site Summary / Really Simple Syndication - is an application of XML (Extended Mark-up Language), that provides an open method of automatically feeding headlines, links, article summaries from website. Users can have constantly updated content from web site, delivered via a piece of software - RSS reader - specifically tailored to receive these types of feeds. </p>
+					<p>SEBI RSS Feed includes latest Press Releases, Circulars, Orders / Rulings.</p>
+					<p>To subscribe, add the URL <strong class="rss"><a href="https://www.sebi.gov.in/sebirss.xml" title="RSS" target="_blank">https://www.sebi.gov.in/sebirss.xml</a> </strong> to your RSS Reader or <a href="https://chrome.google.com/webstore/detail/rss-subscription-extensio/nlbjncdgjeocebhnmkbbbdekmmmcbfjd?hl=en" target="_blank"><b>Click here</b>&nbsp;<em class='fa fa-external-link'></em></a></p>
+				</div>
+				<div class="clear"></div>
+			</section>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div id="footer-aside">
+        <script type="text/javascript" src="js/footer.js"></script>
+    </div>
+	<script type="text/javascript" src="js/emailtofriend.js"></script>
+	<script type="text/javascript" src="js/logindiv.js"></script>
+    <script type="text/javascript" src="js/go-to-top.js"></script>
+    <script type="text/javascript">
+        function addLoadEvent(func) {
+            var oldonload = window.onload;
+            if (typeof window.onload != 'function') {
+                window.onload = func;
+            } else {
+                window.onload = function() {
+            if (oldonload) {
+                oldonload();
+            }
+            }
+            }
+        }        
+        addLoadEvent(chcklogin());
+        addLoadEvent(getmarquee());
+        addLoadEvent(function() {
+        })
+    </script>
+</form>
+</body>
+</html>

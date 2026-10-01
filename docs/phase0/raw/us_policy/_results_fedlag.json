@@ -1,0 +1,705 @@
+[
+ {
+  "name": "lag_20260916_statement_htm",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:04.887824+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:09 GMT",
+   "content-type": "text/html",
+   "last-modified": "Wed, 16 Sep 2026 18:00:17 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260916_statement_pdf",
+  "url": "https://www.federalreserve.gov/monetarypolicy/files/monetary20260916a1.pdf",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:05.988220+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/files/monetary20260916a1.pdf",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:10 GMT",
+   "content-type": "application/pdf",
+   "content-length": "169571",
+   "etag": "\"54dc883f546dd1:0\"",
+   "last-modified": "Wed, 16 Sep 2026 18:00:24 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260916_impl_note_htm",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a1.htm",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:07.088365+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a1.htm",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:11 GMT",
+   "content-type": "text/html",
+   "last-modified": "Wed, 16 Sep 2026 18:00:33 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260916_presser_page",
+  "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20260916.htm",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:08.188546+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20260916.htm",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:12 GMT",
+   "content-type": "text/html",
+   "last-modified": "Thu, 17 Sep 2026 14:51:59 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260916_minutes_htm",
+  "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260916.htm",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:09.288982+00:00",
+  "status": 404,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260916.htm",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:13 GMT",
+   "content-type": "text/html",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260916_minutes_htm_GET",
+  "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260916.htm",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:22:10.389318+00:00",
+  "status": 404,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260916.htm",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:14 GMT",
+   "content-type": "text/html",
+   "age": "0",
+   "server": "cloudflare"
+  },
+  "bytes": 84239
+ },
+ {
+  "name": "lag_20260916_minutes_pdf",
+  "url": "https://www.federalreserve.gov/monetarypolicy/files/fomcminutes20260916.pdf",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:11.489743+00:00",
+  "status": 404,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/files/fomcminutes20260916.pdf",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:15 GMT",
+   "content-type": "text/html",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260916_minutes_pdf_GET",
+  "url": "https://www.federalreserve.gov/monetarypolicy/files/fomcminutes20260916.pdf",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:22:12.589817+00:00",
+  "status": 404,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/files/fomcminutes20260916.pdf",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:16 GMT",
+   "content-type": "text/html",
+   "age": "0",
+   "server": "cloudflare"
+  },
+  "bytes": 83301
+ },
+ {
+  "name": "lag_20260916_sep_htm",
+  "url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260916.htm",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:13.690390+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260916.htm",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:17 GMT",
+   "content-type": "text/html",
+   "last-modified": "Wed, 16 Sep 2026 18:00:27 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260916_sep_pdf",
+  "url": "https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260916.pdf",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:14.791029+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260916.pdf",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:18 GMT",
+   "content-type": "application/pdf",
+   "content-length": "1227336",
+   "etag": "\"781a8c39546dd1:0\"",
+   "last-modified": "Wed, 16 Sep 2026 18:00:14 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260916_sep_press_release",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916b.htm",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:15.891430+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916b.htm",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:19 GMT",
+   "content-type": "text/html",
+   "last-modified": "Wed, 16 Sep 2026 18:00:17 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "fed_presser_page_20260916",
+  "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20260916.htm",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:22:16.991715+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20260916.htm",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:21 GMT",
+   "content-type": "text/html",
+   "last-modified": "Thu, 17 Sep 2026 14:51:59 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 84797,
+  "sample": "fed_presser_page_20260916.html",
+  "links": {
+   "\\.pdf$|\\.mp4|youtube": [
+    "https://www.youtube.com/federalreserve",
+    "/monetarypolicy/files/fomcprojtabl20260916.pdf"
+   ]
+  }
+ },
+ {
+  "name": "lag_20260729_statement_htm",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:18.092337+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:22 GMT",
+   "content-type": "text/html",
+   "last-modified": "Wed, 29 Jul 2026 18:00:15 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260729_statement_pdf",
+  "url": "https://www.federalreserve.gov/monetarypolicy/files/monetary20260729a1.pdf",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:19.192677+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/files/monetary20260729a1.pdf",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:23 GMT",
+   "content-type": "application/pdf",
+   "content-length": "171262",
+   "etag": "\"24855b21841fdd1:0\"",
+   "last-modified": "Wed, 29 Jul 2026 18:00:24 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260729_impl_note_htm",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a1.htm",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:20.293078+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a1.htm",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:24 GMT",
+   "content-type": "text/html",
+   "last-modified": "Wed, 29 Jul 2026 18:00:15 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260729_presser_page",
+  "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20260729.htm",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:21.393203+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20260729.htm",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:25 GMT",
+   "content-type": "text/html",
+   "last-modified": "Wed, 19 Aug 2026 18:00:28 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260729_minutes_htm",
+  "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260729.htm",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:22.493623+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260729.htm",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:26 GMT",
+   "content-type": "text/html",
+   "last-modified": "Wed, 19 Aug 2026 18:01:21 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260729_minutes_pdf",
+  "url": "https://www.federalreserve.gov/monetarypolicy/files/fomcminutes20260729.pdf",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:23.593803+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/files/fomcminutes20260729.pdf",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:27 GMT",
+   "content-type": "application/pdf",
+   "content-length": "434526",
+   "etag": "\"92c42a94430dd1:0\"",
+   "last-modified": "Wed, 19 Aug 2026 18:00:11 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "fed_presser_page_20260729",
+  "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20260729.htm",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:22:24.694024+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20260729.htm",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:28 GMT",
+   "content-type": "text/html",
+   "age": "3",
+   "last-modified": "Wed, 19 Aug 2026 18:00:28 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 84747,
+  "sample": "fed_presser_page_20260729.html",
+  "links": {
+   "\\.pdf$|\\.mp4|youtube": [
+    "https://www.youtube.com/federalreserve",
+    "/mediacenter/files/FOMCpresconf20260729.pdf",
+    "/monetarypolicy/files/fomcminutes20260729.pdf"
+   ]
+  }
+ },
+ {
+  "name": "lag_20260729_transcript",
+  "url": "https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260729.pdf",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:25.794512+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260729.pdf",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:29 GMT",
+   "content-type": "application/pdf",
+   "content-length": "203365",
+   "etag": "\"a73b569fdd28dd1:0\"",
+   "last-modified": "Mon, 10 Aug 2026 15:33:41 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260617_sep_htm",
+  "url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260617.htm",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:26.894856+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260617.htm",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:30 GMT",
+   "content-type": "text/html",
+   "last-modified": "Wed, 17 Jun 2026 18:00:18 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260617_sep_pdf",
+  "url": "https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260617.pdf",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:27.995222+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260617.pdf",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:32 GMT",
+   "content-type": "application/pdf",
+   "content-length": "1216132",
+   "etag": "\"ba84b82783fedc1:0\"",
+   "last-modified": "Wed, 17 Jun 2026 18:00:17 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260617_statement_htm",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:29.095784+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:33 GMT",
+   "content-type": "text/html",
+   "last-modified": "Wed, 17 Jun 2026 18:00:21 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260617_minutes_htm",
+  "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260617.htm",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:30.196502+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260617.htm",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:34 GMT",
+   "content-type": "text/html",
+   "last-modified": "Wed, 08 Jul 2026 18:00:13 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260916_transcript_direct",
+  "url": "https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260916.pdf",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:31.296830+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260916.pdf",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:35 GMT",
+   "content-type": "application/pdf",
+   "content-length": "200169",
+   "etag": "\"df21d4d2354cdd1:0\"",
+   "last-modified": "Thu, 24 Sep 2026 15:03:14 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260729_transcript_direct",
+  "url": "https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260729.pdf",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:32.397013+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260729.pdf",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:36 GMT",
+   "content-type": "application/pdf",
+   "content-length": "203365",
+   "etag": "\"a73b569fdd28dd1:0\"",
+   "last-modified": "Mon, 10 Aug 2026 15:33:41 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260617_transcript_direct",
+  "url": "https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260617.pdf",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:33.497543+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260617.pdf",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:37 GMT",
+   "content-type": "application/pdf",
+   "content-length": "207029",
+   "etag": "\"40469c9fcf4dd1:0\"",
+   "last-modified": "Thu, 25 Jun 2026 18:22:47 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_20260429_transcript_direct",
+  "url": "https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:34.597960+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:38 GMT",
+   "content-type": "application/pdf",
+   "content-length": "236641",
+   "etag": "\"b14a1ccf53e2dc1:0\"",
+   "last-modified": "Tue, 12 May 2026 21:10:49 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_beige_20260902_pdf",
+  "url": "https://www.federalreserve.gov/monetarypolicy/files/BeigeBook_20260902.pdf",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:35.698533+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/files/BeigeBook_20260902.pdf",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:39 GMT",
+   "content-type": "application/pdf",
+   "content-length": "1097929",
+   "etag": "\"bb5e91e543bdd1:0\"",
+   "last-modified": "Wed, 02 Sep 2026 18:00:10 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_beige_202608_htm",
+  "url": "https://www.federalreserve.gov/monetarypolicy/beigebook202608.htm",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:36.798964+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/beigebook202608.htm",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:40 GMT",
+   "content-type": "text/html",
+   "last-modified": "Wed, 02 Sep 2026 18:00:11 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_beige_20260715_pdf",
+  "url": "https://www.federalreserve.gov/monetarypolicy/files/BeigeBook_20260715.pdf",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:37.899160+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/files/BeigeBook_20260715.pdf",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:41 GMT",
+   "content-type": "application/pdf",
+   "content-length": "1101495",
+   "etag": "\"5672b7c98314dd1:0\"",
+   "last-modified": "Wed, 15 Jul 2026 18:00:14 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "lag_beige_202607_htm",
+  "url": "https://www.federalreserve.gov/monetarypolicy/beigebook202607.htm",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:22:38.999711+00:00",
+  "status": 200,
+  "final_url": "https://www.federalreserve.gov/monetarypolicy/beigebook202607.htm",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:22:43 GMT",
+   "content-type": "text/html",
+   "last-modified": "Wed, 15 Jul 2026 18:00:14 GMT",
+   "server": "cloudflare"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "LAG_SUMMARY",
+  "lag": {
+   "20260916": {
+    "statement_htm": {
+     "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+     "status": 200,
+     "last_modified": "Wed, 16 Sep 2026 18:00:17 GMT",
+     "last_modified_et": "2026-09-16 14:00:17 EDT"
+    },
+    "statement_pdf": {
+     "url": "https://www.federalreserve.gov/monetarypolicy/files/monetary20260916a1.pdf",
+     "status": 200,
+     "last_modified": "Wed, 16 Sep 2026 18:00:24 GMT",
+     "last_modified_et": "2026-09-16 14:00:24 EDT"
+    },
+    "impl_note_htm": {
+     "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a1.htm",
+     "status": 200,
+     "last_modified": "Wed, 16 Sep 2026 18:00:33 GMT",
+     "last_modified_et": "2026-09-16 14:00:33 EDT"
+    },
+    "presser_page": {
+     "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20260916.htm",
+     "status": 200,
+     "last_modified": "Thu, 17 Sep 2026 14:51:59 GMT",
+     "last_modified_et": "2026-09-17 10:51:59 EDT"
+    },
+    "minutes_htm": {
+     "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260916.htm",
+     "status": 404,
+     "last_modified": null,
+     "last_modified_et": null
+    },
+    "minutes_pdf": {
+     "url": "https://www.federalreserve.gov/monetarypolicy/files/fomcminutes20260916.pdf",
+     "status": 404,
+     "last_modified": null,
+     "last_modified_et": null
+    },
+    "sep_htm": {
+     "url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260916.htm",
+     "status": 200,
+     "last_modified": "Wed, 16 Sep 2026 18:00:27 GMT",
+     "last_modified_et": "2026-09-16 14:00:27 EDT"
+    },
+    "sep_pdf": {
+     "url": "https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260916.pdf",
+     "status": 200,
+     "last_modified": "Wed, 16 Sep 2026 18:00:14 GMT",
+     "last_modified_et": "2026-09-16 14:00:14 EDT"
+    },
+    "sep_press_release": {
+     "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916b.htm",
+     "status": 200,
+     "last_modified": "Wed, 16 Sep 2026 18:00:17 GMT",
+     "last_modified_et": "2026-09-16 14:00:17 EDT"
+    },
+    "presser_transcript_pdf_direct": {
+     "url": "https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260916.pdf",
+     "status": 200,
+     "last_modified": "Thu, 24 Sep 2026 15:03:14 GMT",
+     "last_modified_et": "2026-09-24 11:03:14 EDT"
+    }
+   },
+   "20260729": {
+    "statement_htm": {
+     "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm",
+     "status": 200,
+     "last_modified": "Wed, 29 Jul 2026 18:00:15 GMT",
+     "last_modified_et": "2026-07-29 14:00:15 EDT"
+    },
+    "statement_pdf": {
+     "url": "https://www.federalreserve.gov/monetarypolicy/files/monetary20260729a1.pdf",
+     "status": 200,
+     "last_modified": "Wed, 29 Jul 2026 18:00:24 GMT",
+     "last_modified_et": "2026-07-29 14:00:24 EDT"
+    },
+    "impl_note_htm": {
+     "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a1.htm",
+     "status": 200,
+     "last_modified": "Wed, 29 Jul 2026 18:00:15 GMT",
+     "last_modified_et": "2026-07-29 14:00:15 EDT"
+    },
+    "presser_page": {
+     "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20260729.htm",
+     "status": 200,
+     "last_modified": "Wed, 19 Aug 2026 18:00:28 GMT",
+     "last_modified_et": "2026-08-19 14:00:28 EDT"
+    },
+    "minutes_htm": {
+     "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260729.htm",
+     "status": 200,
+     "last_modified": "Wed, 19 Aug 2026 18:01:21 GMT",
+     "last_modified_et": "2026-08-19 14:01:21 EDT"
+    },
+    "minutes_pdf": {
+     "url": "https://www.federalreserve.gov/monetarypolicy/files/fomcminutes20260729.pdf",
+     "status": 200,
+     "last_modified": "Wed, 19 Aug 2026 18:00:11 GMT",
+     "last_modified_et": "2026-08-19 14:00:11 EDT"
+    },
+    "presser_transcript_pdf": {
+     "url": "https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260729.pdf",
+     "status": 200,
+     "last_modified": "Mon, 10 Aug 2026 15:33:41 GMT",
+     "last_modified_et": "2026-08-10 11:33:41 EDT"
+    },
+    "presser_transcript_pdf_direct": {
+     "url": "https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260729.pdf",
+     "status": 200,
+     "last_modified": "Mon, 10 Aug 2026 15:33:41 GMT",
+     "last_modified_et": "2026-08-10 11:33:41 EDT"
+    }
+   },
+   "20260617": {
+    "sep_htm": {
+     "url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260617.htm",
+     "status": 200,
+     "last_modified": "Wed, 17 Jun 2026 18:00:18 GMT",
+     "last_modified_et": "2026-06-17 14:00:18 EDT"
+    },
+    "sep_pdf": {
+     "url": "https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260617.pdf",
+     "status": 200,
+     "last_modified": "Wed, 17 Jun 2026 18:00:17 GMT",
+     "last_modified_et": "2026-06-17 14:00:17 EDT"
+    },
+    "statement_htm": {
+     "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm",
+     "status": 200,
+     "last_modified": "Wed, 17 Jun 2026 18:00:21 GMT",
+     "last_modified_et": "2026-06-17 14:00:21 EDT"
+    },
+    "minutes_htm": {
+     "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260617.htm",
+     "status": 200,
+     "last_modified": "Wed, 08 Jul 2026 18:00:13 GMT",
+     "last_modified_et": "2026-07-08 14:00:13 EDT"
+    },
+    "presser_transcript_pdf_direct": {
+     "url": "https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260617.pdf",
+     "status": 200,
+     "last_modified": "Thu, 25 Jun 2026 18:22:47 GMT",
+     "last_modified_et": "2026-06-25 14:22:47 EDT"
+    }
+   },
+   "20260429": {
+    "presser_transcript_pdf_direct": {
+     "url": "https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf",
+     "status": 200,
+     "last_modified": "Tue, 12 May 2026 21:10:49 GMT",
+     "last_modified_et": "2026-05-12 17:10:49 EDT"
+    }
+   },
+   "beige_20260902": {
+    "pdf": {
+     "url": "https://www.federalreserve.gov/monetarypolicy/files/BeigeBook_20260902.pdf",
+     "status": 200,
+     "last_modified": "Wed, 02 Sep 2026 18:00:10 GMT",
+     "last_modified_et": "2026-09-02 14:00:10 EDT"
+    },
+    "htm": {
+     "url": "https://www.federalreserve.gov/monetarypolicy/beigebook202608.htm",
+     "status": 200,
+     "last_modified": "Wed, 02 Sep 2026 18:00:11 GMT",
+     "last_modified_et": "2026-09-02 14:00:11 EDT"
+    }
+   },
+   "beige_20260715": {
+    "pdf": {
+     "url": "https://www.federalreserve.gov/monetarypolicy/files/BeigeBook_20260715.pdf",
+     "status": 200,
+     "last_modified": "Wed, 15 Jul 2026 18:00:14 GMT",
+     "last_modified_et": "2026-07-15 14:00:14 EDT"
+    },
+    "htm": {
+     "url": "https://www.federalreserve.gov/monetarypolicy/beigebook202607.htm",
+     "status": 200,
+     "last_modified": "Wed, 15 Jul 2026 18:00:14 GMT",
+     "last_modified_et": "2026-07-15 14:00:14 EDT"
+    }
+   }
+  }
+ }
+]

@@ -1,0 +1,1389 @@
+
+<!DOCTYPE html >
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head id="Head1"><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><title>
+	Home | Official website of Reserve Bank of India
+</title><meta name="description" content="Official website of Reserve Bank of India" /><meta name="author" content="author" /><meta name="viewport" content="width=device-width" /><link href="Styles/960.css?v=3.0" rel="stylesheet" type="text/css" />
+    <link href="Includes1/rbi.css?v=7.3" rel="stylesheet" type="text/css" />
+    <link href="JQuery/css/jquery-ui-1.8.18.custom2.css" rel="stylesheet" type="text/css" /><link href="includes/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script  src="/js/libs/modernizr-2.5.3.min.js"></script>
+    <script  src="js/libs/jquery.min.js"></script>
+
+   
+    <style>
+        .RegEntButton a {
+            text-decoration: none;
+            color: #FFFFFF;
+            display: block;
+        }
+
+        .RegEntButton {
+            background: url(#) no-repeat scroll 218px 10px rgb(29, 85, 164);
+            border-bottom: 1px solid rgb(204, 204, 204);
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            float: left;
+            font-family: Arial,Helvetica,sans-serif;
+            font-size: 12px;
+            padding: 5px 39px 5px 10px;
+            width: 195px;
+        }
+
+        .over {
+            background: #dd9435 url(#) no-repeat scroll 218px 10px;
+            color: #fff;
+        }
+
+        .blink_me {
+            color: #fff !important;
+            font-size: 14px;
+            font-weight: bolder !important;
+            background: #ef9623;
+            -webkit-animation-name: blinker;
+            -webkit-animation-duration: 3s;
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-name: blinker;
+            -moz-animation-duration: 3s;
+            -moz-animation-timing-function: linear;
+            -moz-animation-iteration-count: infinite;
+            animation-name: blinker;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        .widthslides {
+            width: 230px !important;
+        }
+
+        @-moz-keyframes blinker {
+            0% {
+                opacity: 1.0;
+            }
+
+            50% {
+                opacity: 0.0;
+            }
+
+            100% {
+                opacity: 1.0;
+            }
+        }
+
+        @-webkit-keyframes blinker {
+            0% {
+                opacity: 1.0;
+            }
+
+            50% {
+                opacity: 0.0;
+            }
+
+            100% {
+                opacity: 1.0;
+            }
+        }
+
+        @keyframes blinker {
+            0% {
+                opacity: 1.0;
+            }
+
+            50% {
+                opacity: 0.0;
+            }
+
+            100% {
+                opacity: 1.0;
+            }
+        }
+
+        .ui-dialog {
+            z-index: 1000 !important;
+            width: auto !important;
+            padding: 0 !important;
+            border: 2px solid #efd1aa !important;
+        }
+
+        .ui-front {
+            z-index: 1000 !important;
+        }
+
+        .ui-widget-overlay {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            opacity: 0.9;
+            z-index: 0 !important;
+        }
+
+
+        #slides {
+            position: relative;
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+            list-style-type: none;
+        }
+
+        .slide {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 1;
+            -webkit-transition: opacity 1s;
+            -moz-transition: opacity 1s;
+            -o-transition: opacity 1s;
+            transition: opacity 1s;
+        }
+
+        .showing {
+            opacity: 1;
+            z-index: 2;
+        }
+        
+        .modalButton {
+            text-decoration: none;
+            color: #FFFFFF;
+            background: rgb(32, 93, 177);
+            font-weight: 600;
+        }
+
+             .modalButton:focus {
+                
+                color:rgb(32 103 201);
+                background-color:#ffffff;
+            }
+
+            .modalButton:hover {
+                
+                color: rgb(32 103 201);
+                background-color:#ffffff;
+            }
+
+        .accordionButton {
+            width: 195px !important;
+            margin: 0px !important;
+            text-transform: none !important;
+        }
+
+        .logo {
+            margin: 10px 0 17px 0;
+        }
+	.blogo {
+		
+            margin: 8px 0 0 0;
+        }
+        .logolist {
+            list-style-type: none;
+            margin: 0px;
+            column-count: 2;
+            padding: 1px;
+        }
+
+        .banner_text .title {
+            border: none !important;
+        }
+
+        .demo3 {
+            height: auto !important;
+        }
+
+        footer h2 {
+            border-bottom: #949494 solid 2px;
+        }
+
+        .top-newmenu {
+            height: auto;
+            min-height: 35px;
+        }
+
+        .accordionContent h3 {
+            font-size: 13px;
+            color: #000 !important;
+            font-weight: bold;
+            text-transform: none;
+            border-bottom: #666 dotted 1px !important;
+            width: auto !important;
+        }
+
+        .accordionContent th {
+            text-align: left;
+            border-bottom: #666 dotted 1px !important;
+            width: 52%;
+        }
+.mclosebtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 2px 10px;
+    font-weight: bold;
+}
+
+    </style>
+<style >
+    .blink_msm {
+        -webkit-animation-name: blinker;
+        -webkit-animation-duration: 3s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+        -moz-animation-name: blinker;
+        -moz-animation-duration: 3s;
+        -moz-animation-timing-function: linear;
+        -moz-animation-iteration-count: infinite;
+        animation-name: blinker;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+
+    .sr-only {
+position: absolute;
+left: -9999px;
+}
+.newweb{
+background: url(/images/linkback.png);
+    height: 47px;
+    min-width: 100%;    
+    background-repeat: repeat;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px 3px lightgrey;
+	padding: 0 15px;
+}
+
+.slider{width:248px;height:130px;margin:auto;overflow:hidden; position:relative;}
+.slides01{display:flex; width:750px;transition:transform 0.8s ease-in-out;}
+.slides01 div{width: 250px; text-align:center;}
+.slides01 img{flex-shrink:0;}
+.slide-play{position:absolute;    bottom: 11px;
+    left: 95px;}
+.slide-play a{font-size: 16px; cursor: pointer; background: no-repeat; border: 0px; color: #fff;text-decoration: none; padding: 3px; background-color:#545454;}
+
+</style>
+<style >
+.finPubFormPlus{
+        background: url("/images/plus_Home.png") no-repeat scroll 212px 5px #205DB1;
+        cursor: pointer;
+	background-color: rgb(247, 232, 213) !important;
+    	color: black;
+    }
+.finPubFormMinus {
+    background: url(/images/minus_Home.png) no-repeat scroll 212px 5px #205DB1;
+    cursor: pointer;
+}
+
+    .finIORSFormPlus {
+        background: url("/images/plus_Home.png") no-repeat scroll 212px 5px #205DB1;
+        cursor: pointer;
+        background-color: rgb(247, 232, 213) !important;
+        color: black;
+    }
+
+    .finIORSFormMinus {
+        background: url(/images/minus_Home.png) no-repeat scroll 212px 5px #205DB1;
+        cursor: pointer;
+    }
+
+
+  
+
+</style>
+</head>
+<body onload="return (event.keyCode != 13);">
+    <div id="dialog" title="Financial Literacy Week (June 5-9, 2017)" style="text-align: center; display: none;">
+        
+    </div>
+    
+    <form method="post" action="./home.aspx" id="Form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTY2MjQ1MDQ4M2QYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFCUNoZWNrQm94MW9hFd04Au5aBEP6XqesGnaUr9SWCS+1AbH7SPqNSTi/" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form1'];
+if (!theForm) {
+    theForm = document.Form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="8D0E13E6" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAojDOwSNED0bGmTPOM6fauFoRCr7j10BNyMBx5ZdwO4h83IfYFEMdbtkmb6zzJSc2CLrBfuDtX7nV3nL+5njT0xpTvjNMInTm7jDqH04NfPDGQ6cu1iZ73N7YF2NPAmCyQ/q33cCQLgaFQSElESF1pcG6ARGh77hh0/r4ObuL1TAsg3NivnNEt6QsKSovCCK9s5ViEnsRaXJBb7XrvCjqhrCkNE/l0V7IK/Vl2/NMI8o3WgAPqKTo0byWSvdII9h18=" />
+</div>
+        <div id="dialogLan" title="" style="text-align: center; display: none;">
+            <div class="title-content">
+                
+                <h2 lang="hi" style="color: rgb(32, 93, 177) !important; font-size: 20px !important; font-weight: bolder !important; border: none; margin-top:35px;">भारतीय रिज़र्व बैंक की आधिकारिक वेबसाइट में आपका स्वागत है </h2>
+                <h2 style="color: rgb(32, 93, 177) !important; font-size: 20px !important; font-weight: bolder !important; border: none; text-transform: none;" id="ui-dialog-title-dialogLan">Welcome to official website of Reserve Bank of India</h2>
+                <br />
+                <br />
+                
+                <span lang="hi" style="color: #923F17; font-size: 1.6em; font-weight: normal; margin: 10px 0 0;">वेबसाइट देखने  के लिए अपनी पसंदीदा भाषा का चयन करें</span><br />
+                <span style="color: #923F17; font-size: 1.6em; font-weight: normal; margin: 10px 0 0;">Select your Preferred Language to Access the Website</span>
+                <br />
+                <div style="margin-top: 20px;">
+                    <span style="z-index: 10001; position: relative; font-size: 13px; font-weight: bold"><input id="CheckBox1" type="checkbox" name="CheckBox1" /><label for="CheckBox1"> मेरा चयनित विकल्प याद रखें / Remember my choice</label></span>
+                </div>
+                <br />
+                <div class="nav-four" style="margin: 0 auto; text-align: center; color: white;">
+                    <button id="Button1" type="button" class="modalButton" style="padding: 7px 5%; font-size: 14px;" onclick="return setHindi();" aria-label="Website in Hindi" title="Website in Hindi">हिंदी</button>
+                    <button id="Button2" type="button" class="modalButton" style="padding: 8px 2.5%; margin-left: 11%; font-size: 14px;" onclick="return setEnglish();" aria-label="Website in English" title="Website in English">English</button>
+                </div>
+		<button id="btnClose" type="button" title="Close Dialog" class="mclosebtn"  onclick="javascript:jQuery('#dialogLan').dialog('close');" aria-label="close dialog"><span aria-hidden="true"> X</span></button>
+            </div>
+
+        </div>
+
+        
+<script  src="/js/libs/jquery.min.js"></script>
+<script  src="/JQuery/ui/jquery.ui.revampRBI.js"></script>
+
+<script >
+
+
+    //Redirect to mobile site start
+    function detectmob() {
+        if (screen.width <= 599 || screen.Height <= 975) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    if (detectmob()) {
+        window.location.href = "https://m.rbi.org.in" + window.location.pathname;
+
+
+    }
+    //Redirect to mobile site End
+    $(document).ready(function () {
+        Search();
+    });
+
+    function Search() {
+        highlightTextAutocomplete();
+        $(".autoSuggest").autocomplete({
+
+
+            source: function (request, response) {
+                var param = { keyWord: document.getElementById('txtSearch1').value };
+
+		var strSearch = trim(document.getElementById('txtSearch1').value);
+                var strFilterChars = new RegExp("^[0-9a-zA-Z ]*$");
+                if (!strFilterChars.test(strSearch)) {
+                    alert("Please remove special characters from search text");
+			document.getElementById('txtSearch1').value='';
+			return;
+                }
+                else{
+
+                $.ajax({
+                    url: "../Home.aspx/GetKeywords",
+                    data: JSON.stringify(param),
+                    dataType: "json",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    dataFilter: function (data) { return data; },
+                    success: function (data) {
+
+                        if (data.d.length > 0) {
+                            response($.map(data.d, function (item) {
+                                return {
+                                    value: RemoveSpecialChars(item)
+
+                                }
+                            }))
+                        }
+                        else {
+                            response([{ label: "No results found", value: "" }]);
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                       
+                    }
+                });
+	      }
+            },
+
+          
+            minLength: 3
+
+        });
+    }
+
+    function highlightTextAutocomplete() {
+
+        var oldFn = $.ui.autocomplete.prototype._renderItem;
+
+        $.ui.autocomplete.prototype._renderItem = function (ul, item) {
+
+            var t = String(item.value).replace(
+                new RegExp(this.term, "gi"),
+                "<span class='ui-state-highlight'>$&</span>");
+            if (item.value != "") {
+                return $("<li class='borderAutocomplete'></li>")
+                  .data("item.autocomplete", item)
+                  .append("<a role='link'>" + t + "</a>")
+                  .appendTo(ul);
+            }
+
+            else {
+                return $("<li></li>")
+                  .data("item.autocomplete", item)
+                  .append("")
+                  .appendTo(ul);
+            }
+        };
+    }
+
+    function RemoveSpecialChars(inputText) {
+        var filteredString = inputText.replace(/[\*\^\'\!\@\$\.\#\(\)\-\?\<\>\;\"\&\+\{\}\:]/g, '');        
+        return filteredString;
+    }
+
+</script>
+
+<div class="top_setting">
+    <div class="container_12">
+        <div class="grid_5 top_settings">
+            <a href="#mainsection" aria-label="Skip to main content">Skip to main content </a><span >
+                | </span><span id="TimeInfo"></span>
+           
+        </div>
+        <div id="UsrFontCntr_tblThemes" style="float: right" class="grid_4 prefix_3 top_settings">
+		<ul style="margin:0px;padding:0px;">
+           <li class="fonts"> 
+                <a id="UsrFontCntr_LinkBtnSpace" role="button" title="Increase Letter Spacing" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnSpace&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/letspace.png" alt="Increase Letter Spacing" />
+                                <span id="UsrFontCntr_spanBtnSpace" class="sr-only">Not pressed</span></a>                                
+            </li>
+            <li class="fonts">
+                <a id="UsrFontCntr_LinkBtnFontIncrease" role="button" title="Increase Font Size" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnFontIncrease&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/font-increase.gif" alt="Increase Font Size" />
+                    
+                </a>
+            </li>
+            <li class="fonts">
+                <a id="UsrFontCntr_LinkBtnFontRegular" role="button" title="Regular Font Size" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnFontRegular&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/font-reset.gif" alt="Regular Font Size" />
+                    
+                </a>
+            </li>
+            <li class="fonts">
+                <a id="UsrFontCntr_LinkBtnFontDecrease" role="button" title="Decrease Font Size" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnFontDecrease&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/font-decrease.gif" alt="Decrease Font Size" />
+                    
+                </a>
+            </li></ul>
+		    <ul style="margin:0px;padding:0px;">
+            <li class="black">
+                <a id="UsrFontCntr_LinkBtnAccessibilty" role="button" title="Apply Dark Theme" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnAccessibilty&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/dark-theme.gif" alt="Apply Dark Theme" />
+                    
+                </a>
+            </li>
+            <li class="white">
+                <a id="UsrFontCntr_LinkBtnUndoAccessibilty" role="button" title="Apply Normal Theme" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnUndoAccessibilty&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/bright-theme.gif" alt="Apply Normal Theme" />
+                    
+                </a>
+            </li>
+
+    <li class="white">
+            <a id="UsrFontCntr_LinkBtnGreyScale" role="button" title="Apply Grey Theme" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnGreyScale&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/graytheme.gif" alt="Apply Grey Theme" />
+                                
+                                </a></li>
+		</ul>
+		<div>
+                <a href="#" onclick="javascript:window.print();" id="A1" title="Print This Page" role="button">
+                <img src="/images/print-icon.png" alt="Print this page" class="print" />
+            </a></div>
+            <div style="float: right">
+                <label style="margin-right: 6px; ">
+                    Change Language </label>
+              
+                <a href="#" onclick="SetLink();" class="link1"  title="Change language to Hindi">हिंदी</a>
+            </div>
+           
+        </div>
+        
+        <div class="clearfix">
+        </div>
+    </div>
+</div>
+<div class="container_12">
+    <div class="grid_4" role="banner">
+        
+        <div class="logo">
+            <a href="home.aspx"  >
+            <img src="/images/rbi-company-logo.jpg"  alt="Logo of Official website of Reserve Bank of India" /></a>
+        </div>
+
+    </div>    
+
+    <div class="grid_5" style="width: auto !important;">
+        
+    	</div>
+
+	<div class="grid_3"  style="float: right;text-align:center;">
+        <div class="blogo">
+           
+            <img src="images/BBBP_Logo_4.png" style="width:36%" alt="Beti Bachao Beti Padhao Logo">
+        </div>
+    	</div>
+
+    <div class="clearfix">
+    </div>
+</div>
+<!--  NAVIGATION START-->
+<nav aria-label="Main">
+     <div class="menu"><div class="centermenu">
+<ul class="menu">
+  <li><a href="https://rbi.org.in/home.aspx">Home</a></li>
+<li><a href="#" aria-expanded="false" role="button" aria-controls="Ab-Sub1">About Us ▼</a>
+ <ul class="submenu1" id="Ab-Sub1" >
+	 <li><a href="../scripts/AboutUsDisplay.aspx">About Us</a></li>
+     <li><a href="#" aria-expanded="false" role="button" aria-controls="Ab-org">Organisation & Functions <span aria-hidden="true">▶</span></a>
+		 <ul class="submenu1" id="Ab-org">             
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=OrganizationStructure.htm">Organisation Structure</a></li>
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=Depts.htm">Departments</a></li>
+            <li><a href="../scripts/Regionaloffices.aspx">Offices</a></li>
+			<li><a href="#" aria-expanded="false" role="button" aria-controls="Ab-tra">Training Establishment <span aria-hidden="true">▶</span></a>                
+				<ul class="submenu1" id="Ab-tra">
+                    <li ><a href="https://cab.rbi.org.in" target="_blank" >College of Agricultural Banking</a></li>
+                    <li ><a href="../scripts/rbsc.aspx" id="CBNotifications">Reserve Bank Staff College</a></li>
+					<li ><a href="https://cos.rbi.org.in/" id="CBSupervisors" target="_blank">College of Supervisors</a></li>
+                </ul>
+            </li>
+            <li><a href="../scripts/OccasionalPublications.aspx?head=RBI%27s%20Functions%20and%20Working">RBI's Functions and Working</a></li>
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=PastGovernors.htm">Governors</a></li>
+			<li><a href="../scripts/AboutUsDisplay.aspx?pg=deputygovernors.htm">Deputy Governors</a></li>
+			<li><a href="../scripts/AboutUsDisplay.aspx?pg=ExecutiveDirectors.htm">Executive Directors</a></li>
+        </ul>		
+	 </li>
+<li><a href="../scripts/AboutUsDisplay.aspx?pg=MediaKit.htm">Media Kit</a></li>
+	 <li><a href="../scripts/CommunicationPolicy.aspx">Communication Policy of RBI</a></li>
+	 
+     <li>
+        <a href="#" aria-expanded="false" role="button" aria-controls="Ab-soi">Sources of Information <span aria-hidden="true">▶</span></a>
+        <ul class="submenu1" id="Ab-soi">
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#AP">Annual Publications</a></li>
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#HP">Half-yearly Publications</a></li>
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#QP">Quarterly Publications</a></li>
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#MP">Monthly Publications</a></li>
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#WP">Weekly Publications</a></li>
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#OP">Occasional Publications</a></li>
+            <li><a href="../scripts/SDDSview.aspx">SDDS</a></li>
+            <li><a href="../scripts/BS_NSDPDisplay.aspx">NSDP</a></li>
+            <li><a href="../scripts/Statistics.aspx">Data Releases</a></li>
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#PS">Publications available on Subscription</a></li>
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#GI">General Information</a></li>	  
+        </ul>
+     </li>  
+	 <li><a href="../scripts/Project1.aspx">RBI History</a></li>
+	 <li><a href="#" aria-expanded="false" role="button" aria-controls="Ab-mus">Museum <span aria-hidden="true">▶</span></a>
+		<ul class="submenu1" id="Ab-mus">
+			<li><a href="https://therbimuseum.rbi.org.in/" target="_blank">The RBI Museum</a></li>
+			<li><a href="../scripts/ic_museum.aspx">RBI Monetary Museum</a></li>
+         </ul>
+	 </li>
+</ul>
+</li>
+  <li>
+    <a href="#" aria-expanded="false" role="button" aria-controls="No-Sub1">Notifications ▼</a>
+    <ul class="submenu1" id="No-Sub1">
+      <li><a href="../Scripts/NotificationUser.aspx">Notifications </a></li>
+             <li><a href="../Scripts/BS_ViewMasterDirections.aspx">Master Directions </a></li>
+             <li><a href="../Scripts/BS_ViewMasterCirculardetails.aspx">Master Circulars </a></li> 
+	     <li><a href="../Scripts/Fs_AmendmentDirections.aspx">Amendment Directions </a></li> 
+	     <li><a href="#" aria-expanded="false" role="button" aria-controls="No-draft">Draft Notifications/Guidelines <span aria-hidden="true">▶</span></a>
+		<ul class="submenu1" id="No-draft">
+			<li><a href="../Scripts/DraftNotificationsGuildelines.aspx">Draft Notifications/Guidelines</a></li>
+			<li><a href="../Scripts/BS_ViewREwiseDraftDirections.aspx">Draft Directions (RE-wise)</a></li> 
+         	</ul>
+	     </li>
+                    
+             <li><a href="../Scripts/BS_CircularIndexDisplay.aspx">Index To RBI Circulars </a></li> 
+             <li><a href="../Scripts/BS_ViewListofstandalonecirculars.aspx">Standalone Circulars </a></li>
+             <li><a href="../Scripts/NotificationUserWithdrawnCircular.aspx">Circulars Withdrawn </a></li>
+
+      
+    </ul>
+  </li>
+
+  <li><a href="../Scripts/BS_PressReleaseDisplay.aspx">Press Releases</a></li>
+  <li><a href="#" aria-expanded="false" role="button" aria-controls="Sp-Sub1">Speeches & Media Interactions ▼</a>
+	<ul class="submenu1" id="Sp-Sub1">
+	  <li><a href="../Scripts/BS_ViewSpeeches.aspx">Speeches</a></li>
+      <li><a href="../Scripts/BS_ViewInterviews.aspx">Media Interactions</a></li>
+      <li><a href="../Scripts/Lectures.aspx">Memorial Lectures</a></li>
+      <li><a href="../Scripts/BS_ViewPodcast.aspx">Podcasts</a></li>
+	</ul>
+  </li>
+  <li><a href="#"  aria-expanded="false" role="button" aria-controls="Pu-Sub1">Publications ▼</a>
+		<ul class="submenu1" id="Pu-Sub1">
+			<li><a href="../Scripts/Publications.aspx?publication=Biennial">Biennial</a></li>
+            <li><a href="../Scripts/Publications.aspx?publication=Annual">Annual</a></li>
+            <li><a href="../Scripts/Publications.aspx?publication=HalfYearly">Half-Yearly</a></li>
+            <li><a href="../Scripts/Publications.aspx?publication=Quarterly">Quarterly</a></li>
+		    <li><a href="../Scripts/Publications.aspx?publication=Bimonthly">Bi-monthly</a></li>
+            <li><a href="../Scripts/Publications.aspx?publication=Monthly">Monthly</a></li>
+            <li><a href="../Scripts/Publications.aspx?publication=Weekly">Weekly</a></li>
+            <li><a href="../Scripts/Publications.aspx?publication=Occasional">Occasional</a></li>
+            <li><a href="../Scripts/Publications.aspx?publication=Reports">Reports</a></li>
+		    <li><a href="../Scripts/OccasionalPublications.aspx?head=Working%20Papers">Working Papers</a></li>
+		</ul>
+	</li>				  
+  <li><a href="#" aria-expanded="false" role="button" aria-controls="Le-Sub1">Legal Framework ▼</a>
+	<ul class="submenu1" id="Le-Sub1">
+	   <li><a href="../Scripts/Act.aspx">Act </a></li>
+       <li><a href="../Scripts/Rules.aspx">Rules </a></li>
+       <li><a href="../Scripts/Regulations.aspx">Regulations </a></li> 
+       <li class="last"><a href="../Scripts/Schemes.aspx">Schemes </a></li>
+	   </ul>
+  </li>
+  <li><a href="#" aria-expanded="false" role="button" aria-controls="Re-Sub1">Research ▼</a>
+		<ul class="submenu1" id="Re-Sub1">
+			<li><a href="/Scripts/ExternalResearchSchemes.aspx">External Research Schemes</a></li>
+			<li><a href="/Scripts/OccasionalPapers.aspx">RBI Occasional Papers</a></li>
+			<li><a href="/Scripts/OccasionalPublications.aspx?head=Working%20Papers">Working Papers</a></li>
+			<li><a href="/Scripts/BS_ViewBulletin.aspx">RBI Bulletin</a></li>
+			<li><a href="/Scripts/Project1.aspx">History</a></li>
+			<li><a href="/Scripts/Occas_DRG_Studies.aspx">DRG Studies</a></li>
+			<li><a href="/Scripts/KLEMS.aspx">KLEMS</a></li>
+			<li class="last"><a href="/Scripts/StateStatisticsFinances.aspx">State Statistics and Finances</a></li>
+        </ul>
+  </li>
+  <li><a href="#" aria-expanded="false" role="button" aria-controls="St-Sub1">Statistics ▼</a>
+		<ul class="submenu1" id="St-Sub1">
+		  <li><a href="../Scripts/Statistics.aspx">Data Releases</a></li>
+          <li><a href="https://data.rbi.org.in" target="_blank">Database on Indian Economy</a></li>
+          <li><a href="../scripts/FS_PDS.aspx">Public Debt Statistics</a></li>
+		</ul> 
+  </li>
+  <li><a href="#" aria-expanded="false" role="button" aria-controls="St-Sub1">Regulatory Reporting ▼</a>
+		<ul class="submenu1">
+			<li><a href="../scripts/BS_Listofallreturns.aspx">List of Returns</a></li>
+			<li><a href="../scripts/DataDefinition.aspx">Data Definition</a></li>
+			<li><a href="../scripts/ValidationRules.aspx">Validation rules/ Taxonomy</a></li>
+			<li><a href="../scripts/ReportingPlaform.aspx">List of RBI Reporting Portals</a></li>
+			<li class="last"><a href="../scripts/ReportingFAQ.aspx">FAQs of RBI Reporting Portals</a></li>
+		</ul>
+   </li>
+</ul>
+</div></div>
+
+</nav>
+<!--  NAVIGATION END-->
+<!--HEADER END-->
+<!--SLIDESHOW START-->
+<main>
+<div class="container_12">
+    <!-- slideshow -->
+    <div class="grid_12 slideshow">
+        <div id="demo3" class="demo3">
+	   <div class="slider" style="float:left;margin-left: 20px;">
+                 <div class="slides01" style="transform: translateX(-500px);">
+                     <div>
+                    <img src="../images/Slide-01.png" alt="Mumbai Regional office old building"></div>
+                    <div> <img src="../images/Slide-02.png" alt="Delhi Regional office building"></div>
+                    <div> <img src="../images/Slide-03.png" alt="Mumbai Regional office new building"></div>
+                
+                 </div>
+                 <span class="slide-play">
+                      <a href="#" onclick="playSlider()" title="Play Banner Image">►</a>
+                      <a href="#" onclick="pauseSlider()" title="Pause Banner Image">⏸</a>
+                 </span>
+            </div>
+
+            <div class="banner_text">
+               
+                <h1 class="sr-only">Home-Reserve Bank of India</h1>
+                <h2 class="title" style="color:black;">PREAMBLE </h2>
+
+                <p class="txt" style="text-align: justify; padding-right: 1em;color:black;">
+                    “to regulate the issue of Bank notes and keeping of reserves with a view to securing
+                    monetary stability in India and generally to operate the currency and credit system
+                    of the country to its advantage; to have a modern monetary policy framework to meet
+                    the challenge of an increasingly complex economy, to maintain price stability while
+                    keeping in mind the objective of growth.”
+                </p>
+            </div>
+            
+		
+        </div>
+    </div>
+    <!-- /slideshow -->
+</div>
+
+<!--SLIDESHOW END-->
+<!--WEB TICKER START-->
+<div class="container_12">
+
+        <div class="grid_12">
+            <div id="marquee" class="grid_12 alpha omega ticker">
+               
+                </div>
+               
+            <div class="clearfix"></div>
+        </div>
+
+</div>
+
+
+<script >
+
+     function SetLink() {
+        
+        var txt="This will lead you to Hindi (हिन्दी) language website. Are you sure you want to switch to this language?"
+        if(window.confirm(txt)==true){
+            //document.cookie = 'preferLang' + '=;secure; expires=Thu, 01-Jan-70 00:00:01 GMT;path=/;';
+            window.location.replace("https://www.rbi.org.in/hindi/");
+        }
+        else 
+        {
+            event.preventDefault();
+            return false;
+        }
+        
+    }
+
+    
+
+    $(document).ready(function () {        
+       
+    });
+    function changemarquee() {
+        document.getElementById("marquee").innerHTML = "<marquee scrollamount=\"5\" onmouseover=\"stop();\"  onmouseout=\"start();\" style=\"color:white\">&nbsp;&nbsp;<a target=\"_blank\" href=\"https://youtube.com/live/PAa-wdH__8k?feature=share\">Live telecast of Monetary Policy statement by RBI Governor at 10:00 AM on October 01, 2025</a></marquee>";
+    }
+
+
+
+	const allMenuItems = document.querySelectorAll("nav ul li");
+	
+	allMenuItems.forEach(item => {
+		item.addEventListener("focusin", (event) => {	
+			const MenuText =event.target.textContent;
+			const allMenuItems1 = document.querySelectorAll(".hasSubmenu");
+			allMenuItems1.forEach(item1 => {
+				if (MenuText === 'Press Releases')
+				{	
+					
+					item1.classList.remove('focused');
+					rollback(item1)
+					item1.classList.remove('open');
+				}
+			});
+			
+		});
+	});
+
+
+const menuItems = document.querySelectorAll(".hasSubmenu");
+menuItems.forEach(item => {
+	item.addEventListener("mouseenter", (event) => {
+		item.className="hasSubmenu open focused"
+		expandThis(item);
+	});
+	item.addEventListener("mouseleave", (event) => {		
+		rollback(item)
+		item.className="hasSubmenu"
+	});
+	item.addEventListener("focusin", (event) => {		
+		const allMenuItems = document.querySelectorAll("nav ul li");
+		allMenuItems.forEach(item1 => {
+			item1.classList.remove('focused');
+			if(item!==item1)
+			rollback(item1)
+			item1.classList.remove('open');	
+		});							
+		item.classList.add('focused');
+	});
+	item.addEventListener("focusout", (event) => {
+		
+		if(!item.className.includes('focused')){
+		
+		rollback(item)
+		item.className="hasSubmenu"
+		}
+		item.classList.remove('focused');
+		item.classList.remove('open');
+	});
+
+    item.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+		if(item.className.includes("hasSubmenu open")){
+			rollback(item)
+			item.className="hasSubmenu"
+		}
+		else{
+          	item.className="hasSubmenu open focused"
+		var ele=item.querySelectorAll("a")[0];
+		
+		expandThis(item);	
+		}
+				
+        }
+	
+    });
+	
+});
+function expandThis(menu){
+ var $targetul = $(menu).children("ul:eq(0)")
+				    if ($targetul.queue().length <= 1) 
+				        if (this.istopheader)
+					$targetul.css({ left: $(this).children('a').eq(0).position().left, top: $mainmenu.position().top + this._dimensions.h - 2 })
+				            
+				    if (document.all && !window.XMLHttpRequest) 
+				        $mainmenu.find('ul').css({ overflow: (this.istopheader) ? 'hidden' : 'visible' })
+					
+					
+				    $targetul.dequeue().stop(true, true).slideDown(droplinemenu.animateduration.over)
+}
+const menuItemsf = document.querySelectorAll("nav .midmenu ul li");
+
+menuItemsf.forEach(item => {
+    item.addEventListener("keydown", (event) => {
+	
+	if(item.className.includes("last") ){
+		 if (pressedKeys['shift'] && event.key === "Tab"){}else{
+		var lastItem = document.getElementsByClassName('hasSubmenu open');
+		rollback(lastItem[0])
+		lastItem[0].className="hasSubmenu";
+		}
+	}
+	
+	});
+	
+	});
+	
+
+function rollback(menu){
+ var $targetul = $(menu).children("ul:eq(0)")
+$targetul.dequeue().stop(true, true).slideUp(droplinemenu.animateduration.out);
+
+}
+
+
+
+function setLetterSpace(val) {
+    
+	
+    if (false) {
+                    document.body.setAttribute("style", "letter-spacing:1px; line-height:20px; word-spacing:2px;");
+       
+    }
+    else {
+                    document.body.removeAttribute("style");
+    }
+    return false;
+
+    
+    }
+   
+
+ //image slider 
+ let slides01 = document.querySelector(".slides01");
+    let total = document.querySelectorAll(".slides01 div").length;
+    let index = 0;
+    let interval = null;
+
+    function showSlide() {
+        slides01.style.transform = `translateX(-${index * 250}px)`;
+        index = (index + 1) % total;
+
+    }
+
+    function playSlider() {
+        if (!interval) {
+            interval = setInterval(showSlide, 2000);
+        }
+    }
+
+    function pauseSlider() {
+        clearInterval(interval);
+        interval = null;
+    }
+
+    // Auto play on load
+    playSlider();
+
+
+// Toggle submenu
+    document.querySelectorAll('.menu li > a').forEach(link => {
+        link.addEventListener('click', function (e) {
+            const submenu = this.nextElementSibling;
+
+            if (submenu && submenu.classList.contains('submenu1')) {linkMessage();
+                e.preventDefault();
+                e.stopPropagation();
+
+                const parentLi = this.parentElement;
+
+                // Close sibling menus ONLY (not entire menu)
+                closeSiblings(parentLi);   
+ 
+
+                
+ 
+                const isExpanded=link.getAttribute('aria-expanded') ==='true';
+                link.setAttribute('aria-expanded',!isExpanded);
+                submenu.hidden=isExpanded;
+                
+                submenu.setAttribute('aria-hidden', isExpanded);
+                setTimeout(()=>{
+                    // Toggle current submenu
+                    submenu.classList.toggle('show', !isExpanded);
+            },50);
+
+        }
+        });
+    });
+
+    //  Close only sibling menus (important fix)
+    function closeSiblings(currentLi) {
+        const siblings = currentLi.parentElement.children;
+
+        Array.from(siblings).forEach(li => {
+            if (li !== currentLi) {
+            const submenus = li.querySelectorAll('.submenu1');
+        submenus.forEach(menu => menu.classList.remove('show'));
+    }
+    });
+    }
+
+    //  Click outside → close all
+    document.addEventListener('click', function () {
+		
+        document.querySelectorAll('.menu li > a').forEach(menu => {
+		if(menu.hasAttribute('aria-expanded')){
+            menu.setAttribute('aria-expanded','false');
+		}
+	
+    });
+
+    document.querySelectorAll('.submenu1').forEach(menu => {
+        menu.setAttribute('aria-hidden','true');
+    menu.classList.remove('show');
+	
+
+    });
+    });
+
+    //  Prevent closing when clicking inside menu
+    document.querySelector('.menu').addEventListener('click', function (e) {linkMessage();
+        e.stopPropagation();
+    });
+
+
+    //  Keyboard support
+    document.querySelectorAll('.menu li > a').forEach(link => {
+        link.addEventListener('keydown', function (e) {
+            const submenu = this.nextElementSibling;
+
+            if ((e.key === 'Enter' || e.key === ' ') && submenu) {
+                e.preventDefault();
+
+                const parentLi = this.parentElement;
+                closeSiblings(parentLi);
+
+
+                const isExpanded=link.getAttribute('aria-expanded') ==='true';
+                link.setAttribute('aria-expanded',!isExpanded);
+                submenu.hidden=isExpanded;
+                submenu.setAttribute('aria-hidden', isExpanded);
+                setTimeout(()=>{
+                    // Toggle current submenu
+                    submenu.classList.toggle('show', !isExpanded);
+            },50);
+
+
+            
+        }
+
+          if (e.key === 'Escape') {
+        document.querySelectorAll('.submenu').forEach(menu => {
+            menu.classList.remove('show');
+    });
+    this.blur();
+    }
+    });
+    });
+    // When focusing main menu items → close other submenus
+    document.querySelectorAll('.menu > li > a').forEach(item => {
+        item.addEventListener('focus', function() {
+
+            document.querySelectorAll('.submenu1').forEach(menu => {
+                // keep only the submenu that belongs to this item (if any)
+                if (menu !== this.nextElementSibling) {
+                
+
+            document.querySelectorAll('.menu li > a').forEach(menu => {
+                if(menu.hasAttribute('aria-expanded'))
+                menu.setAttribute('aria-expanded','false');
+		
+            document.querySelectorAll('.submenu1').forEach(menu => {
+                menu.setAttribute('aria-hidden','true');
+            
+            // Toggle current submenu
+            menu.classList.remove('show');
+           
+
+
+        });
+
+	
+    });
+
+    }
+    });
+
+    });
+    });
+
+    //  Close submenu when focus leaves it (TAB navigation)
+    document.querySelectorAll('.menu li').forEach(li => {
+        li.addEventListener('focusout', function (e) {
+            // Check if focus is still inside this <li>
+            if (!li.contains(e.relatedTarget)) {
+                const submenu = li.querySelector('.submenu1');
+                if (submenu) {
+                    submenu.classList.remove('show');
+                    if(li.querySelector('a').hasAttribute('aria-expanded'))
+                        li.querySelector('a').setAttribute('aria-expanded','false');
+	
+
+                    submenu.setAttribute('aria-hidden','true');
+                }
+            }
+        });
+    });
+   
+
+</script>
+
+        <div class="container_12">
+            <div>
+            <!--  CURRENT RATES START-->
+           
+                <a id="mainsection" href="#"></a>
+                <div class="grid_3">
+   
+
+		<h2 style="text-transform: none;">1. <span class="blue">Current</span> Rates</h2>
+           
+                <div id="wrapper">
+    <h3 class="accordionButton">
+        <a href="javascript:void(0);" aria-expanded="false" role="button">Policy&nbsp; Rates</a>
+    </h3>
+    <div class="accordionContent">
+        <table style="border-collapse:collapse; border:0;">
+            <tr>
+                <th>
+                    Policy Repo Rate
+                </th>
+                <td>
+                    :
+                    5.25%
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    Standing Deposit Facility Rate
+                </th>
+                <td>
+                    :
+                    5.00%
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    Marginal Standing Facility Rate
+                </th>
+                <td>
+                    :
+                    5.50%
+                </td>
+            </tr>
+            <tr>
+                <th style="width:50%">
+                    Bank Rate
+                </th>
+                <td style="width:50%">
+                    :
+                    5.50%
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Fixed Reverse Repo Rate
+                </th>
+                <td>
+                    :
+                    3.35%
+                </td>
+            </tr>
+           
+
+
+        </table>
+    </div>
+    <h3 class="accordionButton">
+        <a href="javascript:void(0);" aria-expanded="false" role="button">Reserve &nbsp;Ratios</a>
+    </h3>
+    <div class="accordionContent">
+        <table style="border-collapse:collapse; border:0; width:100%;">
+            <tr>
+                <th style="width:50%">
+                    CRR
+                </th>
+                <td style="width:50%">
+                    :
+                    3.00%
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    SLR
+                </th>
+                <td>
+                    :
+                    18.00%
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3 class="accordionButton">
+        <a href="javascript:void(0);" aria-expanded="false" role="button">Exchange &nbsp;Rates</a>
+    </h3>
+    <div class="accordionContent">
+        <table style="border-collapse:collapse; border:0; width:100%;">
+
+            <tr>
+                <th style="width:65%">
+                    INR / 1 USD
+                </th>
+                <td>
+                    :
+                    95.9927
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    INR / 1 GBP
+                </th>
+                <td>
+                    :
+                    127.2214
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    INR / 1 EUR
+                </th>
+                <td>
+                    :
+                    108.6151
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    INR / 100 JPY
+                </th>
+                <td>
+                    :
+                    60.6700
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    INR / 1 AED
+                </th>
+                <td>
+                    :
+                    26.1356
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    INR / 10000 IDR
+                </th>
+                <td>
+                    :
+                    53.4597
+                </td>
+            </tr>
+
+        </table>
+        <div>
+            <div style="border-bottom:1px dotted #333;">
+                <span class="subText"> (As at 1.00pm of October 01, 2026) </span>
+            </div>
+            <div style="border-bottom:1px dotted #333;">
+                <span class="subText"> (Source : FBIL) </span><br />
+            </div>
+            <div style="border-bottom:1px dotted #333;">
+                <a class="link1" href="/scripts/ReferenceRateArchive.aspx" style="float: right;">Archives</a>
+            </div>
+        </div>
+            
+        
+    </div>
+    <h3 class="accordionButton">
+        <a href="javascript:void(0);" aria-expanded="false" role="button">Lending / Deposit &nbsp;Rates</a>
+    </h3>
+    <div class="accordionContent">
+        <table style="border-collapse:collapse; border:0; width:100%;">
+            <tr>
+                <th style="width:52%">
+                    Base Rate
+                </th>
+                <td>
+                    :
+                    8.40% - 10.00%
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    MCLR (Overnight)
+                </th>
+                <td>
+                    :
+                    7.80% - 8.00%
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Savings Deposit Rate
+                </th>
+                <td>
+                    :
+                    2.50%
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Term Deposit Rate > 1 Year
+                </th>
+                <td>
+                    :
+                    6.00% - 6.75%
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3 class="accordionButton">
+        <a href="javascript:void(0);" aria-expanded="false" role="button">Market&nbsp; Trends</a>
+    </h3>
+    <div class="accordionContent">
+        <h3>Money Market</h3>
+        <div>
+            <table style="border-collapse:collapse; border:0; ">
+
+                <tr>
+                    <th style="width:45%">Call Rates</th>
+                    <td>
+                        :
+                        4.60% - 5.30%
+                        *
+                    </td>
+                </tr>
+            </table>
+            <div style="border-bottom:1px dotted #333;">
+                <span class="red">*</span><span class="subText"> as on <!--January 27, 2026--> September 30, 2026</span>
+            </div>
+        </div>
+       
+
+
+        <h3>Government Securities Market</h3>
+        <div>
+            <table style="border-collapse:collapse; border:0; ">
+                <tbody>
+                    <tr>
+                        <th>
+                            6.20% GS 2029
+                        </th>
+                        <td>: 6.6705% #</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            6.36% GS 2031
+                        </th>
+                        <td>: 6.8658% #</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            6.94% GS 2036
+                        </th>
+                        <td>: 7.1775% #</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            7.06% GS 2041
+                        </th>
+                        <td>: 7.3708% #</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            7.24% GS 2055
+                        </th>
+                        <td>: 7.6807% #</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            91 day T-bills
+                        </th>
+                        <td>
+                            :
+                            5.5199%*
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            182 day T-bills
+                        </th>
+                        <td>
+                            :
+                            5.9601%*
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            364 day T-bills
+                        </th>
+                        <td>
+                            :
+                            6.1798%*
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="border-bottom:1px dotted #333;">
+                <span class="red">*</span><span class="subText"> cut-off at the last auction</span>
+            </div>
+            <div style="border-bottom:1px dotted #333;">
+                <span class="red">#</span><span class="subTex

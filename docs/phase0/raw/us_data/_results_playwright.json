@@ -1,0 +1,17 @@
+{
+  "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/": {
+    "status": 200,
+    "title": "Oops!",
+    "html_len": 2773
+  },
+  "https://adpemploymentreport.com/": {
+    "status": 200,
+    "title": "ADP\u00ae National Employment Report",
+    "html_len": 850988
+  },
+  "https://www.spglobal.com/spdji/en/index-family/indicators/sp-corelogic-case-shiller/": {
+    "status": 403,
+    "title": "Error | S&",
+    "html_len": 2003
+  }
+}

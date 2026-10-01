@@ -1,0 +1,366 @@
+﻿<!doctype html>
+<html lang="hi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Weather Today: check here live weather forecast, temperature, air quality(AQI) updates along with upcoming week rain status and weather forecast Today. आज का तापमान, तापमान, मौसम, मौसम पूर्वानुमान, ततकाल मौसम जानकारी">
+    <meta name="keywords" content="मौसम, हवा, तापमान, आज का तापमान, वर्षा, मौसम पूर्वानुमान, मौसम चोतावनी, चोतावनी, Weather warnings, Weather, Weather today, temperature today, rain forecast, Air Quality Index (AQI), Air Quality Index (AQI) Today, air pollution level, real time air pollution level, weather, Weather forecast, weather forecast in India, AQI, India AQI Level, air quality of India, India air quality (AQI) status">            
+    <meta name="author" content="IMD_IT_TEAM">
+    <meta name="generator" content="IMD_GANGTOK">
+    <meta name="facebook-domain-verification" content="4ggn1p12v9p148poc22gfwbkwh3jzf" />
+    <title>होम | भारत मौसम विज्ञान विभाग</title>
+    <!-- common css file for containing all style & favicon icon -->
+		
+    <!-- Bootstrap core CSS -->
+		<link href="../../responsive/assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+	<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+	<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+	<link rel="stylesheet" href="../../responsive//js/leaflet/leaflet.zoomhome.css"/>
+	<link  href="../../responsive/assets/dist/viewer.css" rel="stylesheet">
+	<link href="https://mausam.imd.gov.in/responsive/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.css" />
+    <link href="../../responsive/css/style.css" rel="stylesheet">		
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="../../responsive/img/logo/imd_icon.ico">    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="../../responsive/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../responsive/css/qweather-icons.css">
+	
+	
+
+    	
+  </head>
+  <body>
+  	
+		
+		<!--
+		<div class="modal fade" id="defaultModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-body text-center">
+						
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button> 
+						<a href="https://youtube.com/live/69oTeIzQyus?feature=share/" target="_blank"> 
+                                                           <img src="responsive/img/modals/logo_launch.png" class="img-fluid" alt="NOTIFICATION"> 
+		 						
+						</a>
+		 					</div>
+				</div>
+			</div>
+		</div>		
+		 model area ends -->
+		
+    <!-- header + navigation include -->
+		
+    <!-- header -->    
+		<section class="header">
+			<!-- header top area -->
+			<div class="header-top">
+				<div class="container-xxl">
+					<div class="social-media">
+						<a href="https://www.facebook.com/India.Meteorological.Department/" target="new" class="sm-link facebook" title=""><i class="bi bi-facebook"></i></a>
+						<a href="https://www.youtube.com/channel/UC_qxTReoq07UVARm87CuyQw/featured?view_as=subscriber" target="new" class="sm-link youTube" title=""><i class="bi bi-youtube"></i></a>
+						<a href="https://twitter.com/Indiametdept" target="new" class="sm-link twitter" title=""><i class="bi bi-twitter"></i></a>
+						<a href="https://instagram.com/mausam_nwfc/" target="new" class="sm-link instagram" title=""><i class="bi bi-instagram"></i></a>
+						<a href="https://imdweather1875.wordpress.com/" target="new" class="sm-link instagram" title=""><i class="bi bi-chat-fill"></i></a>
+						
+						<a href="../.././index_en.php" class="hindi">English Website</a>
+						<!-- <a href="?lang=en" class="hindi">English Website</a> -->
+					</div>
+				</div>
+			</div>
+			<div class="container-xxl">
+				<div class="header-content">
+					<div class="logo-area">
+						<img src="../../responsive/img/logo/logo_emb.png" class="logo img-fluid" alt="EMBLEM">
+						<h4>भारत मौसम विज्ञान विभाग</h4>
+						<h4>पृथ्वी विज्ञान मंत्रालय</h4>
+						<h4>भारत सरकार</h4>
+					</div>
+					<div class="social-area">
+						<form class="d-flex form-inline" action="/../../search_RV/index.php" method="post">
+							<input class="form-control me-1" type="search" name="sr" id="sr" aria-label="Search">
+							<button class="btn" value="Search" name="Search" id="Search" type="submit"><i class="bi bi-search"></i></button>
+						</form>
+						<div class="clearfix"></div>
+					</div>
+					<div class="lmdlogo-area">
+						<img src="../../responsive/img/logo/imd_logo_a.webp" class="logo" alt="IMD_LOGO"/>
+						<img src="../../responsive/img/logo/esso.png" class="logo-150-right img-fluid" alt="ESSO" style="height:85px;"/>
+						<a href="https://mausam.imd.gov.in/event/" target="_blank" rel="noopener noreferrer"><img src="../../responsive/img/logo/imd150t.webp" class="logo-150-right img-fluid" alt="IMD_150"/></a>
+						<a href="https://2025.coop/" target="_blank" rel="noopener noreferrer"><img src="../../responsive/img/logo/iyc2025.png" class="logo-150-right img-fluid" alt="IYC 2025"/></a>
+					</div>
+				</div>
+				<div class="text-center">
+					<img src="../../responsive/img/logo/esso.png" class="logo-150-center-xs" alt="ESSO">
+					<img src="../../responsive/img/logo/imd150t.webp" class="logo-150-center-xs" alt="IMD_150" onclick="imageClick('../.././responsive/galleryimd2.php')">
+				</div>
+				
+			</div>
+		</section>
+		<!-- header end -->
+		
+		<!-- navigation -->
+		<section class="navigation">
+			<nav class="navbar navbar-expand-lg">
+				<div class="container-xxl">
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+						<i class="bi bi-stack"></i>
+					</button> <span class="visible-xs"><i class="bi bi-reply-fill"></i> संचालन सूची</span>
+					<div class="collapse navbar-collapse" id="navbarNavDropdown">
+						<ul class="navbar-nav w-100 justify-content-between">
+							<li class="nav-item">
+								<a class="nav-link" href="../.././">होम</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="../../responsive/departmentalweb.php">विभागीय वेबसाइटें</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									भा. मौ. वि. वि. के बारे में
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+									 <li><a class="dropdown-item" href="../../responsive/history.php">इतिहास</a></li>
+									 <li><a class="dropdown-item" href="../../responsive/mandate.php">अधिदेश</a></li>
+									 <li><a class="dropdown-item" href="../../responsive/orgStructure.php">व्यवस्था संरचना</a></li>
+									 <!--<li><a class="dropdown-item" href="https://metnet.imd.gov.in/imddir/" target="_blank" rel="noopener noreferrer">IMD's Directory</a></li>-->
+									 <li><a class="dropdown-item" href="https://metnet.imd.gov.in/imdpis/imdweb_list_of_dgms.php" target="_blank" rel="noopener noreferrer">भा. मौ. वि. वि. के पूर्व महानिदेशक</a></li>                     
+									 <li><a class="dropdown-item" href="../../responsive/citizenCharter.php">नागरिक/ग्राहक चार्टर</a></li> 
+								</ul>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									महत्वपूर्ण व्यक्ति
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<!--<li><a class="dropdown-item" href="../../responsive/people_honable_minister.php">Hon’ble Minister</a></li>-->
+									<li><a class="dropdown-item" href="../../responsive/people_minister_moes.php">मंत्री पृथ्वी विज्ञान मंत्रालय</a></li>
+									<li><a class="dropdown-item" href="../../responsive/people_secretory_moes.php">सचिव पृथ्वी विज्ञान मंत्रालय</a></li>
+									<li><a class="dropdown-item" href="../../responsive/people_dgm.php">महानिदेशक भारत मौसम विज्ञान वि.</a></li>
+									<!--<li><a class="dropdown-item" href="https://metnet.imd.gov.in/imddir/imd_senior_officers.php" target="_blank" rel="noopener noreferrer">Senior Officers of IMD</a></li> -->
+								</ul>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									प्रकाशन
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<li><a class="dropdown-item" href="../../responsive/rashtriyPanchang.php">राष्ट्रीय पंचांग</a></li>
+									<li><a class="dropdown-item" href="../../responsive/indianAstronomicalEphemeris.php">भारतीय खगोलीय पंचांग</a></li>
+									<li><a class="dropdown-item" href="https://mausamjournal.imd.gov.in/index.php/MAUSAM" target="_blank" rel="noopener noreferrer">मौसम जनरल</a></li>
+									<li><a class="dropdown-item" href="https://imdpune.gov.in/Reports/rainfall%20variability%20page/raintrend%20new.html" target="_blank" rel="noopener noreferrer">राज्यों पर अवलोकित वर्षा प्रवृत्ति</a></li>
+									<li><a class="dropdown-item" href="https://www.clivar.org/sites/default/files/documents/CLIVAR%20Exchanges%2079%20Monsoon%20Mission%20Final.pdf" target="_blank" rel="noopener noreferrer">CLIVAR आदान-प्रदान</a></li>
+									<li><a class="dropdown-item" href="https://internal.imd.gov.in/pages/severewx_mausam.php" target="_blank" rel="noopener noreferrer">गंभीर मौसम रिपोर्ट</a></li>					
+									<li><a class="dropdown-item" href="https://metnet.imd.gov.in/phps/imdweb_imdnews.php" target="_blank" rel="noopener noreferrer">भा.मौ.वि.वि. समाचार</a></li>					
+									<li><a class="dropdown-item" href="https://metnet.imd.gov.in/imdrajbhasha/" target="_blank" rel="noopener noreferrer">मौसम मंजूषा</a></li>
+									<li><a class="dropdown-item" href="../../responsive/imdBroucher.php">भा.मौ.वि.वि. ब्रोशर</a></li>					
+									<li><a class="dropdown-item" href="../.././imd_latest/contents/ar2022.pdf" target="_blank" rel="noopener noreferrer">भा.मौ.वि.वि. वार्षिक रिपोर्ट 2022</a></li>
+									<li><a class="dropdown-item" href="../.././responsive/met1.php"  rel="noopener noreferrer">मेट मोनोग्राफ</a></li>
+									<li><a class="dropdown-item" href="../.././imd_latest/contents/pdf/IMDposoco.pdf" target="_blank" rel="noopener noreferrer">विद्युत प्रणाली संचालन के लिए मौसम</a></li>					
+									<li><a class="dropdown-item" href="../.././imd_latest/contents/pdf/FD2022POEMBOOK.pdf" target="_blank" rel="noopener noreferrer">एफ डी 2022 पोएम बुक</a></li>
+									<li><a class="dropdown-item" href="../.././imd_latest/contents/pdf/FD2022POSTERBOOK.pdf" target="_blank" rel="noopener noreferrer">एफ डी 2022 पोस्टर बुक</a></li>
+									<li><a class="dropdown-item" href="../.././imd_latest/contents/pdf/SOUVENIR.pdf" target="_blank" rel="noopener noreferrer">सोउवेनिर</a></li>
+								</ul>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="मानक ऑपरेटिंग प्रक्रिया">
+									मा. ऑ. प्र.
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<li><a class="dropdown-item" href="../.././imd_latest/contents/pdf/aviation_sop.pdf" target="_blank" rel="noopener noreferrer">विमानन मौसम विज्ञान</a></li>
+									<li><a class="dropdown-item" href="../.././imd_latest/contents/pdf/emrc_sop.pdf" target="_blank" title="Environment Monitoring & Research Centre" rel="noopener noreferrer">EMRC</a></li>
+									<li><a class="dropdown-item" href="../.././imd_latest/contents/pdf/gkms_sop.pdf" target="_blank" title="Gramin Krishi Mausam Sewa" rel="noopener noreferrer">GKMS</a></li>
+									<li><a class="dropdown-item" href="../.././imd_latest/contents/pdf/cyclone_sop.pdf" target="_blank" rel="noopener noreferrer">चक्रवात चेतावनी</a></li>					
+									<li><a class="dropdown-item" href="../.././imd_latest/contents/pdf/training_sop.pdf" target="_blank" rel="noopener noreferrer">प्रशिक्षण</a></li>
+									<li><a class="dropdown-item" href="../.././imd_latest/contents/pdf/forecasting_sop.pdf" target="_blank" rel="noopener noreferrer">मौसम पूर्वानुमान और चेतावनी सेवाएं</a></li>					
+									<li><a class="dropdown-item" href="../.././imd_latest/contents/pdf/hydrology_sop.pdf" target="_blank" rel="noopener noreferrer">हाइड्रोमीटियोलॉजिकल सेवाएं</a></li>
+									<li><a class="dropdown-item" href="../.././imd_latest/contents/pdf/nwp_sop.pdf" target="_blank" title="Numerical Weather Prediction" rel="noopener noreferrer">NWP</a></li>
+								</ul>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									सेवाएं
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<li><a class="dropdown-item" href="../../responsive/servicesHydrological.php">हाइड्रोमीटियोलॉजिकल सेवाएं भा.मौ.वि.वि. में</a></li>
+									<li><a class="dropdown-item" href="../../responsive/servicesMetAgriculture.php">भारत में कृषि के लिए मौसम सेवाएं</a></li>
+									<li><a class="dropdown-item" href="../../responsive/servicesMetCivilAviation.php">भारत में नागरिक विमानन के लिए मौसम सेवाएं</a></li>
+									<li><a class="dropdown-item" href="../../responsive/servicesSatMet.php" title="Satellite Meteorology">उपग्रह मौसम विज्ञान सेवाएं</a></li>
+									<li><a class="dropdown-item" href="../../responsive/servicesDwrNetwork.php" title="Doppler Weather Radar">भा.मौ.वि.वि. रडार नेटवर्क</a></li>
+									<li><a class="dropdown-item" href="../../responsive/servicesMetSurface.php">पृष्ठीय मौसमी उपकरण</a></li>
+									<li><a class="dropdown-item" href="../../responsive/servicesMetUpperAir.php">ऊपरी वायु मौसम विज्ञान उपकरण</a></li>					
+									<li><a class="dropdown-item" href="../../responsive/servicesMetTeleComm.php">भा.मौ.वि.वि. मौसम टेलीकम्म्यूनिकेशन</a></li>
+									<li><a class="dropdown-item" href="../../responsive/servicesMetEnvironment.php">पर्यावरणीय निरीक्षण</a></li>
+									<li><a class="dropdown-item" href="../../responsive/servicesPosAstro.php">स्थानीय खगोल</a></li>
+									<li><a class="dropdown-item" href="https://imdpune.gov.in/training/index.php" target="_blank" rel="noopener noreferrer">डब्ल्यूएमओ-क्षेत्रीय प्रशिक्षण संस्थान</a></li>					</ul>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://internal.imd.gov.in/pages/press_release_mausam.php" target="_blank" rel="noopener noreferrer">प्रेस विज्ञप्ति</a>
+							</li>
+							<!--<li class="nav-item">
+								<a class="nav-link" href="../../responsive/sitemap.php">Sitemap</a>
+							</li>-->
+
+							<li class="nav-item">
+								<a class="nav-link" href="../../responsive/contact.php">संपर्क</a>
+							</li>
+														
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									स्थानीय पूर्वानुमान
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<li><a class="dropdown-item" href="https://city.imd.gov.in/" target="_blank">स्थानीय मौसम रिपोर्ट और पूर्वानुमान</a></li>					
+									<li><a class="dropdown-item" href="https://mausamgram.imd.gov.in/" target="_blank">आपके स्थान पर मौसम</a></li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="../.././event/" target="_blank" rel="noopener noreferrer">भा.मौ.वि.वि.@150</a>
+							</li>		
+							<li class="nav-item">
+								<a class="nav-link" href="https://api.imd.gov.in" target="_blank" rel="noopener noreferrer">भा.मौ.वि.वि. ए पी आई</a>
+							</li>		
+							
+							
+							
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</section>
+		<!-- navigation end -->		
+		<!-- main content -->
+		<section class="main-content">
+		
+			<!-- quick links  -->
+			
+			<div class="quick-links">
+				<div class="container-xxl">
+					<div class="row g-0">
+						<div class="col-lg-3 col-sm-6">
+							<div class="ql-item">
+								<h2>चेतावनी</h2>
+								<!-- link for information -->
+								<a href="../../responsive/subDivisionWiseWarningGIS.php">उपखंड वार</a>
+								&nbsp;|&nbsp;
+								<a href="../../responsive/districtWiseWarningGIS.php">जिला वार</a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-sm-6">
+							<div class="ql-item">
+								<h2>तत्कालिक चेतावनी</h2>
+								<!-- link for information -->
+								<a href="../../responsive/districtWiseNowcastGIS.php">जिला वार</a>
+								&nbsp;|&nbsp;
+								<a href="../../responsive/stationWiseNowcastGIS.php">स्टेशन वार</a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-sm-6">
+							<div class="ql-item bg-qlinks-green">
+								<h2>सार्वजनिक अवलोकन</h2>
+								<!-- link for information -->
+								(<a href="https://city.imd.gov.in/citywx/crowd/enter_th_datag_multilang.php" title="Download Mausam App for CrowdSource Observation" target="_blank" rel="noopener noreferrer">बहु भारतीय भाषाएं</a>)
+								&nbsp;|&nbsp;
+								<a href="../../responsive/wxRealized.php" title="Temperature & Rainfall">प्रत्यक्ष मौसम</a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-sm-6">
+							<div class="ql-item bg-qlinks-yellow lh-70 sub-menu">
+								<h2 class="text-dark">विशिष्ट पूर्वानुमान <i class="bi bi-sort-down"></i></h2>
+								<ul class="list-unstyled sp-items">
+									<li><a href="https://dss.imd.gov.in/dwr_img/GIS/amarnath_public_portal/amarnath_oper.html" target="_blank">अमरनाथ यात्रा</a></li>
+									<li><a href="../../responsive/marine_forecast.php">समुद्री पूर्वानुमान</a></li>
+									<li><a href="https://imdpune.gov.in/caui/health.pdf" target="_blank" rel="noopener noreferrer">स्वास्थ्य मौसम विज्ञान बुलेटिन</a></li>
+									<li><a href="https://internal.imd.gov.in/pages/tourism_forecast_mausam.php" target="_blank" rel="noopener noreferrer">पर्यटन पूर्वानुमान</a></li>
+									<li><a href="http://srf.tropmet.res.in/srf/ts_prediction_system/index.php" target="_blank" rel="noopener noreferrer">गरज वाली आंधी की भविष्यवाणी</a></li>
+									<li class=""><a href="https://mausam.imd.gov.in/responsive/heatwave_guidance.php" target=_blank>गर्म लहर मार्गदर्शन</a></li>
+																		<li><a href="../../responsive/flashFloodBulletin.php">आकस्मिक बाढ़ बुलेटिन</a></li>
+									<li><a href="https://ews.tropmet.res.in/" target="_blank" rel="noopener noreferrer" title="वायु गुणवत्ता प्रारंभिक चेतावनी प्रणाली">ए क्यू ई डब्ल्यू एस</a></li>
+									<li><a href="https://nwp.imd.gov.in/silam_imd.php" target="_blank" rel="noopener noreferrer">वायु गुणवत्ता पूर्वानुमान</a></li>
+									<li><a href="https://nwp.imd.gov.in/enfuser_imd.php" target="_blank" rel="noopener noreferrer" title="पर्यावरणीय सूचना संलयन सेवा">ENFUSER AQ</a></li>
+									<li><a href="https://internal.imd.gov.in/power/NRLDC/" target="_blank" rel="noopener noreferrer">विद्युत क्षेत्र</a></li>
+									<!-- <li><a href="../../responsive/pilgrimage_forecast.php">तीर्थ यात्रा पूर्वानुमान</a></li> -->
+									<li><a href="https://dss.imd.gov.in/dwr_img/GIS/chardham_public_portal/char_dham_oper.html" target="_blank" rel="noopener noreferrer">तीर्थ यात्रा पूर्वानुमान</a></li>
+									<li><a href="https://internal.imd.gov.in/section/nhac/dynamic/hmc.pdf" target="_blank" rel="noopener noreferrer">पर्वत मौसम बुलेटिन</a></li>
+									<li><a href="../../responsive/highwayForecast.php">राजमार्ग पूर्वानुमान</a></li>
+									<li><a href="https://dss.imd.gov.in/dwr_img/GIS/railway_dashboard/railway_monitoring.html" target="_blank" rel="noopener noreferrer">पूर्वानुमान - भारतीय रेलवे</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- quick links end -->			
+			<!-- marquee content -->
+			<section class="mrq">
+				<div class="container-xxl">
+					<marquee direction="scroll" scrollamount="4" onmouseover="this.stop();" onmouseout="this.start();">
+						<!-- paragraps -->
+						<p><a href='../.././Forecast/marquee_data/ विज्ञप्ति 01.10.2026.pdf' style='color: #000000' target='_blank'>प्रेस विज्ञप्ति तारीखः 01 अक्टूबर, 2026</a></p><p><a href='../.././Forecast/marquee_data/Press Release 01-10-2026.pdf' style='color: #000000' target='_blank'>Press Release Dated: 01st October 2026</a></p><p><a href='../.././Forecast/marquee_data/Salient_Features_SW_MONSOON _2026_30_sep.pdf' style='color: #000000' target='_blank'>PRESS RELEASE DATE 30TH SEPTEMBER 2026: Salient Features of the 2026 Southwest Monsoon Season</a></p><p><a href='../.././Forecast/marquee_data/ विज्ञप्ति 30.09.26.pdf' style='color: #000000' target='_blank'>प्रेस विज्ञप्ति तारीख 30 सितंबर, 2026: साल 2026 में मॉनसून पश्चात की ऋतु में िर्ाा का और अक्तूबर 2026 के िौरान की  िर्ाा और तापमान का ऋतुप्तनष्ठ दृविकोण (सीजनल आउटलुक) </a></p><p><a href='../.././Forecast/marquee_data/Press_Release OND_30-09-2026.pdf' style='color: #000000' target='_blank'>PRESS RELEASE:Seasonal outlook for Rainfall during Post-Monsoon Season 2026 and Rainfall and Temperature during October 2026</a></p><p><a href='../.././Forecast/marquee_data/ विज्ञप्ति 26.09.2026_1790421454.pdf' style='color: #000000' target='_blank'>उत्तर-पूर्वी मध्य प्रदेश और उससे सटे उत्तरी छत्तीसगढ़ के ऊपर बने डिप्रेशन के असर से, 26 और 27 तारीख को उत्तराखंड में और 26 तारीख को उत्तरी उत्तर प्रदेश में कुछ जगहों पर भारी से बहुत भारी बारिश और कहीं-कहीं बहुत ज़्यादा या असाधारण रूप से भारी बारिश होने की संभावना है। साथ ही, 26 सितंबर 2026 को दक्षिणी उत्तर प्रदेश में भी कहीं-कहीं भारी से बहुत भारी बारिश हो सकती है।</a></p><p><a href='../.././Forecast/marquee_data/Press Release 26-09-2026_1790421313.pdf' style='color: #000000' target='_blank'>Under the influence of Depression over Northeast Madhya Pradesh & adjoining north Chhattisgarh, heavy to very heavy rainfall </a></p><p><a href='../.././Forecast/marquee_data/extended_1790251007.pdf' style='color: #000000' target='_blank'>Press Release..Current Weather Status and Extended Range Forecast for the next two weeks (24 September to 07 October 2026)</a></p>					</marquee>
+				</div>
+			</section>
+			<!-- current weather map and radar / news events & important links -->
+			<div class="map-radar">
+				<div class="container-xxl">
+					<!-- flex column-->
+					<div class="flex-container">
+						<div class="row g-2">
+							<div class="col-lg-4 col-sm-6">
+								<!-- current weather map -->
+								<div class="mr-item">
+									<!-- title -->
+									<h4 class="mr-title pb-2 pt-1 mt-2">वर्तमान मौसम</h4>
+									<div class="mr-img-holder">
+										<!-- Due to a temporary technical issue, the map service is currently unavailable. -->
+										﻿
+	<script src="https://www.amcharts.com/lib/3/ammap.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+	<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+	<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/geojson2svg/1.0.2/geojson2svg.min.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<!-- amCharts includes -->
+	<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.css" />
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<div class="main-map">
+		<section id="banner" class="clearfix">
+	<div class="mask" >
+		<div id="chartdiv">
+		</div>
+		<div id="city_weather">
+			<h3>New Delhi-Safdarjung</h3>
+			<div class="weather">
+				<span>Haze</span>
+				<i class="qi-502" title="Haze"></i>
+			</div>
+
+			<div class="tempt">
+				<div id="temperature" style="width: 18%;">
+					<i class="fa fa-thermometer-half"></i> 35.0<sup>o</sup>C				</div>
+								<div id="temperature" style="width: 30%;">
+					<i class="fa fa-thermometer-half"></i> Feel Like 37.8<sup>o</sup>C				</div>
+								<div id="temperature1" style="width: 15%;">
+					<i class="fa fa-tint"></i> 42%				</div>
+				<div id="temperature1" style="width: 55%;">
+					<i class="fa fa-wind"></i> West-southwesterly 18.5 Km/h				</div>
+				<div style="width: 100%;">
+					<i class="fa fa-clock"></i> Observation time : 2026-10-01 14:30 IST				</div>
+				<div style="width: 24%;">
+					<span>Sunrise</span>  06:14 (IST)				</div>
+				<div style="width: 24%;">
+					<span>Sunset</span> 18:08 (IST)				</div>
+				<div style="width: 24%;">
+					<span>Moonrise</span> 21:19 (IST)				</div>
+				<div style="width: 24%;">
+					<span>Moonset</span> 11:01 (IST)				</div>
+			</div>
+		</div>
+	</div>
+</section>
+  	</div>
+
+	<script type="text/javascript">
+		var db = {"states":[{"id":"IN-AN","title":"Andaman & Nicobar","label":"Andaman & Nicobar","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-AP","title":"Andhra Pradesh","label":"Andhra Pradesh","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-AR","title":"Arunachal Pradesh","label":"Arunachal Pradesh","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-AS","title":"Assam","label":"Assam","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-BR","title":"Bihar","label":"Bihar","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-CT","title":"Chhattisgarh","label":"Chhattisgarh","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-DL","title":"Delhi","label":"Delhi","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-DD","title":"Diu","label":"Diu","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-GA","title":"Goa","label":"Goa","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-GJ","title":"Gujarat","label":"Gujarat","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-HR","title":"Haryana","label":"Haryana","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-HP","title":"Himachal Pradesh","label":"Himachal Pradesh","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-JK","title":"Jammu & Kashmir","label":"Jammu & Kashmir","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-JH","title":"Jharkhand","label":"Jharkhand","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-KA","title":"Karnataka","label":"Karnataka","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-KL","title":"Kerala","label":"Kerala","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-LK","title":"Ladakh UT","label":"Ladakh UT","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-LD","title":"Lakshadweep","label":"Lakshadweep","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-MP","title":"Madhya Pradesh","label":"Madhya Pradesh","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-MH","title":"Maharashtra","label":"Maharashtra","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-MN","title":"Manipur","label":"Manipur","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-ML","title":"Meghalaya","label":"Meghalaya","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-MZ","title":"Mizoram","label":"Mizoram","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-NL","title":"Nagaland","label":"Nagaland","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-OR","title":"Orissa","label":"Orissa","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-PY","title":"Pondicherry","label":"Pondicherry","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-PB","title":"Punjab","label":"Punjab","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-RJ","title":"Rajasthan","label":"Rajasthan","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-SK","title":"Sikkim","label":"Sikkim","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-TN","title":"Tamil Nadu","label":"Tamil Nadu","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-TG","title":"Telangana","label":"Telangana","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-TR","title":"Tripura","label":"Tripura","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-UP","title":"Uttar Pradesh","label":"Uttar Pradesh","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-UT","title":"Uttrakhand","label":"Uttrakhand","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true},{"id":"IN-WB","title":"West Bengal","label":"West Bengal","zoomLevel":5,"ajaxUrl":"responsive/LIP/sample4New.php","passZoomValuesToTarget":true}],"stations":[{"latitude":9.17,"longitude":92.83,"label":"Carnicobar","title":"Carnicobar","imageURL":"img/vector/103.svg","state_code":"IN-AN","station_id":"43367","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":10.58,"longitude":92.55,"label":"HUT BAY","title":"HUT BAY","imageURL":"img/vector/101.svg","state_code":"IN-AN","station_id":"43364","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":12.42,"longitude":92.93,"label":"LONG ISLAND","title":"LONG ISLAND","imageURL":"img/vector/101.svg","state_code":"IN-AN","station_id":"43310","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":12.92,"longitude":92.92,"label":"Maya Bandar","title":"Maya Bandar","imageURL":"img/vector/101.svg","state_code":"IN-AN","station_id":"43309","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":7.98,"longitude":93.53,"label":"Nancowrie","title":"Nancowrie","imageURL":"img/vector/104-fill.svg","state_code":"IN-AN","station_id":"43382","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":11.67,"longitude":92.72,"label":"Port Blair","title":"Port Blair","imageURL":"img/vector/103.svg","state_code":"IN-AN","station_id":"43333","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":16.78,"longitude":80.84,"label":"Amaravati-AP","title":"Amaravati-AP","imageURL":"img/vector/103.svg","state_code":"IN-AP","station_id":"43176","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":16.53,"longitude":80.8,"label":"Amaravati-Gannavaram","title":"Amaravati-Gannavaram","imageURL":"img/vector/101.svg","state_code":"IN-AP","station_id":"43181","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":14.58,"longitude":77.63,"label":"Anantapur","title":"Anantapur","imageURL":"img/vector/101.svg","state_code":"IN-AP","station_id":"43237","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":13.53,"longitude":78.5,"label":"AROGYAVARAM","title":"AROGYAVARAM","imageURL":"img/vector/101.svg","state_code":"IN-AP","station_id":"43271","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":15.9,"longitude":80.47,"label":"Bapatla   ","title":"Bapatla   ","imageURL":"img/vector/103.svg","state_code":"IN-AP","station_id":"43220","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":14.48,"longitude":78.83,"label":"Cuddappah","title":"Cuddappah","imageURL":"img/vector/101.svg","state_code":"IN-AP","station_id":"43241","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":16.95,"longitude":82.23,"label":"Kakinada","title":"Kakinada","imageURL":"img/vector/103.svg","state_code":"IN-AP","station_id":"43189","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":18.32,"longitude":84.13,"label":"Kalingapatnam","title":"Kalingapatnam","imageURL":"img/vector/102.svg","state_code":"IN-AP","station_id":"43105","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":14.96,"longitude":79.98,"label":"Kavali    ","title":"Kavali    ","imageURL":"img/vector/102.svg","state_code":"IN-AP","station_id":"43243","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":15.8,"longitude":78.06,"label":"Kurnool","title":"Kurnool","imageURL":"img/vector/103.svg","state_code":"IN-AP","station_id":"43213","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":16.2,"longitude":81.15,"label":"Machilipatnam","title":"Machilipatnam","imageURL":"img/vector/101.svg","state_code":"IN-AP","station_id":"43185","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":16.78,"longitude":80.28,"label":"NANDIGAMA","title":"NANDIGAMA","imageURL":"img/vector/100-fill.svg","state_code":"IN-AP","station_id":"43182","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":15.47,"longitude":78.48,"label":"NANDYAL","title":"NANDYAL","imageURL":"img/vector/100-fill.svg","state_code":"IN-AP","station_id":"43212","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":16.43,"longitude":81.7,"label":"Narasapur ","title":"Narasapur ","imageURL":"img/vector/101.svg","state_code":"IN-AP","station_id":"43187","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":14.45,"longitude":79.98,"label":"Nellore","title":"Nellore","imageURL":"img/vector/102.svg","state_code":"IN-AP","station_id":"43245","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":15.48,"longitude":80.08,"label":"Ongole","title":"Ongole","imageURL":"img/vector/102.svg","state_code":"IN-AP","station_id":"43221","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":13.67,"longitude":79.58,"label":"Tirupathi","title":"Tirupathi","imageURL":"img/vector/502.svg","state_code":"IN-AP","station_id":"43275","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":17.35,"longitude":82.55,"label":"Tuni       ","title":"Tuni       ","imageURL":"img/vector/101.svg","state_code":"IN-AP","station_id":"43147","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":17.72,"longitude":83.32,"label":"Visakhapatnam","title":"Visakhapatnam","imageURL":"img/vector/502.svg","state_code":"IN-AP","station_id":"43150","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":17.72,"longitude":83.23,"label":"VISHAKHAPATNAM","title":"VISHAKHAPATNAM","imageURL":"img/vector/502.svg","state_code":"IN-AP","station_id":"43149","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":27.1,"longitude":93.616,"label":"Itanagar","title":"Itanagar","imageURL":"img/vector/500.svg","state_code":"IN-AR","station_id":"42308","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":28.1,"longitude":95.38,"label":"Passighat","title":"Passighat","imageURL":"img/vector/502.svg","state_code":"IN-AR","station_id":"42220","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":26.2,"longitude":92.52,"label":"CHAPARMUKH","title":"CHAPARMUKH","imageURL":"img/vector/104-fill.svg","state_code":"IN-AS","station_id":"42414","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":26.02,"longitude":89.98,"label":"DHUBRI","title":"DHUBRI","imageURL":"img/vector/103.svg","state_code":"IN-AS","station_id":"42404","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":27.48,"longitude":95.02,"label":"Dibrugarh","title":"Dibrugarh","imageURL":"img/vector/101.svg","state_code":"IN-AS","station_id":"42314","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":26.18,"longitude":90.63,"label":"Goalpara","title":"Goalpara","imageURL":"img/vector/102.svg","state_code":"IN-AS","station_id":"42407","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":26.51,"longitude":93.98,"label":"Golaghat","title":"Golaghat","imageURL":"img/vector/502.svg","state_code":"IN-AS","station_id":"42420","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":26.1,"longitude":91.58,"label":"Guwahati-Airport","title":"Guwahati-Airport","imageURL":"img/vector/502.svg","state_code":"IN-AS","station_id":"42410","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":25.17,"longitude":93.02,"label":"HAFLONG","title":"HAFLONG","imageURL":"img/vector/103.svg","state_code":"IN-AS","station_id":"42522","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":26.06,"longitude":90.16,"label":"Jorhat","title":"Jorhat","imageURL":"img/vector/104-fill.svg","state_code":"IN-AS","station_id":"42423","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":25.75,"longitude":93.18,"label":"Lumding","title":"Lumding","imageURL":"img/vector/101.svg","state_code":"IN-AS","station_id":"42523","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":26.75,"longitude":92.35,"label":"Mazbat","title":"Mazbat","imageURL":"img/vector/502.svg","state_code":"IN-AS","station_id":"42413","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":27.23,"longitude":94.12,"label":"North Lakhimpur","title":"North Lakhimpur","imageURL":"img/vector/502.svg","state_code":"IN-AS","station_id":"42309","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":26.43,"longitude":91.62,"label":"RANGIA","title":"RANGIA","imageURL":"img/vector/502.svg","state_code":"IN-AS","station_id":"42408","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":24.75,"longitude":92.8,"label":"Silchar","title":"Silchar","imageURL":"img/vector/500.svg","state_code":"IN-AS","station_id":"42619","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":26.61,"longitude":92.78,"label":"Tezpur","title":"Tezpur","imageURL":"img/vector/103.svg","state_code":"IN-AS","station_id":"42415","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":25.23,"longitude":86.95,"label":"Bhagalpur","title":"Bhagalpur","imageURL":"img/vector/502.svg","state_code":"IN-BR","station_id":"42498","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":25.78,"longitude":84.73,"label":"Chapra","title":"Chapra","imageURL":"img/vector/500.svg","state_code":"IN-BR","station_id":"42488","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":24.92,"longitude":84.18,"label":"DEHRI","title":"DEHRI","imageURL":"img/vector/500.svg","state_code":"IN-BR","station_id":"42588","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":26.3,"longitude":87.27,"label":"Farbesganj","title":"Farbesganj","imageURL":"img/vector/104-fill.svg","state_code":"IN-BR","station_id":"42395","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":24.75,"longitude":84.95,"label":"Gaya","title":"Gaya","imageURL":"img/vector/502.svg","state_code":"IN-BR","station_id":"42591","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":26.67,"longitude":84.92,"label":"Motihari","title":"Motihari","imageURL":"img/vector/502.svg","state_code":"IN-BR","station_id":"42383","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":26.12,"longitude":85.4,"label":"Muzaffarpur","title":"Muzaffarpur","imageURL":"img/vector/500.svg","state_code":"IN-BR","station_id":"42387","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":25.6,"longitude":85.1,"label":"Patna-Airport","title":"Patna-Airport","imageURL":"img/vector/502.svg","state_code":"IN-BR","station_id":"42492","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":25.27,"longitude":87.47,"label":"Purnea","title":"Purnea","imageURL":"img/vector/502.svg","state_code":"IN-BR","station_id":"42500","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":26.13,"longitude":86.58,"label":"Supaul","title":"Supaul","imageURL":"img/vector/502.svg","state_code":"IN-BR","station_id":"42393","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":23.17,"longitude":83.25,"label":"Ambikapur","title":"Ambikapur","imageURL":"img/vector/103.svg","state_code":"IN-CT","station_id":"42693","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":22.1,"longitude":82.16,"label":"BILASPUR","title":"BILASPUR","imageURL":"img/vector/102.svg","state_code":"IN-CT","station_id":"42782","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":21.18,"longitude":81.28,"label":"Durg","title":"Durg","imageURL":"img/vector/100-fill.svg","state_code":"IN-CT","station_id":"42876","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":19.07,"longitude":82.03,"label":"Jagdalpur","title":"Jagdalpur","imageURL":"img/vector/502.svg","state_code":"IN-CT","station_id":"43041","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":22.77,"longitude":81.9,"label":"Pendra","title":"Pendra","imageURL":"img/vector/102.svg","state_code":"IN-CT","station_id":"42779","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":21.23,"longitude":81.65,"label":"Raipur-Lalpur","title":"Raipur-Lalpur","imageURL":"img/vector/102.svg","state_code":"IN-CT","station_id":"42874","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":21.23,"longitude":81.65,"label":"Raipur-Mana","title":"Raipur-Mana","imageURL":"img/vector/502.svg","state_code":"IN-CT","station_id":"42872","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":21.1,"longitude":81.03,"label":"Rajnandgaon","title":"Rajnandgaon","imageURL":"img/vector/100-fill.svg","state_code":"IN-CT","station_id":"42948","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":28.48,"longitude":77.13,"label":"New Delhi-Ayanagar","title":"New Delhi-Ayanagar","imageURL":"img/vector/502.svg","state_code":"IN-DL","station_id":"42180","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":28.57,"longitude":77.12,"label":"New Delhi-Palam","title":"New Delhi-Palam","imageURL":"img/vector/502.svg","state_code":"IN-DL","station_id":"42181","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":28.68,"longitude":77.22,"label":"New Delhi-Ridge","title":"New Delhi-Ridge","imageURL":"img/vector/502.svg","state_code":"IN-DL","station_id":"42184","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":28.5842,"longitude":77.2097,"label":"New Delhi-Safdarjung","title":"New Delhi-Safdarjung","imageURL":"img/vector/502.svg","state_code":"IN-DL","station_id":"42182","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":20.42,"longitude":72.84,"label":"Daman","title":"Daman","imageURL":"img/vector/500.svg","state_code":"IN-DD","station_id":"42916","ajaxUrl":"responsive/LIP/sample4State.php","width":18,"height":18,"selectable":true},{"latitude":20.72,"longitude":70

@@ -1,0 +1,671 @@
+{
+  "specVersion": "0.91",
+  "host": {
+    "displayName": "eSankhyiki - Ministry of Statistics and Programme Implementation",
+    "identifier": "esankhyiki.mospi.gov.in",
+    "documentationUrl": "https://esankhyiki.mospi.gov.in/llms.txt"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:portal:statistical-data",
+      "displayName": "eSankhyiki Official Statistical Data Portal",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/",
+      "description": "Official statistical data portal of the Ministry of Statistics and Programme Implementation (MoSPI), Government of India.",
+      "tags": [
+        "eSankhyiki",
+        "MoSPI",
+        "Government of India",
+        "official statistics",
+        "statistical data",
+        "datasets",
+        "indicators",
+        "time-series data"
+      ],
+      "capabilities": [
+        "discover statistical data",
+        "discover datasets",
+        "discover indicators",
+        "access statistical information",
+        "access time-series information",
+        "access metadata"
+      ],
+      "representativeQueries": [
+        "Find official statistics from MoSPI",
+        "Find Indian government statistical data",
+        "Search eSankhyiki statistical datasets",
+        "Find official statistical indicators from India"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:national-accounts-statistics",
+      "displayName": "National Accounts Statistics",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+      "description": "Official National Accounts Statistics published through eSankhyiki.",
+      "tags": [
+        "National Accounts Statistics",
+        "NAS",
+        "GDP",
+        "national accounts",
+        "economic statistics"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve indicators",
+        "retrieve time-series data"
+      ],
+      "representativeQueries": [
+        "Find official National Accounts Statistics of India",
+        "Find official GDP statistics from MoSPI",
+        "Retrieve India's national accounts data"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:consumer-price-index",
+      "displayName": "Consumer Price Index",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+      "description": "Official Consumer Price Index statistics published through eSankhyiki.",
+      "tags": [
+        "Consumer Price Index",
+        "CPI",
+        "inflation",
+        "price statistics"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve indicators",
+        "retrieve time-series data"
+      ],
+      "representativeQueries": [
+        "Find India's official Consumer Price Index",
+        "Find official CPI data from MoSPI",
+        "Retrieve India's official inflation statistics"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:index-industrial-production",
+      "displayName": "Index of Industrial Production",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+      "description": "Official Index of Industrial Production statistics published through eSankhyiki.",
+      "tags": [
+        "Index of Industrial Production",
+        "IIP",
+        "industrial production",
+        "industrial statistics"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve indicators",
+        "retrieve time-series data"
+      ],
+      "representativeQueries": [
+        "Find India's official Index of Industrial Production",
+        "Find official IIP data from MoSPI",
+        "Retrieve India's industrial production statistics"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:periodic-labour-force-survey",
+      "displayName": "Periodic Labour Force Survey",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+      "description": "Official Periodic Labour Force Survey statistics published through eSankhyiki.",
+      "tags": [
+        "Periodic Labour Force Survey",
+        "PLFS",
+        "employment",
+        "labour force",
+        "labour statistics"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve survey data",
+        "retrieve indicators"
+      ],
+      "representativeQueries": [
+        "Find official PLFS statistics of India",
+        "Find India's employment and labour force data",
+        "Retrieve official Periodic Labour Force Survey data"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:annual-survey-industries",
+      "displayName": "Annual Survey of Industries",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=asi",
+      "description": "Official Annual Survey of Industries statistics published through eSankhyiki.",
+      "tags": [
+        "Annual Survey of Industries",
+        "ASI",
+        "industrial statistics",
+        "industries"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve survey data",
+        "retrieve indicators"
+      ],
+      "representativeQueries": [
+        "Find official Annual Survey of Industries data",
+        "Find India's official industrial survey statistics",
+        "Retrieve ASI statistics from MoSPI"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:household-consumption-expenditure",
+      "displayName": "Household Consumption Expenditure Survey",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=hces",
+      "description": "Official Household Consumption Expenditure Survey statistics published through eSankhyiki.",
+      "tags": [
+        "Household Consumption Expenditure Survey",
+        "HCES",
+        "household consumption",
+        "consumer expenditure"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve survey data",
+        "retrieve indicators"
+      ],
+      "representativeQueries": [
+        "Find official Household Consumption Expenditure data",
+        "Find India's household consumption statistics",
+        "Retrieve HCES data from MoSPI"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:multiple-indicator-survey-78",
+      "displayName": "Multiple Indicator Survey (78th Round)",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=nss78",
+      "description": "Official Multiple Indicator Survey statistics from the NSS 78th Round.",
+      "tags": [
+        "Multiple Indicator Survey",
+        "NSS 78th Round",
+        "NSS",
+        "survey statistics"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve survey data",
+        "retrieve indicators"
+      ],
+      "representativeQueries": [
+        "Find official Multiple Indicator Survey data",
+        "Find NSS 78th Round statistics",
+        "Retrieve India's Multiple Indicator Survey results"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:asuse",
+      "displayName": "Annual Survey of Unincorporated Sector Enterprises",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=asuse",
+      "description": "Official Annual Survey of Unincorporated Sector Enterprises statistics.",
+      "tags": [
+        "ASUSE",
+        "Annual Survey of Unincorporated Sector Enterprises",
+        "unincorporated sector",
+        "enterprises"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve survey data",
+        "retrieve indicators"
+      ],
+      "representativeQueries": [
+        "Find official ASUSE statistics",
+        "Find India's unincorporated sector enterprise data",
+        "Retrieve Annual Survey of Unincorporated Sector Enterprises data"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:ayush-nss79",
+      "displayName": "Survey on AYUSH (NSS 79th Round)",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=nss79",
+      "description": "Official Survey on AYUSH statistics from the NSS 79th Round.",
+      "tags": [
+        "AYUSH",
+        "NSS 79th Round",
+        "health",
+        "survey statistics"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve survey data",
+        "retrieve indicators"
+      ],
+      "representativeQueries": [
+        "Find official AYUSH survey statistics",
+        "Find NSS 79th Round AYUSH data",
+        "Retrieve India's official AYUSH survey data"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:cams-nss79",
+      "displayName": "Comprehensive Annual Modular Survey (CAMS) (NSS 79th Round)",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=nss79c",
+      "description": "Official Comprehensive Annual Modular Survey statistics from the NSS 79th Round.",
+      "tags": [
+        "CAMS",
+        "Comprehensive Annual Modular Survey",
+        "NSS 79th Round",
+        "survey statistics"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve survey data",
+        "retrieve indicators"
+      ],
+      "representativeQueries": [
+        "Find official CAMS statistics",
+        "Find NSS 79th Round CAMS data",
+        "Retrieve Comprehensive Annual Modular Survey data"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:women-men-india",
+      "displayName": "Women and Men in India",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=gender",
+      "description": "Official Women and Men in India statistics.",
+      "tags": [
+        "Women and Men in India",
+        "gender statistics",
+        "women",
+        "men",
+        "social statistics"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve indicators",
+        "retrieve social statistics"
+      ],
+      "representativeQueries": [
+        "Find official Women and Men in India statistics",
+        "Find India's gender statistics",
+        "Retrieve official gender statistics from MoSPI"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:energy-statistics-india",
+      "displayName": "Energy Statistics India",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=esi",
+      "description": "Official Energy Statistics India published through eSankhyiki.",
+      "tags": [
+        "Energy Statistics India",
+        "energy statistics",
+        "energy",
+        "MoSPI"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve indicators",
+        "retrieve time-series data"
+      ],
+      "representativeQueries": [
+        "Find official Energy Statistics India data",
+        "Find India's official energy statistics",
+        "Retrieve energy statistics from MoSPI"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:environment-statistics",
+      "displayName": "Environment Statistics",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=envstat",
+      "description": "Official Environment Statistics published through eSankhyiki.",
+      "tags": [
+        "Environment Statistics",
+        "environment",
+        "environmental statistics",
+        "MoSPI"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve indicators",
+        "retrieve environmental statistics"
+      ],
+      "representativeQueries": [
+        "Find official Environment Statistics of India",
+        "Find India's environmental statistics",
+        "Retrieve official environment data from MoSPI"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:time-use-survey",
+      "displayName": "Time Use Survey",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=tus",
+      "description": "Official Time Use Survey statistics published through eSankhyiki.",
+      "tags": [
+        "Time Use Survey",
+        "TUS",
+        "time use",
+        "social statistics"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve survey data",
+        "retrieve indicators"
+      ],
+      "representativeQueries": [
+        "Find official Time Use Survey data",
+        "Find India's time use statistics",
+        "Retrieve official Time Use Survey results"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:nss76-water-sanitation-housing",
+      "displayName": "Drinking Water, Sanitation, Hygiene and Housing Condition in India (NSS 76th Round)",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=nss76",
+      "description": "Official statistics on drinking water, sanitation, hygiene and housing conditions from the NSS 76th Round.",
+      "tags": [
+        "drinking water",
+        "sanitation",
+        "hygiene",
+        "housing",
+        "NSS 76th Round"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve survey data",
+        "retrieve indicators"
+      ],
+      "representativeQueries": [
+        "Find official drinking water and sanitation statistics",
+        "Find NSS 76th Round housing condition data",
+        "Retrieve India's official sanitation and housing statistics"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:persons-disabilities-nss76",
+      "displayName": "Persons with Disabilities in India (NSS 76th Round)",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=nss76c",
+      "description": "Official statistics on persons with disabilities in India from the NSS 76th Round.",
+      "tags": [
+        "persons with disabilities",
+        "disability statistics",
+        "NSS 76th Round",
+        "social statistics"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve survey data",
+        "retrieve indicators"
+      ],
+      "representativeQueries": [
+        "Find official disability statistics for India",
+        "Find NSS 76th Round disability data",
+        "Retrieve official Persons with Disabilities statistics"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:education-nss75",
+      "displayName": "Household Social Consumption on Education in India (NSS 75th Round)",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=nss75e",
+      "description": "Official statistics on household social consumption on education from the NSS 75th Round.",
+      "tags": [
+        "education",
+        "Household Social Consumption",
+        "NSS 75th Round",
+        "education statistics"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve survey data",
+        "retrieve indicators"
+      ],
+      "representativeQueries": [
+        "Find official education expenditure statistics in India",
+        "Find NSS 75th Round education data",
+        "Retrieve Household Social Consumption on Education data"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:health-nss75",
+      "displayName": "Health in India (NSS 75th Round)",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=nss75",
+      "description": "Official Health in India statistics from the NSS 75th Round.",
+      "tags": [
+        "Health in India",
+        "health statistics",
+        "NSS 75th Round",
+        "health survey"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve survey data",
+        "retrieve indicators"
+      ],
+      "representativeQueries": [
+        "Find official health statistics for India",
+        "Find NSS 75th Round health data",
+        "Retrieve Health in India statistics from MoSPI"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:cmst-nss80",
+      "displayName": "Comprehensive Modular Survey: Telecom (CMST) (NSS 80th Round)",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=nss80",
+      "description": "Official Comprehensive Modular Survey on Telecom from the NSS 80th Round.",
+      "tags": [
+        "CMST",
+        "Telecom",
+        "NSS 80th Round",
+        "telecom statistics"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve survey data",
+        "retrieve indicators"
+      ],
+      "representativeQueries": [
+        "Find official telecom statistics from India",
+        "Find NSS 80th Round telecom data",
+        "Retrieve Comprehensive Modular Survey Telecom data"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:cmse-nss80",
+      "displayName": "Comprehensive Modular Survey: Education (CMSE) (NSS 80th Round)",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=nss80e",
+      "description": "Official Comprehensive Modular Survey on Education from the NSS 80th Round.",
+      "tags": [
+        "CMSE",
+        "Education",
+        "NSS 80th Round",
+        "education statistics"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve survey data",
+        "retrieve indicators"
+      ],
+      "representativeQueries": [
+        "Find official education statistics from India",
+        "Find NSS 80th Round education data",
+        "Retrieve Comprehensive Modular Survey Education data"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:services-sector-nss74",
+      "displayName": "Services Sector Enterprises in India (NSS 74th Round)",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=nss74",
+      "description": "Official statistics on services sector enterprises in India from the NSS 74th Round.",
+      "tags": [
+        "services sector",
+        "enterprises",
+        "NSS 74th Round",
+        "enterprise statistics"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve survey data",
+        "retrieve indicators"
+      ],
+      "representativeQueries": [
+        "Find official services sector enterprise statistics",
+        "Find NSS 74th Round services sector data",
+        "Retrieve services sector enterprise data from MoSPI"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:agricultural-households-nss77",
+      "displayName": "Situation Assessment of Agri. Households / Land & Livestock Holdings (77th Round)",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=nss77",
+      "description": "Official statistics on agricultural households, land holdings and livestock holdings from the 77th Round.",
+      "tags": [
+        "agricultural households",
+        "land holdings",
+        "livestock holdings",
+        "NSS 77th Round",
+        "agriculture statistics"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve survey data",
+        "retrieve indicators"
+      ],
+      "representativeQueries": [
+        "Find official agricultural household statistics",
+        "Find NSS 77th Round land and livestock data",
+        "Retrieve India's agricultural household statistics"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:debt-investment-nss77",
+      "displayName": "All India Debt & Investment Survey (NSS 77th Round)",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=nss77a",
+      "description": "Official All India Debt and Investment Survey statistics from the NSS 77th Round.",
+      "tags": [
+        "All India Debt and Investment Survey",
+        "AIDIS",
+        "NSS 77th Round",
+        "debt",
+        "investment"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve survey data",
+        "retrieve indicators"
+      ],
+      "representativeQueries": [
+        "Find official All India Debt and Investment Survey data",
+        "Find India's household debt and investment statistics",
+        "Retrieve AIDIS data from MoSPI"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:dataset:unincorporated-enterprises-nss73",
+      "displayName": "Unincorporated Non-Agricultural Enterprises in India (NSS 73rd Round)",
+      "type": "text/html",
+      "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=nss73",
+      "description": "Official statistics on unincorporated non-agricultural enterprises in India from the NSS 73rd Round.",
+      "tags": [
+        "unincorporated enterprises",
+        "non-agricultural enterprises",
+        "NSS 73rd Round",
+        "enterprise statistics"
+      ],
+      "capabilities": [
+        "retrieve statistical data",
+        "retrieve survey data",
+        "retrieve indicators"
+      ],
+      "representativeQueries": [
+        "Find official unincorporated enterprise statistics",
+        "Find NSS 73rd Round enterprise data",
+        "Retrieve India's non-agricultural enterprise statistics"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:resource:llms-txt",
+      "displayName": "eSankhyiki LLM Information",
+      "type": "text/plain",
+      "url": "https://esankhyiki.mospi.gov.in/llms.txt",
+      "description": "Machine-readable overview of eSankhyiki, its official data resources, attribution requirements and AI access guidance.",
+      "tags": [
+        "llms.txt",
+        "LLM",
+        "AI",
+        "machine-readable"
+      ],
+      "capabilities": [
+        "discover official resources",
+        "discover website information"
+      ],
+      "representativeQueries": [
+        "What official statistical resources does eSankhyiki provide?",
+        "Where can an AI find official MoSPI statistics?"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:resource:ai-catalog",
+      "displayName": "eSankhyiki AI Catalog",
+      "type": "application/json",
+      "url": "https://esankhyiki.mospi.gov.in/ai-catalog.json",
+      "description": "Compatibility AI catalog describing machine-accessible eSankhyiki resources.",
+      "tags": [
+        "AI catalog",
+        "machine-readable",
+        "AI discovery",
+        "agent discovery"
+      ],
+      "capabilities": [
+        "discover machine-accessible resources"
+      ],
+      "representativeQueries": [
+        "Find machine-readable eSankhyiki resources",
+        "Find AI-accessible MoSPI statistical resources"
+      ]
+    },
+    {
+      "identifier": "urn:air:esankhyiki.mospi.gov.in:resource:mcp-server-card",
+      "displayName": "eSankhyiki MCP Server",
+      "type": "application/mcp-server-card+json",
+      "url": "https://mcp.mospi.gov.in/.well-known/mcp/server-card.json",
+      "description": "Official eSankhyiki MCP Server Card provided by the Ministry of Statistics and Programme Implementation (MoSPI). It describes the MCP server used for discovering datasets, indicators, metadata and retrieving official statistical data.",
+      "tags": [
+        "MCP",
+        "Model Context Protocol",
+        "MCP Server",
+        "eSankhyiki",
+        "MoSPI",
+        "official statistics",
+        "statistical data",
+        "AI",
+        "machine-readable"
+      ],
+      "capabilities": [
+        "discover MCP server",
+        "discover datasets",
+        "discover indicators",
+        "retrieve metadata",
+        "retrieve official statistical data"
+      ],
+      "representativeQueries": [
+        "Find the official eSankhyiki MCP server",
+        "Find official MoSPI datasets using MCP",
+        "Find indicators from eSankhyiki using MCP",
+        "Retrieve official statistical data from MoSPI using MCP"
+      ]
+    }
+  ]
+}

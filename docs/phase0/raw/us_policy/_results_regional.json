@@ -1,0 +1,750 @@
+[
+ {
+  "name": "regional_nyfed_0",
+  "url": "https://www.newyorkfed.org/newsevents/speeches",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:10:16.678521+00:00",
+  "status": 200,
+  "final_url": "https://www.newyorkfed.org/newsevents/speeches/index",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "x-akamai-transformed": "9 52033 0 pmb=mRUM,1",
+   "cache-control": "no-cache, no-store",
+   "expires": "Thu, 01 Oct 2026 10:10:22 GMT",
+   "date": "Thu, 01 Oct 2026 10:10:22 GMT",
+   "content-length": "37070"
+  },
+  "bytes": 592908,
+  "sample": "regional_nyfed_0.html",
+  "links": {
+   "rss|feed|\\.xml|atom": []
+  }
+ },
+ {
+  "name": "regional_nyfed_1",
+  "url": "https://www.newyorkfed.org/rss",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:10:18.642304+00:00",
+  "status": 200,
+  "final_url": "https://www.newyorkfed.org/errors/500",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "x-akamai-transformed": "9 19402 0 pmb=mRUM,1",
+   "cache-control": "no-cache, no-store",
+   "expires": "Thu, 01 Oct 2026 10:10:23 GMT",
+   "date": "Thu, 01 Oct 2026 10:10:23 GMT",
+   "content-length": "16273"
+  },
+  "bytes": 95362,
+  "sample": "regional_nyfed_1.html",
+  "links": {
+   "rss|feed|\\.xml|atom": []
+  }
+ },
+ {
+  "name": "regional_bostonfed_0",
+  "url": "https://www.bostonfed.org/news-and-events/speeches.aspx",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:10:20.111997+00:00",
+  "status": 200,
+  "final_url": "https://www.bostonfed.org/news-and-events/speeches.aspx",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "x-akamai-transformed": "0 - 0 -",
+   "cache-control": "no-cache, no-store",
+   "expires": "Thu, 01 Oct 2026 10:10:25 GMT",
+   "date": "Thu, 01 Oct 2026 10:10:25 GMT",
+   "content-length": "35136"
+  },
+  "bytes": 348545,
+  "sample": "regional_bostonfed_0.html",
+  "links": {
+   "rss|feed|\\.xml|atom": [
+    "https://www.bostonfed.org/feeds/rss_news.xml",
+    "https://www.bostonfed.org/feeds/rss_research.xml",
+    "https://www.bostonfed.org/feeds/rss_speeches.xml",
+    "/Content/components/feedback-form/feedback-form.css",
+    "/feeds.aspx",
+    "/about-the-boston-fed/feedback.aspx"
+   ]
+  }
+ },
+ {
+  "name": "regional_bostonfed_1",
+  "url": "https://www.bostonfed.org/rss.aspx",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:10:22.134476+00:00",
+  "status": 200,
+  "final_url": "https://www.bostonfed.org/rss.aspx",
+  "headers": {
+   "content-type": "text/html",
+   "etag": "\"0da102eee46dd1:0\"",
+   "last-modified": "Thu, 17 Sep 2026 21:47:48 GMT",
+   "x-akamai-transformed": "0 - 0 -",
+   "cache-control": "no-store",
+   "date": "Thu, 01 Oct 2026 10:10:26 GMT",
+   "content-length": "19711"
+  },
+  "bytes": 80100,
+  "sample": "regional_bostonfed_1.html",
+  "links": {
+   "rss|feed|\\.xml|atom": [
+    "/feeds/rss_news.xml",
+    "/feeds/rss_research.xml",
+    "/feeds/rss_speeches.xml",
+    "/Content/components/feedback-form/feedback-form.css",
+    "/feeds.aspx",
+    "/about-the-boston-fed/feedback.aspx"
+   ]
+  }
+ },
+ {
+  "name": "regional_philfed_0",
+  "url": "https://www.philadelphiafed.org/",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:10:22.716911+00:00",
+  "status": 200,
+  "final_url": "https://www.philadelphiafed.org/",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "x-akamai-transformed": "0 - 0 -",
+   "cache-control": "no-cache, no-store",
+   "expires": "Thu, 01 Oct 2026 10:10:28 GMT",
+   "date": "Thu, 01 Oct 2026 10:10:28 GMT",
+   "content-length": "7978"
+  },
+  "bytes": 41167,
+  "sample": "regional_philfed_0.html",
+  "links": {
+   "rss|feed|\\.xml|atom": []
+  }
+ },
+ {
+  "name": "regional_philfed_1",
+  "url": "https://www.philadelphiafed.org/rss",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:10:24.698689+00:00",
+  "status": 404,
+  "final_url": "https://www.philadelphiafed.org/rss",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "x-akamai-transformed": "0 - 0 -",
+   "cache-control": "no-cache, no-store",
+   "expires": "Thu, 01 Oct 2026 10:10:28 GMT",
+   "date": "Thu, 01 Oct 2026 10:10:28 GMT",
+   "content-length": "18367"
+  },
+  "bytes": 18367,
+  "sample": "regional_philfed_1.html"
+ },
+ {
+  "name": "regional_clevelandfed_0",
+  "url": "https://www.clevelandfed.org/collections/speeches",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:10:25.166173+00:00",
+  "status": 200,
+  "final_url": "https://www.clevelandfed.org/collections/speeches",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "x-akamai-transformed": "0 - 0 -",
+   "cache-control": "no-cache, no-store",
+   "expires": "Thu, 01 Oct 2026 10:10:30 GMT",
+   "date": "Thu, 01 Oct 2026 10:10:30 GMT",
+   "content-length": "20952"
+  },
+  "bytes": 156567,
+  "sample": "regional_clevelandfed_0.html",
+  "links": {
+   "rss|feed|\\.xml|atom": []
+  }
+ },
+ {
+  "name": "regional_clevelandfed_1",
+  "url": "https://www.clevelandfed.org/rss",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:10:26.549177+00:00",
+  "status": 404,
+  "final_url": "https://www.clevelandfed.org/rss",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "x-akamai-transformed": "0 - 0 -",
+   "cache-control": "no-cache, no-store",
+   "expires": "Thu, 01 Oct 2026 10:10:30 GMT",
+   "date": "Thu, 01 Oct 2026 10:10:30 GMT"
+  },
+  "bytes": 122989,
+  "sample": "regional_clevelandfed_1.html"
+ },
+ {
+  "name": "regional_richmondfed_0",
+  "url": "https://www.richmondfed.org/press_room/speeches",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:10:27.520818+00:00",
+  "status": 200,
+  "final_url": "https://www.richmondfed.org/press_room/speeches",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "x-akamai-transformed": "0 - 0 -",
+   "cache-control": "no-cache, no-store, must-revalidate",
+   "expires": "Thu, 01 Oct 2026 10:10:33 GMT",
+   "date": "Thu, 01 Oct 2026 10:10:33 GMT",
+   "content-length": "12622"
+  },
+  "bytes": 52681,
+  "sample": "regional_richmondfed_0.html",
+  "links": {
+   "rss|feed|\\.xml|atom": [
+    "/press_room/speeches?cc_view=rss"
+   ]
+  }
+ },
+ {
+  "name": "regional_richmondfed_1",
+  "url": "https://www.richmondfed.org/rss",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:10:29.877301+00:00",
+  "status": 404,
+  "final_url": "https://www.richmondfed.org/rss",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "x-akamai-transformed": "0 - 0 -",
+   "cache-control": "no-cache, no-store, must-revalidate",
+   "expires": "Thu, 01 Oct 2026 10:10:34 GMT",
+   "date": "Thu, 01 Oct 2026 10:10:34 GMT"
+  },
+  "bytes": 39046,
+  "sample": "regional_richmondfed_1.html"
+ },
+ {
+  "name": "regional_atlantafed_0",
+  "url": "https://www.atlantafed.org/news/speeches",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:10:30.579938+00:00",
+  "status": 200,
+  "final_url": "https://www.atlantafed.org/news-and-events/speeches",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "last-modified": "Fri, 25 Sep 2026 15:01:21 GMT",
+   "x-akamai-transformed": "0 - 0 -",
+   "cache-control": "no-cache, no-store",
+   "expires": "Thu, 01 Oct 2026 10:10:36 GMT",
+   "date": "Thu, 01 Oct 2026 10:10:36 GMT"
+  },
+  "bytes": 153319,
+  "sample": "regional_atlantafed_0.html",
+  "links": {
+   "rss|feed|\\.xml|atom": [
+    "/rss"
+   ]
+  }
+ },
+ {
+  "name": "regional_atlantafed_1",
+  "url": "https://www.atlantafed.org/rss",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:10:33.343543+00:00",
+  "status": 200,
+  "final_url": "https://www.atlantafed.org/rss",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "last-modified": "Wed, 30 Sep 2026 14:50:36 GMT",
+   "x-akamai-transformed": "0 - 0 -",
+   "cache-control": "no-cache, no-store",
+   "expires": "Thu, 01 Oct 2026 10:10:37 GMT",
+   "date": "Thu, 01 Oct 2026 10:10:37 GMT",
+   "content-length": "9539"
+  },
+  "bytes": 40348,
+  "sample": "regional_atlantafed_1.html",
+  "links": {
+   "rss|feed|\\.xml|atom": [
+    "/rss/listindex",
+    "/rss/pressindex",
+    "/rss/pubs",
+    "/rss/partnersupdate",
+    "/rss/wps",
+    "/rss/speechindex",
+    "/rss/CommercialRealEstateMarketIndex",
+    "/rss/GDPNow",
+    "/rss/HomeOwnershipAffordabilityMonitor",
+    "/rss/InflationProject",
+    "/rss/inflationProject_bie",
+    "/rss/inflationProject_stickyPrice",
+    "/rss/LaborReportFirstLook",
+    "/rss/MarketProbabilityTracker",
+    "/rss/SurveyOfBusinessUncertainty",
+    "/rss/WageGrowthTracker",
+    "/rss/macroblog",
+    "/rss/TakeOnPayments",
+    "/rss"
+   ]
+  }
+ },
+ {
+  "name": "regional_chicagofed_0",
+  "url": "https://www.chicagofed.org/",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:10:33.827738+00:00",
+  "status": 200,
+  "final_url": "https://www.chicagofed.org/",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "last-modified": "Wed, 11 Feb 2026 17:12:41 GMT",
+   "x-akamai-transformed": "0 - 0 -",
+   "cache-control": "no-cache, no-store",
+   "expires": "Thu, 01 Oct 2026 10:10:38 GMT",
+   "date": "Thu, 01 Oct 2026 10:10:38 GMT",
+   "content-length": "15347"
+  },
+  "bytes": 105634,
+  "sample": "regional_chicagofed_0.html",
+  "links": {
+   "rss|feed|\\.xml|atom": [
+    "/rss"
+   ]
+  }
+ },
+ {
+  "name": "regional_chicagofed_1",
+  "url": "https://www.chicagofed.org/utilities/rss",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:10:35.122810+00:00",
+  "status": 404,
+  "final_url": "https://www.chicagofed.org/utilities/rss",
+  "headers": {
+   "content-type": "text/HTML",
+   "x-akamai-transformed": "0 - 0 -",
+   "cache-control": "no-cache, no-store",
+   "date": "Thu, 01 Oct 2026 10:10:39 GMT"
+  },
+  "bytes": 50704,
+  "sample": "regional_chicagofed_1.html"
+ },
+ {
+  "name": "regional_stlouisfed_0",
+  "url": "https://www.stlouisfed.org/from-the-president/speeches",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:10:35.704086+00:00",
+  "error": "ReadTimeout: The read operation timed out"
+ },
+ {
+  "name": "regional_stlouisfed_1",
+  "url": "https://www.stlouisfed.org/rss",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:11:21.445532+00:00",
+  "error": "ReadTimeout: The read operation timed out"
+ },
+ {
+  "name": "regional_minneapolisfed_0",
+  "url": "https://www.minneapolisfed.org/speeches",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:12:07.339330+00:00",
+  "status": 200,
+  "final_url": "https://www.minneapolisfed.org/speeches",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+   "etag": "\"thenptkpg81c8z\"",
+   "x-akamai-transformed": "0 - 0 -",
+   "date": "Thu, 01 Oct 2026 10:12:13 GMT",
+   "content-length": "16254"
+  },
+  "bytes": 62643,
+  "sample": "regional_minneapolisfed_0.html",
+  "links": {
+   "rss|feed|\\.xml|atom": []
+  }
+ },
+ {
+  "name": "regional_minneapolisfed_1",
+  "url": "https://www.minneapolisfed.org/rss",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:12:09.514599+00:00",
+  "status": 404,
+  "final_url": "https://www.minneapolisfed.org/rss",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+   "etag": "\"osejm9aglv15lz\"",
+   "x-akamai-transformed": "0 - 0 -",
+   "date": "Thu, 01 Oct 2026 10:12:13 GMT",
+   "content-length": "15483"
+  },
+  "bytes": 54039,
+  "sample": "regional_minneapolisfed_1.html"
+ },
+ {
+  "name": "regional_kcfed_0",
+  "url": "https://www.kansascityfed.org/speeches/",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:12:10.099671+00:00",
+  "error": "ReadTimeout: The read operation timed out"
+ },
+ {
+  "name": "regional_kcfed_1",
+  "url": "https://www.kansascityfed.org/rss/",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:12:55.929415+00:00",
+  "error": "ReadTimeout: The read operation timed out"
+ },
+ {
+  "name": "regional_dallasfed_0",
+  "url": "https://www.dallasfed.org/news/speeches",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:13:41.428144+00:00",
+  "status": 200,
+  "final_url": "https://www.dallasfed.org/news/speeches",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "server": "Microsoft-IIS/10.0",
+   "x-akamai-transformed": "0 - 0 -",
+   "cache-control": "no-cache, no-store",
+   "expires": "Thu, 01 Oct 2026 10:13:46 GMT",
+   "date": "Thu, 01 Oct 2026 10:13:46 GMT",
+   "content-length": "6971"
+  },
+  "bytes": 31045,
+  "sample": "regional_dallasfed_0.html",
+  "links": {
+   "rss|feed|\\.xml|atom": []
+  }
+ },
+ {
+  "name": "regional_dallasfed_1",
+  "url": "https://www.dallasfed.org/rss",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:13:42.845103+00:00",
+  "status": 200,
+  "final_url": "https://www.dallasfed.org/rss",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "server": "Microsoft-IIS/10.0",
+   "x-akamai-transformed": "0 - 0 -",
+   "cache-control": "no-cache, no-store",
+   "expires": "Thu, 01 Oct 2026 10:13:46 GMT",
+   "date": "Thu, 01 Oct 2026 10:13:46 GMT",
+   "content-length": "7163"
+  },
+  "bytes": 31914,
+  "sample": "regional_dallasfed_1.html",
+  "links": {
+   "rss|feed|\\.xml|atom": [
+    "/rss/dallasfed.xml",
+    "/rss/releases.xml",
+    "/rss/speeches.xml",
+    "/rss/updates.xml"
+   ]
+  }
+ },
+ {
+  "name": "regional_sffed_0",
+  "url": "https://www.frbsf.org/news-and-media/speeches/",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:13:43.294512+00:00",
+  "status": 200,
+  "final_url": "https://www.frbsf.org/news-and-media/speeches/",
+  "headers": {
+   "server": "nginx",
+   "date": "Thu, 01 Oct 2026 10:13:47 GMT",
+   "content-type": "text/html; charset=UTF-8",
+   "x-cache": "HIT",
+   "cache-control": "max-age=300, must-revalidate"
+  },
+  "bytes": 115822,
+  "sample": "regional_sffed_0.html",
+  "links": {
+   "rss|feed|\\.xml|atom": [
+    "https://www.frbsf.org/feed/",
+    "https://www.frbsf.org/comments/feed/",
+    "https://www.frbsf.org/news-and-media/speeches/?feed=rss2"
+   ]
+  }
+ },
+ {
+  "name": "regional_sffed_1",
+  "url": "https://www.frbsf.org/feed/",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:13:44.395067+00:00",
+  "status": 200,
+  "final_url": "https://www.frbsf.org/feed/",
+  "headers": {
+   "server": "nginx",
+   "date": "Thu, 01 Oct 2026 10:13:48 GMT",
+   "content-type": "application/rss+xml; charset=UTF-8",
+   "last-modified": "Wed, 30 Sep 2026 22:17:55 GMT",
+   "etag": "W/\"fe14fbd523fccd76084daee812d0fb48\"",
+   "x-cache": "HIT",
+   "cache-control": "max-age=300, must-revalidate"
+  },
+  "bytes": 135576,
+  "sample": "regional_sffed_1.xml",
+  "feed": {
+   "feed_title": "San Francisco Fed",
+   "bozo": false,
+   "n_entries": 10,
+   "newest": "2026-06-15 21:00:00",
+   "oldest": "2025-12-12 20:45:00",
+   "first": [
+    {
+     "title": "Charting Their Course in 2026: Research Associates Begin Next Steps for New Paths and Opportunities",
+     "link": "https://www.frbsf.org/research-and-insights/blog/sf-fed-blog/2026/06/15/charting-their-course-in-2026-research-associates-begin-next-steps/",
+     "date": "Mon, 15 Jun 2026 21:00:00 +0000"
+    },
+    {
+     "title": "Celebrating 25 Years: The Phoenix Processing Center Marks a Quarter Century of Service",
+     "link": "https://www.frbsf.org/research-and-insights/blog/sf-fed-blog/2026/06/08/celebrating-25-years-phoenix-processing-center-marks-a-quarter-century-of-service/",
+     "date": "Mon, 08 Jun 2026 18:00:00 +0000"
+    },
+    {
+     "title": "Advisory Council Observations: March 2026",
+     "link": "https://www.frbsf.org/research-and-insights/blog/sf-fed-blog/2026/05/06/advisory-council-observations-march-2026/",
+     "date": "Wed, 06 May 2026 18:00:00 +0000"
+    },
+    {
+     "title": "Monetary Policy in a Slow (to No) Growth Labor Market",
+     "link": "https://www.frbsf.org/research-and-insights/blog/sf-fed-blog/2026/04/03/monetary-policy-in-a-slow-to-no-growth-labor-market/",
+     "date": "Fri, 03 Apr 2026 16:00:00 +0000"
+    },
+    {
+     "title": "The AI Investing Landscape: Insights from Venture Capital",
+     "link": "https://www.frbsf.org/research-and-insights/blog/sf-fed-blog/2026/02/11/the-ai-investing-landscape-insights-from-venture-capital/",
+     "date": "Wed, 11 Feb 2026 19:00:00 +0000"
+    }
+   ]
+  }
+ },
+ {
+  "name": "regfeed_boston_speeches",
+  "url": "https://www.bostonfed.org/feeds/rss_speeches.xml",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:13:44.520732+00:00",
+  "status": 200,
+  "final_url": "https://www.bostonfed.org/feeds/rss_speeches.xml",
+  "headers": {
+   "content-type": "text/xml; charset=utf-8",
+   "content-length": "4459",
+   "cache-control": "no-cache, no-store",
+   "expires": "Thu, 01 Oct 2026 10:13:49 GMT",
+   "date": "Thu, 01 Oct 2026 10:13:49 GMT"
+  },
+  "bytes": 14707,
+  "sample": "regfeed_boston_speeches.xml",
+  "conditional_get": "no validators returned",
+  "feed": {
+   "feed_title": "Boston Fed Speeches",
+   "bozo": false,
+   "n_entries": 50,
+   "newest": "2024-11-15 14:00:00",
+   "oldest": "2019-12-17 18:00:00",
+   "first": [
+    {
+     "title": null,
+     "link": "https://www.bostonfed.org/news-and-events/speeches/2024/opening-remarks-at-the-federal-reserve-bank-of-bostons-68th-economic-conference.aspx",
+     "date": "Fri, 15 Nov 2024 09:00:00 -0500"
+    },
+    {
+     "title": null,
+     "link": "https://www.bostonfed.org/news-and-events/speeches/2024/a-conversation-with-susan-m-collins-and-the-boston-foundations-lee-pelton.aspx",
+     "date": "Fri, 25 Oct 2024 15:39:00 -0400"
+    },
+    {
+     "title": null,
+     "link": "https://www.bostonfed.org/news-and-events/speeches/2024/meeting-the-moment-community-development-and-climate-resilience-in-new-englands-working-places.aspx",
+     "date": "Mon, 30 Sep 2024 12:00:00 -0400"
+    }
+   ]
+  }
+ },
+ {
+  "name": "regfeed_richmond_speeches",
+  "url": "https://www.richmondfed.org/press_room/speeches?cc_view=rss",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:13:45.814495+00:00",
+  "status": 200,
+  "final_url": "https://www.richmondfed.org/press_room/speeches?cc_view=rss",
+  "headers": {
+   "content-type": "text/xml; charset=utf-8",
+   "content-length": "37919",
+   "cache-control": "no-cache, no-store, must-revalidate",
+   "expires": "Thu, 01 Oct 2026 10:13:51 GMT",
+   "date": "Thu, 01 Oct 2026 10:13:51 GMT"
+  },
+  "bytes": 184641,
+  "sample": "regfeed_richmond_speeches.xml",
+  "conditional_get": "no validators returned",
+  "feed": {
+   "feed_title": "Speeches - Federal Reserve Bank of Richmond",
+   "bozo": false,
+   "n_entries": 297,
+   "newest": "2026-09-22 18:00:00",
+   "oldest": "1993-04-02 18:01:00",
+   "first": [
+    {
+     "title": "Why Hike?",
+     "link": "https://www.richmondfed.org/press_room/speeches/thomas_i_barkin/2026/barkin_speech_20260922",
+     "date": "Tue, 22 Sep 2026 13:00:00 EST"
+    },
+    {
+     "title": "The Mysterious U.S. Economy",
+     "link": "https://www.richmondfed.org/press_room/speeches/thomas_i_barkin/2026/barkin_speech_20260813",
+     "date": "Thu, 13 Aug 2026 08:40:00 EST"
+    },
+    {
+     "title": "Navigating Supply Shocks",
+     "link": "https://www.richmondfed.org/press_room/speeches/thomas_i_barkin/2026/barkin_speech_20260521",
+     "date": "Thu, 21 May 2026 12:20:00 EST"
+    }
+   ]
+  }
+ },
+ {
+  "name": "regfeed_atlanta_speeches",
+  "url": "https://www.atlantafed.org/rss/speechindex",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:13:47.859024+00:00",
+  "status": 200,
+  "final_url": "https://www.atlantafed.org/rss/speechindex",
+  "headers": {
+   "content-type": "text/xml; charset=utf-8",
+   "content-length": "2820",
+   "last-modified": "Mon, 09 Feb 2026 21:15:51 GMT",
+   "cache-control": "no-cache, no-store",
+   "expires": "Thu, 01 Oct 2026 10:13:53 GMT",
+   "date": "Thu, 01 Oct 2026 10:13:53 GMT"
+  },
+  "bytes": 7838,
+  "sample": "regfeed_atlanta_speeches.xml",
+  "conditional_get": {
+   "sent": {
+    "If-Modified-Since": "Mon, 09 Feb 2026 21:15:51 GMT"
+   },
+   "status": 304,
+   "bytes": 0
+  },
+  "feed": {
+   "feed_title": "subscribeSpeechIndex",
+   "bozo": false,
+   "n_entries": 15,
+   "newest": "2026-02-20 14:30:00",
+   "oldest": "2023-06-29 16:00:00",
+   "first": [
+    {
+     "title": "Watch President Bostic's Remarks at <cite>Birmingham Business Journal</cite> Event",
+     "link": "https://www.youtube.com/live/izmOhgLd_b4",
+     "date": "Fri, 20 Feb 2026 09:30:00 EST"
+    },
+    {
+     "title": "President Bostic Speaks at the <cite>Farm Journal</cite>'s Top Producer Summit",
+     "link": "https://farmjournaltv.com/programs/atlanta-fed-president-speaks-agriculture-020926?category_id=275479",
+     "date": "Mon, 09 Feb 2026 16:08:00 EST"
+    },
+    {
+     "title": "President Bostic Speaks at Clark Atlanta University",
+     "link": "https://www.youtube.com/live/-E4dw7pCIbI",
+     "date": "Thu, 05 Feb 2026 12:53:00 EST"
+    }
+   ]
+  }
+ },
+ {
+  "name": "regfeed_chicago_speeches",
+  "url": "https://www.chicagofed.org/forms/rss/Speeches",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:13:49.570724+00:00",
+  "status": 200,
+  "final_url": "https://www.chicagofed.org/forms/rss/Speeches",
+  "headers": {
+   "content-type": "text/xml; charset=utf-8",
+   "content-length": "33543",
+   "cache-control": "no-cache, no-store,no-store, max-age=0",
+   "expires": "-1",
+   "date": "Thu, 01 Oct 2026 10:13:56 GMT"
+  },
+  "bytes": 414299,
+  "sample": "regfeed_chicago_speeches.xml",
+  "conditional_get": "no validators returned",
+  "feed": {
+   "feed_title": "Federal Reserve Bank of Chicago Speeches",
+   "bozo": false,
+   "n_entries": 586,
+   "newest": "2023-04-24 13:30:00",
+   "oldest": "0001-01-01 06:00:00",
+   "first": [
+    {
+     "title": "Index Points to Steady Economic Growth in March",
+     "link": "https://www.chicagofed.org/publications/cfnai/2023/april2023",
+     "date": "Mon, 24 Apr 2023 07:30:00 CST"
+    },
+    {
+     "title": "Index Suggests Economic Growth Declined in February",
+     "link": "https://www.chicagofed.org/publications/cfnai/2023/march2023",
+     "date": "Thu, 23 Mar 2023 07:30:00 CST"
+    },
+    {
+     "title": "Index Suggests Economic Growth Picked Up in January",
+     "link": "https://www.chicagofed.org/publications/cfnai/2023/february2023",
+     "date": "Thu, 23 Feb 2023 07:30:00 CST"
+    }
+   ]
+  }
+ },
+ {
+  "name": "regfeed_dallas_speeches",
+  "url": "https://www.dallasfed.org/rss/speeches.xml",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:13:52.682604+00:00",
+  "status": 200,
+  "final_url": "https://www.dallasfed.org/rss/speeches.xml",
+  "headers": {
+   "content-type": "text/xml; charset=utf-8",
+   "content-length": "12187",
+   "server": "Microsoft-IIS/10.0",
+   "cache-control": "no-cache, no-store",
+   "expires": "Thu, 01 Oct 2026 10:13:57 GMT",
+   "date": "Thu, 01 Oct 2026 10:13:57 GMT"
+  },
+  "bytes": 54552,
+  "sample": "regfeed_dallas_speeches.xml",
+  "conditional_get": "no validators returned",
+  "feed": {
+   "feed_title": "Speeches - Federal Reserve Bank of Dallas",
+   "bozo": false,
+   "n_entries": 100,
+   "newest": "2026-08-28 15:00:00",
+   "oldest": "2013-10-17 06:00:00",
+   "first": [
+    {
+     "title": "Texas and the Paso del Norte region sit at the crux of the dynamic U.S.-Mexico integration",
+     "link": "https://www.dallasfed.org/news/speeches/speeches-leaders/2026/260828rc",
+     "date": "Fri, 28 Aug 2026 09:00:00 CST"
+    },
+    {
+     "title": "Developing a strong workforce requires collaboration",
+     "link": "https://www.dallasfed.org/news/speeches/speeches-leaders/2026/260812rc",
+     "date": "Wed, 12 Aug 2026 14:10:00 CST"
+    },
+    {
+     "title": "Remarks on inflation, employment and monetary policy",
+     "link": "https://www.dallasfed.org/news/speeches/logan/2026/lkl260716",
+     "date": "Thu, 16 Jul 2026 00:15:00 CST"
+    }
+   ]
+  }
+ },
+ {
+  "name": "regfeed_sf_speeches",
+  "url": "https://www.frbsf.org/news-and-media/speeches/?feed=rss2",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:13:53.520960+00:00",
+  "status": 404,
+  "final_url": "https://www.frbsf.org/news-and-media/speeches/feed/",
+  "headers": {
+   "server": "nginx",
+   "date": "Thu, 01 Oct 2026 10:13:58 GMT",
+   "content-type": "text/html; charset=UTF-8",
+   "x-cache": "EXPIRED"
+  },
+  "bytes": 102367,
+  "sample": "regfeed_sf_speeches.html"
+ }
+]

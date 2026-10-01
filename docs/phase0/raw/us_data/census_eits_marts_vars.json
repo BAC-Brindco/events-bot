@@ -1,0 +1,108 @@
+{
+  "variables": {
+    "for": {
+      "label": "Census API FIPS 'for' clause",
+      "concept": "Census API Geography Specification",
+      "predicateType": "fips-for",
+      "group": "N/A",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "in": {
+      "label": "Census API FIPS 'in' clause",
+      "concept": "Census API Geography Specification",
+      "predicateType": "fips-in",
+      "group": "N/A",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "time": {
+      "label": "ISO-8601 Date/Time value",
+      "concept": "Census API Date/Time Specification",
+      "required": "true",
+      "predicateType": "datetime",
+      "group": "N/A",
+      "limit": 0,
+      "predicateOnly": true,
+      "datetime": {
+        "year": true,
+        "month": true
+      }
+    },
+    "data_type_code": {
+      "label": "item type",
+      "concept": "Required Variables",
+      "required": "true",
+      "predicateType": "string",
+      "group": "N/A",
+      "limit": 0
+    },
+    "time_slot_id": {
+      "label": "Time Slot",
+      "concept": "Required Variables",
+      "predicateType": "string",
+      "group": "N/A",
+      "limit": 0
+    },
+    "seasonally_adj": {
+      "label": "Seasonally adjusted yes or no",
+      "concept": "Required Variables",
+      "required": "true",
+      "predicateType": "string",
+      "group": "N/A",
+      "limit": 0
+    },
+    "program_code": {
+      "label": "Component Name",
+      "concept": "Required Variables",
+      "required": "default displayed",
+      "predicateType": "string",
+      "group": "N/A",
+      "limit": 0
+    },
+    "category_code": {
+      "label": "Industry list",
+      "concept": "Required Variables",
+      "required": "true",
+      "predicateType": "string",
+      "group": "N/A",
+      "limit": 0
+    },
+    "geo_level_code": {
+      "label": "geo level code",
+      "concept": "Required Variables",
+      "predicateType": "string",
+      "group": "N/A",
+      "limit": 0
+    },
+    "time_slot_date": {
+      "label": "Time Slot Date",
+      "concept": "Required Variables",
+      "predicateType": "string",
+      "group": "N/A",
+      "limit": 0
+    },
+    "time_slot_name": {
+      "label": "Time Slot Name",
+      "concept": "Required Variables",
+      "predicateType": "string",
+      "group": "N/A",
+      "limit": 0
+    },
+    "cell_value": {
+      "label": "data value",
+      "concept": "Required Variables",
+      "required": "true",
+      "predicateType": "string",
+      "group": "N/A",
+      "limit": 0
+    },
+    "error_data": {
+      "label": "Error data yes or no",
+      "concept": "Required Variables",
+      "predicateType": "string",
+      "group": "N/A",
+      "limit": 0
+    }
+  }
+}

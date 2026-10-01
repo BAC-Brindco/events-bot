@@ -1,0 +1,756 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>eGazette Home</title>
+    <meta content="IE=9" http-equiv="X-UA-Compatible" />
+    <meta name="google" content="notranslate" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="stylesheet" href="css3menu1/style.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="Styles/style.css" />
+    <script src="css3menu1/mmenu.js" type="text/javascript"></script>
+    <script type="text/javascript" src="ImageScrollerJS/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="ImageScrollerJS/bootstrap.min-5.3.0.js"></script>
+    <script language="Javascript" type="text/javascript">
+        history.go(2);
+    </script>
+    <script language="javascript" type="text/javascript">
+        window.history.forward();
+    </script>
+    <script language="javascript" type="text/javascript">
+        function numbersonly(e) {
+            var unicode = e.charCode ? e.charCode : e.keyCode
+
+            if (unicode < 48 || unicode > 57 && unicode < 65 || unicode > 90 && unicode < 97 || unicode > 122) //if not a number
+            { return false } //disable key press
+        }
+    </script>
+    <script language="javascript" type="text/javascript">
+        function onKeyDown() {
+            //current pressed key
+            var pressedKey = String.fromCharCode(event.keyCode).toLowerCase();
+            var pressedKey1 = String.fromCharCode(event.keyCode).toUpperCase();
+            if (event.ctrlKey && (pressedKey == "c" || pressedKey == "v" || pressedKey == "a")) {
+                //disable key press porcessing
+                event.returnValue = false;
+            }
+            if (event.ctrlKey && (pressedKey1 == "C" || pressedKey1 == "V" || pressedKey1 == "A")) {
+                //disable key press porcessing
+                event.returnValue = false;
+            }
+        }
+    </script>
+    <script type="text/javascript" src="Scripts/Pranav.js">
+        document.f1.submit();
+    </script>
+    <script type="text/css" language="javascript">
+		function Randomnumber()
+		{
+			return f889122c04cd3e5e8776438d982c8404;
+		}
+    </script>
+    <script type="text/javascript" language="javascript">
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+    <style type="text/css">
+        ._css3m {
+            display: none;
+        }
+
+        .tb6 {
+            background: #FFFFFF url('css3menu1/applet.png') no-repeat 4px 4px;
+            border: 2px solid #456879;
+            border-radius: 10px;
+            height: 10px;
+            width: Auto;
+            text-align: right;
+            padding-left: 30px;
+            padding-right: 12px;
+        }
+
+        #Img1 {
+            height: 84px;
+            width: 169px;
+        }
+
+        .simple {
+            color: #000 !important;
+            text-align: center;
+        }
+
+            .simple:hover {
+                background: blue;
+                color: #fff !important;
+            }
+
+        #Div_Message {
+            position: fixed;
+            top: 32%;
+            left: 0%;
+            height: 100%;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        #Div_Notice {
+            position: fixed;
+            top: 38%;
+            left: 0%;
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .modalImageScroller {
+            position: fixed;
+            height: 380px;
+            left: 50%;
+            top: 55%;
+            margin-top: 1.5%;
+            transform: translate(-50%,-50%);
+            background: lightblue;
+            box-shadow: 0px 0px 10px #000;
+            animation-name: fadeIn_Modal;
+            animation-duration: 0.8s;
+            border-radius: 15px;
+            z-index: 2000;
+        }
+
+        .headerImageScroller {
+            width: 100%;
+            height: 35px;
+            margin-top: 5px;
+        }
+
+            .headerImageScroller a {
+                vertical-align: bottom;
+                text-decoration: solid;
+                float: right;
+                line-height: 30px;
+                margin-top: 5px;
+                margin-right: 5px;
+                color: red;
+                font-size: 22px;
+            }
+
+        .contentImageScroller {
+            width: 100%;
+            height: 220px;
+        }
+
+        .bottomImageScroller {
+            width: 100%;
+            height: 20px;
+        }
+
+        .carousel-inner > .item > Top_ImageScroller > img, .carousel-inner > .item > img, .img-responsive, .thumbnail Top_ImageScroller > img, .thumbnail > img {
+            display: block;
+            max-width: 100%;
+            height: 200px;
+        }
+
+        .img-thumbnail {
+            padding: 4px;
+            line-height: 1.42857143;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            -webkit-transition: all .2s ease-in-out;
+            -o-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+            display: inline-block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .carousel {
+            position: relative;
+        }
+
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+            .carousel-inner > .item {
+                position: relative;
+                display: none;
+                -webkit-transition: .6s ease-in-out left;
+                -o-transition: .6s ease-in-out left;
+                transition: .6s ease-in-out left;
+            }
+
+                .carousel-inner > .item > Top_ImageScroller > img, .carousel-inner > .item > img {
+                    line-height: 1;
+                }
+
+        @media all and (transform-3d),(-webkit-transform-3d) {
+            .carousel-inner > .item {
+                -webkit-transition: -webkit-transform .6s ease-in-out;
+                -o-transition: -o-transform .6s ease-in-out;
+                transition: -webkit-transform .6s ease-in-out;
+                transition: transform .6s ease-in-out;
+                transition: transform .6s ease-in-out,-webkit-transform .6s ease-in-out,-o-transform .6s ease-in-out;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                -webkit-perspective: 1000px;
+                perspective: 1000px;
+            }
+
+                .carousel-inner > .item.active.right, .carousel-inner > .item.next {
+                    -webkit-transform: translate3d(100%,0,0);
+                    transform: translate3d(100%,0,0);
+                    left: 0;
+                }
+
+                .carousel-inner > .item.active.left, .carousel-inner > .item.prev {
+                    -webkit-transform: translate3d(-100%,0,0);
+                    transform: translate3d(-100%,0,0);
+                    left: 0;
+                }
+
+                    .carousel-inner > .item.active, .carousel-inner > .item.next.left, .carousel-inner > .item.prev.right {
+                        -webkit-transform: translate3d(0,0,0);
+                        transform: translate3d(0,0,0);
+                        left: 0;
+                    }
+        }
+
+        .carousel-inner > .active, .carousel-inner > .next, .carousel-inner > .prev {
+            display: block;
+        }
+
+        .carousel-inner > .active {
+            left: 0;
+        }
+
+        .carousel-inner > .next, .carousel-inner > .prev {
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        .carousel-inner > .next {
+            left: 100%;
+        }
+
+        .carousel-inner > .prev {
+            left: -100%;
+        }
+
+            .carousel-inner > .next.left, .carousel-inner > .prev.right {
+                left: 0;
+            }
+
+        .carousel-inner > .active.left {
+            left: -100%;
+        }
+
+        .carousel-inner > .active.right {
+            left: 100%;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 15%;
+            font-size: 20px;
+            color: #fff;
+            text-align: center;
+            text-shadow: 0 1px 2px rgba(0,0,0,.6);
+            background-color: rgba(0,0,0,0);
+            filter: alpha(opacity=50);
+            opacity: .5;
+        }
+
+            .carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev {
+                left: 50%;
+                margin-left: -10px;
+            }
+
+            .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
+                right: 50%;
+                margin-right: -10px;
+            }
+
+            .carousel-control .icon-next, .carousel-control .icon-prev {
+                width: 20px;
+                height: 20px;
+                font-family: Calibri;
+                line-height: 1;
+            }
+
+                .carousel-control .icon-prev:before {
+                    content: "\2039";
+                }
+
+                .carousel-control .icon-next:before {
+                    content: "\203a";
+                }
+
+        .carousel-indicators {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            z-index: 15;
+            width: 60%;
+            padding-left: 0;
+            margin-left: -30%;
+            text-align: center;
+            list-style: none;
+        }
+
+            .carousel-indicators li {
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                margin: 0;
+                text-indent: -999px;
+                cursor: pointer;
+                background-color: rgba(0,0,0,0.2);
+                border: 1px solid #000;
+                border-radius: 10px;
+            }
+
+            .carousel-indicators .active {
+                width: 10px;
+                height: 10px;
+                margin: 0;
+                border-color: #000;
+                background: #000;
+            }
+
+        .carousel-caption {
+            position: absolute;
+            right: 15%;
+            bottom: 20px;
+            left: 15%;
+            z-index: 10;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            color: #fff;
+            text-align: center;
+            text-shadow: 0 1px 2px rgba(0,0,0,.6);
+        }
+
+            .carousel-caption .btn {
+                text-shadow: none;
+            }
+    </style>
+</head>
+<body style="background: #F0F8FF" onload="noBack();" onunload="" onpageshow="if(event.persisted)noBack();"
+    ms_positioning="GridLayout">
+    <form method="post" action="./default.aspx" id="Form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form1'];
+if (!theForm) {
+    theForm = document.Form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=wBmrsRnk-VAZMKc5yBHpyx9qwraw-l451Evz3JXhM6YIhWWwxlW3l_A-xvaMxQeoUme6OSEOcX2R8WqUoM17G1r2tV-3SfK8Ycs41kUhthE1&amp;t=638901734248157332" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=k0Xk39oMBcctPteSGqKgK1diudGkT0XVWhPuCut9Heje1ZLoJ5JGfaZYFH0Kd9d0I9qo1vHsVSH46-naP2lVhWPOYRvbS7yQh7m8GqfYDitOS-hxAeax_DgB6MwRRwtlDA9jllN2ye3JY-yI9CZZV1y7pq2qJt0_yeigncjz-a01&amp;t=5c0e0825" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=Xme5pJVWHPToX0Jxdo69fK4lp_klAJf2ednCxPNQUfpAjbDwIzxXmM3iHGHOzsvdAr5ZkbXCn_OR2zjOrW2isVgxY_4yij15OQh0nJntlZddBSvl6wHzTqBXwVIMESLa0ulnXhNp7ffa_NnnQxz6vae5wUPI0Rpo_ZTHeKN0y-hDuaWRiQzr7zurgVrbE4nK0&amp;t=5c0e0825" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+	<input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0" />
+	<input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="9ggg62O20XV92UtV6utIKccJsQQ11YyTnp64DFSN4bK1PfuVqj/sSDaIpO46g3/JVnsSzVYf3HcKvOdhmtRrvGxqtjTluzFCIoEVtfAZcP2Bv+fcec7iUkVRWEk5ZlXPln4o7/wngCGhq8aJ99V9WVho/T9j3TUrM+IjJVNVBJIUZgPxqqfro1yAi09a6DQtKXkP/GsMx5u7GYzMj7G6kjkY/uoE5+4QNLPBwlU72o05JMhNA3XSj6oRqixsDCNQRFSCwaYazzSuDLpgWSk6K6wPnOHWoeSgoHDLUz1CmX1qzpyusERPXTrjX9W4T5KJSCZsfUj+MAXFno5ryAafLEzoyoEH0kAHSCXC8ABzvrTX44HuYui2jZenOGWmqaGGIAoCvdP1ZbiDj08ABTY38tDuVv9pBOHPfhzrmKdUdZKGNikUsVolTEuVnNR0YpgO7dIbJ9cDTCG85KNLPHVuK26ipRnnjACCsvqAp46wDUvrizO8GB0pGDTITgrsZarO6v6UNYhKS2cuHRXzS6LoBfHQx16azv09h5uePxFPc/ELn6mFqa9H1US1n2N8XYcRQwYgck2suTdVr5VmcVOFss/w+MbBzqFRPlnk1Nj12kbaI7D3S+e+b4bEyOUyUibE2FPC3oUOu/i4+dKa06wUeiGbRxpErn9ZKAz8SaNQL2ergiq4RC8Wn3+2A/yGJFDqkvcrO/GZhmmSVv5VqlZBIK9HjPCdufNUyQ9f+8cK2PglE+bHjwCpsil4iHGFUS6T3h5YVGRYXbW3BXBXsxRo8wJwVdp4hON8OVU/b+y6CZ1/rJVFK6gkbGo/a1FvRbC+lwl8AZxlwTbpqSAjr4i4EQb49F4GeEzSwsawHDQ28us=" />
+</div>
+        <div style="margin: 0 auto; background: #7D7D7D; background-image: url('css3menu1/mainbk7 (3).jpg'); background-repeat: repeat; width: 100%;">
+            <table style="margin: 0 auto; width: 100%; border-radius: 1.6em 1.6em; -moz-border-radius: 1.6em 1em; -webkit-border-radius: 1.6em 1em" align="center">
+	<tr>
+		<td width="2%"></td>
+		<td align="left" width="8%">
+                        <img src="images/HEADER1.png" height="100px" alt="" />
+                    </td>
+		<td align="left" width="18%" style="font-size: small; color: #FFFFFF;">
+                        <strong><span>Directorate of Printing<br />
+                            Department of Publication<br />
+                            M/o Housing and Urban Affairs<br />
+                            Government of India</span></strong><br />
+                    </td>
+		<td align="center" style="text-align: center;" title="Union Gazette">
+                        <br />
+                        <img style="height: 50px; width: 125px;" src="Images/IndianFlag.gif" alt="" /><br />
+                        <br />
+                        <span style="font-family: Old English Text MT; font-size: 50px; color: White;">The Gazette
+                        of India</span><br />
+                        <br />
+                    </td>
+		<td align="right" width="26%">
+                        <img src="images/eglogofinal.png" id="Img1" />
+                    </td>
+		<td width="2%"></td>
+	</tr>
+</table>
+
+        </div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'Form1', [], [], [], 90, '');
+//]]>
+</script>
+
+        <input name="hidden1" type="hidden" id="hidden1" style="position: absolute; left: 8px; z-index: 103; top: 8px; width: 10px" value="f889122c04cd3e5e8776438d982c8404" />
+        <div id="Div_Functional">
+            <table align="center" width="100%">
+                <tr align="center">
+                    <td align="center" bgcolor="#eeeeee" colspan="3">
+                        <marquee style="z-index: 0" width="100%" scrollamount="4">
+                            <span class="stylemarquee" style="color:Red;font-family:Aparajita;font-size:Large;font-weight:bold;font-style:italic;">
+                     *** All the Central Government Ministries, Departments, Attached and Subordinate Offices are requested to Register their Organization through e-Publish Option on this Portal for the purpose of e-Publishing of Gazette Notifications *** 
+                            </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                    <a href="http://egazette.nic.in/(S(10z20ngggm0lsvihzpi5vhyt))/HelpForOrganization.aspx" style="height: 20px; line-height: 20px; color: #FF0000; font-weight: bold; font-style: italic; font-family: Aparajita; font-size: large;" target="_blank">*** Departments / Offices may avail Help Regarding Pre-requisites and Guides for their Registration through Help Option Available in e-Publish Menu ***
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    <span style="color:Red;font-family:Aparajita;font-size:Large;font-weight:bold;font-style:italic;"> 
+                     *** This Site uses Cookies. Please make Sure that Cookies are Enabled in Your Browser ***
+                    </span>
+                        </marquee>
+                    </td>
+                </tr>
+            </table>
+            <div id="Div_Reform">
+                <table align="center" width="100%">
+                    <tr align="center">
+                        <td align="center" colspan="3">
+                            <br />
+                            <input type="submit" name="btn_Reforms" value="Reforming the process of Gazette Notifications" id="btn_Reforms" class="blink" style="color:#FA3E3E;font-family:Aparajita;font-size:X-Large;font-weight:bold;font-style:italic;background-color: #F0F8FF; border: 0" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <table align="center" width="100%">
+                <tr align="center">
+                    <td align="center" style="width: 10%;"></td>
+                    <td align="center">
+                        <br />
+                        <span id="lblslogan" style="color:#000099;font-family:Aparajita;font-size:20pt;font-weight:bold;font-style:italic;">India's growth story shall be written on the canvas of<br /> <b>"Planned Urban Development"</b></span>
+                        <br />
+                        <br />
+                    </td>
+                    <td align="center" style="width: 10%;">
+                        <img src="Images/NewItem.gif" id="imgNew" style="height: 18px; width: 32px;" />
+                        <input type="submit" name="btnHindi" value="हिंदी" id="btnHindi" style="font-weight:bold;height:25px;width:70px;color: #000000; background-color: #B5B5B5;" />
+                    </td>
+                </tr>
+            </table>
+            <div id="Div_Menu" style="margin: 0 auto; background: #; width: 100%; border-radius: 1.6em 1.6em; -moz-border-radius: 1.6em 1em; -webkit-border-radius: 1.6em 1em">
+                <center>
+                    <ul id="css3menu1" class="topmenu" style="width: 100%;">
+                        <li style="width: 10.92%;"><a class="pressed" href="Default.aspx" style="height: 20px; line-height: 20px; text-align: center;">
+                            <img src="css3menu1/home2.png" style="height: 22px; width: 22px;" alt="" />Home</a></li>
+                        <li style="width: 10.92%;"><a href="Aboutus.aspx" style="height: 20px; line-height: 20px; text-align: center;"><span>
+                            <img src="css3menu1/service2.png" style="height: 20px; width: 20px;" alt="" />About
+                            Us</span></a></li>
+                        <li style="width: 10.92%;"><a id="sgzt" style="height: 20px; line-height: 20px; text-align: center;" href="javascript:__doPostBack(&#39;sgzt&#39;,&#39;&#39;)">
+                            <img src="css3menu1/find1.png" style="height: 22px; width: 22px;" alt="" />Search</a></li>
+                        <li style="width: 10.92%;"><a href="GazetteDirectory.aspx" style="height: 20px; line-height: 20px; text-align: center;">
+                            <img src="css3menu1/samples1.png" style="height: 20px; width: 20px;" alt="" />Gazette
+                        Directory</a></li>
+                        <li style="width: 10.92%;"><a href="Contact.aspx" style="height: 20px; line-height: 20px; text-align: center;">
+                            <img src="css3menu1/contact.png" style="height: 22px; width: 22px;" alt="" />Contact
+                        Us</a></li>
+                        <li style="width: 10.92%;"><a href="Help.aspx" style="height: 20px; line-height: 20px; text-align: center;">
+                            <img src="css3menu1/Help.png" alt="" style="height: 20px; width: 20px" />Help</a></li>
+                        <li style="width: 10.92%;"><a href="OnboardRequest.aspx" style="height: 20px; line-height: 20px; text-align: center; font-size: 14px; font-weight: bold"
+                            onclick="return confirm('The Organization Registration is only for Central Government Ministries / Departments / Offices / Subordinate / Attached Offices / Autonomous Institutions and Delhi State.\n\nNOT for other States and General Public.\n\nPlease refer guide for Registration and use of Digital Signature Certificate (DSC), available on Help for registration process, before registering your organization.')">
+                            <img src="css3menu1/EPub.png" align="middle" style="height: 20px; width: 20px" alt="" />Registration</a></li>
+                        <li style="width: 10.92%;"><a href="ePublishing_Menu.aspx" style="height: 20px; line-height: 20px; text-align: center; font-size: 14px; font-weight: bold">
+                            <img src="css3menu1/EPub.png" align="middle" style="height: 20px; width: 20px" alt="" />e-Publish</a></li>
+                        <li style="width: 10.92%;"><a style="background-color: transparent; height: 20px; line-height: 20px; text-align: center; font-size: 14px; font-weight: bold">
+                            <select name="ddlkeyword" id="ddlkeyword" style="height:20px;width:98%;">
+	<option value="Select Keyword">Select Keyword</option>
+	<option value="Acts">Acts</option>
+	<option value="Appointment">Appointment</option>
+	<option value="Award">Award</option>
+	<option value="Bharat Ratna">Bharat Ratna</option>
+	<option value="Bills">Bills</option>
+	<option value="Election">Election</option>
+	<option value="Indian Army">Indian Army</option>
+	<option value="National">National</option>
+	<option value="Ordinance">Ordinance</option>
+	<option value="Padma Bhushan">Padma Bhushan</option>
+	<option value="Police">Police</option>
+	<option value="President">President</option>
+	<option value="Prime Minister">Prime Minister</option>
+	<option value="Promotion">Promotion</option>
+	<option value="Recruitment Rules">Recruitment Rules</option>
+	<option value="Transfer">Transfer</option>
+
+</select>
+                            &nbsp;
+                        <input type="image" name="Img_Search" id="Img_Search" title="Search" src="images/search-images.png" align="top" style="height:20px;" /></a> </li>
+                    </ul>
+                </center>
+            </div>
+            <div id="Div_Main" style="margin: 0 auto; background: #ffffff; width: 100%; border-radius: 1.6em 1.6em; -moz-border-radius: 1.6em 1em; -webkit-border-radius: 1.6em 1em">
+                <table id="tbl_Main" cellpadding="2" cellspacing="1" width="100%">
+                    <tbody>
+                        <tr>
+                            <td align="center" valign="top" width="20%">
+                                <table width="100%" style="margin: 0 auto; background: #eeeeee; padding: 5px; border-radius: 1.6em 1.6em; -moz-border-radius: 1.6em 1em; -webkit-border-radius: 1.6em 1em">
+                                    <tr>
+                                        <td align="center" width="20%">
+                                            <div style="height: 18px; background: url(images/h4k.png) #fcfcfc repeat-x 100% 50%; font-weight: bold; color: white; padding-top: 5px; border-radius: 1.6em 1.6em; -moz-border-radius: 1.6em 1em; -webkit-border-radius: 1.6em 1em">
+                                                Gazettes on Demand
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td align="left" width="20%">
+                                            <br />
+                                            <img style="margin-left: 12px" align="absMiddle;" src="images/arrow_pink.gif" alt="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="RecentUploads.aspx?Category=1"><font class="font2">Bills &amp; Acts</font></a><br />
+                                            <hr style="border-top: #6d7b8d 1px dashed; border-right: medium none; border-bottom: medium none; color: #ffffff; margin-left: 45px; border-left: medium none; background-color: #ffffff" />
+                                            <img style="margin-left: 12px" align="absMiddle" src="images/arrow_pink.gif" alt="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="RecentUploads.aspx?Category=2"><font class="font2">Election &amp; Bye-Election</font></a><br />
+                                            <hr style="border-top: #6d7b8d 1px dashed; border-right: medium none; border-bottom: medium none; color: #ffffff; margin-left: 45px; border-left: medium none; background-color: #ffffff" />
+                                            <img style="margin-left: 12px" align="absMiddle" src="images/arrow_pink.gif" alt="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="RecentUploads.aspx?Category=3"><font class="font2">Land Acquisition</font></a><br />
+                                            <hr style="border-top: #6d7b8d 1px dashed; border-right: medium none; border-bottom: medium none; color: #ffffff; margin-left: 45px; border-left: medium none; background-color: #ffffff" />
+                                            <img style="margin-left: 12px" align="absMiddle" src="images/arrow_pink.gif " alt="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="RecentUploads.aspx?Category=4"><font class="font2">Delhi Master Plan</font></a><br />
+                                            <hr style="border-top: #6d7b8d 1px dashed; border-right: medium none; border-bottom: medium none; color: #ffffff; margin-left: 45px; border-left: medium none; background-color: #ffffff" />
+                                            <img style="margin-left: 12px" align="absMiddle" src="images/arrow_pink.gif" alt="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="RecentUploads.aspx?Category=5"><font class="font2">Recruitment Rules</font></a><br />
+                                            <hr style="border-top: #6d7b8d 1px dashed; border-right: medium none; border-bottom: medium none; color: #ffffff; margin-left: 45px; border-left: medium none; background-color: #ffffff" />
+                                        </td>
+
+                                    </tr>
+                                </table>
+                                <br />
+                                <table width="100%" style="margin: 0 auto; background: #eeeeee; padding: 5px; border-radius: 1.6em 1.6em; -moz-border-radius: 1.6em 1em; -webkit-border-radius: 1.6em 1em">
+                                    <tr>
+                                        <td align="center" width="20%">
+                                            <div style="height: 18px; background: url(images/h4k.png) #fcfcfc repeat-x 100% 50%; font-weight: bold; color: white; padding-top: 5px; border-radius: 1.6em 1.6em; -moz-border-radius: 1.6em 1em; -webkit-border-radius: 1.6em 1em">
+                                                Government Gazettes
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td align="left" width="20%">
+                                            <br />
+                                            <img style="margin-left: 12px" align="absMiddle" src="images/arrow_pink.gif" alt="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="StateGazette.aspx"><font class="font2">State Gazettes</font></a><br />
+                                            <hr style="border-top: #6d7b8d 1px dashed; border-right: medium none; border-bottom: medium none; color: #ffffff; margin-left: 45px; border-left: medium none; background-color: #ffffff" />
+                                        </td>
+
+                                    </tr>
+                                </table>
+                                <br />
+                                <table width="100%" style="margin: 0 auto; background: #eeeeee; padding: 5px; border-radius: 1.6em 1.6em; -moz-border-radius: 1.6em 1em; -webkit-border-radius: 1.6em 1em">
+                                    <tr>
+                                        <td align="center" width="20%">
+                                            <div style="height: 18px; background: url(images/h4k.png) #fcfcfc repeat-x 100% 50%; font-weight: bold; color: white; padding-top: 5px; border-radius: 1.6em 1.6em; -moz-border-radius: 1.6em 1em; -webkit-border-radius: 1.6em 1em">
+                                                Important Links
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td align="left" width="20%">
+                                            <br />
+                                            <img style="margin-left: 12px" align="absMiddle" src="images/arrow_pink.gif " alt="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="http://dop.nic.in/" target="_blank"><font class="font2">Directorate of Printing</font></a>
+                                            <br />
+                                            <hr style="border-top: #6d7b8d 1px dashed; border-right: medium none; border-bottom: medium none; color: #ffffff; margin-left: 45px; border-left: medium none; background-color: #ffffff" />
+                                            <img style="margin-left: 12px" align="absMiddle" src="images/arrow_pink.gif" alt="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="http://deptpub.nic.in/" target="_blank"><font class="font2">Department of Publication</font></a>
+                                            <br />
+                                            <hr style="border-top: #6d7b8d 1px dashed; border-right: medium none; border-bottom: medium none; color: #ffffff; margin-left: 45px; border-left: medium none; background-color: #ffffff" />
+                                            <img style="margin-left: 12px" align="absMiddle" src="images/arrow_pink.gif" alt="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="http://mohua.gov.in" target="_blank"><font class="font2">Housing & Urban Affairs</font></a>
+                                            <br />
+                                            <hr style="border-top: #6d7b8d 1px dashed; border-right: medium none; border-bottom: medium none; color: #ffffff; margin-left: 45px; border-left: medium none; background-color: #ffffff" />
+                                            <img style="margin-left: 12px" align="absMiddle" src="images/arrow_pink.gif" alt="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="http://india.gov.in/" target="_blank"><font class="font2">National Portal of
+                                            India</font></a>
+                                            <hr style="border-top: #6d7b8d 1px dashed; border-right: medium none; border-bottom: medium none; color: #ffffff; margin-left: 45px; border-left: medium none; background-color: #ffffff" />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                        </td>
+
+                                    </tr>
+                                </table>
+                            </td>
+                            <td align="center" valign="top" width="50%">
+                                <table style="margin: 0 auto; background: #eeeeee; padding: 5px; width: 100%; border-radius: 1.6em 1.6em; -moz-border-radius: 1.6em 1em; -webkit-border-radius: 1.6em 1em; height: 294px;">
+                                    <tr valign="top">
+	<td align="center">
+                                            <div style="height: 18px; background: url(images/h4m.png) #fcfcfc repeat-x 100% 50%; font-weight: bold; color: white; padding-top: 5px; border-radius: 1.6em 1.6em; -moz-border-radius: 1.6em 1em; -webkit-border-radius: 1.6em 1em">
+                                                Recent Extra Ordinary Gazettes
+                                            </div>
+                                            <div style="border-left-width: 1px; border-top: transparent 1px dashed; border-right-width: 1px; border-bottom-width: 1px; border-bottom-color: transparent; border-right-color: transparent; border-left-color: transparent">
+                                                <table width="100%" cellpadding="4">
+                                                    <tr>
+                                                        <td width="26%" align="left">
+                                                            <b><font color="#169A9B" style="font-size: 14px; font-weight: bold;">Ministry</font></b>
+                                                        </td>
+	
+                                                        <td align="left">
+                                                            <b><font color="#169A9B" style="font-size: 14px; font-weight: bold">Subject</font></b>
+                                                        </td>
+	
+                                                        <td width="15%" align="center">
+                                                            <b><font color="#169A9B" style="font-size: 14px; font-weight: bold">Publish Date</font></b>
+                                                        </td>
+	
+                                                        <td width="15%" align="center">
+                                                            <font color="#169A9B"><b style="font-size: 14px; font-weight: bold">Gazette ID</b></font>
+                                                        </td>
+	
+                                                        <td width="12%" align="left">
+                                                            <font color="#169A9B"><b style="font-size: 14px; font-weight: bold">Download</b></font>
+                                                        </td>
+	
+                                                    </tr>
+                                                </table>
+                                                
+                                                        <table class="font2" width="100%">
+                                                    
+                                                        <tr>
+                                                            <td style="width: 26%" align="left">
+                                                                <span id="rpt_Extra_lbl_MinistryE_0" style="font-size:9pt;">Ministry of Road Transport and Highways</span>
+                                                            </td>
+	
+                                                            <td align="left">
+                                                                
+                                                                
+                                                                <span id="rpt_Extra_lbl_SubjectE_0" CommandName="Recent" style="color:Black;font-size:9pt;">Publication of notification under Section 3D...</span>
+                                                            </td>
+	
+                                                            <td style="width: 15%;" align="center">
+                                                                <span id="rpt_Extra_lbl_DateE_0" style="color:Black;font-size:9pt;">01-Oct-2026</span>
+                                                            </td>
+	
+                                                            <td style="width: 15%;" align="center">
+                                                                <span id="rpt_Extra_lbl_UGIDExtra_0" style="color:Black;font-size:9pt;">CG-DL-E-01102026-276684</span>
+                                                            </td>
+	
+                                                            <td style="width: 12%;" align="left">
+                                                                <input type="image" name="rpt_Extra$ctl01$ImgDownLoadE" id="rpt_Extra_ImgDownLoadE_0" src="images/download-pdf.png" style="height:20px;width:20px;" />
+                                                                <span id="rpt_Extra_lbl_FileSizeE_0" style="font-family:Calibri;font-size:Small;">0.82 MB</span>
+                                                            </td>
+	
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width: 100%;" colspan="9">
+                                                                <hr style="border: none; border-top: dashed 1px #6D7B8D; color: #ffffff; background-color: #ffffff;">
+                                                            </td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td style="width: 26%" align="left">
+                                                                <span id="rpt_Extra_lbl_MinistryE_1" style="font-size:9pt;">Ministry of Road Transport and Highways</span>
+                                                            </td>
+	
+                                                            <td align="left">
+                                                                
+                                                                
+                                                                <span id="rpt_Extra_lbl_SubjectE_1" CommandName="Recent" style="color:Black;font-size:9pt;">Publication of notification under Section 3A...</span>
+                                                            </td>
+	
+                                                            <td style="width: 15%;" align="center">
+                                                                <span id="rpt_Extra_lbl_DateE_1" style="color:Black;font-size:9pt;">01-Oct-2026</span>
+                                                            </td>
+	
+                                                            <td style="width: 15%;" align="center">
+                                                                <span id="rpt_Extra_lbl_UGIDExtra_1" style="color:Black;font-size:9pt;">CG-DL-E-01102026-276683</span>
+                                                            </td>
+	
+                                                            <td style="width: 12%;" align="left">
+                                                                <input type="image" name="rpt_Extra$ctl02$ImgDownLoadE" id="rpt_Extra_ImgDownLoadE_1" src="images/download-pdf.png" style="height:20px;width:20px;" />
+                                                                <span id="rpt_Extra_lbl_FileSizeE_1" style="font-family:Calibri;font-size:Small;">1.09 MB</span>
+                                                            </td>
+	
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width: 100%;" colspan="9">
+                                                                <hr style="border: none; border-top: dashed 1px #6D7B8D; color: #ffffff; background-color: #ffffff;">
+                                                            </td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td style="width: 26%" align="left">
+                                                                <span id="rpt_Extra_lbl_MinistryE_2" style="font-size:9pt;">Ministry of Road Transport and Highways</span>
+                                                            </td>
+	
+                                                            <td align="left">
+                                                                
+                                                                
+                                                                <span id="rpt_Extra_lbl_SubjectE_2" CommandName="Recent" style="color:Black;font-size:9pt;">Publication of notification under Section 3D...</span>
+                                                            </td>
+	
+                                                            <td style="width: 15%;" align="center">
+                                                                <span id="rpt_Extra_lbl_DateE_2" style="color:Black;font-size:9pt;">01-Oct-2026</span>
+                                                            </td>
+	
+                                                            <td style="width: 15%;" align="center">
+                                                                <span id="rpt_Extra_lbl_UGIDExtra_2" style="color:Black;font-size:9pt;">CG-DL-E-01102026-276681</span>
+                                                            </td>
+	
+                                                            <td style="width: 12%;" align="left">
+                                                                <input type="image" name="rpt_Extra$ctl03$ImgDownLoadE" id="rpt_Extra_ImgDownLoadE_2" src="images/download-pdf.png" style="height:20px;width:20px;" />
+                                                                <span id="rpt_Extra_lbl_FileSizeE_2" style="font-family:Calibri;font-size:Small;">0.62 MB</span>
+                                                            </td>
+	
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width: 100%;" colspan="9">
+                                                                <hr style="border: none; border-top: dashed 1px #6D7B8D; color: #ffffff; background-color: #ffffff;">
+                                                            </td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td style="width: 26%" align="left">
+                                                                <span id="rpt_Extra_lbl_MinistryE_3" style="font-size:9pt;">Ministry of Road Transport and Highways</span>
+                                                            </td>
+	
+                                                            <td align="left">
+                                                                
+                                                                
+                                                                <span id="rpt_Extra_lbl_SubjectE_3" CommandName="Recent" style="color:Black;font-size:9pt;">Publication of notification under Section 3A...</span>
+                                                            </td>
+	
+                                                            <td style="width: 15%;" align="center">
+                                                                <span id="rpt_Extra_lbl_DateE_3" style="color:Black;font-size:9pt;">01-Oct-2026</span>
+                                                            </td>
+	
+                                                            <td style="width: 15%;" align="center">
+                                                                <span id="rpt_Extra_lbl_UGIDExtra_3" style="color:Black;font-size:9pt;">CG-DL-E-01102026-276680</span>
+                                                            </td>
+	
+                                                            <td style="width: 12%;" align="left">
+                                                                <input type="image" name="rpt_Extra$ctl04$ImgDownLoadE" id="rpt_Extra_ImgDownLoadE_3" src="images/download-pdf.png" style="height:20px;width:20px;" />
+                                                       

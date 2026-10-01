@@ -1,0 +1,269 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-09-23",
+    "results": {
+      "skip": 0,
+      "limit": 3,
+      "total": 281
+    }
+  },
+  "results": [
+    {
+      "status": "Ongoing",
+      "city": "Kalyan",
+      "state": "N/A",
+      "country": "India",
+      "classification": "Class II",
+      "openfda": {
+        "application_number": [
+          "ANDA211320"
+        ],
+        "brand_name": [
+          "CHLORTHALIDONE"
+        ],
+        "generic_name": [
+          "CHLORTHALIDONE"
+        ],
+        "manufacturer_name": [
+          "Rising Pharma Holdings, Inc."
+        ],
+        "product_ndc": [
+          "64980-599",
+          "64980-600"
+        ],
+        "product_type": [
+          "HUMAN PRESCRIPTION DRUG"
+        ],
+        "route": [
+          "ORAL"
+        ],
+        "substance_name": [
+          "CHLORTHALIDONE"
+        ],
+        "rxcui": [
+          "197499",
+          "197500"
+        ],
+        "spl_id": [
+          "6404aaa7-05c8-4f96-a091-3f07248ffbd5"
+        ],
+        "spl_set_id": [
+          "71b1d074-0521-4cd1-beb5-fedd61f52eca"
+        ],
+        "package_ndc": [
+          "64980-599-01",
+          "64980-599-10",
+          "64980-600-01"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "upc": [
+          "0364980599108",
+          "0364980599016",
+          "0364980600019"
+        ],
+        "nui": [
+          "N0000175359",
+          "N0000175420"
+        ],
+        "pharm_class_pe": [
+          "Increased Diuresis [PE]"
+        ],
+        "pharm_class_epc": [
+          "Thiazide-like Diuretic [EPC]"
+        ],
+        "unii": [
+          "Q0MQD1073Q"
+        ]
+      },
+      "product_type": "Drugs",
+      "event_id": "99806",
+      "recalling_firm": "Inventia Healthcare Limited",
+      "address_1": "Additional Ambernath Midc",
+      "address_2": "Ambernath East; F1-F1/1-F75/1",
+      "postal_code": "N/A",
+      "voluntary_mandated": "Voluntary: Firm initiated",
+      "initial_firm_notification": "Letter",
+      "distribution_pattern": "U.S. Nationwide",
+      "recall_number": "D-0852-2026",
+      "product_description": "Chlorthalidone Tablets, USP, 25 mg, 100 Tablets per bottle, Rx only, Manufactured by: Inventia Healthcare Limited.   NDC:  64980-599-01",
+      "product_quantity": "13567 bottles",
+      "reason_for_recall": "Failed Dissolution Specifications",
+      "recall_initiation_date": "20260903",
+      "center_classification_date": "20260917",
+      "report_date": "20260923",
+      "code_info": "Batch # RISA24002; Exp Date: 04/2027",
+      "more_code_info": ""
+    },
+    {
+      "status": "Ongoing",
+      "city": "Jadcherla, Mahabubnagar District",
+      "state": "",
+      "country": "India",
+      "classification": "Class II",
+      "openfda": {
+        "application_number": [
+          "NDA215179"
+        ],
+        "brand_name": [
+          "PEMRYDI RTU"
+        ],
+        "generic_name": [
+          "PEMETREXED DISODIUM"
+        ],
+        "manufacturer_name": [
+          "Amneal Pharmaceuticals LLC"
+        ],
+        "product_ndc": [
+          "70121-2453",
+          "70121-2461",
+          "70121-2462"
+        ],
+        "product_type": [
+          "HUMAN PRESCRIPTION DRUG"
+        ],
+        "route": [
+          "INTRAVENOUS"
+        ],
+        "substance_name": [
+          "PEMETREXED DISODIUM HEMIPENTAHYDRATE"
+        ],
+        "rxcui": [
+          "2637958",
+          "2637964",
+          "2637966",
+          "2637967",
+          "2637968",
+          "2637969"
+        ],
+        "spl_id": [
+          "b6a00be1-95d1-4b91-93bf-4430a57eeff6"
+        ],
+        "spl_set_id": [
+          "0f006b06-ab85-423d-ba0c-dfc3fc25844e"
+        ],
+        "package_ndc": [
+          "70121-2453-1",
+          "70121-2461-1",
+          "70121-2462-1"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "upc": [
+          "0370121246213",
+          "0370121246114",
+          "0370121245315"
+        ],
+        "unii": [
+          "F4GSH45R4C"
+        ]
+      },
+      "product_type": "Drugs",
+      "event_id": "99530",
+      "recalling_firm": "Shilpa Medicare Limited",
+      "address_1": "Plot No. S20 to S26, Pharmaceutical Formulations SEZ",
+      "address_2": "TSIIC Green Industrial Park, Polepally (Village)",
+      "postal_code": "N/A",
+      "voluntary_mandated": "Voluntary: Firm initiated",
+      "initial_firm_notification": "Letter",
+      "distribution_pattern": "Nationwide in the USA.",
+      "recall_number": "D-0764-2026",
+      "product_description": "PEMRYDI RTU (pemetrexed injection), 100 mg/10 mL (10 mg/mL),  Single-dose vial, Rx only, Manufactured by: Zydus Lifesciences Limited, Ahmedabad, India; Distributed by: Amneal Pharmaceuticals LC, Bridgewater, NY 08807.  NDC: 70121-2453-1",
+      "product_quantity": "18,434 10mL vials",
+      "reason_for_recall": "Discolored solution. The firm has received market complaints reporting green to dark green discoloration in certain vials",
+      "recall_initiation_date": "20260729",
+      "center_classification_date": "20260814",
+      "report_date": "20260826",
+      "code_info": "Lot: P400172; Lot PA00050A, Exp 09/30/2027",
+      "more_code_info": ""
+    },
+    {
+      "status": "Ongoing",
+      "city": "Jadcherla, Mahabubnagar District",
+      "state": "",
+      "country": "India",
+      "classification": "Class II",
+      "openfda": {
+        "application_number": [
+          "NDA215179"
+        ],
+        "brand_name": [
+          "PEMRYDI RTU"
+        ],
+        "generic_name": [
+          "PEMETREXED DISODIUM"
+        ],
+        "manufacturer_name": [
+          "Amneal Pharmaceuticals LLC"
+        ],
+        "product_ndc": [
+          "70121-2453",
+          "70121-2461",
+          "70121-2462"
+        ],
+        "product_type": [
+          "HUMAN PRESCRIPTION DRUG"
+        ],
+        "route": [
+          "INTRAVENOUS"
+        ],
+        "substance_name": [
+          "PEMETREXED DISODIUM HEMIPENTAHYDRATE"
+        ],
+        "rxcui": [
+          "2637958",
+          "2637964",
+          "2637966",
+          "2637967",
+          "2637968",
+          "2637969"
+        ],
+        "spl_id": [
+          "b6a00be1-95d1-4b91-93bf-4430a57eeff6"
+        ],
+        "spl_set_id": [
+          "0f006b06-ab85-423d-ba0c-dfc3fc25844e"
+        ],
+        "package_ndc": [
+          "70121-2453-1",
+          "70121-2461-1",
+          "70121-2462-1"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "upc": [
+          "0370121246213",
+          "0370121246114",
+          "0370121245315"
+        ],
+        "unii": [
+          "F4GSH45R4C"
+        ]
+      },
+      "product_type": "Drugs",
+      "event_id": "99530",
+      "recalling_firm": "Shilpa Medicare Limited",
+      "address_1": "Plot No. S20 to S26, Pharmaceutical Formulations SEZ",
+      "address_2": "TSIIC Green Industrial Park, Polepally (Village)",
+      "postal_code": "N/A",
+      "voluntary_mandated": "Voluntary: Firm initiated",
+      "initial_firm_notification": "Letter",
+      "distribution_pattern": "Nationwide in the USA.",
+      "recall_number": "D-0765-2026",
+      "product_description": "PEMRYDI RTU(pemetrexed injection), 500 mg/50 mL (10 mg/mL), Single-dose vial, Rx only, Manufactured by: Zydus Lifesciences Limited, Ahmedabad, India; Distributed by: Amneal Pharmaceuticals LC, Bridgewater, NY 08807.  NDC: 70121-2461-1",
+      "product_quantity": "9,489 50mL vials",
+      "reason_for_recall": "Discolored solution. The firm has received market complaints reporting green to dark green discoloration in certain vials",
+      "recall_initiation_date": "20260729",
+      "center_classification_date": "20260814",
+      "report_date": "20260826",
+      "code_info": "Lot: P400157, Exp 08/31/2026; Lot PA00047A, Exp 09/30/2027",
+      "more_code_info": ""
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "fda_openfda_drugsfda": {
+    "status": 200,
+    "final_url": "https://api.fda.gov/drug/drugsfda.json?search=submissions.submission_status_date%3A%5B20260801+TO+20261001%5D+AND+submissions.submission_type%3AORIG&limit=3",
+    "elapsed_s": 2.45,
+    "content_type": "application/json; charset=utf-8",
+    "bytes": 7509,
+    "etag": "W/\"1d55-uLXJci2KEZl0D24pZbMU39ECa1I\"",
+    "last_modified": null,
+    "cache_control": "no-cache, no-store, must-revalidate",
+    "expires": null,
+    "server": null,
+    "date": "Thu, 01 Oct 2026 09:58:13 GMT",
+    "ratelimit": {
+      "x-api-umbrella-request-id": "d0urj79l8ekttsrs8dbg"
+    },
+    "akamai_block": false,
+    "url": "https://api.fda.gov/drug/drugsfda.json",
+    "profile": "ua_only"
+  },
+  "fda_openfda_enf_india": {
+    "status": 200,
+    "final_url": "https://api.fda.gov/drug/enforcement.json?search=country%3A%22India%22&sort=report_date%3Adesc&limit=3",
+    "elapsed_s": 0.38,
+    "content_type": "application/json; charset=utf-8",
+    "bytes": 8192,
+    "etag": "W/\"2000-kA7MYFacAGPa/CfKzmqXXIK1OnY\"",
+    "last_modified": null,
+    "cache_control": "no-cache, no-store, must-revalidate",
+    "expires": null,
+    "server": null,
+    "date": "Thu, 01 Oct 2026 09:58:14 GMT",
+    "ratelimit": {
+      "x-api-umbrella-request-id": "d0urj7eva25h84asoj80"
+    },
+    "akamai_block": false,
+    "url": "https://api.fda.gov/drug/enforcement.json",
+    "profile": "ua_only"
+  },
+  "fda_warning_letters": {
+    "status": 200,
+    "final_url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/compliance-actions-and-activities/warning-letters",
+    "elapsed_s": 1.37,
+    "content_type": "text/html; charset=UTF-8",
+    "bytes": 76543,
+    "etag": "\"1790779485\"",
+    "last_modified": "Wed, 30 Sep 2026 14:44:45 GMT",
+    "cache_control": "public, max-age=86400",
+    "expires": "Fri, 02 Oct 2026 09:58:15 GMT",
+    "server": "nginx",
+    "date": "Thu, 01 Oct 2026 09:58:15 GMT",
+    "ratelimit": {},
+    "akamai_block": false,
+    "url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/compliance-actions-and-activities/warning-letters",
+    "profile": "browser"
+  },
+  "fda_rss_idx": {
+    "status": 404,
+    "final_url": "https://www.fda.gov/about-fda/contact-fda/stay-informed/rss-feeds",
+    "elapsed_s": 0.5,
+    "content_type": "text/html; charset=UTF-8",
+    "bytes": 14493,
+    "etag": "\"1790845967\"",
+    "last_modified": "Thu, 01 Oct 2026 09:12:47 GMT",
+    "cache_control": "public, max-age=86400",
+    "expires": "Fri, 02 Oct 2026 09:58:16 GMT",
+    "server": "nginx",
+    "date": "Thu, 01 Oct 2026 09:58:16 GMT",
+    "ratelimit": {},
+    "akamai_block": false,
+    "url": "https://www.fda.gov/about-fda/contact-fda/stay-informed/rss-feeds",
+    "profile": "browser"
+  }
+}

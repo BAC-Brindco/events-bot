@@ -1,0 +1,242 @@
+[
+ {
+  "name": "fedreg_eo_latest",
+  "url": "https://www.federalregister.gov/api/v1/documents.json?conditions[type][]=PRESDOCU&conditions[presidential_document_type]=executive_order&order=newest&per_page=5&fields[]=document_number&fields[]=title&fields[]=type&fields[]=subtype&fields[]=signing_date&fields[]=publication_date&fields[]=executive_order_number&fields[]=html_url&fields[]=pdf_url&fields[]=agencies&fields[]=action",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:18:49.751522+00:00",
+  "status": 200,
+  "final_url": "https://www.federalregister.gov/api/v1/documents.json?conditions[type][]=PRESDOCU&conditions[presidential_document_type]=executive_order&order=newest&per_page=5&fields[]=document_number&fields[]=title&fields[]=type&fields[]=subtype&fields[]=signing_date&fields[]=publication_date&fields[]=executive_order_number&fields[]=html_url&fields[]=pdf_url&fields[]=agencies&fields[]=action",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:18:54 GMT",
+   "content-type": "application/json; charset=utf-8",
+   "content-length": "1122",
+   "age": "57",
+   "cache-control": "no-store, no-cache, must-revalidate, private"
+  },
+  "bytes": 4841,
+  "sample": "fedreg_eo_latest.json",
+  "conditional_get": "no validators returned"
+ },
+ {
+  "name": "fedreg_eo_oldest",
+  "url": "https://www.federalregister.gov/api/v1/documents.json?conditions[presidential_document_type]=executive_order&order=oldest&per_page=1&fields[]=document_number&fields[]=title&fields[]=type&fields[]=subtype&fields[]=signing_date&fields[]=publication_date&fields[]=executive_order_number&fields[]=html_url&fields[]=pdf_url&fields[]=agencies&fields[]=action",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:18:50.851763+00:00",
+  "status": 200,
+  "final_url": "https://www.federalregister.gov/api/v1/documents.json?conditions[presidential_document_type]=executive_order&order=oldest&per_page=1&fields[]=document_number&fields[]=title&fields[]=type&fields[]=subtype&fields[]=signing_date&fields[]=publication_date&fields[]=executive_order_number&fields[]=html_url&fields[]=pdf_url&fields[]=agencies&fields[]=action",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:18:54 GMT",
+   "content-type": "application/json; charset=utf-8",
+   "content-length": "2204",
+   "age": "58",
+   "cache-control": "no-store, no-cache, must-revalidate, private"
+  },
+  "bytes": 14303,
+  "sample": "fedreg_eo_oldest.json"
+ },
+ {
+  "name": "fedreg_bis_latest",
+  "url": "https://www.federalregister.gov/api/v1/documents.json?conditions[agencies][]=industry-and-security-bureau&order=newest&per_page=8&fields[]=document_number&fields[]=title&fields[]=type&fields[]=subtype&fields[]=signing_date&fields[]=publication_date&fields[]=executive_order_number&fields[]=html_url&fields[]=pdf_url&fields[]=agencies&fields[]=action",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:18:51.951990+00:00",
+  "status": 200,
+  "final_url": "https://www.federalregister.gov/api/v1/documents.json?conditions[agencies][]=industry-and-security-bureau&order=newest&per_page=8&fields[]=document_number&fields[]=title&fields[]=type&fields[]=subtype&fields[]=signing_date&fields[]=publication_date&fields[]=executive_order_number&fields[]=html_url&fields[]=pdf_url&fields[]=agencies&fields[]=action",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:18:55 GMT",
+   "content-type": "application/json; charset=utf-8",
+   "content-length": "1692",
+   "age": "0",
+   "cache-control": "no-store, no-cache, must-revalidate, private"
+  },
+  "bytes": 9543,
+  "sample": "fedreg_bis_latest.json",
+  "conditional_get": "no validators returned"
+ },
+ {
+  "name": "fedreg_pi_current",
+  "url": "https://www.federalregister.gov/api/v1/public-inspection-documents/current.json",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:18:53.052521+00:00",
+  "status": 200,
+  "final_url": "https://www.federalregister.gov/api/v1/public-inspection-documents/current.json",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:18:56 GMT",
+   "content-type": "application/json; charset=utf-8",
+   "content-length": "16282",
+   "age": "7415",
+   "cache-control": "no-store, no-cache, must-revalidate, private"
+  },
+  "bytes": 187909,
+  "sample": "fedreg_pi_current.json",
+  "conditional_get": "no validators returned"
+ },
+ {
+  "name": "fedreg_pi_bis",
+  "url": "https://www.federalregister.gov/api/v1/public-inspection-documents.json?conditions[agencies][]=industry-and-security-bureau&per_page=5",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:18:54.152820+00:00",
+  "status": 200,
+  "final_url": "https://www.federalregister.gov/api/v1/public-inspection-documents.json?conditions[agencies][]=industry-and-security-bureau&per_page=5",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:18:58 GMT",
+   "content-type": "application/json; charset=utf-8",
+   "content-length": "212",
+   "age": "58",
+   "cache-control": "no-store, no-cache, must-revalidate, private"
+  },
+  "bytes": 258,
+  "sample": "fedreg_pi_bis.json"
+ },
+ {
+  "name": "fedreg_pi_2026-19555",
+  "url": "https://www.federalregister.gov/api/v1/public-inspection-documents/2026-19555.json",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:18:55.252873+00:00",
+  "status": 200,
+  "final_url": "https://www.federalregister.gov/api/v1/public-inspection-documents/2026-19555.json",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:18:59 GMT",
+   "content-type": "application/json; charset=utf-8",
+   "content-length": "658",
+   "age": "0",
+   "cache-control": "no-store, no-cache, must-revalidate, private"
+  },
+  "bytes": 1661
+ },
+ {
+  "name": "fedreg_pi_2026-19417",
+  "url": "https://www.federalregister.gov/api/v1/public-inspection-documents/2026-19417.json",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:18:56.353280+00:00",
+  "status": 200,
+  "final_url": "https://www.federalregister.gov/api/v1/public-inspection-documents/2026-19417.json",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:19:00 GMT",
+   "content-type": "application/json; charset=utf-8",
+   "content-length": "595",
+   "age": "264",
+   "cache-control": "no-store, no-cache, must-revalidate, private"
+  },
+  "bytes": 1428
+ },
+ {
+  "name": "fedreg_pi_2026-20058",
+  "url": "https://www.federalregister.gov/api/v1/public-inspection-documents/2026-20058.json",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:18:57.453705+00:00",
+  "status": 200,
+  "final_url": "https://www.federalregister.gov/api/v1/public-inspection-documents/2026-20058.json",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:19:01 GMT",
+   "content-type": "application/json; charset=utf-8",
+   "content-length": "655",
+   "age": "798",
+   "cache-control": "no-store, no-cache, must-revalidate, private"
+  },
+  "bytes": 1705
+ },
+ {
+  "name": "fedreg_pi_2026-19927",
+  "url": "https://www.federalregister.gov/api/v1/public-inspection-documents/2026-19927.json",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:18:58.554159+00:00",
+  "status": 200,
+  "final_url": "https://www.federalregister.gov/api/v1/public-inspection-documents/2026-19927.json",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:19:02 GMT",
+   "content-type": "application/json; charset=utf-8",
+   "content-length": "568",
+   "age": "0",
+   "cache-control": "no-store, no-cache, must-revalidate, private"
+  },
+  "bytes": 1303
+ },
+ {
+  "name": "FR_LAG",
+  "lag": {
+   "2026-19555": {
+    "title": "Enhancing Program Integrity and Interagency Coordination in the Administration of the H-1B",
+    "signing_date": "2026-09-18",
+    "pi_filed_at": "2026-09-22T11:15:00.000-04:00",
+    "pi_status": 200,
+    "publication_date": "2026-09-23",
+    "pi_special_filing": null
+   },
+   "2026-19417": {
+    "title": "Restoring American Saltwater Angling and Recreation",
+    "signing_date": "2026-09-17",
+    "pi_filed_at": "2026-09-21T11:15:00.000-04:00",
+    "pi_status": 200,
+    "publication_date": "2026-09-22",
+    "pi_special_filing": null
+   },
+   "2026-20058": {
+    "title": "Agency Information Collection Activities; Submission to the Office of Management and Budge",
+    "signing_date": null,
+    "pi_filed_at": "2026-09-29T08:45:00.000-04:00",
+    "pi_status": 200,
+    "publication_date": "2026-09-30",
+    "pi_special_filing": null
+   },
+   "2026-19927": {
+    "title": "URAL Airlines JSC, Utrenniy Lane 1-g, Yekaterinburg, Russia 620025; Order Renewing Tempora",
+    "signing_date": null,
+    "pi_filed_at": "2026-09-28T08:45:00.000-04:00",
+    "pi_status": 200,
+    "publication_date": "2026-09-29",
+    "pi_special_filing": null
+   }
+  }
+ },
+ {
+  "name": "fedreg_pi_bis_rule_2026-19537",
+  "url": "https://www.federalregister.gov/api/v1/public-inspection-documents/2026-19537.json",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:18:59.654498+00:00",
+  "status": 200,
+  "final_url": "https://www.federalregister.gov/api/v1/public-inspection-documents/2026-19537.json",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:19:03 GMT",
+   "content-type": "application/json; charset=utf-8",
+   "content-length": "605",
+   "age": "749",
+   "cache-control": "no-store, no-cache, must-revalidate, private"
+  },
+  "bytes": 1525,
+  "sample": "fedreg_pi_bis_rule_2026-19537.json"
+ },
+ {
+  "name": "fedreg_pi_available_on_bis_filter",
+  "url": "https://www.federalregister.gov/api/v1/public-inspection-documents.json?conditions[agencies][]=industry-and-security-bureau&conditions[available_on]=2026-09-23",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:00.754853+00:00",
+  "status": 200,
+  "final_url": "https://www.federalregister.gov/api/v1/public-inspection-documents.json?conditions[agencies][]=industry-and-security-bureau&conditions[available_on]=2026-09-23",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:19:05 GMT",
+   "content-type": "application/json; charset=utf-8",
+   "content-length": "15192",
+   "age": "0",
+   "cache-control": "no-store, no-cache, must-revalidate, private"
+  },
+  "bytes": 174316,
+  "sample": "fedreg_pi_available_on_bis_filter.json"
+ },
+ {
+  "name": "fedreg_api_docs",
+  "url": "https://www.federalregister.gov/developers/documentation/api/v1",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:01.855330+00:00",
+  "status": 200,
+  "final_url": "https://unblock.federalregister.gov",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:19:06 GMT",
+   "content-type": "text/html; charset=utf-8",
+   "content-length": "3194",
+   "age": "12964",
+   "cache-control": "no-store, no-cache, must-revalidate, private"
+  },
+  "bytes": 10596,
+  "sample": "fedreg_api_docs.html"
+ }
+]

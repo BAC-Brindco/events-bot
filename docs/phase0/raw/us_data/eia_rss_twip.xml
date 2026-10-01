@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet href="/rss/rss.xsl" type="text/xsl" media="screen"?>
+<rss version="2.0">
+   <channel>
+      <title>EIA: This Week in Petroleum</title>
+      <link>https://www.eia.gov/petroleum/weekly/</link>
+      <description>U.S. petroleum fuels prices and volumns nationally and by region.</description>
+      <language>en-us</language>
+ <image> <title>EIA logo</title>
+         <url>https://www.eia.gov/global/images/logos/eia_logo_250.png</url>
+         <link>https://www.eia.gov/</link>
+         <description>US Energy Information Administration</description>
+      </image>
+	  
+<item> <title>This Week in Petroleum (10/29/2025)</title>
+       <link>https://www.eia.gov/petroleum/weekly/archive/2025/251029/includes/hometables_print.php</link>
+         <pubDate>################### EST</pubDate>
+         <description>Supply data are as of October 24, 2025; retail prices are as of October 27, 2025. ...</description>		 
+	   </item>	  
+	   
+	   
+	   
+<item> <title>This Week in Petroleum (10/22/2025)</title>
+       <link>https://www.eia.gov/petroleum/weekly/archive/2025/251022/includes/hometables_print.php</link>
+         <pubDate>################### EST</pubDate>
+         <description>Supply data are as of October 17, 2025; retail prices are as of October 20, 2025. ...</description>		 
+	   </item>	  
+	   
+	   
+<item> <title>This Week in Petroleum (10/16/2025)</title>
+       <link>https://www.eia.gov/petroleum/weekly/archive/2025/251016/includes/hometables_print.php</link>
+         <pubDate>################### EST</pubDate>
+         <description>Supply data are as of October 10, 2025; retail prices are as of October 13, 2025. ...</description>		 
+	   </item>	  
+	   
+	   
+<item> <title>This Week in Petroleum (10/8/2025)</title>
+       <link>https://www.eia.gov/petroleum/weekly/archive/2025/251008/includes/hometables_print.php</link>
+         <pubDate>################### EST</pubDate>
+         <description>Supply data are as of October 3, 2025; retail prices are as of October 6, 2025. ...</description>		 
+	   </item>	  
+	   
+	  
+</channel>		  
+
+</rss>
+ 

@@ -1,0 +1,221 @@
+[
+ {
+  "name": "congress_bill",
+  "url": "https://api.congress.gov/v3/bill?api_key=DEMO_KEY&format=json&limit=3&sort=updateDate+desc",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:12.533196+00:00",
+  "status": 200,
+  "final_url": "https://api.congress.gov/v3/bill?api_key=DEMO_KEY&format=json&limit=3&sort=updateDate+desc",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:19:18 GMT",
+   "content-type": "application/json",
+   "age": "0",
+   "cache-control": "public, max-age=1800",
+   "expires": "Thu, 01 Oct 2026 10:49:18 GMT",
+   "last-modified": "Thu, 01 Oct 2026 10:19:18 GMT",
+   "via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+   "x-cache": "MISS",
+   "x-ratelimit-limit": "10",
+   "x-ratelimit-remaining": "9"
+  },
+  "bytes": 2649,
+  "sample": "congress_bill.json"
+ },
+ {
+  "name": "congress_committee_meeting",
+  "url": "https://api.congress.gov/v3/committee-meeting/119?api_key=DEMO_KEY&format=json&limit=3",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:15.124127+00:00",
+  "status": 200,
+  "final_url": "https://api.congress.gov/v3/committee-meeting/119?api_key=DEMO_KEY&format=json&limit=3",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:19:19 GMT",
+   "content-type": "application/json",
+   "age": "0",
+   "cache-control": "public, max-age=1800",
+   "expires": "Thu, 01 Oct 2026 10:49:19 GMT",
+   "last-modified": "Thu, 01 Oct 2026 10:19:19 GMT",
+   "via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+   "x-cache": "MISS",
+   "x-ratelimit-limit": "10",
+   "x-ratelimit-remaining": "8"
+  },
+  "bytes": 1088,
+  "sample": "congress_committee_meeting.json"
+ },
+ {
+  "name": "congress_committee",
+  "url": "https://api.congress.gov/v3/committee?api_key=DEMO_KEY&format=json&limit=2",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:16.224512+00:00",
+  "status": 200,
+  "final_url": "https://api.congress.gov/v3/committee?api_key=DEMO_KEY&format=json&limit=2",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:19:20 GMT",
+   "content-type": "application/json",
+   "age": "0",
+   "cache-control": "public, max-age=1800",
+   "expires": "Thu, 01 Oct 2026 10:49:20 GMT",
+   "last-modified": "Thu, 01 Oct 2026 10:19:20 GMT",
+   "via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+   "x-cache": "MISS",
+   "x-ratelimit-limit": "10",
+   "x-ratelimit-remaining": "7"
+  },
+  "bytes": 879,
+  "sample": "congress_committee.json"
+ },
+ {
+  "name": "congress_house_vote",
+  "url": "https://api.congress.gov/v3/house-vote/119?api_key=DEMO_KEY&format=json&limit=2",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:17.325173+00:00",
+  "status": 200,
+  "final_url": "https://api.congress.gov/v3/house-vote/119?api_key=DEMO_KEY&format=json&limit=2",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:19:21 GMT",
+   "content-type": "application/json",
+   "age": "0",
+   "cache-control": "public, max-age=1800",
+   "expires": "Thu, 01 Oct 2026 10:49:21 GMT",
+   "last-modified": "Thu, 01 Oct 2026 10:19:21 GMT",
+   "via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+   "x-cache": "MISS",
+   "x-ratelimit-limit": "10",
+   "x-ratelimit-remaining": "6"
+  },
+  "bytes": 1590,
+  "sample": "congress_house_vote.json"
+ },
+ {
+  "name": "congress_daily_record",
+  "url": "https://api.congress.gov/v3/daily-congressional-record?api_key=DEMO_KEY&format=json&limit=2",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:18.425802+00:00",
+  "status": 200,
+  "final_url": "https://api.congress.gov/v3/daily-congressional-record?api_key=DEMO_KEY&format=json&limit=2",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:19:22 GMT",
+   "content-type": "application/json",
+   "age": "0",
+   "cache-control": "public, max-age=1800",
+   "expires": "Thu, 01 Oct 2026 10:49:22 GMT",
+   "last-modified": "Thu, 01 Oct 2026 10:19:22 GMT",
+   "via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+   "x-cache": "MISS",
+   "x-ratelimit-limit": "10",
+   "x-ratelimit-remaining": "5"
+  },
+  "bytes": 974,
+  "sample": "congress_daily_record.json"
+ },
+ {
+  "name": "congress_api_docs_github",
+  "url": "https://github.com/LibraryOfCongress/api.congress.gov",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:18.885770+00:00",
+  "status": 200,
+  "final_url": "https://github.com/LibraryOfCongress/api.congress.gov",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:19:23 GMT",
+   "content-type": "text/html; charset=utf-8",
+   "etag": "W/\"f3bf6d9fa1cae0b5c5060320d2370566\"",
+   "cache-control": "max-age=0, private, must-revalidate",
+   "server": "github.com"
+  },
+  "bytes": 275981,
+  "sample": "congress_api_docs_github.html"
+ },
+ {
+  "name": "congress_gov_approps_table",
+  "url": "https://www.congress.gov/crs-appropriations-status-table",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:19.798983+00:00",
+  "status": 403,
+  "final_url": "https://www.congress.gov/crs-appropriations-status-table",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:19:23 GMT",
+   "content-type": "text/html; charset=UTF-8",
+   "server": "cloudflare"
+  },
+  "bytes": 5883,
+  "sample": "congress_gov_approps_table.html"
+ },
+ {
+  "name": "treasury_debt_limit_page",
+  "url": "https://home.treasury.gov/policy-issues/financial-markets-financial-institutions-and-fiscal-service/debt-limit",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:19.989713+00:00",
+  "status": 200,
+  "final_url": "https://home.treasury.gov/policy-issues/financial-markets-financial-institutions-and-fiscal-service/debt-limit",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "last-modified": "Wed, 16 Sep 2026 22:58:45 GMT",
+   "server": "AmazonS3",
+   "etag": "W/\"d66ca5c2fea473ca8422dd5e0f06295e\"",
+   "x-akamai-transformed": "9 - 0 pmb=mRUM,1",
+   "date": "Thu, 01 Oct 2026 10:19:25 GMT",
+   "content-length": "22012"
+  },
+  "bytes": 98043,
+  "sample": "treasury_debt_limit_page.html",
+  "conditional_get": {
+   "sent": {
+    "If-None-Match": "W/\"d66ca5c2fea473ca8422dd5e0f06295e\"",
+    "If-Modified-Since": "Wed, 16 Sep 2026 22:58:45 GMT"
+   },
+   "status": 304,
+   "bytes": 0
+  },
+  "links": {
+   "\\.pdf|letter|debt-limit": [
+    "https://home.treasury.gov/policy-issues/financial-markets-financial-institutions-and-fiscal-service/debt-limit",
+    "/policy-issues/financial-markets-financial-institutions-and-fiscal-service/debt-limit/",
+    "/system/files/136/Fact-Sheet-Department-of-Education-and-Department-of-the-Treasury.pdf",
+    "https://www.treasurydirect.gov/savings-bonds/treasury-hunt/?utm_source=newsletter&amp;utm_medium=allmail&amp;utm_campaign=MUD_spring&amp;utm_id=MUD7",
+    "/policy-issues/financial-markets-financial-institutions-and-fiscal-service/debt-limit",
+    "/system/files/136/2025CSRDFCoverLetter-Johnson.pdf",
+    "/system/files/136/2025CSRDFReport.pdf",
+    "/system/files/136/Report-on-the-Operation-and-Status-of-the-Government-Securities-Investment-Fund.pdf",
+    "/system/files/136/Letter-to-Congress-on-the-Operation-and-Status-of-the-Government-Securities-Investment-Fund.pdf",
+    "/system/files/136/DSL-Public-v07032025.pdf",
+    "/system/files/136/Debt-Limit-Letter-to-Congress-06-25-2025.pdf",
+    "/system/files/136/Debt-Limit-Letter-to-Congress-May-9-2025.pdf",
+    "/system/files/136/Debt-Limit-Letter_20250314_Johnson.pdf",
+    "/system/files/136/Debt-Limit-Letter-to-Congress-1-23-25.pdf",
+    "/system/files/136/GFundFAQs2025-01-23-25.pdf",
+    "/system/files/136/Debt-Limit-Letter-to-Congress-1-17-25.pdf",
+    "/system/files/136/CSRDFFAQs2025-011725.pdf",
+    "/system/files/136/DescriptionofExtraordinaryMeasures20250117.pdf",
+    "/system/files/136/Debt-Limit-Letter-to-Congress.pdf",
+    "/system/files/136/07282023_Letter_to_Speaker_McCarthy_2023_CSRDF_Report.pdf",
+    "/system/files/136/2023_CSRDF_Report.pdf",
+    "/system/files/136/06292023_Letter_to_Speaker_McCarthy_G-Fund_Report-1.pdf",
+    "/system/files/136/Report_Operation_Status_Government_Securities_Investment_Fund_January_23_2023-June_6_2023.pdf",
+    "/system/files/136/FINAL-Daily-Debt-Subject-to-Limit-Activity-2023_06_02.pdf",
+    "/system/files/136/DescriptionofExtraordinaryMeasures2023-05-31.pdf",
+    "/system/files/136/Debt-Limit-Letter-to-Congress-Members-20230526-McCarthy.pdf",
+    "/system/files/136/Daily-Debt-Subject-to-Limit-Activity-2023-05-26.pdf",
+    "/system/files/136/Debt-Limit-Letter-to-Congress-Members-20230522-McCarthy.pdf",
+    "/system/files/136/Daily-Debt-Subject-to-Limit-Activity-2023-05-19.pdf",
+    "/system/files/136/Debt-Limit-Letter-to-Congress-Members_20230515_McCarthy.pdf"
+   ]
+  }
+ },
+ {
+  "name": "fiscaldata_debt_to_penny",
+  "url": "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?sort=-record_date&page[size]=3",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:21.807952+00:00",
+  "status": 200,
+  "final_url": "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?sort=-record_date&page[size]=3",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:19:26 GMT",
+   "content-type": "application/json",
+   "content-length": "679",
+   "server": "nginx"
+  },
+  "bytes": 2481,
+  "sample": "fiscaldata_debt_to_penny.json"
+ }
+]

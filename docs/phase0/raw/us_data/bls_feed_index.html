@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>RSS Feeds</title>
+<!-- ****************************************** Begin META TAGS ********************************************* -->
+	<!-- START include/global/head.stm -->
+	<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=DOL&subagency=BLS&yt=true"></script>
+
+	<script src="/javascripts/jquery-latest.js"></script>
+	<script src="/javascripts/bls-latest.js"></script>
+	<script src="/javascripts/jquery-tools.js"></script>
+	<script src="/javascripts/jquery-migrate-1.2.1.min.js"></script>
+	
+	<link rel="stylesheet" href="/assets/bootstrap/latest/bootstrap.min.css">
+	<script src="/assets/bootstrap/latest/popper.min.js"></script>
+	<script src="/assets/bootstrap/latest/bootstrap.min.js"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bls_combined.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bls_content.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bls_tables.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/jquery-tools.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bls_nr.css">
+    <!--[if lt IE 9]>
+		<link href="/stylesheets/ie8-styles.css" media="all" rel="Stylesheet" type="text/css"> 
+	<![endif]-->
+	<!--[if lt IE 8]>
+		<link href="/stylesheets/ie7-styles.css" media="all" rel="Stylesheet" type="text/css"> 
+	<![endif]-->
+	<!--[if lt IE 7]>
+		<link href="/stylesheets/ie6-styles.css" media="all" rel="Stylesheet" type="text/css"> 
+		<style>
+		body {
+			behavior:url(/stylesheets/csshover2.htc);
+		}
+		</style>			
+	<![endif]-->
+	<!--[if IE]>
+		<style>
+		body {
+			font-size: expression(1 / (screen.deviceXDPI / 96) * 84 + '%');
+		}
+		</style>	
+	<![endif]-->
+	<noscript>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bls_noscript.css">
+	</noscript>
+	<!--  This means that the browser will (probably) render the width of the page at the width of its own screen. -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    <meta property="og:image" content="https://www.bls.gov/images/bls_emblem_2016.png" />
+	<meta property="og:image:alt" content="BLS Logo">
+	<meta name="robots" content="index, follow">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:site_name" content="Bureau of Labor Statistics">
+		<style>
+			td.gsc-table-cell-thumbnail{
+			display:none !important;
+			}
+		</style>
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+	<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+	<link rel="manifest" href="/manifest.json" />
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+	<meta name="theme-color" content="#ffffff" />
+    <!-- END include/global/head.stm -->
+
+	<meta name="agency" content="BLS" />
+	<meta name="audience" content="general" />
+<!-- ****************************************** End META TAGS *********************************************** -->
+</head>
+<body>
+<!-- ****************************************** Begin HEADER ************************************************ --> 
+<!--no_index_start-->
+
+<!-- DOL BANNER BEGIN -->
+
+<!-- DOL BANNER START -->
+<header > <!-- Header is closed at the end of BLS banner -->
+		<a class="skiplink" href="#startcontent">Skip to Content</a>
+
+		<div id="usa-banner-wrapper">
+<div id="usa-banner" class="bootstrap standard-width">
+	<div class="content">
+	<div class="USA-flag-link">
+	<img src="https://www.dol.gov/themes/opa_theme/img/flag-favicon-57.png" alt="U.S. flag">
+	<p>An official website of the United States government 
+	  
+	<button type="button" data-toggle="collapse" data-target="#usaBanner" aria-expanded="false" aria-controls="usaBanner">Here is how you know <span class="oi" data-glyph="chevron-bottom"></span></button>
+	</p>
+	</div>
+		<a href="https://www.dol.gov/" id="dolHolder" class="dolHolder" target="_blank"><img src="https://www.dol.gov/themes/opa_theme/img/logo-primary.svg" alt="Department of Labor Logo"/>  United States Department of Labor</a>
+	</div>
+	
+	<div class="collapse " id="usaBanner">	
+	<div class="row">
+	<div class="col-md-6">
+		<img src="https://www.dol.gov/themes/opa_theme/img/icon-dot-gov.svg" alt="Dot gov">
+
+		<p>
+			<strong>The .gov means it's official.</strong>
+			<br> Federal government websites often end in .gov or .mil. Before sharing sensitive information,
+			make sure you're on a federal government site.
+		</p>
+	</div>
+
+	<div class="col-md-6">
+	<img class="usa-banner-icon usa-media_block-img" src="https://www.dol.gov/themes/opa_theme/img/icon-https.svg" alt="Https">
+	
+		<p>
+			<strong>The site is secure.</strong>
+			<br> The
+			<strong>https://</strong> ensures that you are connecting to the official website and that any
+			information you provide is encrypted and transmitted securely.
+		</p>
+	</div>
+	</div>
+	</div>		
+</div>
+</div>
+
+
+
+<!-- DOL BANNER END -->
+
+
+
+<!-- DOL BANNER END -->
+<!-- BLS BANNER BEGIN -->
+
+<div id="bls-banner-wrapper">
+<div id="top"></div>
+		<div class="bootstrap standard-width">
+<div>
+  <div id="bls-banner" class="row">
+    <div id="bls-banner-emblem" class="col-sm-12 col-md-7">
+      <a href="https://www.bls.gov/">U.S. Bureau of Labor Statistics</a>
+    </div>
+    <div id="bls-banner-right" class="col-sm-12 col-md-5 d-none d-md-block">
+<div id="bls-banner-links"><a href="/schedule/news_release/">Release Calendar</a> | <a href="javascript:window.open('https://public.govdelivery.com/accounts/USDOLBLS/subscriber/new ','Popup','width=800,height=500,toolbar=no,scrollbars=yes,resizable=yes'); void('');" onclick="window.status='Subscribe'; return true" onmouseover="window.status='Subscribe'; return true" onmouseout="window.status=''; return true" id="social-email-1" title="Subscribe to BLS E-mail Updates" aria-label="Subscribe to BLS E-mail Updates">Subscribe</a></div> 
+      <div id="bls-banner-search1" class="bls-banner-search">
+        <form method="get" action="/search/query">
+		  <label for="bls-banner-search-submit1" class="invisible">Search button</label>
+          <input type="image" src="/images/buttons/search_button_blue_16.png" name="term" id="bls-banner-search-submit1" alt="BLS Search Submit" title="Submit" >
+		  <label for="bls-banner-search-input1" class="invisible">Search:</label>
+          <input name="query" type="text" id="bls-banner-search-input1" value="Search BLS.gov" title="Search Input" onclick="this.value=''; this.onclick = null;">
+
+        </form>
+      </div>
+    </div>
+    <div class="clearfloat"></div>
+  </div>
+</div>
+</div>
+</div>
+</header> <!-- Header is opened at the begining of DOL banner -->
+
+<!-- BLS BANNER END -->
+<!-- MAIN NAV BEGIN -->
+
+
+
+<div id="main-nav-wrapper">
+	<div id="main-nav-container">
+		<div>
+			
+<div class="bootstrap standard-width">
+<nav aria-label="top-level navigation menu" class="navbar navbar-expand-md">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation menu">
+    <span class="navbar-toggler-icon">Menu</span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+
+
+<ul class="nojs navbar-nav mr-auto">
+	  <li class="dropdownSearch"><div id="bls-banner-search" class="dropdown-search">
+        <form method="get" action="/search/query">
+		  <label for="bls-banner-search-submit" class="invisible">Search button</label>
+          <input type="image" src="/images/buttons/search_button_blue_20.png" name="term" id="bls-banner-search-submit" alt="BLS Search Submit" title="Submit">
+		  <label for="bls-banner-search-input" class="invisible">Search:</label>
+          <input name="query" type="text" id="bls-banner-search-input" value="Search BLS.gov" title="Search Input" onclick="this.value=''; this.onclick = null;">
+
+        </form>
+      </div>
+	  <div class="bls-banner-links-mob"><a href="/schedule/news_release/">Release Calendar</a> | <a href="javascript:window.open('https://public.govdelivery.com/accounts/USDOLBLS/subscriber/new ','Popup','width=800,height=500,toolbar=no,scrollbars=yes,resizable=yes'); void('');" onclick="window.status='Subscribe'; return true" onmouseover="window.status='Subscribe'; return true" onmouseout="window.status=''; return true" id="social-email-2" title="Subscribe to BLS E-mail Updates" aria-label="Subscribe to BLS E-mail Updates">Subscribe</a></div>
+	
+	</li>
+    <li class="nav-item dropdown active"><a class="nav-link dropdown-toggle" href="https://www.bls.gov/" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home <span class="circle-arrow"></span></a>
+        <div class="dropdown-menu"><!-- ********************************************** Begin Home Tab LIST ****************************************** -->
+<!-- 1st column -->
+<div class="main-nav-submenu" id="submenu-home">
+	<ul class="main-nav-submenu-inn">
+	
+		<li class="heading"><a href="/about-bls/home.htm" aria-label="About BLS">About BLS</a></li>
+		<li><a href="/bls/history/home.htm" aria-label="BLS History">History</a></li>	
+		<li><a href="/bls/senior_staff/home.htm" aria-label="Our Leadership">Our Leadership</a></li>
+		<li><a href="/bls/bls_budget_and_performance.htm" aria-label="Budget and Performance">Budget and Performance</a></li>		
+		<li><a href="/bls/faqs.htm" aria-label="Questions and Answers">Questions and Answers</a></li>	
+		<li><a href="/bls/topicsaz.htm" aria-label="A-Z Index">A-Z Index</a></li>	
+		<li><a href="/bls/glossary.htm" aria-label="Glossary">Glossary</a></li>	
+		<li><a href="/bls/bls-speakers/" aria-label="BLS Speakers Available">BLS Speakers Available</a></li>
+		<li><a href="/errata/" aria-label="Errata">Errata</a></li>  				
+		<li><a href="/bls/contact.htm" aria-label="Contact BLS">Contact BLS</a></li>	
+
+	</ul>	
+	<!-- 2nd column -->	
+<ul class="main-nav-submenu-inn">	
+		<li class="heading"><a href="/bls/overview.htm" aria-label="Overview of BLS Statistics">Overview of BLS Statistics</a></li>
+		<li><a href="/information-guide/home.htm" aria-label="Guide to Programs & Services">Guide to Programs &amp; Services</a></li>
+		<li><a href="/bls/demographics.htm" aria-label="Demographics Data">Demographics</a></li>
+		<li><a href="/bls/industry.htm" aria-label="Statistics by Industries">Industries</a></li>
+		<li><a href="/bls/business.htm" aria-label="Statistics on Business Costs">Business Costs</a></li>
+		<li><a href="/bls/occupation.htm" aria-label="Statistics by Occupations">Occupations</a></li>
+		<li><a href="/bls/geography.htm" aria-label="Statistics by Geography">Geography</a></li>	
+	
+	</ul>
+	<!-- 3rd column -->
+	<ul class="main-nav-submenu-inn">
+		<li class="heading"><a href="/audience/" aria-label="Resources For">Resources For</a></li>
+		<li><a href="/audience/business.htm" aria-label="Resources for Business Leaders">Business Leaders</a></li>
+		<li><a href="/audience/consumers.htm" aria-label="Resources for Consumers">Consumers</a></li>
+		<li><a href="/audience/developers.htm" aria-label="Developers site">Developers</a></li>
+		<li><a href="/audience/economists.htm" aria-label="Economists or Economic Analyst">Economists</a></li>
+		<li><a href="/audience/investors.htm" aria-label="Resources for Financial Investors">Investors</a></li>
+		<li><a href="/audience/jobseekers.htm" aria-label="Resources for Jobseekers">Jobseekers</a></li>
+		<li><a href="/audience/media.htm" aria-label="Media">Media</a></li>
+		<li><a href="/audience/policy.htm" aria-label="Resources for Public Policymakers">Public Policymakers</a></li>
+		<li><a href="/audience/researcher.htm" aria-label="Researcher">Researcher</a></li>		
+		<li><a href="/audience/students.htm" aria-label="Resources for Students & Teachers">Students &amp; Teachers</a></li>
+		<li><a href="/respondents/" aria-label="Survey Respondents">Survey Respondents</a></li>
+	</ul>
+</div>
+
+<!-- ***********************************************End Home Tab LIST ******************************************** --> 
+
+</div>
+    </li>
+    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="/bls/proghome.htm" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Subjects <span class="circle-arrow"></span></a>
+        <div class="dropdown-menu"><!-- ************************************* Begin SUBJECTS TAB list ****************************************** -->
+<!-- 1st column -->
+<div class="main-nav-submenu" id="submenu-programs">
+	<ul class="main-nav-submenu-inn">
+		<li class="heading"><a href="/bls/inflation.htm" aria-label="Statistics on Inflation & Prices">Inflation &amp; Prices</a></li>
+		<li><a href="/cpi/" aria-label="Consumer Price Index ">Consumer Price Index</a></li>
+		<li><a href="/ppi/" aria-label="Producer Price Indexes">Producer Price Indexes</a></li>
+		<li><a href="/mxp/" aria-label="Import/Export Price Indexes">Import/Export Price Indexes</a></li>
+		<li><a href="/bls/escalation.htm" aria-label="Contract Escalation">Contract Escalation</a></li>
+		<li><a href="/pir/" aria-label="Price Index Research">Price Index Research</a></li>
+		<li class="heading"><a href="/bls/wages.htm" aria-label="Statistics on Pay & Benefits">Pay &amp; Benefits</a></li>
+		<li><a href="/eci/" aria-label="Employment Cost Index">Employment Cost Index</a></li>
+		<li><a href="/ecec/home.htm" aria-label="Employer Costs for Employee Compensation">Employer Costs for Employee Compensation</a></li>
+						<li><a href="https://www.bls.gov/oes/" aria-label="Wage Data by Occupation">Wage Data by Occupation</a></li>
+		<li><a href="/cps/earnings.htm#demographics" aria-label="Earnings by Demographics">Earnings by Demographics</a></li>
+		<li><a href="/ces/" aria-label="Earnings by Industry">Earnings by Industry</a></li>
+		<li><a href="https://www.bls.gov/cew/" aria-label="County Wages">County Wages</a></li>  <!--full path is needed since they have a folder on the data server-->
+		<li><a href="/ebs/" aria-label="Employee Benefits Survey">Benefits</a></li>
+		<li><a href="/mwe/" aria-label="Modeled Wage Estimates">Modeled Wage Estimates</a></li>		
+		<li><a href="/crp/" aria-label="Compensation Research & Program Development">Compensation Research</a></li>
+		<li><a href="/wsp/" aria-label="Strikes & Lockouts">Strikes &amp; Lockouts </a></li>
+		<li><a href="/wrp/" aria-label="Wage Records from Unemployment Insurance">Wage Records from Unemployment Insurance</a></li>
+		<li class="heading"><a href="/ors/" aria-label="Occupational Requirements Survey">Occupational Requirements</a></li>		
+	</ul>
+	<!-- 2nd column -->
+	<ul class="main-nav-submenu-inn">
+		<li class="heading"><a href="/bls/unemployment.htm" aria-label="Statistics on Unemployment">Unemployment</a></li>
+		<li><a href="/cps/" aria-label="National Unemployment Rate">National Unemployment Rate </a></li>
+		<li><a href="/lau/" aria-label="State & Local Unemployment Rates">State &amp; Local Unemployment Rates </a></li>
+		<li><a href="/ers/" aria-label="Unemployment Research">Unemployment Research</a></li>
+		<li class="heading"><a href="/bls/employment.htm" aria-label="Statistics on Employment">Employment</a></li>
+		<li><a href="/ces/" aria-label="National Employment Statistics">National Employment </a></li>
+		<li><a href="/sae/" aria-label="State & Local Employment, Hours, and Earnings">State &amp; Local Employment </a></li>
+		<li><a href="https://www.bls.gov/cew/" aria-label="County Employment">County Employment </a></li> <!--full path is needed since they have a folder on the data server-->
+		<li><a href="/cps/" aria-label="Worker Characteristics">Worker Characteristics </a></li>
+		<li><a href="/air/" aria-label="American Indian Report">American Indian Report</a></li>
+		<li><a href="/emp/" aria-label="Employment Projections">Employment Projections </a></li>
+		<li><a href="/jlt/" aria-label="Job Openings & Labor Turnover Survey">Job Openings &amp; Labor Turnover Survey </a></li>
+		<li><a href="/brs/" aria-label="Business Response Survey">Business Response Survey</a></li>
+		<li><a href="https://www.bls.gov/oes/" aria-label="Employment by Occupation">Employment by Occupation </a></li>
+		<li><a href="/nls/" aria-label="Work Experience Over Time">Work Experience Over Time </a></li>
+		<li><a href="/bdm/" aria-label="Business Employment Dynamics">Business Employment Dynamics </a></li>
+		<li><a href="/fdi/" aria-label="Foreign Direct Investment">Foreign Direct Investment </a></li>
+		<li><a href="/ers/" aria-label="Employment Research and Program Development">Employment Research</a></li>
+		<li class="heading"><a href="/iif/" aria-label="Workplace Injuries, Illnesses, and Fatalities">Workplace Injuries</a></li>
+	</ul>
+	<!-- 3rd column -->
+	<ul class="main-nav-submenu-inn">
+		<li class="heading"><a href="/bls/productivity.htm" aria-label="Productivity Statistics">Productivity</a></li>
+		<li><a href="/productivity/" aria-label="Labor and Total Factor Productivity">Labor and Total Factor Productivity</a></li>
+		<li><a href="/dpr/" aria-label="Productivity Research and Program Development">Productivity Research</a></li>
+		<li class="heading"><a href="/bls/spending.htm" aria-label="Statistics on Spending & Time Use">Spending &amp; Time Use</a></li>
+		<li><a href="/cex/" aria-label="Consumer Expenditures Surveys">Consumer Expenditures </a></li>
+		<li><a href="/tus/" aria-label="How Americans Spend Time Survey">How Americans Spend Time</a></li>			
+		<li class="heading"><a href="/bls/international.htm" aria-label="International Data and Technical Cooperation">International</a></li>
+		<li><a href="/itc/" aria-label="International Technical Cooperation">International Technical Cooperation</a></li>
+		<li><a href="/mxp/" aria-label="Import/Export Price Indexes">Import/Export Price Indexes</a></li>
+		<li class="heading"><a href="/regions/" aria-label="Geographic Information">Geographic Information</a></li>
+		<li><a href="/regions/northeast/" aria-label="Northeast (Boston-New York) Information Office">Northeast (Boston-New York)</a></li>
+		<li><a href="/regions/mid-atlantic/" aria-label="Mid-Atlantic (Philadelphia) Information Office">Mid-Atlantic (Philadelphia)</a></li>
+		<li><a href="/regions/southeast/" aria-label="Southeast (Atlanta) Information Office">Southeast (Atlanta)</a></li>
+		<li><a href="/regions/midwest/" aria-label="Midwest (Chicago) Information Office">Midwest (Chicago)</a></li>
+		<li><a href="/regions/southwest/" aria-label="Southwest (Dallas) Information Office">Southwest (Dallas)</a></li>
+		<li><a href="/regions/mountain-plains/" aria-label="Mountain-Plains (Kansas City) Information Office">Mountain-Plains (Kansas City)</a></li>
+		<li><a href="/regions/west/" aria-label="West (San Francisco) Information Office">West (San Francisco)</a></li>
+	</ul>
+</div>
+<!-- **************************************End SUBJECT AREAS ******************************************** --> 
+	</div>	
+    </li>
+    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="/data/" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Tools <span class="circle-arrow"></span></a>
+        <div class="dropdown-menu"><!-- ******************************************** Begin DATA TOOLS LIST ****************************************** -->
+<div class="main-nav-submenu"  id="submenu-data">
+    <ul class="main-nav-submenu-inn">
+        <li class="heading"><a href="/data/tools.htm" aria-label="Data Retrieval Tools Databases, Tables & Calculators by Subject">Data Retrieval Tools</a></li>
+		<li><a href="https://data.bls.gov/toppicks?code=&survey=bls" aria-label="BLS Popular Series Top Picks">BLS Popular Series</a></li>
+		<li><a href="https://data.bls.gov/series-report" aria-label="Series Report">Series Report</a></li>
+		<li><a href="/data/home.htm" aria-label="Top Picks, One Screen, Multi-Screen, and Maps" >Top Picks, One Screen, Multi-Screen, and Maps</a></li>
+		<li><a href="https://data.bls.gov/dataQuery/search" aria-label="Data Finder">Data Finder</a></li>
+		<li><a href="/developers/home.htm" aria-label="Public Data API Programming Interface">Public Data API</a></li>
+
+    </ul>
+    <!-- 2nd column -->
+    <ul class="main-nav-submenu-inn">
+        <li class="heading"><a href="/data/apps.htm" aria-label="Charts and Applications">Charts and Applications</a></li>
+		<li><a href="/charts/home.htm" aria-label="Charts for Economic News Releases">Charts for Economic News Releases</a></li>	
+		<li><a href="/data/inflation_calculator.htm" aria-label="CPI Inflation Calculator">CPI Inflation Calculator</a></li>	
+		<li><a href="https://data.bls.gov/iirc/" aria-label="Injury and Illness Calculator">Injury and Illness Calculator</a></li>		
+		<li><a href="https://data.bls.gov/apps/compensation-comparison-matrix/home.htm" aria-label="Pay Measure Comparison">Pay Measure Comparison</a></li>
+		<li><a href="https://data.bls.gov/apps/demographic-comparison-matrix/home.htm" aria-label="Demographic Data Sources">Demographic Data Sources</a></li>
+		<li><a href="https://data.bls.gov/apps/covid-dashboard/home.htm" aria-label="COVID-19 Economic Trends">COVID-19 Economic Trends</a></li>
+		<li><a href="https://data.bls.gov/apps/industry-productivity-viewer/home.htm" aria-label="Industry Productivity Viewer" >Industry Productivity Viewer</a></li>
+		<li><a href="https://data.bls.gov/cew/apps/data_views/data_views.htm#tab=Tables" aria-label="Employment and Wages Data Viewer">Employment and Wages Data Viewer</a></li>
+		<li><a href="https://data.bls.gov/cew/apps/bls_naics/bls_naics_app.htm" aria-label="Industry Finder from the Quarterly Census of Employment and Wages">Industry Finder from the Quarterly Census of Employment and Wages</a></li>
+	
+    </ul>
+	<!-- 3rd column -->
+	<ul class="main-nav-submenu-inn">
+	    <li class="heading"><a href="/data/tables.htm" aria-label="Customized Tables">Customized Tables</a></li>
+		<li><a href="/eag/eag.us.htm" aria-label="U.S. Economy at a Glance">U.S. Economy at a Glance</a></li>
+		<li><a href="/eag/home.htm" aria-label="Regions, States & Areas at a Glance">Regions, States &amp; Areas at a Glance</a></li>
+		<li><a href="/iag/home.htm" aria-label="Industry at a Glance">Industry at a Glance</a></li>			
+		<li><a href="https://download.bls.gov/pub/time.series/" aria-label="Text Files">Text Files</a></li>
+		<li><a href="/data/#historical-tables" aria-label="Historical News Release Tables">News Release Tables</a></li>
+		
+		<li class="heading"><a href="/bls/moredata.htm" aria-label="More Sources of Data">More Sources of Data</a></li>
+		<li><a href="/rda/home.htm" aria-label="Bureau of Labor Statistics Restricted Data Access">Restricted Data Access</a></li>
+		<li><a href="/data/archived.htm" aria-label="Discontinued Databases">Discontinued Databases </a></li>
+		<li><a href="/help/hlpform1.htm" aria-label="Questions & Answers regarding Bureau of Labor Statistics website data retrieval tools">Questions &amp; Answers</a></li>
+		<li><a href="/help/notice.htm" aria-label="Special Notices">Special Notices </a></li>	
+	</ul>
+</div>
+<!-- *********************************************End DATABASES and TOOLS LIST ******************************************** --></div>
+    </li>
+    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="/opub/" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Publications <span class="circle-arrow"></span></a>
+        <div class="dropdown-menu"><!-- ********************************************** Begin PUBLICATIONS LIST ****************************************** -->
+<div class="main-nav-submenu"  id="submenu-pubs">    
+    <ul class="main-nav-submenu-inn"> 
+		<li class="heading"><a href="/opub/" aria-label="Latest Publications">Latest Publications</a></li>
+		<li><a href="/opub/ted/" aria-label="The Economics Daily">The Economics Daily</a></li>
+		<li><a href="/opub/mlr/" aria-label="Monthly Labor Review">Monthly Labor Review</a></li>
+		<li><a href="/opub/btn/" aria-label="Beyond the Numbers">Beyond the Numbers</a></li>
+		<li><a href="/spotlight/" aria-label="Spotlight on Statistics">Spotlight on Statistics</a></li>
+		<li><a href="/opub/reports" aria-label="Bureau of Labor Statistics Reports">Reports</a></li>
+		<li><a href="/video/" aria-label="Videos">Videos</a></li>
+		<li><a href="/careeroutlook/" aria-label="Career Outlook">Career Outlook</a></li>		
+    </ul>
+    <!-- 2nd column -->
+    <ul class="main-nav-submenu-inn">
+		<li><a href="/ooh/" aria-label="Occupational Outlook Handbook">Occupational Outlook Handbook</a></li>
+		<li><a href="/opub/geographic-profile/" aria-label="Geographic Profile">Geographic Profile</a></li>
+		<li><a href="/opub/hom/" aria-label="Handbook of Methods">Handbook of Methods</a></li>
+		<li><a href="/osmr/research-papers/" aria-label="Research Papers - Office of Survey Methods Research">Research Papers</a></li>
+		<li><a href="/opub/copyright-information.htm" aria-label="Copyright Information">Copyright Information</a></li>
+		<li><a href="/opub/opbinfo.htm" aria-label="Contact & Help">Contact &amp; Help </a></li>
+		<li><a href="/opub/update.htm" aria-label="Weekly Update">Weekly Update</a></li>		
+    </ul>
+</div>
+<!-- ***********************************************End PUBLICATIONS LIST ******************************************** --> </div>
+    </li>
+    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="/bls/newsrels.htm" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Economic Releases <span class="circle-arrow"></span></a>
+        <div class="dropdown-menu"><!-- ********************************************** Begin ECONOMIC RELEASES LIST ****************************************** -->
+<!-- 1st column -->
+
+<div class="main-nav-submenu" id="submenu-news">
+    <ul class="main-nav-submenu-inn">
+        <li class="heading"><a href="/bls/newsrels.htm#latest-releases" aria-label="Latest Releases">Latest Releases</a></li>
+		<li class="heading"><a href="/bls/newsrels.htm#major" aria-label="Major Economic Indicators">Major Economic Indicators</a></li>
+		<li class="heading"><a href="/schedule/news_release/" aria-label="Schedules for news Releases">Schedules for news Releases</a></li>
+		<li><a href="/schedule/" aria-label="Release Calendar By Month">By Month</a></li>
+		<li><a href="/schedule/schedule/by_prog/all_sched.htm" aria-label="Release Calendar By News Release">By News Release</a></li>
+		<li><a href="/schedule/news_release/current_year.asp" aria-label="Release Calendar Current Year">Current Year</a></li>
+		<li><a href="/bls/archived_sched.htm" aria-label="Schedules for Selected Bureau of Labor Statistics Economic News Releases for Prior Years">Prior Years</a></li>
+		<li class="heading"><a href="/bls/news-release/" aria-label="Archived News Releases">Archived News Releases</a></li>
+    </ul>
+    <!-- 2nd column -->
+    <ul class="main-nav-submenu-inn">
+        <li class="heading"><a href="/bls/newsrels.htm#OEUS" aria-label="Employment & Unemployment">Employment &amp; Unemployment</a></li>
+		<li><a href="/bls/newsrels.htm#OEUS" aria-label="Monthly">Monthly</a></li>
+		<li><a href="/bls/newsrels.htm#OEUS" aria-label="Quarterly, annual, and other">Quarterly, annual, and other</a></li>
+		<li class="heading"><a href="/bls/newsrels.htm#OPLC" aria-label="Inflation & Prices"> Inflation &amp; Prices</a></li>
+		<li class="heading"><a href="/bls/newsrels.htm#OCWC" aria-label="Pay & Benefits & Workplace Injuries">Pay &amp; Benefits &amp; Workplace Injuries</a></li>
+		<li class="heading"><a href="/bls/newsrels.htm#OPT" aria-label="Productivity & Technology">Productivity &amp; Technology</a></li>
+		<li class="heading"><a href="/bls/newsrels.htm#OEP" aria-label="Employment Projections">Employment Projections</a></li>
+		<li class="heading"><a href="/bls/newsrels.htm#NEWS" aria-label="Regional News Releases">Regional News Releases</a></li>
+    </ul>
+</div></div>
+    </li>
+    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="/k12/" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Classroom <span class="circle-arrow"></span></a>
+        <div class="dropdown-menu"><!-- ********************************************** Begin Students Tab LIST ****************************************** -->
+<div class="main-nav-submenu" id="submenu-students">
+	<ul class="main-nav-submenu-inn">
+		<li class="heading"><a href="/k12/" aria-label="K-12 Student & Teacher Resources">K-12 Student &amp; Teacher Resources</a></li>		
+        <li><a href="/k12/games/" aria-label="Games & Quizzes">Games &amp; Quizzes</a></li>
+		<li><a href="/k12/students/" aria-label="Student's Desk">Student&apos;s Desk</a></li>
+		<li><a href="/k12/teachers/" aria-label="Teacher's Desk">Teacher&apos;s Desk</a></li>
+		<li><a href="/k12/faq.htm" aria-label="Questions & Answers">Questions &amp; Answers</a></li>
+    </ul>
+</div>
+<!-- ***********************************************End Students Tab LIST ******************************************** --></div>
+    </li>
+    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="/beta/" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Beta <span class="circle-arrow"></span></a>
+        <div class="dropdown-menu"><!-- ***********************************************Start BETA LIST ******************************************** -->
+
+<div class="main-nav-submenu" id="submenu-beta">
+  <ul class="main-nav-submenu-inn">
+    <li class="heading"><a href="/beta/redesigned-news-releases.htm" aria-label="Redesigned News Releases">Redesigned News Releases</a></li>
+  </ul>
+</div>
+<!-- ***********************************************End BETA LIST ******************************************** --></div>
+    </li>
+
+</ul>
+
+
+  </div>
+</nav>
+</div>
+
+
+		</div>
+		<div class="clearfloat"></div>
+	</div>
+</div>
+
+
+<!-- MAIN NAV END -->
+
+
+
+<!-- WRAPPER TOP BEGIN -->
+
+	<div id="wrapper-outer" role="main">
+		<div id="wrapper">
+			<div id="container">
+
+
+
+<!-- 1COL LAYOUT COL1 BEGIN -->	
+
+	<div class="clearfloat" id="startcontent"></div>
+	<div id="main-content-full-width" class="main-content">
+		<div id="bodytext" class="verdana md">
+		
+
+
+<!-- 1COL LAYOUT COL1 END -->
+
+
+
+<!--no_index_end-->
+
+<!-- MAIN CONTENT BEGIN -->
+
+ 
+<!-- ****************************************** End HEADER ************************************************** -->
+<h1>RSS Feeds</h1>
+<p>Subscribe to BLS' RSS (Really Simple Syndication) feeds to get news delivered directly to your desktop!</p>
+<div class="highlight-box-blue" style="width: 95%;">To view one of the BLS feeds in your RSS Reader:<br>
+  <ol>
+    <li>Copy the URL/shortcut that corresponds to the topic that interests you. </li>
+    <li>Paste the URL into your reader.</li>
+  </ol>
+  <p><a href="/help/hlp_rss.htm">What is RSS? &amp; how do I access RSS? </a></p>
+</div>
+<script>
+$(document).ready(function(){
+	
+
+	
+$("#rss_newsrelease h2").click(function(){
+if($("#"+$(this).attr("id").replace("-title","")+"-items").css("display")!="none"){
+
+	
+	$(this).find('img').attr("src","/images/icons/icon_small_plus.gif");
+$("#"+$(this).attr("id").replace("-title","")+"-items").css("display","none");
+
+}
+else{
+	$(this).find('img').attr("src","/images/icons/icon_small_minus.gif");
+$("#"+$(this).attr("id").replace("-title","")+"-items").css("display","block");	
+
+	}
+});
+	
+});
+
+
+</script>
+<h1 name="NR">News Release RSS Feeds</h1>
+<div id="rss_newsrelease">
+  <h2 id="category-1-title"><img width="15" height="15" alt="" src="/images/icons/icon_small_minus.gif" />Employment and Unemployment</h2>  
+   <span id="category-1-iteam">
+	   <a class="rss_title" href="/feed/leave.rss">Access to and Use of Leave</a> 
+	   <a class="rss_icon" href="/feed/leave.rss">
+	 	<img src="/images/layout/rss.gif" alt="Access to and Use of Leave" width="44" height="16"></a><br>
+  		<div class="clearfloat"></div>   
+	   
+ 		<a class="rss_title" href="/feed/atus.rss">American Time Use Survey</a> 
+		<a class="rss_icon" href="/feed/atus.rss">
+		<img src="/images/layout/rss.gif" alt="American Time Use Survey" width="44" height="16"></a><br>
+  		<div class="clearfloat"></div>
+	
+ 		<a class="rss_title" href="/feed/uisup.rss">Characteristics of Unemployment Insurance Applicants and Benefit Recipients</a> 
+		<a class="rss_icon" href="/feed/uisup.rss">
+		<img src="/images/layout/rss.gif" alt="Characteristics of Unemployment Insurance Applicants and Benefit Recipients" width="44" height="16"></a><br>
+  		<div class="clearfloat"></div>
+		
+		<a class="rss_title" href="/feed/hsgec.rss">College Enrollment and Work Activity of High School Graduates</a> 
+		<a class="rss_icon" href="/feed/hsgec.rss"><img src="/images/layout/rss.gif" alt="College Enrollment and Work Activity of High School Graduates" width="44" height="16"></a><br>
+  		<div class="clearfloat"></div>
+		
+  		<a class="rss_title" href="/feed/cewqtr.rss">County Employment and Wages</a> 
+	   	<a class="rss_icon" href="/feed/cewqtr.rss"><img src="/images/layout/rss.gif" alt="County Employment and Wages" width="44" height="16"></a><br>
+  		<div class="clearfloat"></div>
+	   
+  		<a class="rss_title" href="/feed/tenure.rss">Employee Tenure</a> 
+	   	<a class="rss_icon" href="/feed/tenure.rss"><img src="/images/layout/rss.gif" alt="Employee Tenure" width="44" height="16"></a><br>
+ 		<div class="clearfloat"></div>
+	   
+  <a class="rss_title" href="/feed/famee.rss">Employment Characteristics of Families</a> <a class="rss_icon" href="/feed/famee.rss"><img src="/images/layout/rss.gif" alt="Employment Characteristics of Families" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/nlsyth.rss">Employment Experience of Youths: Results from a Longitudinal Survey</a> <a class="rss_icon" href="/feed/nlsyth.rss"><img src="/images/layout/rss.gif" alt="Employment Experience of Youths: Results from a Longitudinal Survey" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/ecopro.rss">Employment Projections and Occupational Outlook Handbook</a> <a class="rss_icon" href="/feed/ecopro.rss"><img src="/images/layout/rss.gif" alt="Employment Projections and Occupational Outlook Handbook" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/empsit.rss">Employment Situation</a> <a class="rss_icon" href="/feed/empsit.rss"><img src="/images/layout/rss.gif" alt="Employment Situation" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/vet.rss">Employment Situation of Veterans</a> <a class="rss_icon" href="/feed/vet.rss"><img src="/images/layout/rss.gif" alt="Employment Situation of Veterans" width="44" height="16"></a><br>
+<!--  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/ggqcew.rss">Green Goods and Services</a> <a class="rss_icon" href="/feed/ggqcew.rss"><img src="/images/layout/rss.gif" alt="Green Goods and Services" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/gtp.rss">Green Technologies and Practices</a> <a class="rss_icon" href="/feed/gtp.rss"><img src="/images/layout/rss.gif" alt="Green Technologies and Practices" width="44" height="16"></a><br>-->
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/jolts.rss">Job Openings and Labor Turnover Survey</a> <a class="rss_icon" href="/feed/jolts.rss"><img src="/images/layout/rss.gif" alt="Job Openings and Labor Turnover Survey" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/forbrn.rss">Labor Force Characteristics of Foreign-born Workers</a> <a class="rss_icon" href="/feed/forbrn.rss"><img src="/images/layout/rss.gif" alt="Labor Force Characteristics of Foreign-born Workers" width="44" height="16"></a><br>
+<!--  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/mmls.rss">Mass Layoffs (Monthly)</a> <a class="rss_icon" href="/feed/mmls.rss"><img src="/images/layout/rss.gif" alt="Mass Layoffs (Monthly)" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/mslo.rss">Extended Mass Layoffs (Quarterly)</a> <a class="rss_icon" href="/feed/mslo.rss"><img src="/images/layout/rss.gif" alt="Extended Mass Layoffs Associated with Domestic and Overseas Relocations" width="44" height="16"></a><br>-->
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/metro.rss">Metropolitan Area Employment and Unemployment (Monthly)</a> <a class="rss_icon" href="/feed/metro.rss"><img src="/images/layout/rss.gif" alt="Metropolitan Area Employment and Unemployment (Monthly)" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/nlsoy.rss">Number of Jobs, Labor Market Experience, and Earnings Growth</a> <a class="rss_icon" href="/feed/nlsoy.rss"><img src="/images/layout/rss.gif" alt="Number of Jobs, Labor Market Experience, and Earnings Growth" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/ocwage.rss">Occupational Employment and Wages</a> <a class="rss_icon" href="/feed/ocwage.rss"><img src="/images/layout/rss.gif" alt="Occupational Employment and Wages" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/ggsocc.rss">Occupational Employment and Wages in Green Goods and Services</a> <a class="rss_icon" href="/feed/ggsocc.rss"><img src="/images/layout/rss.gif" alt="Occupational Employment and Wages in Green Goods and Services" width="44" height="16"></a><br>
+<!--  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/ooh.rss">Occupational Outlook Handbook</a> <a class="rss_icon" href="/feed/ooh.rss"><img src="/images/layout/rss.gif" alt="Occupational Outlook Handbook" width="44" height="16"></a><br>-->
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/disabl.rss">Persons with a Disability: Labor Force Characteristics</a> <a class="rss_icon" href="/feed/disabl.rss"><img src="/images/layout/rss.gif" alt="Persons with a Disability: Labor Force Characteristics" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/cewbd.rss">Quarterly Data Series on Business Employment Dynamics</a> <a class="rss_icon" href="/feed/cewbd.rss"><img src="/images/layout/rss.gif" alt="Quarterly Data Series on Business Employment Dynamics" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/realer.rss">Real Earnings</a> <a class="rss_icon" href="/feed/realer.rss"><img src="/images/layout/rss.gif" alt="Real Earnings" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/laus.rss">Regional and State Employment and Unemployment (Monthly)</a> <a class="rss_icon" href="/feed/laus.rss"><img src="/images/layout/rss.gif" alt="Regional and State Employment and Unemployment (Monthly)" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/srgune.rss">Regional and State Unemployment (Annual)</a> <a class="rss_icon" href="/feed/srgune.rss"><img src="/images/layout/rss.gif" alt="Regional and State Unemployment (Annual)" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/youth.rss">Summer Youth Labor Force</a> <a class="rss_icon" href="/feed/youth.rss"><img src="/images/layout/rss.gif" alt="Summer Youth Labor Force" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/union2.rss">Union Membership (Annual)</a> <a class="rss_icon" href="/feed/union2.rss"><img src="/images/layout/rss.gif" alt="Union Membership (Annual)" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/wkyeng.rss">Usual Weekly Earnings of Wage and Salary Workers</a> <a class="rss_icon" href="/feed/wkyeng.rss"><img src="/images/layout/rss.gif" alt="Usual Weekly Earnings of Wage and Salary Workers" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/volun.rss">Volunteering in the United States</a> <a class="rss_icon" href="/feed/volun.rss"><img src="/images/layout/rss.gif" alt="Volunteering in the United States" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/work.rss">Work Experience of the Population (Annual)</a> <a class="rss_icon" href="/feed/work.rss"><img src="/images/layout/rss.gif" alt="Work Experience of the Population (Annual)" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  <a class="rss_title" href="/feed/disp.rss">Worker Displacement</a> <a class="rss_icon" href="/feed/disp.rss"><img src="/images/layout/rss.gif" alt="Worker Displacement" width="44" height="16"></a><br>
+  <div class="clearfloat"></div>
+  </span> 
+  
+  <!-- BEGIN OPLC LIST-->
+  <h2 id="category-2-title"><img width="15" height="15" alt="" src="/images/icons/icon_small_minus.gif" /> Inflation and Prices </h2>
+  <span id="category-2-items"> 
+	  <a class="rss_title" href="/feed/cesmy.rss">Consumer Expenditures Midyear Update</a> 
+	  <a class="rss_icon" href="/feed/cesmy.rss"><img src="/images/layout/rss.gif" alt="Consumer Expenditures Midyear Update" width="44" height="16"></a><br>
+  	<div class="clearfloat"></div>  
+		<a class="rss_title" href="/feed/cesan.rss">Consumer Expenditures Survey (Annual)</a> 
+		<a class="rss_icon" href="/feed/cesan.rss"><img src="/images/layout/rss.gif" alt="Consumer Expenditures Survey (Annual)" width="44" height="16"></a><br>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/cpi.rss">Consumer Price Index</a> 
+		<a class="rss_icon" href="/feed/cpi.rss"><img src="/images/layout/rss.gif" alt="Consumer Price Index" width="44" height="16"></a><br>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/ppi.rss">Producer Price Index</a> 
+		<a class="rss_icon" href="/feed/ppi.rss"><img src="/images/layout/rss.gif" alt="Producer Price Index" width="44" height="16"></a><br>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/ximpim.rss">U.S. Import and Export Price Indexes</a> 
+	  	<a class="rss_icon" href="/feed/ximpim.rss"><img src="/images/layout/rss.gif" alt="U.S. Import and Export Price Indexes" width="44" height="16"></a><br>
+  	<div class="clearfloat"></div>
+  </span> 
+  
+  <!-- BEGIN OCWC LIST -->
+  <h2 id="category-3-title"><img width="15" height="15" alt="" src="/images/icons/icon_small_minus.gif" /> Pay and Benefits</h2>
+  	<span id="category-3-items"> 
+		<a class="rss_title" href="/feed/ebs2.rss">Employee Benefits in the United States</a> 
+		<a class="rss_icon" href="/feed/ebs2.rss"><img src="/images/layout/rss.gif" alt="Employee Benefits in the United States" width="44" height="16"></a><br>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/ecec.rss">Employer Costs for Employee Compensation</a> 
+		<a class="rss_icon" href="/feed/ecec.rss"><img src="/images/layout/rss.gif" alt="Employer Costs for Employee Compensation" width="44" height="16"></a><br>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/eci.rss">Employment Cost Index</a> 
+		<a class="rss_icon" href="/feed/eci.rss"><img src="/images/layout/rss.gif" alt="Employment Cost Index" width="44" height="16"></a><br>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/ichcc.rss">International Comparisons of Hourly Compensation Costs in Manufacturing</a> 
+		<a class="rss_icon" href="/feed/ichcc.rss"><img src="/images/layout/rss.gif" alt="International Comparisons of Hourly Compensation Costs in Manufacturing" width="44" height="16"></a><br>
+  	<div class="clearfloat"></div>    
+  		<a class="rss_title" href="/feed/wkstp.rss">Major Work Stoppages (Annual)</a> 
+		<a class="rss_icon" href="/feed/wkstp.rss"><img src="/images/layout/rss.gif" alt="Major Work Stoppages (Annual)" width="44" height="16"></a><br>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/ors.rss">Occupational Requirements in the United States</a> 
+		<a class="rss_icon" href="/feed/ors.rss"><img src="/images/layout/rss.gif" alt="Occupational Requirements in the United States" width="44" height="16"></a><br>
+  	<div class="clearfloat"></div>     
+ </span> 
+  
+  <!-- BEGIN PRODUCTIVITY LIST -->
+  <h2 id="category-4-title"><img width="15" height="15" alt="" src="/images/icons/icon_small_minus.gif" />Productivity Statistics </h2>
+  	<span id="category-4-items"> 
+		<a class="rss_title" href="/feed/prod4.rss">International Comparisons of Manufacturing Productivity and Unit Labor Cost Trends</a> 
+		<a class="rss_icon" href="/feed/prod4.rss"><img src="/images/layout/rss.gif" alt="International Comparisons of Manufacturing Productivity and Unit Labor Cost Trends" width="44" height="16"></a><br>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/prod3.rss">Multifactor Productivity Trends</a> 
+		<a class="rss_icon" href="/feed/prod3.rss"><img src="/images/layout/rss.gif" alt="Multifactor Productivity Trends" width="44" height="16"></a>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/prin3.rss">Multifactor Productivity Trends for Detailed Industries</a> 
+		<a class="rss_icon" href="/feed/prin3.rss"><img src="/images/layout/rss.gif" alt="Multifactor Productivity Trends for Detailed Industries" width="44" height="16"></a><br>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/prod5.rss">Multifactor Productivity Trends in Manufacturing</a> 
+		<a class="rss_icon" href="/feed/prod5.rss"><img src="/images/layout/rss.gif" alt="Multifactor Productivity Trends in Manufacturing" width="44" height="16"></a><br>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/prod2.rss">Productivity and Costs</a> 
+		<a class="rss_icon" href="/feed/prod2.rss"><img src="/images/layout/rss.gif" alt="Productivity and Costs" width="44" height="16"></a>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/prin.rss">Productivity and Costs by Industry: Manufacturing Industries</a> 
+		<a class="rss_icon" href="/feed/prin.rss"><img src="/images/layout/rss.gif" alt="Productivity and Costs by Industry: Manufacturing Industries" width="44" height="16"></a>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/prin2.rss">Productivity and Costs by Industry: Selected Service-Providing and Mining Industries</a> 
+		<a class="rss_icon" href="/feed/prin2.rss"><img src="/images/layout/rss.gif" alt="Productivity and Costs by Industry: Selected Service-Providing and Mining Industries" width="44" height="16"></a>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/prin1.rss">Productivity and Costs by Industry: Wholesale and Retail Trade, Food  Services and Drinking Places</a> 
+		<a class="rss_icon" href="/feed/prin1.rss"><img src="/images/layout/rss.gif" alt="Productivity and Costs by Industry: Wholesale and Retail Trade, Food  Services and Drinking Places" width="44" height="16"></a>
+  	<div class="clearfloat"></div>
+  </span> 
+  <!-- BEGIN IIF LIST -->
+
+  <h2 id="category-5-title"><img width="15" height="15" alt="" src="/images/icons/icon_small_minus.gif" /> Workplace Injuries</h2>
+  	<span id="category-5-items"> 
+		<a class="rss_title" href="/feed/cfoi.rss">Census of Fatal Occupational Injuries</a> 
+		<a class="rss_icon" href="/feed/cfoi.rss"><img src="/images/layout/rss.gif" alt="Census of Fatal Occupational Injuries" width="44" height="16"></a><br>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/osh.rss">Employer-Reported Workplace Injuries and Illnesses (Annual)</a> 
+		<a class="rss_icon" href="/feed/osh.rss"><img src="/images/layout/rss.gif" alt="Occupational Injuries and Illnesses (Annual)" width="44" height="16"></a><br>
+  	<div class="clearfloat"></div>
+  </span>
+	
+  <h2 id="category-6-title"><img width="15" height="15" alt="" src="/images/icons/icon_small_minus.gif" /> Latest Numbers RSS Feeds</h2>
+  	<span id="category-6-items"> 
+		<a class="rss_title" href="/feed/bls_latest.rss">BLS Principal Federal Economic Indicators</a> 
+		<a class="rss_icon" href="/feed/bls_latest.rss"><img src="/images/layout/rss.gif" alt="BLS Principal Federal Economic Indicators" width="44" height="16"></a>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/bdm_latest.rss">Business Employment Dynamics</a> 
+		<a class="rss_icon" href="/feed/bdm_latest.rss"><img src="/images/layout/rss.gif" alt="Business Employment Dynamics" width="44" height="16"></a>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/ces_latest.rss">Employment, Hours, and Earnings from the Current Employment Statistics survey (National)</a> 
+		<a class="rss_icon" href="/feed/ces_latest.rss"><img src="/images/layout/rss.gif" alt="Employment, Hours, and Earnings from the Current Employment Statistics survey (National)" width="44" height="16"></a>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/cpi_latest.rss">Consumer Price Index</a> 
+		<a class="rss_icon" href="/feed/cpi_latest.rss"><img src="/images/layout/rss.gif" alt="Consumer Price Index" width="44" height="16"></a>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/cps_latest.rss">Labor Force Statistics from the Current Population Survey</a> 
+		<a class="rss_icon" href="/feed/cps_latest.rss"><img src="/images/layout/rss.gif" alt="Labor Force Statistics from the Current Population Survey" width="44" height="16"></a>
+  	<div class="clearfloat"></div>
+  		<a class="rss_title" href="/feed/eci_latest.rss">Employm

@@ -1,0 +1,37 @@
+{
+  "census_indicator_xml": {
+    "status": 200,
+    "final_url": "https://www.census.gov/economic-indicators/indicator.xml",
+    "elapsed_s": 0.88,
+    "content_type": "application/xml",
+    "bytes": 10899,
+    "etag": null,
+    "last_modified": "Wed, 30 Sep 2026 17:33:49 GMT",
+    "cache_control": null,
+    "expires": "Thu, 01 Oct 2026 12:30:00 GMT",
+    "server": "cloudflare",
+    "date": "Thu, 01 Oct 2026 09:59:51 GMT",
+    "ratelimit": {},
+    "akamai_block": false,
+    "conditional_get_status": 304,
+    "url": "https://www.census.gov/economic-indicators/indicator.xml",
+    "profile": "browser"
+  },
+  "census_glance_pdf": {
+    "status": 200,
+    "final_url": "https://www.census.gov/economic-indicators/econcards/assets/pdf/censusreleaseglance_2026.pdf",
+    "elapsed_s": 1.18,
+    "content_type": "application/pdf",
+    "bytes": 266111,
+    "etag": "\"40f7f-65b26f73b2fc0\"",
+    "last_modified": "Thu, 10 Sep 2026 20:39:35 GMT",
+    "cache_control": null,
+    "expires": null,
+    "server": "cloudflare",
+    "date": "Thu, 01 Oct 2026 09:59:53 GMT",
+    "ratelimit": {},
+    "akamai_block": false,
+    "url": "https://www.census.gov/economic-indicators/econcards/assets/pdf/censusreleaseglance_2026.pdf",
+    "profile": "browser"
+  }
+}

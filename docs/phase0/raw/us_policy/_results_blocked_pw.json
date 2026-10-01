@@ -1,0 +1,29 @@
+[
+ {
+  "name": "pw_cbo_home",
+  "url": "https://www.cbo.gov/",
+  "via": "playwright",
+  "status": 403,
+  "feed_links": [],
+  "xhr_json": []
+ },
+ {
+  "name": "pw_cbo_about_rss",
+  "url": "https://www.cbo.gov/about/rss",
+  "via": "playwright",
+  "status": 403,
+  "feed_links": [],
+  "xhr_json": [
+   "https://geo.captcha-delivery.com/captcha/?initialCid=AHrlqAAAAAMAWOUebNwtjU4Atk0zEA%3D%3D&hash=A5C464E45E28E8664DD1D5C59296AB&cid=2vHzvhKYb5vRbq0KhF0B3lB9ECsnvcOv2fYSI7jOrvwkbLPcC10Iyrk8tjcsAGXENHL~uS1UNG9hH4seKsh5Jwk1dNutFnt7Xl_l_u7gHnkkF5mmN65pEBCmoe6TUopX&t=fe&referer=https%3A%2F%2Fwww.cbo.gov%2Fabout%2Frss&s=56903&e=10fa072a8446c1d4dcaa1ce61f5bb83cc8e029ea2e6b9341e449eda7d0366257afec73468ede77c8ad7a2fb2c39386d8&dm=cd",
+   "https://www.cbo.gov/about/rss"
+  ]
+ },
+ {
+  "name": "pw_congress_gov_approps_table",
+  "url": "https://www.congress.gov/crs-appropriations-status-table",
+  "via": "playwright",
+  "status": 403,
+  "feed_links": [],
+  "xhr_json": []
+ }
+]

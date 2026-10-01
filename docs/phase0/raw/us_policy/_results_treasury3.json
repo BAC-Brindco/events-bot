@@ -1,0 +1,160 @@
+[
+ {
+  "name": "treasury_pr_sb0584",
+  "url": "https://home.treasury.gov/news/press-releases/sb0584",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:17:17.260747+00:00",
+  "status": 200,
+  "final_url": "https://home.treasury.gov/news/press-releases/sb0584",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "last-modified": "Wed, 16 Sep 2026 22:57:35 GMT",
+   "server": "AmazonS3",
+   "etag": "W/\"ffa1a2d3a631d6002075d4da7c664635\"",
+   "x-akamai-transformed": "9 - 0 pmb=mRUM,1",
+   "date": "Thu, 01 Oct 2026 10:17:22 GMT",
+   "content-length": "17584"
+  },
+  "bytes": 78788
+ },
+ {
+  "name": "treasury_pr_sb0585",
+  "url": "https://home.treasury.gov/news/press-releases/sb0585",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:17:18.404040+00:00",
+  "status": 200,
+  "final_url": "https://home.treasury.gov/news/press-releases/sb0585",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "last-modified": "Wed, 16 Sep 2026 22:57:35 GMT",
+   "server": "AmazonS3",
+   "etag": "W/\"7129a68ac66d6a0a769e46af1b8006e9\"",
+   "x-akamai-transformed": "9 - 0 pmb=mRUM,1",
+   "date": "Thu, 01 Oct 2026 10:17:22 GMT",
+   "content-length": "25771"
+  },
+  "bytes": 99583
+ },
+ {
+  "name": "treasury_pr_sb0590",
+  "url": "https://home.treasury.gov/news/press-releases/sb0590",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:17:19.504350+00:00",
+  "status": 200,
+  "final_url": "https://home.treasury.gov/news/press-releases/sb0590",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "last-modified": "Wed, 16 Sep 2026 22:57:35 GMT",
+   "server": "AmazonS3",
+   "etag": "W/\"777e847e7421e9dbcdb091bdfd734b6f\"",
+   "x-akamai-transformed": "9 - 0 pmb=mRUM,1",
+   "date": "Thu, 01 Oct 2026 10:17:24 GMT",
+   "content-length": "18173"
+  },
+  "bytes": 75588
+ },
+ {
+  "name": "treasury_pr_sb0591",
+  "url": "https://home.treasury.gov/news/press-releases/sb0591",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:17:20.604409+00:00",
+  "status": 200,
+  "final_url": "https://home.treasury.gov/news/press-releases/sb0591",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "last-modified": "Wed, 16 Sep 2026 22:57:35 GMT",
+   "server": "AmazonS3",
+   "etag": "W/\"1e44980e103ca1ffb4bb6e64965e2737\"",
+   "x-akamai-transformed": "9 - 0 pmb=mRUM,1",
+   "date": "Thu, 01 Oct 2026 10:17:24 GMT",
+   "content-length": "20561"
+  },
+  "bytes": 77768
+ },
+ {
+  "name": "treasury_pr_sb0592",
+  "url": "https://home.treasury.gov/news/press-releases/sb0592",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:17:21.704926+00:00",
+  "status": 200,
+  "final_url": "https://home.treasury.gov/news/press-releases/sb0592",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "last-modified": "Wed, 16 Sep 2026 22:57:35 GMT",
+   "server": "AmazonS3",
+   "etag": "W/\"01fab7d9711fd17a75b745bac7c0189a\"",
+   "x-akamai-transformed": "9 - 0 pmb=mRUM,1",
+   "date": "Thu, 01 Oct 2026 10:17:26 GMT",
+   "content-length": "20684"
+  },
+  "bytes": 79453
+ },
+ {
+  "name": "treasury_tentative_sched",
+  "url": "https://home.treasury.gov/system/files/221/TentativeAuctionScheduleQ32026.pdf",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:17:22.805165+00:00",
+  "status": 200,
+  "final_url": "https://home.treasury.gov/system/files/221/TentativeAuctionScheduleQ32026.pdf",
+  "headers": {
+   "content-type": "application/pdf",
+   "content-length": "17195",
+   "last-modified": "Wed, 19 Aug 2026 17:22:32 GMT",
+   "etag": "\"7c8c4ff91b9d2c533001a20df67b445d\"",
+   "server": "AmazonS3",
+   "date": "Thu, 01 Oct 2026 10:17:26 GMT"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "QR_LAG",
+  "lag": {
+   "sb0584": {
+    "url": "https://home.treasury.gov/news/press-releases/sb0584",
+    "status": 200,
+    "title": "Treasury Announces Marketable Borrowing Estimates | U.S. Department of the Treasury",
+    "time_datetime_attr": null,
+    "last_modified": "Wed, 16 Sep 2026 22:57:35 GMT",
+    "last_modified_et": "2026-09-16 18:57:35 EDT"
+   },
+   "sb0585": {
+    "url": "https://home.treasury.gov/news/press-releases/sb0585",
+    "status": 200,
+    "title": "Economy Statement for the Treasury Borrowing Advisory Committee | U.S. Department of the Treasury",
+    "time_datetime_attr": null,
+    "last_modified": "Wed, 16 Sep 2026 22:57:35 GMT",
+    "last_modified_et": "2026-09-16 18:57:35 EDT"
+   },
+   "sb0590": {
+    "url": "https://home.treasury.gov/news/press-releases/sb0590",
+    "status": 200,
+    "title": "Quarterly Refunding Statement of Deputy Assistant Secretary for Federal Finance Brian Smith | U.S. Department of the Treasury",
+    "time_datetime_attr": null,
+    "last_modified": "Wed, 16 Sep 2026 22:57:35 GMT",
+    "last_modified_et": "2026-09-16 18:57:35 EDT"
+   },
+   "sb0591": {
+    "url": "https://home.treasury.gov/news/press-releases/sb0591",
+    "status": 200,
+    "title": "Report to the Secretary of the Treasury from the Treasury Borrowing Advisory Committee | U.S. Department of the Treasury",
+    "time_datetime_attr": null,
+    "last_modified": "Wed, 16 Sep 2026 22:57:35 GMT",
+    "last_modified_et": "2026-09-16 18:57:35 EDT"
+   },
+   "sb0592": {
+    "url": "https://home.treasury.gov/news/press-releases/sb0592",
+    "status": 200,
+    "title": "Minutes of the Meeting of the Treasury Borrowing Advisory Committee August 4, 2026 | U.S. Department of the Treasury",
+    "time_datetime_attr": null,
+    "last_modified": "Wed, 16 Sep 2026 22:57:35 GMT",
+    "last_modified_et": "2026-09-16 18:57:35 EDT"
+   },
+   "tentative_auction_schedule_pdf": {
+    "url": "https://home.treasury.gov/system/files/221/TentativeAuctionScheduleQ32026.pdf",
+    "status": 200,
+    "last_modified": "Wed, 19 Aug 2026 17:22:32 GMT",
+    "last_modified_et": "2026-08-19 13:22:32 EDT"
+   }
+  }
+ }
+]

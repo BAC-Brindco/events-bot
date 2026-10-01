@@ -1,0 +1,118 @@
+{
+    "bills": [
+        {
+            "congress": 119,
+            "latestAction": {
+                "actionDate": "2026-09-25",
+                "text": "Became Public Law No: 119-117."
+            },
+            "laws": [
+                {
+                    "number": "119-117",
+                    "type": "Public Law"
+                }
+            ],
+            "number": "790",
+            "originChamber": "Senate",
+            "originChamberCode": "S",
+            "title": "A bill to redesignate the National Historic Trails Interpretive Center in Casper, Wyoming, as the \"Barbara L. Cubin National Historic Trails Interpretive Center\".",
+            "type": "S",
+            "updateDate": "2026-09-29",
+            "updateDateIncludingText": "2026-09-29",
+            "url": "https://api.congress.gov/v3/bill/119/s/790?format=json"
+        },
+        {
+            "congress": 119,
+            "latestAction": {
+                "actionDate": "2026-09-25",
+                "text": "Became Public Law No: 119-116."
+            },
+            "laws": [
+                {
+                    "number": "119-116",
+                    "type": "Public Law"
+                }
+            ],
+            "number": "759",
+            "originChamber": "Senate",
+            "originChamberCode": "S",
+            "title": "Modernizing Access to Our Public Oceans Act",
+            "type": "S",
+            "updateDate": "2026-09-28",
+            "updateDateIncludingText": "2026-09-28",
+            "url": "https://api.congress.gov/v3/bill/119/s/759?format=json"
+        },
+        {
+            "congress": 119,
+            "latestAction": {
+                "actionDate": "2026-09-25",
+                "text": "Became Public Law No: 119-115."
+            },
+            "laws": [
+                {
+                    "number": "119-115",
+                    "type": "Public Law"
+                }
+            ],
+            "number": "603",
+            "originChamber": "Senate",
+            "originChamberCode": "S",
+            "title": "A bill to designate the General George C. Marshall House, in the Commonwealth of Virginia, as an affiliated area of the National Park System, and for other purposes.",
+            "type": "S",
+            "updateDate": "2026-09-29",
+            "updateDateIncludingText": "2026-09-29",
+            "url": "https://api.congress.gov/v3/bill/119/s/603?format=json"
+        },
+        {
+            "congress": 119,
+            "latestAction": {
+                "actionDate": "2026-09-25",
+                "text": "Became Public Law No: 119-114."
+            },
+            "laws": [
+                {
+                    "number": "119-114",
+                    "type": "Public Law"
+                }
+            ],
+            "number": "550",
+            "originChamber": "Senate",
+            "originChamberCode": "S",
+            "title": "A bill to provide for the equitable settlement of certain Indian land disputes regarding land in Illinois, and for other purposes.",
+            "type": "S",
+            "updateDate": "2026-09-29",
+            "updateDateIncludingText": "2026-09-29",
+            "url": "https://api.congress.gov/v3/bill/119/s/550?format=json"
+        },
+        {
+            "congress": 119,
+            "latestAction": {
+                "actionDate": "2026-09-25",
+                "text": "Became Public Law No: 119-113."
+            },
+            "laws": [
+                {
+                    "number": "119-113",
+                    "type": "Public Law"
+                }
+            ],
+            "number": "7250",
+            "originChamber": "House",
+            "originChamberCode": "H",
+            "title": "To reauthorize the Fort Peck Reservation Rural Water System Act of 2000.",
+            "type": "HR",
+            "updateDate": "2026-09-30",
+            "updateDateIncludingText": "2026-09-30",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7250?format=json"
+        }
+    ],
+    "pagination": {
+        "count": 119,
+        "next": "https://api.congress.gov/v3/law/119?offset=5&limit=5&format=json"
+    },
+    "request": {
+        "congress": "119",
+        "contentType": "application/json",
+        "format": "json"
+    }
+}

@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/rss/styles/shared_xsl_stylesheet_v2.xml"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SEC.gov Updates: Proposed Rules</title>
+    <link>http://www.sec.gov/rules/proposed.shtml</link>
+    <atom:link href="http://www.sec.gov/rss/rules/proposed.xml" rel="self" type="application/rss+xml" />
+    <description>The latest proposed rules from the Securities and Exchange Commission</description>
+    <language>en-us</language>
+ 	<pubDate>Wed, 26 Jul 2023 00:00:01 EDT</pubDate>
+    <lastBuildDate>Wed, 26 Jul 2023 13:00:00 EDTT</lastBuildDate>
+    <item>
+     <title>Exemption for Certain Investment Advisers Operating Through the Internet</title>
+      <link>https://www.sec.gov/rules/proposed/2023/ia-6354.pdf</link>
+      <guid isPermaLink="false">IA-6354</guid>
+      <pubDate>Wed, 26 Jul 2023 13:00:00 EDT</pubDate>
+    </item>	  
+    <item>
+     <title>Conflicts of Interest Associated with the Use of Predictive Data Analytics by Broker-Dealers and Investment Advisers</title>
+      <link>https://www.sec.gov/rules/proposed/2023/34-97990.pdf</link>
+      <guid isPermaLink="false">34-97990</guid>
+      <pubDate>Wed, 26 Jul 2023 12:00:00 EDT</pubDate>
+    </item>	  
+    <item>
+     <title>Daily Computation of Customer and Broker-Dealer Reserve Requirements under the Broker-Dealer Customer Protection Rule</title>
+      <link>https://www.sec.gov/rules/proposed/2023/34-97877.pdf</link>
+      <guid isPermaLink="false">34-97877</guid>
+      <pubDate>Wed, 12 Jul 2023 12:43:00 EDT</pubDate>
+    </item>	  
+    <item>
+     <title>Reopening of Comment Period for Position Reporting of Large Security-Based Swap Positions</title>
+      <link>https://www.sec.gov/rules/proposed/2023/34-97762.pdf</link>
+      <guid isPermaLink="false">34-97516</guid>
+      <pubDate>Tue, 20 Jun 2023 18:45:00 EDT</pubDate>
+    </item>	  
+    <item>
+     <title>Covered Clearing Agency Resilience and Recovery and Wind-Down Plans</title>
+      <link>https://www.sec.gov/rules/proposed/2023/34-97516.pdf</link>
+      <guid isPermaLink="false">34-97516</guid>
+      <pubDate>Wed, 17 May 2023 10:15:00 EDT</pubDate>
+    </item>	  
+	  <item>
+     <title>Reopening of Comment Period for Modernization of Beneficial Ownership Reporting</title>
+      <link>https://www.sec.gov/rules/proposed/2023/33-11180.pdf</link>
+      <guid isPermaLink="false">33-11180</guid>
+      <pubDate>Fri, 28 Apr 2023 15:40:00 EDT</pubDate>
+    </item>
+    <item>
+     <title>Rule 3b-16 Reopening of Comment Period</title>
+      <link>https://www.sec.gov/rules/proposed/2023/34-97309.pdf</link>
+      <guid isPermaLink="false">34-97309</guid>
+      <pubDate>Fri, 14 Apr 2023 11:40:00 EDT</pubDate>
+    </item>
+	<item>
+     <title>Electronic Submission of Certain Material Under the Securities Exchange Act of 1934; Amendments Regarding the FOCUS Report</title>
+      <link>https://www.sec.gov/rules/proposed/2023/33-11176.pdf</link>
+      <guid isPermaLink="false">33-11176</guid>
+      <pubDate>Wed, 22 Mar 2023 11:00:00 EDT</pubDate>
+    </item> 	 	 	
+	<item>
+     <title>Reopening of Comment Period for “Cybersecurity Risk Management for Investment Advisers, Registered Investment Companies, and Business Development Companies”</title>
+      <link>https://www.sec.gov/rules/proposed/2023/33-11167.pdf</link>
+      <guid isPermaLink="false">33-11167</guid>
+      <pubDate>Wed, 15 Mar 2023 13:30:00 EDT</pubDate>
+    </item> 	 	 	
+	<item>
+     <title>Regulation Systems Compliance and Integrity</title>
+      <link>https://www.sec.gov/rules/proposed/2023/34-97143.pdf</link>
+      <guid isPermaLink="false">34-97143</guid>
+      <pubDate>Wed, 15 Mar 2023 13:20:00 EDT</pubDate>
+    </item> 	 	 	
+	<item>
+     <title>Cybersecurity Risk Management Rule for Broker-Dealers, Clearing Agencies, Major Security-Based Swap Participants, the Municipal Securities Rulemaking Board, National Securities Associations, National Securities Exchanges, Security-Based Swap Data Repositories, Security-Based Swap Dealers, and Transfer Agents</title>
+      <link>https://www.sec.gov/rules/proposed/2023/34-97142.pdf</link>
+      <guid isPermaLink="false">34-97142</guid>
+      <pubDate>Wed, 15 Mar 2023 12:20:00 EDT</pubDate>
+    </item> 	 	 	
+	<item>
+     <title>Regulation S-P: Privacy of Consumer Financial Information and Safeguarding Customer Information</title>
+      <link>https://www.sec.gov/rules/proposed/2023/34-97141.pdf</link>
+      <guid isPermaLink="false">34-97141</guid>
+      <pubDate>Wed, 15 Mar 2023 11:25:00 EDT</pubDate>
+    </item> 	 	 	
+	<item>
+     <title>Safeguarding Advisory Client Assets</title>
+      <link>https://www.sec.gov/rules/proposed/2023/ia-6240.pdf</link>
+      <guid isPermaLink="false">IA-6240</guid>
+      <pubDate>Wed, 15 Feb 2023 12:00:00 EDT</pubDate>
+    </item> 	 	 	
+	<item>
+     <title>The Commission’s Privacy Act Regulations</title>
+      <link>https://www.sec.gov/rules/proposed/2023/34-96906.pdf</link>
+      <guid isPermaLink="false">34-96906</guid>
+      <pubDate>Tue, 14 Feb 2023 16:00:00 EDT</pubDate>
+    </item> 	 	 	
+	<item>
+     <title>Supplemental Standards of Ethical Conduct for Members and Employees of the Securities and Exchange Commission</title>
+      <link>https://www.sec.gov/rules/proposed/2023/34-96768.pdf</link>
+      <guid isPermaLink="false">34-96768</guid>
+      <pubDate>Mon, 30 Jan 2023 11:20:00 EDT</pubDate>
+    </item> 	 	 	
+	<item>
+     <title>Prohibition Against Conflicts of Interest in Certain Securitizations</title>
+      <link>https://www.sec.gov/rules/proposed/2023/33-11151.pdf</link>
+      <guid isPermaLink="false">33-11151</guid>
+      <pubDate>Wed, 25 Jan 2023 11:20:00 EDT</pubDate>
+    </item> 	 	 	
+	  <item>
+     <title>Regulation Best Execution</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-96496.pdf</link>
+      <guid isPermaLink="false">34-96496</guid>
+      <pubDate>Wed,  14 Dec 2022 16:45:00 EDT</pubDate>
+    </item> 
+	 	<item>
+     <title>Order Competition Rule</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-96495.pdf</link>
+      <guid isPermaLink="false">34-96495</guid>
+      <pubDate>Wed,  14 Dec 2022 15:15:00 EDT</pubDate>
+    </item> 
+	<item>
+      <title>Regulation NMS: Minimum Pricing Increments, Access Fees, and Transparency of Better Priced Orders</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-96494.pdf</link>
+      <guid isPermaLink="false">34-96494</guid>
+      <pubDate>Wed,  14 Dec 2022 13:55:00 EDT</pubDate>
+    </item>   	  
+	 <item>
+      <title>Disclosure of Order Execution Information</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-96493.pdf</link>
+      <guid isPermaLink="false">34-96493</guid>
+      <pubDate>Wed,  14 Dec 2022 13:00:00 EDT</pubDate>
+    </item>   
+	<item>
+      <title>Reopening of Comment Period for Share Repurchase Disclosure Modernization</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-96458.pdf</link>
+      <guid isPermaLink="false">34-96458</guid>
+      <pubDate>Wed,  07 Dec 2022 10:25:00 EDT</pubDate>
+    </item> 
+	 <item>
+      <title>Open-End Fund Liquidity Risk Management Programs and Swing Pricing; Form N-PORT</title>
+      <link>https://www.sec.gov/rules/proposed/2022/33-11130.pdf</link>
+      <guid isPermaLink="false">33-11130</guid>
+      <pubDate>Wed, 02 Nov 2022 12:05:00 EDT</pubDate>
+    </item> 
+	 <item>
+      <title>Outsourcing by Investment Advisers</title>
+      <link>https://www.sec.gov/rules/proposed/2022/ia-6176.pdf</link>
+      <guid isPermaLink="false">IA-6176</guid>
+      <pubDate>Wed, 26 Oct 2022 12:00:00 EDT</pubDate>
+    </item>
+    <item>
+      <title>Resubmission of Comments and Reopening of Comment Periods for Several Rulemaking Releases Due to a Technological Error in Receiving Certain Comments</title>
+      <link>https://www.sec.gov/rules/proposed/2022/33-11117.pdf</link>
+      <guid isPermaLink="false">33-11117</guid>
+      <pubDate>Fri, 07 Oct 2022 2:30:00 EDT</pubDate>
+    </item>
+	<item>
+      <title>Proposed rule: Standards for Covered Clearing Agencies for U.S. Treasury Securities and Application of the Broker-Dealer Customer Protection Rule With Respect to U.S. Treasury Securities Fund Advisers</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-95763.pdf</link>
+      <guid isPermaLink="false">34-95763</guid>
+      <pubDate>Wed, 14 Sep 2022 11:00 EDT</pubDate>
+    </item>
+    <item>
+      <title>Proposed rule: Amendments to Form PF to Amend Reporting Requirements for All Filers and Large Hedge</title>
+      <link>https://www.sec.gov/rules/proposed/2022/ia-6083.pdf</link>
+      <guid isPermaLink="false">IA-6083</guid>
+      <pubDate>Wed, 10 Aug 2022 11:00 EDT</pubDate>
+    </item>
+    <item>
+      <title>Proposed rule, withdrawal of proposed rules: Clearing Agency Governance and Conflicts of Interest</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-95431.pdf</link>
+      <guid isPermaLink="false">34-95431</guid>
+      <pubDate>Mon, 08 Aug 2022 13:00 EDT</pubDate>
+    </item>
+    <item>
+      <title>Proposed rule: Exemption for Certain Exchange Members</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-95388.pdf</link>
+      <guid isPermaLink="false">34-95388</guid>
+      <pubDate>Fri, 29 July 2022 13:00 EDT</pubDate>
+    </item>
+    <item>
+      <title>Proposed rule: Substantial Implementation, Duplication, and Resubmission of Shareholder Proposals Under Exchange Act Rule 14a-8</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-95267.pdf</link>
+      <guid isPermaLink="false">34-95267</guid>
+      <pubDate>Wed, 13 July 2022 11:00 EDT</pubDate>
+    </item>
+    <item>
+      <title>Proposed rule: Reopening of Comment Period for Listing Standards for Recovery of Erroneously Awarded Compensation</title>
+      <link>https://www.sec.gov/rules/proposed/2022/33-11071.pdf</link>
+      <guid isPermaLink="false">33-11071</guid>
+      <pubDate>Wed, 8 Jun 2022 16:00 EDT</pubDate>
+    </item>
+    <item>
+      <title>Proposed rule: Environmental, Social, and Governance Disclosures for Investment Advisers and Investment Companies</title>
+      <link>https://www.sec.gov/rules/proposed/2022/33-11068.pdf</link>
+      <guid isPermaLink="false">33-11068</guid>
+      <pubDate>Wed, 25 May 2022 13:00 EDT</pubDate>
+    </item>
+    <item>
+      <title>Investment Company Names</title>
+      <link>https://www.sec.gov/rules/proposed/2022/33-11067.pdf</link>
+      <guid isPermaLink="false">33-11067</guid>
+      <pubDate>Wed, 25 May 2022 13:00 EDT</pubDate>
+    </item>
+    <item>
+      <title>Proposed rule; extension of comment period: The Enhancement and Standardization of Climate-Related Disclosures for Investors</title>
+      <link>https://www.sec.gov/rules/proposed/2022/33-11061.pdf</link>
+      <guid isPermaLink="false">33-11061</guid>
+      <pubDate>Mon, 09 May 2022 11:00 EDT</pubDate>
+    </item>
+    <item>
+      <title>Reopening of Comment Periods for “Private Fund Advisers; Documentation of Registered Investment Adviser Compliance Reviews” and “Amendments Regarding the Definition of ‘Exchange’ and Alternative Trading Systems (ATSs) That Trade U.S. Treasury and Agency Securities, National Market System (NMS) Stocks, and Other Securities”</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-94868.pdf</link>
+      <guid isPermaLink="false">34-94868</guid>
+      <pubDate>Mon, 09 May 2022 11:00 EDT</pubDate>
+    </item>
+	<item>
+      <title>Rules Relating to Security-Based Swap Execution and Registration and Regulation of Security-Based Swap Execution Facilities</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-94615.pdf</link>
+      <guid isPermaLink="false">34-94615</guid>
+      <pubDate>Wed, 06 Apr 2022 11:00 EST</pubDate>
+    </item>
+    <item>
+      <title>Special Purpose Acquisition Companies, Shell Companies, and Projections</title>
+      <link>https://www.sec.gov/rules/proposed/2022/33-11048.pdf</link>
+      <guid isPermaLink="false">33-11048</guid>
+      <pubDate>Wed, 30 Mar 2022 10:00 EST</pubDate>
+    </item>
+    <item>
+      <title>Further Definition of 'As a Part of a Regular Business' in the Definition of Dealer and Government Securities Dealer</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-94524.pdf</link>
+      <guid isPermaLink="false">34-94524</guid>
+      <pubDate>Mon, 28 Mar 2022 10:00 EST</pubDate>
+    </item>
+    <item>
+      <title>Removal of References to Credit Ratings From Regulation M</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-94499.pdf</link>
+      <guid isPermaLink="false">34-94499</guid>
+      <pubDate>Wed, 23 Mar 2022 17:00 EST</pubDate>
+    </item>
+    <item>
+      <title>The Enhancement and Standardization of Climate-Related Disclosures for Investors</title>
+      <link>https://www.sec.gov/rules/proposed/2022/33-11042.pdf</link>
+      <guid isPermaLink="false">33-11042</guid>
+      <pubDate>Mon, 21 Mar 2022 11:00 EST</pubDate>
+    </item>
+    <item>
+      <title>Cybersecurity Risk Management, Strategy, Governance, and Incident Disclosure</title>
+      <link>https://www.sec.gov/rules/proposed/2022/33-11038.pdf</link>
+      <guid isPermaLink="false">33-11038</guid>
+      <pubDate>Wed, 09 Mar 2022 11:00 EST</pubDate>
+    </item>
+    <item>
+      <title>Reopening of Comment Period for Reporting of Securities Loans</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-94315.pdf</link>
+      <guid isPermaLink="false">34-94315</guid>
+      <pubDate>Fri, 25 Feb 2022 11:00 EST</pubDate>
+    </item>
+	  <item>
+      <title>Notice of Proposed Amendments to the National Market System Plan Governing the Consolidated Audit Trail for Purposes of Short Sale-related Data Collection</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-94314.pdf</link>
+      <guid isPermaLink="false">34-94314</guid>
+      <pubDate>Fri, 25 Feb 2022 11:00 EST</pubDate>
+    </item>
+	  <item>
+      <title>Short Position and Short Activity Reporting by Institutional Investment Managers</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-94313.pdf</link>
+      <guid isPermaLink="false">34-94313</guid>
+      <pubDate>Fri, 25 Feb 2022 11:00 EST</pubDate>
+    </item>
+	  <item>
+      <title>The Commission’s Whistleblower Program Rules</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-94212.pdf</link>
+      <guid isPermaLink="false">34-94212</guid>
+      <pubDate>Thu, 10 Feb 2022 13:00 EST</pubDate>
+    </item>
+    <item>
+      <title>Modernization of Beneficial Ownership Reporting</title>
+      <link>https://www.sec.gov/rules/proposed/2022/33-11030.pdf</link>
+      <guid isPermaLink="false">33-11030</guid>
+      <pubDate>Thu, 10 Feb 2022 13:00 EST</pubDate>
+    </item>
+	<item>
+      <title>Shortening the Securities Transaction Settlement Cycle</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-94196.pdf</link>
+      <guid isPermaLink="false">34-94196</guid>
+      <pubDate>Wed, 09 Feb 2022 11:30 EST</pubDate>
+    </item>
+    <item>
+      <title>Cybersecurity Risk Management for Investment Advisers, Registered Investment Companies, and Business Development Companies</title>
+      <link>https://www.sec.gov/rules/proposed/2022/33-11028.pdf</link>
+      <guid isPermaLink="false">33-11028</guid>
+      <pubDate>Wed, 09 Feb 2022 11:00 EST</pubDate>
+    </item>
+    <item>
+      <title>Private Fund Advisers; Documentation of Registered Investment Adviser Compliance Reviews</title>
+      <link>https://www.sec.gov/rules/proposed/2022/ia-5955.pdf</link>
+      <guid isPermaLink="false">IA-5955</guid>
+      <pubDate>Wed, 09 Feb 2022 11:00 EST</pubDate>
+    </item>
+    <item>
+      <title>Reopening of Comment Period for Pay Versus Performance</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-94074.pdf</link>
+      <guid isPermaLink="false">34-94074</guid>
+      <pubDate>Thu, 27 Jan 2022 12:00 EST</pubDate>
+    </item>
+    <item>
+      <title>Amendments to Exchange Act Rule 3b-16 Regarding the Definition of “Exchange”; Regulation ATS for ATSs That Trade U.S. Government Securities, NMS Stocks, and Other Securities; Regulation SCI for ATSs That Trade U.S. Treasury Securities and Agency Securities</title>
+      <link>https://www.sec.gov/rules/proposed/2022/34-94062.pdf</link>
+      <guid isPermaLink="false">34-94062</guid>
+      <pubDate>Wed, 26 Jan 2022 11:00 EST</pubDate>
+    </item>
+    <item>
+      <title>Amendments to Form PF to Require Current Reporting and Amend Reporting Requirements for Large Private Equity Advisers and Large Liquidity Fund Advisers</title>
+      <link>https://www.sec.gov/rules/proposed/2022/ia-5950.pdf</link>
+      <guid isPermaLink="false">IA-5950</guid>
+      <pubDate>Wed, 26 Jan 2022 11:00 EST</pubDate>
+    </item>
+    <item>
+      <title>Rule 10b5-1 and Insider Trading</title>
+      <link>https://www.sec.gov/rules/proposed/2022/33-11013.pdf</link>
+      <guid isPermaLink="false">33-11013</guid>
+      <pubDate>Thu, 13 Jan 2022 16:00 EST</pubDate>
+    </item>
+  </channel>
+</rss>

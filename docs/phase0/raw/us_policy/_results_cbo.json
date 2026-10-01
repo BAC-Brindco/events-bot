@@ -1,0 +1,44 @@
+[
+ {
+  "name": "cbo_home",
+  "url": "https://www.cbo.gov/",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:23.203253+00:00",
+  "status": 403,
+  "final_url": "https://www.cbo.gov/",
+  "headers": {
+   "content-length": "767",
+   "content-type": "text/html;charset=utf-8",
+   "date": "Thu, 01 Oct 2026 10:19:27 GMT",
+   "x-cache": "MISS",
+   "cache-control": "public, max-age=3600, s-maxage=3600, stale-if-error=86400",
+   "expires": "Thu, 01 Oct 2026 11:19:27 GMT"
+  },
+  "bytes": 767,
+  "sample": "cbo_home.html",
+  "links": {
+   "rss|feed|\\.xml|atom": []
+  }
+ },
+ {
+  "name": "cbo_about_rss",
+  "url": "https://www.cbo.gov/about/rss",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:19:24.303856+00:00",
+  "status": 403,
+  "final_url": "https://www.cbo.gov/about/rss",
+  "headers": {
+   "content-length": "767",
+   "content-type": "text/html;charset=utf-8",
+   "date": "Thu, 01 Oct 2026 10:19:28 GMT",
+   "x-cache": "MISS",
+   "cache-control": "public, max-age=3600, s-maxage=3600, stale-if-error=86400",
+   "expires": "Thu, 01 Oct 2026 11:19:28 GMT"
+  },
+  "bytes": 767,
+  "sample": "cbo_about_rss.html",
+  "links": {
+   "rss|feed|\\.xml|atom": []
+  }
+ }
+]

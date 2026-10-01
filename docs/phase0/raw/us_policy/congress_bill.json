@@ -1,0 +1,60 @@
+{
+    "bills": [
+        {
+            "congress": 119,
+            "introducedDate": "2026-09-17",
+            "latestAction": {
+                "actionDate": "2026-09-17",
+                "text": "Referred to the Committee on Natural Resources, and in addition to the Committees on Agriculture, and Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned."
+            },
+            "number": "10492",
+            "originChamber": "House",
+            "originChamberCode": "H",
+            "title": "Wildland Firefighter Health and Safety Act",
+            "type": "HR",
+            "updateDate": "2026-10-01",
+            "updateDateIncludingText": "2026-10-01",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10492?format=json"
+        },
+        {
+            "congress": 119,
+            "introducedDate": "2025-06-11",
+            "latestAction": {
+                "actionDate": "2026-03-04",
+                "text": "Received in the Senate."
+            },
+            "number": "3903",
+            "originChamber": "House",
+            "originChamberCode": "H",
+            "title": "Chugach Alaska Land Exchange Oil Spill Recovery Act of 2025",
+            "type": "HR",
+            "updateDate": "2026-10-01",
+            "updateDateIncludingText": "2026-10-01",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3903?format=json"
+        },
+        {
+            "congress": 119,
+            "introducedDate": "2025-01-23",
+            "latestAction": {
+                "actionDate": "2026-09-14",
+                "text": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 555."
+            },
+            "number": "681",
+            "originChamber": "House",
+            "originChamberCode": "H",
+            "title": "To amend the Act of August 9, 1955 (commonly known as the “Long-Term Leasing Act”), to authorize leases of up to 99 years for land in the Mashpee Wampanoag Tribe Reservation and land held in trust for the Wampanoag Tribe of Gay Head (Aquinnah), and for other purposes",
+            "type": "HR",
+            "updateDate": "2026-10-01",
+            "updateDateIncludingText": "2026-10-01",
+            "url": "https://api.congress.gov/v3/bill/119/hr/681?format=json"
+        }
+    ],
+    "pagination": {
+        "count": 430614,
+        "next": "https://api.congress.gov/v3/bill?sort=updateDate desc&offset=3&limit=3&format=json"
+    },
+    "request": {
+        "contentType": "application/json",
+        "format": "json"
+    }
+}

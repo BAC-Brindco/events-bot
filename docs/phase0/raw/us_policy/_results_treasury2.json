@@ -1,0 +1,438 @@
+[
+ {
+  "name": "fiscaldata_upcoming_auctions_latest",
+  "url": "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/od/upcoming_auctions?sort=-record_date,auction_date&page[size]=15",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:16:35.044016+00:00",
+  "status": 200,
+  "final_url": "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/od/upcoming_auctions?sort=-record_date,auction_date&page[size]=15",
+  "headers": {
+   "date": "Thu, 01 Oct 2026 10:16:40 GMT",
+   "content-type": "application/json",
+   "content-length": "762",
+   "server": "nginx"
+  },
+  "bytes": 4402,
+  "sample": "fiscaldata_upcoming_auctions_latest.json",
+  "conditional_get": "no validators returned"
+ },
+ {
+  "name": "td_rss_index",
+  "url": "https://www.treasurydirect.gov/rss/",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:16:36.493794+00:00",
+  "status": 200,
+  "final_url": "https://www.treasurydirect.gov/rss/",
+  "headers": {
+   "content-type": "text/html",
+   "last-modified": "Wed, 16 Sep 2026 13:28:12 GMT",
+   "etag": "\"0x8DF13F65B853CDB\"",
+   "date": "Thu, 01 Oct 2026 10:16:40 GMT"
+  },
+  "bytes": 27314,
+  "sample": "td_rss_index.html",
+  "links": {
+   "\\.xml|rss": [
+    "/TA_WS/securities/announced/rss",
+    "/TA_WS/securities/auctioned/rss",
+    "/rss/mspd.xml",
+    "/rss/sbpro.xml",
+    "/rss/"
+   ]
+  }
+ },
+ {
+  "name": "td_R_20260930_1_xml",
+  "url": "https://www.treasurydirect.gov/xml/R_20260930_1.xml",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:16:38.587038+00:00",
+  "status": 200,
+  "final_url": "https://www.treasurydirect.gov/xml/R_20260930_1.xml",
+  "headers": {
+   "content-length": "4552",
+   "content-type": "text/xml",
+   "last-modified": "Wed, 30 Sep 2026 15:32:39 GMT",
+   "etag": "\"0x8DF1F080FAEE425\"",
+   "date": "Thu, 01 Oct 2026 10:16:41 GMT"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "td_R_20260930_1_pdf",
+  "url": "https://www.treasurydirect.gov/instit/annceresult/press/preanre/2026/R_20260930_1.pdf",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:16:39.687474+00:00",
+  "status": 200,
+  "final_url": "https://www.treasurydirect.gov/instit/annceresult/press/preanre/2026/R_20260930_1.pdf",
+  "headers": {
+   "content-length": "57181",
+   "content-type": "application/pdf",
+   "last-modified": "Wed, 30 Sep 2026 15:32:35 GMT",
+   "etag": "\"0x8DF1F080D2530E1\"",
+   "date": "Thu, 01 Oct 2026 10:16:43 GMT"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "td_R_20260929_1_xml",
+  "url": "https://www.treasurydirect.gov/xml/R_20260929_1.xml",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:16:40.788116+00:00",
+  "status": 200,
+  "final_url": "https://www.treasurydirect.gov/xml/R_20260929_1.xml",
+  "headers": {
+   "content-length": "4626",
+   "content-type": "text/xml",
+   "last-modified": "Tue, 29 Sep 2026 15:32:26 GMT",
+   "etag": "\"0x8DF1E3EDDD8E490\"",
+   "date": "Thu, 01 Oct 2026 10:16:44 GMT"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "td_R_20260929_1_pdf",
+  "url": "https://www.treasurydirect.gov/instit/annceresult/press/preanre/2026/R_20260929_1.pdf",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:16:41.888562+00:00",
+  "status": 200,
+  "final_url": "https://www.treasurydirect.gov/instit/annceresult/press/preanre/2026/R_20260929_1.pdf",
+  "headers": {
+   "content-length": "57185",
+   "content-type": "application/pdf",
+   "last-modified": "Tue, 29 Sep 2026 15:32:22 GMT",
+   "etag": "\"0x8DF1E3EDB4BC197\"",
+   "date": "Thu, 01 Oct 2026 10:16:45 GMT"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "td_R_20260924_3_xml",
+  "url": "https://www.treasurydirect.gov/xml/R_20260924_3.xml",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:16:42.989099+00:00",
+  "status": 200,
+  "final_url": "https://www.treasurydirect.gov/xml/R_20260924_3.xml",
+  "headers": {
+   "content-length": "4779",
+   "content-type": "text/xml",
+   "last-modified": "Thu, 24 Sep 2026 17:02:28 GMT",
+   "etag": "\"0x8DF1A5D9D3DD7D6\"",
+   "date": "Thu, 01 Oct 2026 10:16:46 GMT"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "td_R_20260924_3_pdf",
+  "url": "https://www.treasurydirect.gov/instit/annceresult/press/preanre/2026/R_20260924_3.pdf",
+  "method": "HEAD",
+  "fetched_utc": "2026-10-01T10:16:44.089463+00:00",
+  "status": 200,
+  "final_url": "https://www.treasurydirect.gov/instit/annceresult/press/preanre/2026/R_20260924_3.pdf",
+  "headers": {
+   "content-length": "57258",
+   "content-type": "application/pdf",
+   "last-modified": "Thu, 24 Sep 2026 17:02:23 GMT",
+   "etag": "\"0x8DF1A5D9AA82A83\"",
+   "date": "Thu, 01 Oct 2026 10:16:47 GMT"
+  },
+  "bytes": 0
+ },
+ {
+  "name": "td_result_xml_sample",
+  "url": "https://www.treasurydirect.gov/xml/R_20260924_3.xml",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:16:45.189738+00:00",
+  "status": 200,
+  "final_url": "https://www.treasurydirect.gov/xml/R_20260924_3.xml",
+  "headers": {
+   "content-length": "4779",
+   "content-type": "text/xml",
+   "last-modified": "Thu, 24 Sep 2026 17:02:28 GMT",
+   "etag": "\"0x8DF1A5D9D3DD7D6\"",
+   "date": "Thu, 01 Oct 2026 10:16:48 GMT"
+  },
+  "bytes": 4779,
+  "sample": "td_result_xml_sample.xml"
+ },
+ {
+  "name": "TD_LAG",
+  "lag": {
+   "R_20260930_1.xml": {
+    "url": "https://www.treasurydirect.gov/xml/R_20260930_1.xml",
+    "status": 200,
+    "last_modified": "Wed, 30 Sep 2026 15:32:39 GMT",
+    "last_modified_et": "2026-09-30 11:32:39 EDT",
+    "comp_close": "2026-09-30 11:30 ET"
+   },
+   "R_20260930_1.pdf": {
+    "url": "https://www.treasurydirect.gov/instit/annceresult/press/preanre/2026/R_20260930_1.pdf",
+    "status": 200,
+    "last_modified": "Wed, 30 Sep 2026 15:32:35 GMT",
+    "last_modified_et": "2026-09-30 11:32:35 EDT",
+    "comp_close": "2026-09-30 11:30 ET"
+   },
+   "R_20260929_1.xml": {
+    "url": "https://www.treasurydirect.gov/xml/R_20260929_1.xml",
+    "status": 200,
+    "last_modified": "Tue, 29 Sep 2026 15:32:26 GMT",
+    "last_modified_et": "2026-09-29 11:32:26 EDT",
+    "comp_close": "2026-09-29 11:30 ET"
+   },
+   "R_20260929_1.pdf": {
+    "url": "https://www.treasurydirect.gov/instit/annceresult/press/preanre/2026/R_20260929_1.pdf",
+    "status": 200,
+    "last_modified": "Tue, 29 Sep 2026 15:32:22 GMT",
+    "last_modified_et": "2026-09-29 11:32:22 EDT",
+    "comp_close": "2026-09-29 11:30 ET"
+   },
+   "R_20260924_3.xml": {
+    "url": "https://www.treasurydirect.gov/xml/R_20260924_3.xml",
+    "status": 200,
+    "last_modified": "Thu, 24 Sep 2026 17:02:28 GMT",
+    "last_modified_et": "2026-09-24 13:02:28 EDT",
+    "comp_close": "2026-09-24 13:00 ET"
+   },
+   "R_20260924_3.pdf": {
+    "url": "https://www.treasurydirect.gov/instit/annceresult/press/preanre/2026/R_20260924_3.pdf",
+    "status": 200,
+    "last_modified": "Thu, 24 Sep 2026 17:02:23 GMT",
+    "last_modified_et": "2026-09-24 13:02:23 EDT",
+    "comp_close": "2026-09-24 13:00 ET"
+   }
+  }
+ },
+ {
+  "name": "treasury_govdelivery_press_rss",
+  "url": "https://public.govdelivery.com/topics/USTREAS_49/feed.rss",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:16:45.533365+00:00",
+  "status": 200,
+  "final_url": "https://public.govdelivery.com/topics/USTREAS_49/feed.rss",
+  "headers": {
+   "server": "nginx",
+   "date": "Thu, 01 Oct 2026 10:16:51 GMT",
+   "content-type": "application/rss+xml; charset=utf-8",
+   "content-length": "396349",
+   "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+   "etag": "W/\"c2501d889a1f8b1f61d6b157fe7a2c86\""
+  },
+  "bytes": 396349,
+  "sample": "treasury_govdelivery_press_rss.xml",
+  "conditional_get": {
+   "sent": {
+    "If-None-Match": "W/\"c2501d889a1f8b1f61d6b157fe7a2c86\""
+   },
+   "status": 304,
+   "bytes": 0
+  },
+  "feed": {
+   "feed_title": "All Treasury Press Releases - Recent Updates",
+   "bozo": false,
+   "n_entries": 25,
+   "newest": "2026-09-30 14:42:10",
+   "oldest": "2026-08-26 14:39:38",
+   "first": [
+    {
+     "title": "Treasury Sanctions Financial Network of Foreign Terrorist Organization, Tren de Aragua, After Theft of Millions from U.S. Banks",
+     "link": "https://content.govdelivery.com/accounts/USTREAS/bulletins/42d361f",
+     "date": "Wed, 30 Sep 2026 09:42:10 -0500"
+    },
+    {
+     "title": "U.S. Department of the Treasury and U.S. Department of Education Launch New Defaulted Loans Support Center",
+     "link": "https://content.govdelivery.com/accounts/USTREAS/bulletins/42d333f",
+     "date": "Wed, 30 Sep 2026 09:06:11 -0500"
+    },
+    {
+     "title": "READOUT: Financial Stability Oversight Council Meeting on September 29, 2026",
+     "link": "https://content.govdelivery.com/accounts/USTREAS/bulletins/42d14ea",
+     "date": "Tue, 29 Sep 2026 15:29:45 -0500"
+    },
+    {
+     "title": "Treasury Sanctions Sinaloa Cartel Leadership and Corruption Networks",
+     "link": "https://content.govdelivery.com/accounts/USTREAS/bulletins/42d125a",
+     "date": "Tue, 29 Sep 2026 12:34:51 -0500"
+    },
+    {
+     "title": "Operation Economic Outcast Takes Down Iranian Military Procurement Networks",
+     "link": "https://content.govdelivery.com/accounts/USTREAS/bulletins/42d1114",
+     "date": "Tue, 29 Sep 2026 12:08:32 -0500"
+    }
+   ]
+  }
+ },
+ {
+  "name": "ta_ws_announced_rss",
+  "url": "https://www.treasurydirect.gov/TA_WS/securities/announced/rss",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:16:55.550816+00:00",
+  "status": 200,
+  "final_url": "https://www.treasurydirect.gov/TA_WS/securities/announced/rss",
+  "headers": {
+   "content-type": "application/rss+xml;charset=UTF-8",
+   "date": "Thu, 01 Oct 2026 10:17:00 GMT"
+  },
+  "bytes": 18229,
+  "sample": "ta_ws_announced_rss.xml",
+  "conditional_get": "no validators returned",
+  "feed": {
+   "feed_title": "Treasury Offering Announcements",
+   "bozo": false,
+   "n_entries": 17,
+   "newest": "2026-09-30 15:34:18",
+   "oldest": "2026-09-21 15:33:43",
+   "first": [
+    {
+     "title": "Treasury announces 17-Week Bill",
+     "link": "https://www.treasurydirect.gov/instit/annceresult/press/press_secannpr.htm",
+     "date": "Wed, 30 Sep 2026 15:34:18 GMT"
+    },
+    {
+     "title": "Treasury announces 52-Week Bill",
+     "link": "https://www.treasurydirect.gov/instit/annceresult/press/press_secannpr.htm",
+     "date": "Tue, 29 Sep 2026 15:33:33 GMT"
+    },
+    {
+     "title": "Treasury announces 6-Week Bill",
+     "link": "https://www.treasurydirect.gov/instit/annceresult/press/press_secannpr.htm",
+     "date": "Tue, 29 Sep 2026 15:33:32 GMT"
+    }
+   ]
+  }
+ },
+ {
+  "name": "ta_ws_auctioned_rss",
+  "url": "https://www.treasurydirect.gov/TA_WS/securities/auctioned/rss",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:16:56.951388+00:00",
+  "status": 200,
+  "final_url": "https://www.treasurydirect.gov/TA_WS/securities/auctioned/rss",
+  "headers": {
+   "content-type": "application/rss+xml;charset=UTF-8",
+   "date": "Thu, 01 Oct 2026 10:17:00 GMT"
+  },
+  "bytes": 24198,
+  "sample": "ta_ws_auctioned_rss.xml",
+  "conditional_get": "no validators returned",
+  "feed": {
+   "feed_title": "Treasury Offering Announcements",
+   "bozo": false,
+   "n_entries": 18,
+   "newest": "2026-09-30 15:34:18",
+   "oldest": "2026-09-17 15:33:30",
+   "first": [
+    {
+     "title": "17-Week Bill Treasury Auction Results",
+     "link": "https://www.treasurydirect.gov/instit/annceresult/press/press_secannpr.htm",
+     "date": "Wed, 30 Sep 2026 15:34:18 GMT"
+    },
+    {
+     "title": "52-Week Bill Treasury Auction Results",
+     "link": "https://www.treasurydirect.gov/instit/annceresult/press/press_secannpr.htm",
+     "date": "Tue, 29 Sep 2026 15:33:33 GMT"
+    },
+    {
+     "title": "6-Week Bill Treasury Auction Results",
+     "link": "https://www.treasurydirect.gov/instit/annceresult/press/press_secannpr.htm",
+     "date": "Tue, 29 Sep 2026 15:33:32 GMT"
+    }
+   ]
+  }
+ },
+ {
+  "name": "treasury_qr_most_recent_docs",
+  "url": "https://home.treasury.gov/policy-issues/financing-the-government/quarterly-refunding/most-recent-quarterly-refunding-documents",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:16:57.656445+00:00",
+  "status": 200,
+  "final_url": "https://home.treasury.gov/policy-issues/financing-the-government/quarterly-refunding/most-recent-quarterly-refunding-documents",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "last-modified": "Wed, 16 Sep 2026 22:58:47 GMT",
+   "server": "AmazonS3",
+   "etag": "W/\"ae25d7ff29e9a362290b2a87754e9806\"",
+   "x-akamai-transformed": "9 - 0 pmb=mRUM,1",
+   "date": "Thu, 01 Oct 2026 10:17:02 GMT",
+   "content-length": "17372"
+  },
+  "bytes": 73671,
+  "sample": "treasury_qr_most_recent_docs.html",
+  "conditional_get": {
+   "sent": {
+    "If-None-Match": "W/\"ae25d7ff29e9a362290b2a87754e9806\"",
+    "If-Modified-Since": "Wed, 16 Sep 2026 22:58:47 GMT"
+   },
+   "status": 304,
+   "bytes": 0
+  },
+  "links": {
+   "\\.pdf|\\.xls|press-releases/|news/": [
+    "/system/files/136/Fact-Sheet-Department-of-Education-and-Department-of-the-Treasury.pdf",
+    "/news/press-releases",
+    "/news/featured-stories/",
+    "/news/press-releases/",
+    "/news/press-releases/statements-remarks",
+    "/news/press-releases/statements-remarks/",
+    "/news/contacts-for-members-of-the-media/",
+    "/news/webcasts/",
+    "/news/press-releases/sb0584",
+    "/news/press-releases/sb0585",
+    "/news/press-releases/sb0590",
+    "/news/press-releases/sb0591",
+    "/news/press-releases/sb0592",
+    "/system/files/221/TBACRecommendedFinancingTableByRefundingQuarter-08052026.pdf",
+    "/system/files/221/TreasuryPresentationToTBACQ32026.pdf",
+    "/system/files/221/TBACCharge1Q32026.pdf",
+    "/system/files/221/TBACCharge2Q32026.pdf",
+    "/system/files/221/CombinedChargesforArchivesQ32026.pdf",
+    "/system/files/221/TentativeAuctionScheduleQ32026.pdf",
+    "/system/files/221/Tentative-Buyback-ScheduleQ32026.pdf",
+    "/system/files/221/Dealer-Agenda-Aug-2026.pdf",
+    "/system/files/221/2026-3rd-Quarter.xls",
+    "/system/files/276/Debt-Management-Overview.pdf"
+   ]
+  }
+ },
+ {
+  "name": "treasury_qr_archives",
+  "url": "https://home.treasury.gov/policy-issues/financing-the-government/quarterly-refunding/quarterly-refunding-archives",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:16:59.926450+00:00",
+  "status": 200,
+  "final_url": "https://home.treasury.gov/policy-issues/financing-the-government/quarterly-refunding/quarterly-refunding-archives",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "last-modified": "Wed, 16 Sep 2026 22:58:47 GMT",
+   "server": "AmazonS3",
+   "etag": "W/\"73214abe8f7bcec1919b868d29354af7\"",
+   "x-akamai-transformed": "9 - 0 pmb=mRUM,1",
+   "date": "Thu, 01 Oct 2026 10:17:03 GMT",
+   "content-length": "17453"
+  },
+  "bytes": 77296,
+  "sample": "treasury_qr_archives.html",
+  "links": {
+   "archives/|\\.pdf|20\\d\\d": [
+    "/css/treasury-components.min.3c5b0fe8a7cded9a691fc54974f6e848552c365420424afce3636122eea3ee7c.css",
+    "/system/files/136/Fact-Sheet-Department-of-Education-and-Department-of-the-Treasury.pdf",
+    "/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value=2026",
+    "/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_real_yield_curve&amp;field_tdr_date_value=2026",
+    "/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_bill_rates&amp;field_tdr_date_value=2026",
+    "/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_long_term_rate&amp;field_tdr_date_value=2026",
+    "/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_real_long_term&amp;field_tdr_date_value=2026",
+    "/policy-issues/financing-the-government/quarterly-refunding/quarterly-refunding-archives/",
+    "/services/the-multiemployer-pension-reform-act-of-2014/",
+    "/services/the-multiemployer-pension-reform-act-of-2014/applications-for-benefit-suspension/",
+    "/services/the-multiemployer-pension-reform-act-of-2014/frequently-asked-questions-about-the-kline-miller-multiemployer-pension-reform-act/",
+    "/policy-issues/treasury-borrowing/quarterly-refunding/quarterly-refunding-archives/2010-and-before-quarterly-refunding-charts-data",
+    "/policy-issues/financing-the-government/quarterly-refunding/quarterly-refunding-archives/treasury-borrowing-advisory-committee-report-to-the-secretary-by-calendar-year",
+    "/policy-issues/financing-the-government/quarterly-refunding/quarterly-refunding-archives/tbac-recommended-financing-tables-by-calendar-year",
+    "/policy-issues/financing-the-government/quarterly-refunding/quarterly-refunding-archives/treasury-borrowing-advisory-committee-meeting-minutes-by-calendar-year",
+    "/policy-issues/financing-the-government/quarterly-refunding/quarterly-refunding-archives/office-of-economic-policy-statements-to-tbac",
+    "/policy-issues/financing-the-government/quarterly-refunding/quarterly-refunding-archives/quarterly-refunding-financing-estimates-by-calendar-year",
+    "/policy-issues/financing-the-government/quarterly-refunding/quarterly-refunding-archives/primary-dealer-meeting-agendas-by-calendar-year",
+    "/policy-issues/financing-the-government/quarterly-refunding/quarterly-refunding-archives/official-remarks-on-quarterly-refunding-by-calendar-year",
+    "/policy-issues/financing-the-government/quarterly-refunding/quarterly-refunding-archives/treasury-borrowing-advisory-committee-discussion-charts-by-calendar-year"
+   ]
+  }
+ }
+]

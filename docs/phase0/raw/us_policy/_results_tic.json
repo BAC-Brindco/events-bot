@@ -1,0 +1,169 @@
+[
+ {
+  "name": "tic_home",
+  "url": "https://home.treasury.gov/data/treasury-international-capital-tic-system",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:20:36.356002+00:00",
+  "status": 200,
+  "final_url": "https://home.treasury.gov/data/treasury-international-capital-tic-system",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "server": "AmazonS3",
+   "last-modified": "Wed, 16 Sep 2026 22:53:26 GMT",
+   "etag": "W/\"1b10b65992eebd726f1e146a9f8a3d3d\"",
+   "x-akamai-transformed": "9 - 0 pmb=mRUM,1",
+   "date": "Thu, 01 Oct 2026 10:20:41 GMT",
+   "content-length": "18568"
+  },
+  "bytes": 78196,
+  "sample": "tic_home.html",
+  "conditional_get": {
+   "sent": {
+    "If-None-Match": "W/\"1b10b65992eebd726f1e146a9f8a3d3d\"",
+    "If-Modified-Since": "Wed, 16 Sep 2026 22:53:26 GMT"
+   },
+   "status": 304,
+   "bytes": 0
+  },
+  "links": {
+   "tic|\\.txt|\\.csv|schedule|press": [
+    "https://home.treasury.gov/data/treasury-international-capital-tic-system",
+    "https://fonts.gstatic.com",
+    "/about/offices/domestic-finance/",
+    "/policy-issues/financing-the-government/interest-rate-statistics/",
+    "/data/treasury-international-capital-tic-system/",
+    "/data/treasury-international-capital-tic-system-home-page/release-dates-of-tic-data-0/",
+    "/data/treasury-international-capital-tic-system-home-page/tic-forms-instructions/",
+    "/data/tic-press-releases-by-topic/",
+    "https://www.fiscal.treasury.gov/directexpress/",
+    "/data/treasury-international-capital-tic-system/tic-forms-instructions/",
+    "/news/press-releases",
+    "/news/press-releases/",
+    "/news/press-releases/statements-remarks",
+    "/news/press-releases/statements-remarks/",
+    "https://search.usa.gov/search/docs?utf8=%E2%9C%93&amp;affiliate=treas&amp;sort_by=&amp;dc=9123&amp;query=weekly-schedule-updates",
+    "/data/treasury-international-capital-tic-system",
+    "/data/treasury-international-capital-tic-system/release-dates-of-tic-data",
+    "/data/treasury-international-capital-tic-system/frequently-asked-questions-regarding-the-tic-system-and-tic-data",
+    "/data/treasury-international-capital-tic-system/tic-press-releases-by-topic",
+    "/data/treasury-international-capital-tic-system/contact-tic-using-tic",
+    "/data/treasury-international-capital-tic-system/tic-forms-instructions",
+    "/data/treasury-international-capital-tic-system-home-page/tic-forms-instructions/tic-press-releases-by-topic",
+    "https://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/release-dates-of-tic-data-0",
+    "/data/treasury-international-capital-tic-system-home-page/tic-forms-instructions/securities-a-us-transactions-with-foreign-residents-in-long-term-securities",
+    "/data/treasury-international-capital-tic-system/tic-forms-instructions/securities-b-portfolio-holdings-of-us-and-foreign-securities",
+    "https://www.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.html",
+    "/data/treasury-international-capital-tic-system-home-page/tic-forms-instructions/securities-c-annual-cross-us-border-portfolio-holdings",
+    "/data/treasury-international-capital-tic-system-home-page/tic-forms-instructions/us-financial-firms-liabilities-to-foreign-residents",
+    "/data/treasury-international-capital-tic-system-home-page/tic-forms-instructions/us-financial-firms-claims-on-foreign-residents",
+    "/data/treasury-international-capital-tic-system-home-page/help-files/us-derivatives-contracts-with-foreigners-holdings-and-cash-settlements",
+    "/data/treasury-international-capital-tic-system-home-page/help-files/us-nonfinancial-claims-on-and-liabilities-to-unaffiliated-foreigners",
+    "/data/treasury-international-capital-tic-system-home-page/tic-forms-instructions/us-gross-external-debt",
+    "/data/treasury-international-capital-tic-system/tic-forms-instructions#benchmark",
+    "/data/treasury-international-capital-tic-system-home-page/help-files/articles-on-the-treasury-international-capital-system-tic",
+    "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/cslt.zip",
+    "https://home.treasury.gov/data/treasury-international-capital-tic-system/us-liabilities-to-foreigners-from-holdings-of-us-securities",
+    "/data/treasury-international-capital-tic-system/tic-forms-instructions/us-claims-on-foreigners-from-holdings-of-foreign-securities",
+    "/footer/prohibited-personnel-practices-and-whistleblower-protection",
+    "https://home.treasury.gov/subfooter/site-policies-and-notices"
+   ]
+  }
+ },
+ {
+  "name": "tic_release_dates",
+  "url": "https://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/release-dates-of-tic-data-0",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:20:38.556838+00:00",
+  "status": 200,
+  "final_url": "https://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/release-dates-of-tic-data-0",
+  "headers": {
+   "content-type": "text/html; charset=utf-8",
+   "server": "AmazonS3",
+   "last-modified": "Tue, 18 Aug 2026 19:35:19 GMT",
+   "etag": "\"6da083e7314a10510315b63bf6057e1d\"",
+   "x-akamai-transformed": "9 414 0 pmb=mRUM,1",
+   "date": "Thu, 01 Oct 2026 10:20:42 GMT",
+   "content-length": "2241"
+  },
+  "bytes": 4684,
+  "sample": "tic_release_dates.html",
+  "conditional_get": {
+   "sent": {
+    "If-None-Match": "\"6da083e7314a10510315b63bf6057e1d\"",
+    "If-Modified-Since": "Tue, 18 Aug 2026 19:35:19 GMT"
+   },
+   "status": 304,
+   "bytes": 0
+  },
+  "text_excerpt": " "
+ },
+ {
+  "name": "tic_mfh_txt",
+  "url": "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/mfh.txt",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:20:39.946431+00:00",
+  "status": 200,
+  "final_url": "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/mfh.txt",
+  "headers": {
+   "content-type": "text/plain",
+   "etag": "\"3f51f8604eae8e5d058da7afeb200367:1770738189.318533\"",
+   "last-modified": "Tue, 10 Feb 2026 15:43:09 GMT",
+   "server": "AkamaiNetStorage",
+   "content-length": "7486",
+   "date": "Thu, 01 Oct 2026 10:20:45 GMT"
+  },
+  "bytes": 7486,
+  "sample": "tic_mfh_txt.txt",
+  "conditional_get": {
+   "sent": {
+    "If-None-Match": "\"3f51f8604eae8e5d058da7afeb200367:1770738189.318533\"",
+    "If-Modified-Since": "Tue, 10 Feb 2026 15:43:09 GMT"
+   },
+   "status": 304,
+   "bytes": 0
+  }
+ },
+ {
+  "name": "tic_cslt_zip",
+  "url": "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/cslt.zip",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:20:42.481643+00:00",
+  "status": 200,
+  "final_url": "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/cslt.zip",
+  "headers": {
+   "content-type": "application/zip",
+   "etag": "\"9b823320e39ed95d0e9253be8c3936e0:1789588921.849162\"",
+   "last-modified": "Wed, 16 Sep 2026 20:02:01 GMT",
+   "server": "AkamaiNetStorage",
+   "content-length": "8888880",
+   "date": "Thu, 01 Oct 2026 10:20:46 GMT"
+  },
+  "bytes": 8888880,
+  "conditional_get": {
+   "sent": {
+    "If-None-Match": "\"9b823320e39ed95d0e9253be8c3936e0:1789588921.849162\"",
+    "If-Modified-Since": "Wed, 16 Sep 2026 20:02:01 GMT"
+   },
+   "status": 304,
+   "bytes": 0
+  }
+ },
+ {
+  "name": "treasury_govdelivery_press_rss_tic",
+  "url": "https://public.govdelivery.com/topics/USTREAS_49/feed.rss",
+  "method": "GET",
+  "fetched_utc": "2026-10-01T10:20:47.728990+00:00",
+  "status": 200,
+  "final_url": "https://public.govdelivery.com/topics/USTREAS_49/feed.rss",
+  "headers": {
+   "server": "nginx",
+   "date": "Thu, 01 Oct 2026 10:20:54 GMT",
+   "content-type": "application/rss+xml; charset=utf-8",
+   "content-length": "396349",
+   "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+   "etag": "W/\"c2501d889a1f8b1f61d6b157fe7a2c86\""
+  },
+  "bytes": 396349,
+  "tic_items": []
+ }
+]
