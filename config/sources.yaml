@@ -1,0 +1,36 @@
+# Source registry. Adding a source = an entry here + one adapter module under events_bot/sources.
+# Every URL here must have been fetched successfully (build prompt rule 6); evidence in docs/FEED_MAP.md.
+# Phase 1 registers only the RBI feeds that exercise the core loop; later phases add the rest.
+
+sources:
+  - id: rbi_pr
+    label: RBI
+    event_name: Press release
+    country: IN
+    tier: 1
+    kind: stream
+    feed_type: rss
+    urls:
+      press_releases: https://rbi.org.in/pressreleases_rss.xml
+    poll_interval: 120          # 10-item feed, about a day deep (T-04)
+    adapter: india.rbi:RbiRss
+    health_rules:
+      expect: xml
+      min_items: 5
+      stale_after_hours: 72     # RBI posts every working day; long weekends ~3 days
+
+  - id: rbi_notif
+    label: RBI
+    event_name: Notification
+    country: IN
+    tier: 1
+    kind: stream
+    feed_type: rss
+    urls:
+      notifications: https://rbi.org.in/notifications_rss.xml
+    poll_interval: 300          # 10 items, about 9 days deep
+    adapter: india.rbi:RbiRss
+    health_rules:
+      expect: xml
+      min_items: 5
+      stale_after_hours: 168

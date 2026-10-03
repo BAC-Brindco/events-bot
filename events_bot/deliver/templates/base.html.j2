@@ -1,0 +1,7 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>{{ subject }}</title></head>
+<body style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#1a1a1a;max-width:720px;margin:0 auto;padding:12px">
+{% block body %}{% endblock %}
+<hr style="border:none;border-top:1px solid #ddd;margin:20px 0 8px">
+<p style="font-size:11px;color:#777">RAAS Research Capital · Economic Events Bot · {{ ref }} · {{ stage }}{% if mode != "live" %} · {{ mode|upper }}{% endif %}</p>
+</body></html>

@@ -53,3 +53,38 @@ For each new release it archives the HTML and every linked PressRelease PDF, wit
 **Scheduled:** Windows task "events_bot MPC capture" runs once on 2026-10-07 from 09:40 to 14:00 IST (`harness/run_mpc_capture.cmd`, WakeToRun, StartWhenAvailable). It runs only while the user is logged on, so the PC must be on and signed in.
 
 **Next:** Phase 1 core, built against local Postgres until F-10 inputs arrive.
+
+## Phase 1: core framework (2026-10-03)
+
+**Built** (package `events_bot/`, layout per BUILD_PROMPT §4):
+- `core/`:
+  - `models` (pydantic): SourceConfig, RawItem, FetchResult, ScheduledEvent, Message.
+  - `config`: registry, delivery and keyword YAML. `registry`: adapter base with fetch and parse split, so replay never touches the network.
+  - `db`: psycopg, migration runner. `archive`: content-addressed raw store. `fetch`: conditional GET, per-host politeness, truststore TLS, HTTP-200 bot-page rejection, archive-before-parse.
+  - `dedupe`: URL, then document hash, then cross-source title rule. `pipeline`: dedupe → filter → classify → tag → route.
+  - `scheduler` (APScheduler), `timeutil`, `logsetup` (structlog JSON).
+- `migrations/0001_init.sql`: sources, http_cache, documents, events, items, extractions, filtered_items, sends (unique on ref, stage, kind), digests, source_health, health_alerts.
+- `filter/`: keyword and ministry filter, with every rejection logged to filtered_items. Watchlist tagger (inert until F-13). Pass-through classifier interface.
+- `deliver/`: Dispatcher with live, dry_run and replay modes. Email over SMTP, Jinja2 templates, Slack and Telegram stubs. Live mode claims the `sends` row before sending, so a restart cannot double-send. A crash between claim and send is reported, never resent automatically. `cli retry-send` resends only failed rows.
+- `stage1/build.py`: deterministic Stage 1 for stream items: verbatim title, verbatim excerpt, source URL, source time and first-seen time. The key-number and bullet slots are filled in Phases 2–4.
+- `ops/`: health skeleton (consecutive errors, stale stream, stuck send; each alert raised once and cleared when resolved), replay (`replay <ref>` and `replay --file`), and the CLI: migrate, sources, poll, run, replay, rejected, health, calendar, retry-send.
+- Baseline guard: the first poll of a new source records existing items without alerting. Items older than 12 h go to the digest, not realtime.
+- First adapter: `sources/india/rbi.py` (RbiRss) for `rbi_pr` and `rbi_notif`.
+
+**Verified:**
+- Against live RBI from this machine (dry run): the first poll baselined 10 + 10 items with correct IST times, and the second poll returned 304. `replay item:rbi_pr:prid:63719` re-rendered the alert from archived bytes.
+- `run --dry-run` boots the scheduler and polls on interval.
+
+**Tests:** 38 passing (`uv run pytest`). They cover timezone parsing, URL and title dedupe (including recurring same-source titles), conditional GET with 304, bot-page rejection, archive idempotency, baseline, filter logging and word boundaries, the old-item reroute, watchlist tagging, restart double-send, the failed-send retry gate, health alert raise/dedupe/clear, the min_items shape check, stuck claims, registry and route coverage, and replay without network.
+
+**Local dev DB:** MSYS2 Postgres 18 in `C:\Users\HP\AppData\Local\events_bot_pg` on port 55433 (databases `events_bot` and `events_bot_test`). Start it with:
+`PATH=/c/msys64/ucrt64/bin:$PATH pg_ctl -D /c/Users/HP/AppData/Local/events_bot_pg -o "-p 55433" start`
+
+**Deviations from the prompt** (recorded here per §9):
+1. Fetching is synchronous httpx on APScheduler threads, not async. Every job is short and I/O-bound, psycopg stays simple, and per-host politeness is a lock. This can be revisited if source count makes thread time matter.
+2. The raw archive is local disk (`archive/raw`) behind a two-method interface. A Supabase Storage backend follows the F-10 decision.
+3. `tzdata` was added. Windows has no system zoneinfo, and US Eastern needs DST rules (FLAGS F-15).
+
+**Added to FLAGS:** F-15 (tzdata), F-16 (PIB ministry strings unverified).
+
+**Next:** Phase 2, FOMC and RBI MPC, both stages. The 7 Oct capture feeds the MPC channel choice.

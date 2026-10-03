@@ -1,0 +1,24 @@
+# Delivery schedule (PROPOSAL §e, signed off 2026-10-03). Times are IST.
+realtime_channels: [email]
+
+us_morning_wrap: {hour: 7, minute: 0}
+india_eod: {hour: 19, minute: 30}
+weekly: {day_of_week: sat, hour: 9, minute: 0}
+heartbeat: {hour: 8, minute: 0}
+
+# Default route per country:tier. A source's own `route` overrides this.
+routes:
+  "IN:1": realtime
+  "IN:2": india_eod
+  "IN:3": weekly
+  "US:1": us_morning_wrap     # FOMC days and the F-08 matches go realtime via source config
+  "US:2": us_morning_wrap     # F-09
+  "US:3": weekly
+
+# F-08: White House / USTR items matching these go realtime instead of the wrap.
+us_realtime_keywords: [India, Indian, tariff, Section 232, Section 301, pharmaceutical, generic drugs]
+# F-08: NFP and CPI at 18:00 IST realtime. Opt-in.
+us_realtime_prints: false
+
+# A realtime item whose source time is older than this goes to the digest instead (outage catch-up).
+realtime_max_age_hours: 12

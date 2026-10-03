@@ -1,0 +1,19 @@
+{% extends "base.html.j2" %}
+{% block body %}
+<p style="font-size:12px;color:#555;margin:0">{{ source_tag }} · {{ event_name }}{% if tags %} · <b>{{ tags|join(", ") }}</b>{% endif %}</p>
+<h2 style="font-size:18px;margin:6px 0 12px">{{ title }}</h2>
+{% if key_numbers %}
+<table style="border-collapse:collapse;margin-bottom:12px">
+{% for k in key_numbers %}<tr><td style="padding:2px 12px 2px 0;color:#555">{{ k.label }}</td><td style="padding:2px 0;font-weight:600">{{ k.value_text }}</td></tr>{% endfor %}
+</table>
+{% endif %}
+<table style="border-collapse:collapse;font-size:13px;margin-bottom:12px">
+<tr><td style="padding:2px 12px 2px 0;color:#555">Source</td><td><a href="{{ url }}">{{ url }}</a></td></tr>
+<tr><td style="padding:2px 12px 2px 0;color:#555">Source time</td><td>{{ source_time }}</td></tr>
+<tr><td style="padding:2px 12px 2px 0;color:#555">First seen</td><td>{{ first_seen }}</td></tr>
+</table>
+{% if bullets %}<ul>{% for b in bullets %}<li>{{ b }}</li>{% endfor %}</ul>{% endif %}
+{% if excerpt %}<blockquote style="margin:0 0 12px;padding:6px 10px;border-left:3px solid #ccc;color:#333">{{ excerpt }}</blockquote>
+<p style="font-size:11px;color:#777;margin-top:-6px">Verbatim opening of the source text.</p>{% endif %}
+{% if links %}<p style="font-size:13px">{% for l in links %}<a href="{{ l.url }}">{{ l.label }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
+{% endblock %}

@@ -1,0 +1,15 @@
+# PIB filter (SPEC seed list). Editable without a code change; review misses with
+#   uv run python -m events_bot.ops.cli rejected --source pib
+# Matching is case-insensitive on word boundaries. Phase 4 extends both lists.
+include_any:
+  - MSP
+  - subsidy
+  - PLI
+  - export
+  - duty
+  - disinvestment
+  - FDI
+exclude_any: []
+ministries:
+  - Cabinet
+  - Cabinet Committee on Economic Affairs (CCEA)

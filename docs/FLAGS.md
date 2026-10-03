@@ -21,6 +21,8 @@ These are open issues from Phase 0. The status column says what unblocks each on
 | F-13 | Watchlist and Indian pharma facility list are not provided. | You supply `config/watchlist.csv` and the pharma/facility list. I'll seed the facility list from openFDA enforcement records for India. | needed by Phase 4 |
 
 | F-14 | **2026-10-03 directive: no BQL; only publicly reachable sources.** | `MarketDataProvider` is FMP (API key, public endpoint) with official public fallbacks: US Treasury daily par yields, RBI reference rate (USDINR), NSE/niftyindices (Nifty Bank), CCIL/FBIL for India 10Y where reachable. Anything not reachable from a public endpoint is dropped, not proxied. | **decided** |
+| F-15 | `tzdata` added (outside the approved list). Windows has no system tz database, and US/Eastern needs DST for FOMC and BLS times. Pure data, no code. | Keep. | **added 2026-10-03** (flagging per prompt §2) |
+| F-16 | PIB ministry names in `config/keywords/pib.yaml` ("Cabinet", "Cabinet Committee on Economic Affairs (CCEA)") are seed guesses, not yet matched against live `#MinistryName` values. | Verify in Phase 4 before PIB goes live. | open |
 
 ## Technical hazards (handled in design, no decision needed)
 
