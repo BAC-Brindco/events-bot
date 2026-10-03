@@ -39,7 +39,7 @@ As specified in the build prompt:
 | `curl_cffi` | BSE `api.bseindia.com` returns 403 to httpx (Akamai) but works with Chrome TLS impersonation. The in-house `nse-bse-disclosures-pipeline` already does the same. | india_t1 row "BSE notices" |
 
 **Market data:**
-- Use a `MarketDataProvider` with two implementations: BQL first, FMP as fallback.
+- Use a `MarketDataProvider` with FMP first, then official public endpoints as fallback (US Treasury par yields, RBI reference rate, NSE/niftyindices). **No BQL** (decided 2026-10-03: publicly reachable sources only, F-14).
 - FOMC: US 2Y, US 10Y and DXY.
 - RBI: India 10Y, USDINR and Nifty Bank.
 - Instruments are configurable per event type in `config/sources.yaml`.
@@ -174,6 +174,6 @@ Data prints (BLS, BEA, DOL, Census, MoSPI, OEA, CGA) get **Stage 1 only**: the p
    - `ANTHROPIC_API_KEY`, `FMP_API_KEY`
    - SMTP credentials and the 3 recipients
 5. **Supabase:** a new project for the bot, or a schema inside an existing project?
-6. **Hosting:** which Linux host runs the bot (the systemd unit), and which Windows terminal box runs the BQL adapter?
+6. **Hosting:** which Linux host runs the bot (the systemd unit)? (BQL dropped 2026-10-03, so no Windows terminal box.)
 7. **Watchlist + Indian pharma facility list (F-13)**, needed by Phase 4.
 8. **Phase 1a (optional):** capture-only harness for the **7 Oct MPC**. Yes or no?

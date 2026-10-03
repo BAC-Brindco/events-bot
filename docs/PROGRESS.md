@@ -30,4 +30,26 @@
 3. **Stage 1 summary.** SPEC asks for a 5–8 bullet summary in Stage 1. The prompt's Stage 1 doesn't mention bullets. SPEC wins: Stage 1 will carry 5–8 number-guarded bullets.
 4. **Stage 2 transcript sources.** SPEC prefers official transcripts. The FOMC official transcript arrives 8–13 days late, so the prompt's "Fed: from the official transcript" isn't achievable within the 2–3 h window SPEC sets. Proposed resolution: faster-whisper on the Fed's video, then a follow-up once the official transcript posts (F-03).
 
-**Status:** **STOPPED. Waiting for your go** and the inputs in PROPOSAL §g.
+**Status at end of Phase 0:** stopped for your go and the inputs in PROPOSAL §g.
+
+## Decisions (2026-10-03)
+
+- **Go on Phase 1.** All flags approved as recommended: F-02, F-03, F-05, F-07, F-08, F-09, F-11 and F-12; every (1) poller in PROPOSAL §d (F-04); `truststore` and `curl_cffi` (F-06).
+- **Phase 1a: yes.** A capture-only harness runs for the 7 Oct MPC.
+- **No BQL. Only publicly reachable sources** (F-14). Market data is FMP plus official public fallbacks. No Windows terminal box is needed.
+- Still open: F-01 keys, F-10 (SMTP, recipients, Supabase, Anthropic/FMP keys, Linux host), F-13 watchlist.
+
+## Phase 1a: MPC capture harness (2026-10-03)
+
+**Built:** `harness/mpc_capture.py`, a capture-only harness that sends nothing. It polls:
+- the RBI press-release RSS every 20 s and the notifications RSS every 60 s, both with conditional GET;
+- the next 6 unpublished press-release IDs, each about every 30 s. Unpublished IDs return HTTP 200 with an empty page shell, so a release counts as live only when `.tablebg` is present;
+- `Annualpolicy.aspx` for new links, and the RBI YouTube RSS.
+
+For each new release it archives the HTML and every linked PressRelease PDF, with `%PDF` validation and backoff retry. It re-fetches the HTML 15 and 60 minutes later to catch re-uploads (T-08). Output goes to `archive/captures/<date>_mpc/` (`events.jsonl`, `polls.jsonl`, `raw/`, `SUMMARY.md`).
+
+**Verified:** a 3-minute live run with `--seed-prid 63717` rediscovered IDs 63718 and 63719 and archived both pages and PDFs. There were 0 errors in 39 requests, about 13 a minute to rbi.org.in. A 75-second launch through Task Scheduler also polled correctly.
+
+**Scheduled:** Windows task "events_bot MPC capture" runs once on 2026-10-07 from 09:40 to 14:00 IST (`harness/run_mpc_capture.cmd`, WakeToRun, StartWhenAvailable). It runs only while the user is logged on, so the PC must be on and signed in.
+
+**Next:** Phase 1 core, built against local Postgres until F-10 inputs arrive.
