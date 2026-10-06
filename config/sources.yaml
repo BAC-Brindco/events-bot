@@ -34,3 +34,20 @@ sources:
       expect: xml
       min_items: 5
       stale_after_hours: 168
+
+  - id: fomc
+    label: FED
+    event_name: FOMC decision
+    country: US
+    tier: 1
+    kind: scheduled
+    feed_type: html
+    urls:
+      calendar: https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+    poll_interval: 43200        # calendar only; documents are polled in the event window
+    window_poll_interval: 20    # statement/note/SEP post 14:00:14-14:00:33 ET (FEED_MAP)
+    adapter: us.fed:Fomc
+    stage2_eligible: true
+    route: realtime             # SPEC: US real-time on FOMC days
+    health_rules:
+      expect: html

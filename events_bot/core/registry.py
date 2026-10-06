@@ -16,6 +16,7 @@ if TYPE_CHECKING:
     from .archive import Archive
     from .db import Database
     from .fetch import Fetcher
+    from .app import App
     from .settings import Settings
 
 
@@ -25,6 +26,7 @@ class Context:
     db: "Database"
     fetcher: "Fetcher"
     archive: "Archive"
+    app: "App | None" = None          # scheduled adapters dispatch Stage 1/2 through the app
 
 
 class SourceAdapter:

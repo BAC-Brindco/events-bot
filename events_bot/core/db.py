@@ -161,12 +161,11 @@ class Database:
                   on conflict (ref) do update set title = excluded.title, scheduled_at = excluded.scheduled_at,
                       window_start = excluded.window_start, window_end = excluded.window_end,
                       calendar_url = excluded.calendar_url, calendar_refreshed_at = excluded.calendar_refreshed_at,
-                      -- keep the burst-job claim unless the window moved (then relaunch)
-                      meta = case when events.meta ? 'burst_launched_at'
-                                       and events.window_start = excluded.window_start
-                                  then excluded.meta || jsonb_build_object('burst_launched_at',
-                                                                           events.meta -> 'burst_launched_at')
-                                  else excluded.meta end""",
+                      -- calendar keys overwrite; progress keys (stage1_at, ...) survive a refresh.
+                      -- The burst-job claim is dropped if the window moved, so it relaunches.
+                      meta = case when events.window_start = excluded.window_start
+                                  then events.meta || excluded.meta
+                                  else (events.meta || excluded.meta) - 'burst_launched_at' end""",
                (ev.ref, ev.source_id, ev.event_type, ev.title, ev.scheduled_at, ev.window_start,
                 ev.window_end, ev.calendar_url, refreshed_at, Jsonb(ev.meta)))
 
@@ -183,6 +182,32 @@ class Database:
                            and not (meta ? 'burst_launched_at')
                          returning ref""", (within,))
         return [r["ref"] for r in rows]
+
+    def get_event(self, ref: str) -> dict | None:
+        return self.one("select * from events where ref = %s", (ref,))
+
+    def mark_event(self, ref: str, status: str | None = None, **meta: Any) -> None:
+        self.q("update events set status = coalesce(%s, status), meta = meta || %s where ref = %s",
+               (status, Jsonb({k: (v.isoformat() if isinstance(v, datetime) else v) for k, v in meta.items()}), ref))
+
+    # ---- documents and extractions ---------------------------------------
+    def set_document_text(self, document_id: int, text: str) -> None:
+        self.q("update documents set text = %s where id = %s", (text, document_id))
+
+    def latest_document(self, url: str) -> dict | None:
+        return self.one("select * from documents where url = %s order by fetched_at desc limit 1", (url,))
+
+    def replace_extractions(self, document_id: int, exs: list) -> None:
+        """Extractions are derived data: re-running a parse replaces the document's rows."""
+        with self.conn.transaction():
+            self.conn.execute("delete from extractions where document_id = %s", (document_id,))
+            for e in exs:
+                self.conn.execute(
+                    """insert into extractions (document_id, field, value_text, value_norm, unit, period, page,
+                           char_start, char_end, json_path, snippet, validated, validation_error)
+                       values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                    (document_id, e.field, e.value_text, e.value_norm, e.unit, e.period, e.page, e.char_start,
+                     e.char_end, e.json_path, e.snippet, e.validated, e.validation_error))
 
     # ---- sends ------------------------------------------------------------
     def claim_send(self, *, ref: str, stage: str, kind: str, channel: str, subject: str,

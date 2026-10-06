@@ -53,3 +53,53 @@ def replay_file(app: App, source_id: str, path: Path) -> list[Path]:
     now = utcnow()
     return [disp.dispatch(stage1_item(cfg, it, first_seen_at=now, tags=[], mode="replay"),
                           app.settings.recipients).path for it in items]
+
+
+def replay_fomc(app: App, ref: str, from_dir: Path | None = None) -> list[Path]:
+    """`fomc:YYYY-MM-DD`: Stage 1 + Stage 2 from archived documents (or a fixture directory)."""
+    from datetime import date
+
+    from ..sources.us import fed
+
+    d = date.fromisoformat(ref.split(":", 1)[1])
+    rows = fed.parse_calendar(_calendar_bytes(app, from_dir))
+    dates = [r["date"] for r in rows]
+    prior = dates[dates.index(d) - 1] if d in dates and dates.index(d) else None
+    sep = next((r["sep"] for r in rows if r["date"] == d), True)
+
+    def load(day: date, kinds: tuple[str, ...]) -> dict[str, bytes]:
+        urls, got = fed.doc_urls(day), {}
+        for k in kinds:
+            if from_dir is not None:
+                p = from_dir / urls[k].rsplit("/", 1)[-1]
+                if p.exists():
+                    got[k] = p.read_bytes()
+            else:
+                doc = app.db.latest_document(urls[k])
+                if doc is not None:
+                    got[k] = app.archive.get(doc["storage_key"])
+        return got
+
+    docs = load(d, ("statement", "impl") + (("sep",) if sep else ()))
+    if "statement" not in docs:
+        raise SystemExit(f"{ref}: no archived statement")
+    prior_docs = load(prior, ("statement", "impl")) if prior else None
+    ev = app.db.get_event(ref) if from_dir is None else None
+    first_seen = (ev or {}).get("meta", {}).get("first_seen")
+    from datetime import datetime
+    m1, m2, _, _ = fed.build_messages(d, docs, prior, prior_docs, fed.doc_urls(d),
+                                      first_seen=datetime.fromisoformat(first_seen) if first_seen
+                                      else fed.release_at(d), mode="replay")
+    disp = Dispatcher(None, [], "replay", app.settings.out_dir)
+    return [disp.dispatch(m, app.settings.recipients).path for m in (m1, m2) if m is not None]
+
+
+def _calendar_bytes(app: App, from_dir: Path | None) -> bytes:
+    if from_dir is not None:
+        cal = sorted(from_dir.glob("fomccalendars*.htm"))
+        if cal:
+            return cal[-1].read_bytes()
+    doc = app.db.latest_document(app.sources["fomc"].urls["calendar"])
+    if doc is None:
+        raise SystemExit("no archived FOMC calendar; run `calendar` first or pass --from-dir")
+    return app.archive.get(doc["storage_key"])

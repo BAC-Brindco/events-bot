@@ -35,6 +35,7 @@ class App:
         self.pipeline = Pipeline(self.db, self.delivery, KeywordFilter(settings.config_dir),
                                  Watchlist(settings.config_dir / "watchlist.csv"), self.dispatcher,
                                  settings.recipients)
+        self.ctx.app = self
 
     def setup(self) -> list[str]:
         applied = self.db.migrate(self.settings.migrations_dir)
