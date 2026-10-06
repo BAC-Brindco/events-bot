@@ -2,6 +2,10 @@ name: reachability
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - harness/reachability.py
+      - .github/workflows/reachability.yml
 
 jobs:
   probe:
