@@ -1,0 +1,71 @@
+meeting: '2026-03-18'
+needs_human_review: true
+has_sep: true
+invalid: []
+fields:
+  fomc.doc_date: March 18, 2026
+  fomc.action: maintain
+  fomc.target_low: 3‑1/2
+  fomc.target_high: 3‑3/4
+  fomc.impl_doc_date: March 18, 2026
+  fomc.iorb: '3.65'
+  fomc.srp_rate: '3.75'
+  fomc.onrrp_rate: '3.5'
+  fomc.onrrp_cap_bn: '160'
+  fomc.primary_credit: '3.75'
+  fomc.directive_target_low: 3-1/2
+  fomc.directive_target_high: 3-3/4
+  sep.median.gdp.2026: '2.4'
+  sep.median.gdp.2027: '2.3'
+  sep.median.gdp.2028: '2.1'
+  sep.median.gdp.longer_run: '2.0'
+  sep.prior_median.gdp.2026: '2.3'
+  sep.prior_median.gdp.2027: '2.0'
+  sep.prior_median.gdp.2028: '1.9'
+  sep.prior_median.gdp.longer_run: '1.8'
+  sep.median.unemployment.2026: '4.4'
+  sep.median.unemployment.2027: '4.3'
+  sep.median.unemployment.2028: '4.2'
+  sep.median.unemployment.longer_run: '4.2'
+  sep.prior_median.unemployment.2026: '4.4'
+  sep.prior_median.unemployment.2027: '4.2'
+  sep.prior_median.unemployment.2028: '4.2'
+  sep.prior_median.unemployment.longer_run: '4.2'
+  sep.median.pce.2026: '2.7'
+  sep.median.pce.2027: '2.2'
+  sep.median.pce.2028: '2.0'
+  sep.median.pce.longer_run: '2.0'
+  sep.prior_median.pce.2026: '2.4'
+  sep.prior_median.pce.2027: '2.1'
+  sep.prior_median.pce.2028: '2.0'
+  sep.prior_median.pce.longer_run: '2.0'
+  sep.median.core_pce.2026: '2.7'
+  sep.median.core_pce.2027: '2.2'
+  sep.median.core_pce.2028: '2.0'
+  sep.prior_median.core_pce.2026: '2.5'
+  sep.prior_median.core_pce.2027: '2.1'
+  sep.prior_median.core_pce.2028: '2.0'
+  sep.median.fed_funds.2026: '3.4'
+  sep.median.fed_funds.2027: '3.1'
+  sep.median.fed_funds.2028: '3.1'
+  sep.median.fed_funds.longer_run: '3.1'
+  sep.prior_median.fed_funds.2026: '3.4'
+  sep.prior_median.fed_funds.2027: '3.1'
+  sep.prior_median.fed_funds.2028: '3.1'
+  sep.prior_median.fed_funds.longer_run: '3.0'
+vote_for:
+- Jerome H. Powell
+- John C. Williams
+- Michael S. Barr
+- Michelle W. Bowman
+- Lisa D. Cook
+- Beth M. Hammack
+- Philip N. Jefferson
+- Neel Kashkari
+- Lorie K. Logan
+- Anna Paulson
+- Christopher J. Waller
+vote_against:
+- name: Stephen I. Miran
+  preferred: to lower the target range for the federal funds rate by 1/4 percentage
+    point at this meeting

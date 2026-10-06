@@ -90,7 +90,7 @@ def main() -> None:
                 elif e.get("published_parsed") or e.get("published"):
                     # RBI pubDate carries NO timezone ("Thu, 01 Oct 2026 14:35:00") and is IST;
                     # feedparser would treat it as UTC, so re-interpret naive stamps as IST.
-                    naive = not re.search(r"(GMT|UTC|[+-]\d{4}|[A-Z]{3})\s*$", (e.get("published") or "").strip())
+                    naive = not re.search(r"(GMT|UTC|[+-]\d{4}|\b[A-Z]{3})\s*$", (e.get("published") or "").strip())
                     if e.get("published_parsed"):
                         pub = datetime(*e.published_parsed[:6], tzinfo=IST if naive else timezone.utc)
                     else:  # feedparser returns published_parsed=None for RBI's TZ-less stamps

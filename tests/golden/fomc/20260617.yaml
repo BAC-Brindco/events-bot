@@ -1,0 +1,59 @@
+meeting: '2026-06-17'
+needs_human_review: true
+has_sep: true
+invalid: []
+fields:
+  fomc.doc_date: June 17, 2026
+  fomc.action: maintain
+  fomc.target_low: 3-1/2
+  fomc.target_high: 3-3/4
+  fomc.votes_for_count: '12'
+  fomc.votes_against_count: '0'
+  fomc.impl_doc_date: June 17, 2026
+  fomc.iorb: '3.65'
+  fomc.srp_rate: '3.75'
+  fomc.onrrp_rate: '3.5'
+  fomc.onrrp_cap_bn: '160'
+  fomc.primary_credit: '3.75'
+  fomc.directive_target_low: 3-1/2
+  fomc.directive_target_high: 3-3/4
+  sep.median.gdp.2026: '2.2'
+  sep.median.gdp.2027: '2.3'
+  sep.median.gdp.2028: '2.2'
+  sep.median.gdp.longer_run: '2.0'
+  sep.prior_median.gdp.2026: '2.4'
+  sep.prior_median.gdp.2027: '2.3'
+  sep.prior_median.gdp.2028: '2.1'
+  sep.prior_median.gdp.longer_run: '2.0'
+  sep.median.unemployment.2026: '4.3'
+  sep.median.unemployment.2027: '4.3'
+  sep.median.unemployment.2028: '4.2'
+  sep.median.unemployment.longer_run: '4.2'
+  sep.prior_median.unemployment.2026: '4.4'
+  sep.prior_median.unemployment.2027: '4.3'
+  sep.prior_median.unemployment.2028: '4.2'
+  sep.prior_median.unemployment.longer_run: '4.2'
+  sep.median.pce.2026: '3.6'
+  sep.median.pce.2027: '2.3'
+  sep.median.pce.2028: '2.0'
+  sep.median.pce.longer_run: '2.0'
+  sep.prior_median.pce.2026: '2.7'
+  sep.prior_median.pce.2027: '2.2'
+  sep.prior_median.pce.2028: '2.0'
+  sep.prior_median.pce.longer_run: '2.0'
+  sep.median.core_pce.2026: '3.3'
+  sep.median.core_pce.2027: '2.5'
+  sep.median.core_pce.2028: '2.1'
+  sep.prior_median.core_pce.2026: '2.7'
+  sep.prior_median.core_pce.2027: '2.2'
+  sep.prior_median.core_pce.2028: '2.0'
+  sep.median.fed_funds.2026: '3.8'
+  sep.median.fed_funds.2027: '3.6'
+  sep.median.fed_funds.2028: '3.4'
+  sep.median.fed_funds.longer_run: '3.1'
+  sep.prior_median.fed_funds.2026: '3.4'
+  sep.prior_median.fed_funds.2027: '3.1'
+  sep.prior_median.fed_funds.2028: '3.1'
+  sep.prior_median.fed_funds.longer_run: '3.1'
+vote_for: []
+vote_against: []

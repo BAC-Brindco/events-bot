@@ -1,0 +1,65 @@
+meeting: '2026-09-16'
+needs_human_review: true
+has_sep: true
+invalid: []
+fields:
+  fomc.doc_date: September 16, 2026
+  fomc.action: raise
+  fomc.change_pp: 1/4
+  fomc.target_low: 3-3/4
+  fomc.target_high: '4'
+  fomc.votes_for_count: '12'
+  fomc.votes_against_count: '0'
+  fomc.impl_doc_date: September 16, 2026
+  fomc.iorb: '3.90'
+  fomc.srp_rate: '4.0'
+  fomc.onrrp_rate: '3.75'
+  fomc.onrrp_cap_bn: '160'
+  fomc.primary_credit: '4.0'
+  fomc.directive_target_low: 3-3/4
+  fomc.directive_target_high: '4'
+  sep.median.gdp.2026: '2.3'
+  sep.median.gdp.2027: '2.4'
+  sep.median.gdp.2028: '2.2'
+  sep.median.gdp.2029: '2.1'
+  sep.median.gdp.longer_run: '2.0'
+  sep.prior_median.gdp.2026: '2.2'
+  sep.prior_median.gdp.2027: '2.3'
+  sep.prior_median.gdp.2028: '2.2'
+  sep.prior_median.gdp.longer_run: '2.0'
+  sep.median.unemployment.2026: '4.1'
+  sep.median.unemployment.2027: '4.1'
+  sep.median.unemployment.2028: '4.1'
+  sep.median.unemployment.2029: '4.1'
+  sep.median.unemployment.longer_run: '4.2'
+  sep.prior_median.unemployment.2026: '4.3'
+  sep.prior_median.unemployment.2027: '4.3'
+  sep.prior_median.unemployment.2028: '4.2'
+  sep.prior_median.unemployment.longer_run: '4.2'
+  sep.median.pce.2026: '3.7'
+  sep.median.pce.2027: '2.3'
+  sep.median.pce.2028: '2.1'
+  sep.median.pce.2029: '2.0'
+  sep.median.pce.longer_run: '2.0'
+  sep.prior_median.pce.2026: '3.6'
+  sep.prior_median.pce.2027: '2.3'
+  sep.prior_median.pce.2028: '2.0'
+  sep.prior_median.pce.longer_run: '2.0'
+  sep.median.core_pce.2026: '3.4'
+  sep.median.core_pce.2027: '2.5'
+  sep.median.core_pce.2028: '2.2'
+  sep.median.core_pce.2029: '2.0'
+  sep.prior_median.core_pce.2026: '3.3'
+  sep.prior_median.core_pce.2027: '2.5'
+  sep.prior_median.core_pce.2028: '2.1'
+  sep.median.fed_funds.2026: '4.1'
+  sep.median.fed_funds.2027: '4.1'
+  sep.median.fed_funds.2028: '3.9'
+  sep.median.fed_funds.2029: '3.6'
+  sep.median.fed_funds.longer_run: '3.2'
+  sep.prior_median.fed_funds.2026: '3.8'
+  sep.prior_median.fed_funds.2027: '3.6'
+  sep.prior_median.fed_funds.2028: '3.4'
+  sep.prior_median.fed_funds.longer_run: '3.1'
+vote_for: []
+vote_against: []

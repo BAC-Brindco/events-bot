@@ -1,0 +1,35 @@
+meeting: '2026-01-28'
+needs_human_review: true
+has_sep: false
+invalid: []
+fields:
+  fomc.doc_date: January 28, 2026
+  fomc.action: maintain
+  fomc.target_low: 3‑1/2
+  fomc.target_high: 3‑3/4
+  fomc.impl_doc_date: January 28, 2026
+  fomc.iorb: '3.65'
+  fomc.srp_rate: '3.75'
+  fomc.onrrp_rate: '3.5'
+  fomc.onrrp_cap_bn: '160'
+  fomc.primary_credit: '3.75'
+  fomc.directive_target_low: 3-1/2
+  fomc.directive_target_high: 3-3/4
+vote_for:
+- Jerome H. Powell
+- John C. Williams
+- Michael S. Barr
+- Michelle W. Bowman
+- Lisa D. Cook
+- Beth M. Hammack
+- Philip N. Jefferson
+- Neel Kashkari
+- Lorie K. Logan
+- Anna Paulson
+vote_against:
+- name: Stephen I. Miran
+  preferred: to lower the target range for the federal funds rate by 1/4 percentage
+    point at this meeting
+- name: Christopher J. Waller
+  preferred: to lower the target range for the federal funds rate by 1/4 percentage
+    point at this meeting
