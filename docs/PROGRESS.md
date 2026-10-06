@@ -88,3 +88,27 @@ For each new release it archives the HTML and every linked PressRelease PDF, wit
 **Added to FLAGS:** F-15 (tzdata), F-16 (PIB ministry strings unverified).
 
 **Next:** Phase 2, FOMC and RBI MPC, both stages. The 7 Oct capture feeds the MPC channel choice.
+
+## Hosting move: GitHub Actions + Supabase (2026-10-06)
+
+**Decisions (user, 2026-10-06):** host on GitHub Actions + Supabase Pro, with no always-on box. The repo is public (`BAC-Brindco/events-bot`). Tables go in the existing `nse-announcements` project under schema `events_bot`, alongside `morning_brief` and `raas_macro`. A 15-minute poll is acceptable for the unscheduled stream. Calendar events get burst jobs that poll every 20–30 s inside their window.
+
+**Built:**
+- `EVENTS_BOT_DB_SCHEMA` setting. `Database` runs `create schema if not exists` and `set search_path` once per session. It does this per session because the Supabase session pooler drops DSN `options`.
+- `0001_init.sql` was applied to Supabase via `cli migrate`, creating 12 tables in `events_bot`. The schema is not exposed through PostgREST.
+- Repo secret `EVENTS_BOT_DSN`: the session-pooler DSN, the same one morning-brief uses.
+- `harness/reachability.py` and the `reachability` workflow: every FEED_MAP endpoint is fetched with httpx, falling back to curl_cffi (Chrome).
+
+**Verified:** reachability was 59/65 from the local PC and 57/65 from a GitHub runner (run 37423139536).
+
+Fails only on the runner:
+- **DGFT `/CP/?opt=notification`:** 403 from both clients, so an IP block. This is Tier 1 and PIB does not echo it.
+- **CBIC:** TLS failure, missing intermediate certificate. Windows fills that gap via AIA and Linux does not. Fixable by shipping the intermediate certificate.
+- **cdscoonline.gov.in:** DNS and connect failure (T2/3).
+- **eci.gov.in:** 406 (T3).
+
+Works only on the runner: irdai and ismworld.
+
+Fails from both: the MoSPI API (needs a POST), YouTube RSS, dot.gov.in and cbo.gov, all as in Phase 0.
+
+**Open:** how to reach DGFT (and CDSCO/ECI) from Actions. Options are an Indian-IP relay or a self-hosted runner.
