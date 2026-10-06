@@ -3,12 +3,27 @@ name: windows
 # Burst job for scheduled events (MPC, FOMC, CPI, ...). Dispatched by `tick` ~25 min
 # before a window opens; polls each event at its window_poll_interval (20-60 s) while
 # any window is open, then exits. One job covers overlapping windows.
+#
+# With `start_utc` it can also be armed ahead of time: like mpc-capture it waits (at most
+# max_wait_min per run, under the 6 h job cap) and re-dispatches itself until the start,
+# so a known event does not depend on GitHub's cron or on a tick landing in time.
 
 on:
   workflow_dispatch:
+    inputs:
+      start_utc:
+        description: "Optional: do not start polling before this UTC time (ISO)"
+        default: ""
+      max_wait_min:
+        description: "Longest wait per run before handing off"
+        default: "330"
+
+permissions:
+  actions: write
+  contents: read
 
 concurrency:
-  group: windows
+  group: windows-${{ inputs.start_utc || 'now' }}
   cancel-in-progress: false
 
 env:
@@ -27,17 +42,46 @@ env:
 jobs:
   windows:
     runs-on: ubuntu-latest
-    timeout-minutes: 345
+    timeout-minutes: 350
+    env:
+      START_UTC: ${{ inputs.start_utc }}
+      MAX_WAIT_MIN: ${{ inputs.max_wait_min || '330' }}
+      GH_TOKEN: ${{ github.token }}
     steps:
+      - name: Wait for the start, or hand off to a fresh run
+        id: wait
+        run: |
+          if [ -z "$START_UTC" ]; then echo "go=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          start=$(date -u -d "$START_UTC" +%s); now=$(date -u +%s)
+          wait=$(( start - now )); max=$(( MAX_WAIT_MIN * 60 ))
+          if [ "$wait" -gt "$max" ]; then
+            echo "Sleeping ${max}s, then re-dispatching (start in ${wait}s)"
+            sleep "$max"
+            gh workflow run windows.yml -R "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME" \
+              -f start_utc="$START_UTC" -f max_wait_min="$MAX_WAIT_MIN"
+            echo "go=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if [ "$wait" -gt 300 ]; then sleep $(( wait - 300 )); fi
+          echo "go=true" >> "$GITHUB_OUTPUT"
       - uses: actions/checkout@v4
+        if: steps.wait.outputs.go == 'true'
       - uses: astral-sh/setup-uv@v6
+        if: steps.wait.outputs.go == 'true'
         with:
           python-version: "3.12"
           enable-cache: true
-      - run: uv sync --frozen --no-dev
-      - run: uv run python -m events_bot.ops.cli windows --max-minutes 330 $DRY
+      - if: steps.wait.outputs.go == 'true'
+        run: uv sync --frozen --no-dev
+      - name: Poll event windows
+        if: steps.wait.outputs.go == 'true'
+        run: |
+          if [ -n "$START_UTC" ]; then
+            now=$(date -u +%s); start=$(date -u -d "$START_UTC" +%s)
+            if [ "$now" -lt "$start" ]; then sleep $(( start - now )); fi
+          fi
+          uv run python -m events_bot.ops.cli windows --max-minutes 330 $DRY
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: always() && steps.wait.outputs.go == 'true'
         with:
           name: windows-${{ github.run_id }}
           path: |
