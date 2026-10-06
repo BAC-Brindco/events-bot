@@ -24,7 +24,7 @@ log = structlog.get_logger()
 class App:
     def __init__(self, settings: Settings, mode: Mode = "live"):
         self.settings, self.mode = settings, mode
-        self.db = Database(settings.dsn)
+        self.db = Database(settings.dsn, settings.db_schema)
         self.archive = Archive(settings.archive_dir)
         self.fetcher = Fetcher(self.db, self.archive, settings.user_agent)
         self.sources = load_sources(settings.config_dir)

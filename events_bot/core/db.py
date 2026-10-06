@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 import psycopg
+from psycopg import sql
 from psycopg.rows import dict_row
 from psycopg.types.json import Jsonb
 
@@ -19,8 +20,9 @@ from .models import RawItem, ScheduledEvent, SourceConfig
 
 
 class Database:
-    def __init__(self, dsn: str):
+    def __init__(self, dsn: str, schema: str | None = None):
         self.dsn = dsn
+        self.schema = schema  # own schema on a shared database (Supabase); None = default search_path
         self._local = threading.local()
 
     @property
@@ -28,6 +30,10 @@ class Database:
         c = getattr(self._local, "conn", None)
         if c is None or c.closed:
             c = psycopg.connect(self.dsn, autocommit=True, row_factory=dict_row)
+            if self.schema:
+                # Set per session, not via the DSN: the Supabase pooler drops `options`.
+                c.execute(sql.SQL("create schema if not exists {}").format(sql.Identifier(self.schema)))
+                c.execute(sql.SQL("set search_path to {}, public").format(sql.Identifier(self.schema)))
             self._local.conn = c
         return c
 

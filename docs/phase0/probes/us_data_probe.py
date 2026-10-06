@@ -54,7 +54,7 @@ PROFILES = {
     },
     # SEC fair-access policy: declared UA with contact. Used for sec.gov ONLY.
     "sec": {
-        "User-Agent": "RAAS Research Capital events-bot parv.bangar@brindco.com",
+        "User-Agent": "RAAS Research Capital events-bot (contact via repo)",
         "Accept-Encoding": "gzip, deflate",
     },
 }
