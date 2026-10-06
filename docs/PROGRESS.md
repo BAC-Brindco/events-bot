@@ -136,3 +136,56 @@ Fails from both: the MoSPI API (needs a POST), YouTube RSS, dot.gov.in and cbo.g
 **Open:**
 - cron-job.org as the primary `tick` trigger, since the GitHub `*/15` schedule may lag.
 - SMTP secrets and recipients (F-10) before `EVENTS_BOT_LIVE=true`.
+
+## Phase 2: FOMC and RBI MPC, both stages (2026-10-06, in progress)
+
+**Built:**
+- `extract/base.py` and `extract/validator.py`:
+  - Document text is a deterministic function of the archived bytes. Every extraction is a character span into it.
+  - Fractions and hyphen variants are handled ("3‑3/4" uses U+2011).
+  - The validator checks verbatim position, rate bounds (0–20 %), period (the dated line must match the meeting), and that any move over 100 bp is stated in the source.
+- `extract/fomc.py`:
+  - Statement: both formats (F-22). Fields are action, change size, target range, tally, voters for when listed, and dissenters with their verbatim preference.
+  - Implementation note: IORB, standing repo rate, ON RRP rate and cap, primary credit, directive range, runoff caps, and the balance-sheet lines.
+  - SEP table 1: medians, current and the table's own prior-projection row.
+  - Cross-document checks: statement range = directive range, IORB inside the range, named dissenters = tally.
+- `extract/mpc.py`:
+  - Repo, SDF, MSF and Bank Rate; action; stance; rate vote, with unanimity found even when it is stated only in the rationale (Aug 2025).
+  - The six members; stance and rate dissents with the verbatim view; CRR and SLR.
+  - GDP, CPI and core projections, FY and quarterly, covering every phrasing seen since Aug 2025.
+  - LAF corridor check.
+- `diff/redline.py`: sentence alignment, then a word-level diff rendered with `<del>`/`<ins>`. It does not split on initials or decimals.
+- `extract/guard.py`, the number guard from §7:
+  - A number must equal a validated extraction at the same precision, for the period stated in its clause. After cue words such as "from" or "previously" it must come from the prior item.
+  - Years, fiscal years and quarters must exist in the extractions. Quotes must be exact substrings of the source.
+  - If more than half the bullets are dropped, the caller falls back to template text.
+- `sources/us/fed.py`:
+  - Calendar from fomccalendars.htm: 14:00 ET on the final day, DST-aware, with SEP flags and page links.
+  - In the window it polls every 20 s. Statement, note and SEP 404 until posted, and a stale-page guard applies.
+  - Stage 1 goes out when all documents are in, or at T+5 min with what exists. Stage 2 goes out at T+60.
+  - Extractions are stored per document.
+- `sources/india/rbi_mpc.py`:
+  - Schedule and published index come from Annualpolicy.aspx, with FY blocks and cross-month meetings.
+  - The resolution is discovered by RSS title or by probing the next press-release IDs; whichever finds it first wins.
+  - Stage 1 goes out on first sight, Stage 2 at T+60.
+- `stage1/render.py`: one HTML and text layout for every scheduled event. `stage1/fomc.py` and `stage1/mpc.py` build the content (rates, votes, projections). Stage 2 adds the redline, vote, dissent and membership changes, and prior→current tables whose changes are labelled as computed.
+- `replay fomc:<date>` and `replay rbi_mpc:<date>`, from the archive or `--from-dir` fixtures. Output for the last 2 meetings of each is in `out/replay/`.
+- `windows.yml` takes an optional `start_utc` with a self-chaining wait.
+
+**Verified:**
+- Golden YAMLs for 7 FOMC meetings (Dec 2025 to Sep 2026) and 7 MPC meetings (Aug 2025 to Aug 2026). All are flagged `needs_human_review: true`, with 0 failed validations.
+- The September SEP's "June projection" row equals the June table's own medians.
+- In every Stage 1 test, each number in the body appears verbatim in a source document.
+- In-window flows against a mocked federalreserve.gov and rbi.org.in: Stage 1, then Stage 2, each once. Adapter tests cover SEP-late, a stale page, and discovery by both RSS and press-release ID probing.
+
+**Tests:** 127 passing.
+
+**Live test 2026-10-07 (RBI MPC, decision 10:00 IST)**, both runs on GitHub runners, neither sending email:
+- `mpc-capture` chain (run 37433907554 onward): raw capture, 09:40–14:00 IST.
+- `windows` armed for 09:45 IST (run 37460631606 onward): the real adapter, dry run, writing Stage 1 and Stage 2 HTML into the run artifact. The event was marked `burst_launched_at` so a tick cannot start a second job.
+
+**Still open in Phase 2:**
+- Discussion points: faster-whisper plus LLM bullets (F-21a/c).
+- Market reaction line (F-21b).
+- Transcript follow-ups: Fed official PDF at 8–13 days, RBI edited transcript at about 2 days (F-19).
+- Human review of the golden YAMLs.
