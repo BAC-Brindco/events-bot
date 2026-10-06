@@ -51,3 +51,21 @@ sources:
     route: realtime             # SPEC: US real-time on FOMC days
     health_rules:
       expect: html
+
+  - id: rbi_mpc
+    label: RBI
+    event_name: MPC decision
+    country: IN
+    tier: 1
+    kind: scheduled
+    feed_type: html
+    urls:
+      index: https://www.rbi.org.in/scripts/Annualpolicy.aspx
+      press_releases: https://rbi.org.in/pressreleases_rss.xml
+    poll_interval: 43200        # schedule only; the resolution is polled in the event window
+    window_poll_interval: 20    # RSS + next-prid probes (Phase 0; 7 Oct capture decides the winner)
+    adapter: india.rbi_mpc:RbiMpc
+    stage2_eligible: true
+    route: realtime
+    health_rules:
+      expect: html

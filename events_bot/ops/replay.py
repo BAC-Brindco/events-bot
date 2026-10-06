@@ -103,3 +103,44 @@ def _calendar_bytes(app: App, from_dir: Path | None) -> bytes:
     if doc is None:
         raise SystemExit("no archived FOMC calendar; run `calendar` first or pass --from-dir")
     return app.archive.get(doc["storage_key"])
+
+
+def replay_rbi_mpc(app: App, ref: str, from_dir: Path | None = None) -> list[Path]:
+    """`rbi_mpc:YYYY-MM-DD`: Stage 1 + Stage 2 from archived pages (or a fixture directory)."""
+    from datetime import date
+
+    from ..sources.india import rbi_mpc
+
+    d = date.fromisoformat(ref.split(":", 1)[1])
+    idx: dict = {}
+    if from_dir is not None:
+        for p in sorted(from_dir.glob("Annualpolicy*.html")):
+            idx.update(rbi_mpc.parse_index(p.read_bytes()))
+    else:
+        doc = app.db.latest_document(app.sources["rbi_mpc"].urls["index"])
+        if doc is not None:
+            idx = rbi_mpc.parse_index(app.archive.get(doc["storage_key"]))
+        ev = app.db.get_event(ref) or {}
+        if (ev.get("meta") or {}).get("resolution_prid"):
+            idx.setdefault(d, {})["resolution"] = ev["meta"]["resolution_prid"]
+    if "resolution" not in idx.get(d, {}):
+        raise SystemExit(f"{ref}: resolution prid unknown")
+    prior = max((k for k in idx if k < d and "resolution" in idx[k]), default=None)
+
+    def page(prid: int) -> bytes | None:
+        if from_dir is not None:
+            p = from_dir / f"pr_{prid}.html"
+            return p.read_bytes() if p.exists() else None
+        doc = app.db.latest_document(rbi_mpc.PR_PAGE.format(prid))
+        return app.archive.get(doc["storage_key"]) if doc else None
+
+    content = page(idx[d]["resolution"])
+    if content is None:
+        raise SystemExit(f"{ref}: resolution page not archived")
+    urls = {"resolution": rbi_mpc.PR_PAGE.format(idx[d]["resolution"])}
+    if idx[d].get("governor"):
+        urls["governor"] = rbi_mpc.PR_PAGE.format(idx[d]["governor"])
+    m1, m2, _, _ = rbi_mpc.build_messages(d, content, prior, page(idx[prior]["resolution"]) if prior else None,
+                                          urls, first_seen=rbi_mpc.release_at(d), mode="replay")
+    disp = Dispatcher(None, [], "replay", app.settings.out_dir)
+    return [disp.dispatch(m, app.settings.recipients).path for m in (m1, m2) if m is not None]

@@ -54,7 +54,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("ref", nargs="?")
     p.add_argument("--file", type=Path)
     p.add_argument("--source")
-    p.add_argument("--from-dir", type=Path, help="fixture directory instead of the archive (fomc:)")
+    p.add_argument("--from-dir", type=Path, help="fixture directory instead of the archive (fomc:, rbi_mpc:)")
     p = sub.add_parser("rejected")
     p.add_argument("-n", type=int, default=30)
     p.add_argument("--source")
@@ -155,6 +155,9 @@ def main(argv: list[str] | None = None) -> int:
         elif a.ref and a.ref.startswith("fomc:"):
             from .replay import replay_fomc
             paths = replay_fomc(app, a.ref, a.from_dir)
+        elif a.ref and a.ref.startswith("rbi_mpc:"):
+            from .replay import replay_rbi_mpc
+            paths = replay_rbi_mpc(app, a.ref, a.from_dir)
         elif a.ref:
             paths = replay_ref(app, a.ref)
         else:
