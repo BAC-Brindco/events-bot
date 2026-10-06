@@ -1,0 +1,32 @@
+meeting: '2025-08-06'
+prid: 60957
+needs_human_review: true
+invalid: []
+fields:
+  mpc.doc_date: Aug 06, 2025
+  mpc.action: maintain
+  mpc.rate_vote: unanimously voted
+  mpc.repo: '5.50'
+  mpc.sdf: '5.25'
+  mpc.msf: '5.75'
+  mpc.bank_rate: '5.75'
+  mpc.stance: neutral
+  mpc.proj.gdp.FY2025-26: '6.5'
+  mpc.proj.gdp.Q1:2025-26: '6.5'
+  mpc.proj.gdp.Q2:2025-26: '6.7'
+  mpc.proj.gdp.Q3:2025-26: '6.6'
+  mpc.proj.gdp.Q4:2025-26: '6.3'
+  mpc.proj.gdp.Q1:2026-27: '6.6'
+  mpc.proj.cpi.FY2025-26: '3.1'
+  mpc.proj.cpi.Q2:2025-26: '2.1'
+  mpc.proj.cpi.Q3:2025-26: '3.1'
+  mpc.proj.cpi.Q4:2025-26: '4.4'
+  mpc.proj.cpi.Q1:2026-27: '4.9'
+members:
+- Shri Sanjay Malhotra
+- Dr. Nagesh Kumar
+- Shri Saugata Bhattacharya
+- Prof. Ram Singh
+- Dr. Poonam Gupta
+- Dr. Rajiv Ranjan
+dissents: []

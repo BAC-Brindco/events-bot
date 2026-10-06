@@ -1,0 +1,28 @@
+meeting: '2026-02-06'
+prid: 62169
+needs_human_review: true
+invalid: []
+fields:
+  mpc.doc_date: Feb 06, 2026
+  mpc.action: keep
+  mpc.rate_vote: voted unanimously
+  mpc.repo: '5.25'
+  mpc.sdf: '5.00'
+  mpc.msf: '5.50'
+  mpc.bank_rate: '5.50'
+  mpc.stance: neutral
+  mpc.proj.cpi.FY2025-26: '2.1'
+  mpc.proj.cpi.Q4:2025-26: '3.2'
+  mpc.proj.cpi.Q1:2026-27: '4.0'
+  mpc.proj.cpi.Q2:2026-27: '4.2'
+members:
+- Shri Sanjay Malhotra
+- Dr. Nagesh Kumar
+- Shri Saugata Bhattacharya
+- Prof. Ram Singh
+- Dr. Poonam Gupta
+- Shri Indranil Bhattacharyya
+dissents:
+- field: mpc.stance_dissent
+  member: Prof. Ram Singh
+  view: that the stance be changed from neutral to accommodative

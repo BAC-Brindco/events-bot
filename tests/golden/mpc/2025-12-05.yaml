@@ -1,0 +1,34 @@
+meeting: '2025-12-05'
+prid: 61749
+needs_human_review: true
+invalid: []
+fields:
+  mpc.doc_date: Dec 05, 2025
+  mpc.action: reduce
+  mpc.rate_vote: voted unanimously
+  mpc.repo: '5.25'
+  mpc.sdf: '5.00'
+  mpc.msf: '5.50'
+  mpc.bank_rate: '5.50'
+  mpc.stance: neutral
+  mpc.proj.gdp.FY2025-26: '7.3'
+  mpc.proj.gdp.Q3:2025-26: '7.0'
+  mpc.proj.gdp.Q4:2025-26: '6.5'
+  mpc.proj.gdp.Q1:2026-27: '6.7'
+  mpc.proj.gdp.Q2:2026-27: '6.8'
+  mpc.proj.cpi.FY2025-26: '2.0'
+  mpc.proj.cpi.Q3:2025-26: '0.6'
+  mpc.proj.cpi.Q4:2025-26: '2.9'
+  mpc.proj.cpi.Q1:2026-27: '3.9'
+  mpc.proj.cpi.Q2:2026-27: '4.0'
+members:
+- Shri Sanjay Malhotra
+- Dr. Nagesh Kumar
+- Shri Saugata Bhattacharya
+- Prof. Ram Singh
+- Dr. Poonam Gupta
+- Shri Indranil Bhattacharyya
+dissents:
+- field: mpc.stance_dissent
+  member: Prof. Ram Singh
+  view: that the stance be changed from neutral to accommodative
