@@ -1,0 +1,37 @@
+name: ops
+
+# Manual operations. test-email sends one message to EVENTS_BOT_OPERATOR_EMAILS only.
+
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "CLI command"
+        type: choice
+        options: [test-email, health, sources]
+        default: test-email
+
+env:
+  EVENTS_BOT_DSN: ${{ secrets.EVENTS_BOT_DSN }}
+  EVENTS_BOT_DB_SCHEMA: events_bot
+  EVENTS_BOT_ARCHIVE: db
+  SMTP_HOST: ${{ secrets.SMTP_HOST }}
+  SMTP_PORT: ${{ secrets.SMTP_PORT }}
+  SMTP_USER: ${{ secrets.SMTP_USER }}
+  SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+  SMTP_FROM: ${{ secrets.SMTP_FROM }}
+  EVENTS_BOT_RECIPIENTS: ${{ secrets.EVENTS_BOT_RECIPIENTS }}
+  EVENTS_BOT_OPERATOR_EMAILS: ${{ secrets.EVENTS_BOT_OPERATOR_EMAILS }}
+
+jobs:
+  ops:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+          enable-cache: true
+      - run: uv sync --frozen --no-dev
+      - run: uv run python -m events_bot.ops.cli ${{ inputs.command }}

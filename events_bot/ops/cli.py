@@ -61,6 +61,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("health")
     p = sub.add_parser("calendar")
     p.add_argument("--days", type=int, default=14)
+    sub.add_parser("test-email", help="send one test message to the operator addresses only")
     p = sub.add_parser("retry-send")
     p.add_argument("send_id", type=int)
     a = ap.parse_args(argv)
@@ -188,6 +189,22 @@ def main(argv: list[str] | None = None) -> int:
         print("refreshed", app.refresh_calendars(), "events")
         for e in app.db.events_between(utcnow(), utcnow() + timedelta(days=a.days)):
             print(f"{fmt_ist(e['scheduled_at'])}  {e['source_id']:12} {e['title']}")
+        return 0
+
+    if a.cmd == "test-email":
+        from ..core.timeutil import utcnow
+        from ..deliver.email import EmailChannel
+        s = Settings.from_env()
+        if not s.operator_emails:
+            print("EVENTS_BOT_OPERATOR_EMAILS not set")
+            return 1
+        now = fmt_ist(utcnow())
+        msg = Message(ref="ops:test-email", stage="health", kind="alert",
+                      subject=f"[EVENTS BOT] SMTP test {now}",
+                      body_html=f"<p>SMTP test from the events bot at {now}. Delivery settings work.</p>",
+                      body_text=f"SMTP test from the events bot at {now}. Delivery settings work.")
+        EmailChannel(s).send(msg, s.operator_emails)
+        print("sent to", ", ".join(s.operator_emails))
         return 0
 
     if a.cmd == "retry-send":

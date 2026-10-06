@@ -4,7 +4,7 @@ from __future__ import annotations
 import smtplib
 import ssl
 from email.message import EmailMessage
-from email.utils import formatdate, make_msgid
+from email.utils import formatdate, make_msgid, parseaddr
 
 import truststore
 
@@ -31,7 +31,7 @@ class EmailChannel:
         m["From"] = s.smtp_from
         m["To"] = ", ".join(recipients)
         m["Date"] = formatdate(localtime=False)
-        m["Message-ID"] = make_msgid(domain=s.smtp_from.split("@")[-1])
+        m["Message-ID"] = make_msgid(domain=parseaddr(s.smtp_from)[1].split("@")[-1] or None)
         m["X-Events-Bot-Ref"] = f"{msg.ref} {msg.stage} {msg.kind}"
         m.set_content(msg.body_text)
         m.add_alternative(msg.body_html, subtype="html")
