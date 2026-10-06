@@ -1,0 +1,86 @@
+name: mpc-capture
+
+# Phase 1a capture-only harness on a runner (sends nothing).
+# GitHub cron can start hours late, so the primary trigger is a self-chaining
+# dispatch: each run waits (at most ~5.5 h, under the 6 h job cap) and either
+# re-dispatches itself or, once `start_utc` is reached, runs the capture.
+# The schedule below is only a fallback.
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_utc:
+        description: "Capture start, UTC ISO (09:40 IST = 04:10Z)"
+        default: "2026-10-07T04:10:00Z"
+      until_ist:
+        description: "Capture end, IST HH:MM on the capture day"
+        default: "14:00"
+      max_wait_min:
+        description: "Longest wait per run before handing off (testing knob)"
+        default: "330"
+  schedule:
+    - cron: "40 3 7 10 *"   # 09:10 IST on 7 Oct, fallback only
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: mpc-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      START_UTC: ${{ inputs.start_utc || '2026-10-07T04:10:00Z' }}
+      UNTIL_IST: ${{ inputs.until_ist || '14:00' }}
+      MAX_WAIT_MIN: ${{ inputs.max_wait_min || '330' }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Wait for the window, or hand off to a fresh run
+        id: wait
+        run: |
+          start=$(date -u -d "$START_UTC" +%s)
+          end=$(TZ=Asia/Kolkata date -d "$(TZ=Asia/Kolkata date -d "@$start" +%F) $UNTIL_IST" +%s)
+          now=$(date -u +%s)
+          if [ "$now" -ge "$end" ]; then
+            echo "Window already over"; echo "go=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          wait=$(( start - now ))
+          max=$(( MAX_WAIT_MIN * 60 ))
+          if [ "$wait" -gt "$max" ]; then
+            echo "Sleeping ${max}s, then re-dispatching (start in ${wait}s)"
+            sleep "$max"
+            gh workflow run mpc_capture.yml -R "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME" \
+              -f start_utc="$START_UTC" -f until_ist="$UNTIL_IST" -f max_wait_min="$MAX_WAIT_MIN"
+            echo "go=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if [ "$wait" -gt 600 ]; then
+            # Too early to spend setup now; sleep until 10 min before start.
+            sleep $(( wait - 600 ))
+          fi
+          echo "go=true" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        if: steps.wait.outputs.go == 'true'
+      - uses: astral-sh/setup-uv@v6
+        if: steps.wait.outputs.go == 'true'
+        with:
+          python-version: "3.12"
+      - if: steps.wait.outputs.go == 'true'
+        run: uv sync --frozen
+      - name: Capture
+        if: steps.wait.outputs.go == 'true'
+        run: |
+          now=$(date -u +%s); start=$(date -u -d "$START_UTC" +%s)
+          if [ "$now" -lt "$start" ]; then sleep $(( start - now )); fi
+          uv run python harness/mpc_capture.py --until "$UNTIL_IST" --out out/mpc_capture
+      - if: always() && steps.wait.outputs.go == 'true'
+        run: cat out/mpc_capture/SUMMARY.md >> "$GITHUB_STEP_SUMMARY" || true
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.wait.outputs.go == 'true'
+        with:
+          name: mpc_capture
+          path: out/mpc_capture
+          retention-days: 90
