@@ -112,3 +112,27 @@ Works only on the runner: irdai and ismworld.
 Fails from both: the MoSPI API (needs a POST), YouTube RSS, dot.gov.in and cbo.gov, all as in Phase 0.
 
 **Open:** how to reach DGFT (and CDSCO/ECI) from Actions. Options are an Indian-IP relay or a self-hosted runner.
+
+## Everything on Actions (2026-10-06, continued)
+
+**Decisions (user):** DGFT is dropped for now (FLAGS F-17). Everything is routed to GitHub Actions (F-18), and the local Windows task "events_bot MPC capture" is **disabled** (not deleted).
+
+**Built:**
+- `migrations/0002_raw_blobs.sql` and `DbArchive` (`EVENTS_BOT_ARCHIVE=db`): raw bytes go into Postgres, gzip-compressed and content-addressed with the same keys as the file archive. The reason is that runner disk is discarded after every job.
+- `App.tick()` and `cli tick`: one pass over every enabled stream source, then health. Here `poll_interval` is ignored because the trigger cadence sets the pace. `active_hours` still applies.
+- `db.claim_window_launches()`, `cli due-windows` and `cli windows`. `tick` claims events whose window opens within 25 minutes and dispatches `windows.yml`. That burst job polls the windows, then exits once none is open or due within 30 minutes. A calendar refresh keeps the claim unless the window has moved.
+- Workflows:
+  - `tick.yml`: `*/15` cron and dispatch. It runs dry-run until repo variable `EVENTS_BOT_LIVE=true`.
+  - `windows.yml`.
+  - `calendars.yml`: 06:00 and 18:00 IST.
+  - `mpc_capture.yml`: self-chaining dispatch. Each run waits up to 330 minutes, then re-dispatches with `GITHUB_TOKEN`, because GitHub cron can start hours late.
+
+**Verified:**
+- 41 tests pass locally.
+- Runner tick 1 baselined rbi_pr and rbi_notif (10 + 10) into Supabase. Runner tick 2 returned new 0, so state persists across runs.
+- An MPC test chain on a 5-minute window handed off twice, then captured: 78 requests, 0 errors.
+- The real chain for 2026-10-07 09:40–14:00 IST is running (run 37433907554 onward). Its artifact is `mpc_capture`, kept for 90 days.
+
+**Open:**
+- cron-job.org as the primary `tick` trigger, since the GitHub `*/15` schedule may lag.
+- SMTP secrets and recipients (F-10) before `EVENTS_BOT_LIVE=true`.
