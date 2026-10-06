@@ -1,0 +1,32 @@
+name: calendars
+
+# Daily refresh of official calendars (FOMC, RBI MPC, BLS/BEA/Census, MoSPI, ...)
+# into events_bot.events. `tick` reads them to launch burst jobs.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 0 * * *"   # 06:00 IST
+    - cron: "30 12 * * *"  # 18:00 IST, catches same-day calendar changes
+
+concurrency:
+  group: calendars
+  cancel-in-progress: false
+
+env:
+  EVENTS_BOT_DSN: ${{ secrets.EVENTS_BOT_DSN }}
+  EVENTS_BOT_DB_SCHEMA: events_bot
+  EVENTS_BOT_ARCHIVE: db
+
+jobs:
+  calendars:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+          enable-cache: true
+      - run: uv sync --frozen --no-dev
+      - run: uv run python -m events_bot.ops.cli calendar --days 21 | tee -a "$GITHUB_STEP_SUMMARY"

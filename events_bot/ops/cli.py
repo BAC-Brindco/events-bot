@@ -4,6 +4,8 @@
   uv run python -m events_bot.ops.cli sources
   uv run python -m events_bot.ops.cli poll rbi_pr [--dry-run]
   uv run python -m events_bot.ops.cli run [--dry-run]
+  uv run python -m events_bot.ops.cli tick [--dry-run]                  # one pass (GitHub Actions)
+  uv run python -m events_bot.ops.cli windows [--max-minutes 330] [--dry-run]
   uv run python -m events_bot.ops.cli replay item:rbi_pr:prid:63719
   uv run python -m events_bot.ops.cli replay --file tests/fixtures/rbi/x.xml --source rbi_pr
   uv run python -m events_bot.ops.cli rejected [-n 50] [--source pib]
@@ -40,6 +42,13 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("source")
     p.add_argument("--dry-run", action="store_true")
     p = sub.add_parser("run")
+    p.add_argument("--dry-run", action="store_true")
+    p = sub.add_parser("tick")
+    p.add_argument("--dry-run", action="store_true")
+    p = sub.add_parser("due-windows")
+    p.add_argument("--within", type=int, default=25, help="minutes ahead")
+    p = sub.add_parser("windows")
+    p.add_argument("--max-minutes", type=int, default=330)
     p.add_argument("--dry-run", action="store_true")
     p = sub.add_parser("replay")
     p.add_argument("ref", nargs="?")
@@ -89,6 +98,48 @@ def main(argv: list[str] | None = None) -> int:
             build_scheduler(app).start()
         except (KeyboardInterrupt, SystemExit):
             pass
+        finally:
+            app.close()
+        return 0
+
+    if a.cmd == "tick":
+        app = _app(a.dry_run)
+        try:
+            for sid, res in app.tick().items():
+                print(f"{sid:14} {res}")
+        finally:
+            app.close()
+        return 0
+
+    if a.cmd == "due-windows":
+        # Printed refs are claimed; the workflow dispatches one burst job when any print.
+        from datetime import timedelta
+        app = _app()
+        try:
+            for ref in app.db.claim_window_launches(timedelta(minutes=a.within)):
+                print(ref)
+        finally:
+            app.close()
+        return 0
+
+    if a.cmd == "windows":
+        # Burst job: poll scheduled events while any is inside its window, then exit.
+        import time as _t
+        from datetime import timedelta
+        from ..core.scheduler import WindowPoller
+        from ..core.timeutil import utcnow
+        app = _app(a.dry_run)
+        wp, stop = WindowPoller(app), _t.monotonic() + a.max_minutes * 60
+        try:
+            while _t.monotonic() < stop:
+                now = utcnow()
+                live = [e for e in app.db.events_between(now - timedelta(hours=3), now + timedelta(minutes=30))
+                        if e["window_end"] >= now]
+                if not live:
+                    print("no event window open or due within 30 min; exiting")
+                    break
+                wp.tick()
+                _t.sleep(5)
         finally:
             app.close()
         return 0

@@ -9,7 +9,7 @@ from ..filter.keywords import KeywordFilter
 from ..filter.watchlist import Watchlist
 from ..ops import health
 from . import registry
-from .archive import Archive
+from .archive import Archive, DbArchive
 from .config import load_delivery, load_sources
 from .db import Database
 from .fetch import FetchError, Fetcher
@@ -25,7 +25,7 @@ class App:
     def __init__(self, settings: Settings, mode: Mode = "live"):
         self.settings, self.mode = settings, mode
         self.db = Database(settings.dsn, settings.db_schema)
-        self.archive = Archive(settings.archive_dir)
+        self.archive = DbArchive(self.db) if settings.archive_backend == "db" else Archive(settings.archive_dir)
         self.fetcher = Fetcher(self.db, self.archive, settings.user_agent)
         self.sources = load_sources(settings.config_dir)
         self.delivery = load_delivery(settings.config_dir)
@@ -78,6 +78,24 @@ class App:
             else:
                 self.db.clear_alert(sid, "calendar_refresh")
         return n
+
+    def tick(self) -> dict[str, str]:
+        """One pass over every enabled stream source, then health. For cron-driven hosts
+        (GitHub Actions), where each run is a fresh process: poll_interval is ignored
+        because the trigger cadence sets the pace; active_hours still applies."""
+        from .timeutil import IST
+        now_ist = utcnow().astimezone(IST).time()
+        out: dict[str, str] = {}
+        for sid, cfg in self.sources.items():
+            if not cfg.enabled or cfg.kind == "scheduled":
+                continue
+            if cfg.active_hours is not None and not cfg.active_hours.contains(now_ist):
+                out[sid] = "off-hours"
+                continue
+            st = self.poll_source(sid)
+            out[sid] = "error" if st is None else f"new {st.new} realtime {st.realtime} queued {st.queued} baseline {st.baseline}"
+        self.check_health()
+        return out
 
     def check_health(self) -> int:
         fresh = health.sync_alerts(self.db, health.evaluate(self.db, self.sources))

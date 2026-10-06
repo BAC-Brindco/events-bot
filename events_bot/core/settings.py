@@ -32,6 +32,7 @@ class Settings(BaseModel):
     dsn: str = "host=localhost port=55433 user=postgres dbname=events_bot"
     db_schema: str | None = None
     archive_dir: Path = ROOT / "archive" / "raw"
+    archive_backend: str = "file"   # file | db
     out_dir: Path = ROOT / "out"
     config_dir: Path = ROOT / "config"
     migrations_dir: Path = ROOT / "migrations"
@@ -64,6 +65,8 @@ class Settings(BaseModel):
             kw["db_schema"] = e["EVENTS_BOT_DB_SCHEMA"]
         if e.get("EVENTS_BOT_ARCHIVE_DIR"):
             kw["archive_dir"] = Path(e["EVENTS_BOT_ARCHIVE_DIR"])
+        if e.get("EVENTS_BOT_ARCHIVE"):
+            kw["archive_backend"] = e["EVENTS_BOT_ARCHIVE"]
         if e.get("EVENTS_BOT_OUT_DIR"):
             kw["out_dir"] = Path(e["EVENTS_BOT_OUT_DIR"])
         kw.update(

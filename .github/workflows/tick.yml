@@ -1,0 +1,65 @@
+name: tick
+
+# One pass over every stream source (RBI, PIB, SEBI, ... as phases add them), then
+# health, then launch a burst job for any scheduled event whose window opens soon.
+# Target cadence 15 min. The GitHub schedule can lag at busy times; cron-job.org
+# (workflow_dispatch) is the intended primary trigger, as for the other BAC pipelines.
+# Sends stay dry-run until the repo variable EVENTS_BOT_LIVE is "true".
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/15 * * * *"
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: tick
+  cancel-in-progress: false
+
+env:
+  EVENTS_BOT_DSN: ${{ secrets.EVENTS_BOT_DSN }}
+  EVENTS_BOT_DB_SCHEMA: events_bot
+  EVENTS_BOT_ARCHIVE: db
+  SMTP_HOST: ${{ secrets.SMTP_HOST }}
+  SMTP_PORT: ${{ secrets.SMTP_PORT }}
+  SMTP_USER: ${{ secrets.SMTP_USER }}
+  SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+  SMTP_FROM: ${{ secrets.SMTP_FROM }}
+  EVENTS_BOT_RECIPIENTS: ${{ secrets.EVENTS_BOT_RECIPIENTS }}
+  EVENTS_BOT_OPERATOR_EMAILS: ${{ secrets.EVENTS_BOT_OPERATOR_EMAILS }}
+  DRY: ${{ vars.EVENTS_BOT_LIVE == 'true' && '' || '--dry-run' }}
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+          enable-cache: true
+      - run: uv sync --frozen --no-dev
+      - name: Poll stream sources
+        run: uv run python -m events_bot.ops.cli tick $DRY | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Launch burst jobs for event windows opening soon
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          refs=$(uv run python -m events_bot.ops.cli due-windows --within 25)
+          if [ -n "$refs" ]; then
+            echo "windows due: $refs" | tee -a "$GITHUB_STEP_SUMMARY"
+            gh workflow run windows.yml -R "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tick-${{ github.run_id }}
+          path: |
+            out/
+            logs/
+          if-no-files-found: ignore
+          retention-days: 7

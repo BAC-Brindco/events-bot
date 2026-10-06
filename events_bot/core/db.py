@@ -161,13 +161,28 @@ class Database:
                   on conflict (ref) do update set title = excluded.title, scheduled_at = excluded.scheduled_at,
                       window_start = excluded.window_start, window_end = excluded.window_end,
                       calendar_url = excluded.calendar_url, calendar_refreshed_at = excluded.calendar_refreshed_at,
-                      meta = excluded.meta""",
+                      -- keep the burst-job claim unless the window moved (then relaunch)
+                      meta = case when events.meta ? 'burst_launched_at'
+                                       and events.window_start = excluded.window_start
+                                  then excluded.meta || jsonb_build_object('burst_launched_at',
+                                                                           events.meta -> 'burst_launched_at')
+                                  else excluded.meta end""",
                (ev.ref, ev.source_id, ev.event_type, ev.title, ev.scheduled_at, ev.window_start,
                 ev.window_end, ev.calendar_url, refreshed_at, Jsonb(ev.meta)))
 
     def events_between(self, start: datetime, end: datetime) -> list[dict]:
         return self.q("select * from events where scheduled_at between %s and %s order by scheduled_at",
                       (start, end))
+
+    def claim_window_launches(self, within: timedelta) -> list[str]:
+        """Events whose window is open or opens within `within` and that have no burst job
+        yet; marks them launched in the same statement, so overlapping ticks launch once."""
+        rows = self.q("""update events set meta = meta || jsonb_build_object('burst_launched_at', now())
+                         where window_start <= now() + %s and window_end >= now()
+                           and status in ('scheduled', 'in_window')
+                           and not (meta ? 'burst_launched_at')
+                         returning ref""", (within,))
+        return [r["ref"] for r in rows]
 
     # ---- sends ------------------------------------------------------------
     def claim_send(self, *, ref: str, stage: str, kind: str, channel: str, subject: str,
