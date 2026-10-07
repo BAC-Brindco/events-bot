@@ -157,3 +157,39 @@ sources:
       expect: html
       min_items: 2
       stale_after_hours: 1000    # monthly releases
+
+  - id: nse_surv
+    label: NSE
+    event_name: Surveillance lists
+    country: IN
+    tier: 1
+    kind: stream
+    feed_type: api
+    urls:
+      asm: https://www.nseindia.com/api/reportASM
+      gsm: https://www.nseindia.com/api/reportGSM
+      asm_page: https://www.nseindia.com/reports/asm
+      gsm_page: https://www.nseindia.com/reports/gsm
+    poll_interval: 900
+    adapter: india.nse_surv:NseSurveillance
+    health_rules:
+      expect: json
+      stale_after_hours: 120
+
+  - id: nifty_indices
+    label: NSE Indices
+    event_name: Index changes
+    country: IN
+    tier: 1
+    kind: stream
+    feed_type: html
+    urls:
+      listing: https://www.niftyindices.com/press-release
+    poll_interval: 900
+    adapter: india.nifty_indices:NiftyIndices
+    filters:
+      keywords: nifty_indices
+    health_rules:
+      expect: html
+      min_items: 20
+      stale_after_hours: 336

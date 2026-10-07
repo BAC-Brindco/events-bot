@@ -1,0 +1,18 @@
+# NSE Indices press releases: equity index composition changes are kept; routine maintenance is not.
+exclude_any:
+  - Nifty IPO
+  - Fixed Income
+  - bond
+  - Maturity
+  - SME Emerge
+  - G-Sec
+  - Target Maturity
+  - Debt
+include_any:
+  - Replacement
+  - Replacements
+  - Inclusion
+  - Inclusions
+  - Exclusion
+  - Exclusions
+  - Changes in
