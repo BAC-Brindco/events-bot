@@ -273,3 +273,14 @@ Fails from both: the MoSPI API (needs a POST), YouTube RSS, dot.gov.in and cbo.g
   - Timing: 15 s model cache restore, 4 s server start, 33 s total.
   - "shares an article" was added to the PIB excludes so these no longer cost calls.
 - **Tests:** 144 passing.
+- **MoSPI (NSO).**
+  - Polls the POST-only release API every tick. It is reachable from runners; the first run baselined 30 releases.
+  - CPI, IIP and GDP releases have their PDF fetched and numbers extracted and validated, giving a print-vs-prior alert in the house style.
+    - CPI: headline table, layout-independent. July and August 2026 have different layouts.
+    - IIP: headline growth, prior month and the four sectors, including "(-)" negatives.
+    - GDP: real and nominal GDP, GVA, GFCF and PFCE, plus MoSPI's verbatim key highlights.
+  - Other NSO releases (PLFS, ASI, ISP and similar) go out as normal alerts.
+  - New `growth_pct` validator bounds of -60 to 100.
+  - Cross-month check: August's "prior" equals July's printed value.
+  - Latency is 15-minute polling for now. Scheduled windows from the advance release calendar are a follow-up, so 16:00 prints arrive within about 15 minutes.
+- **Tests:** 151 passing.
