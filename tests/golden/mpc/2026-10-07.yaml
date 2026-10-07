@@ -1,0 +1,39 @@
+meeting: '2026-10-07'
+prid: 63742
+needs_human_review: true
+invalid: []
+fields:
+  mpc.doc_date: Oct 07, 2026
+  mpc.action: increase
+  mpc.rate_vote: voted unanimously
+  mpc.change_bps: '25'
+  mpc.repo: '5.50'
+  mpc.sdf: '5.25'
+  mpc.msf: '5.75'
+  mpc.bank_rate: '5.75'
+  mpc.stance: calibrated tightening
+  mpc.proj.gdp.FY2026-27: '7.1'
+  mpc.proj.gdp.Q2:2026-27: '7.2'
+  mpc.proj.gdp.Q3:2026-27: '6.9'
+  mpc.proj.gdp.Q4:2026-27: '6.8'
+  mpc.proj.gdp.Q1:2027-28: '7.1'
+  mpc.proj.cpi.FY2026-27: '5.2'
+  mpc.proj.cpi.Q2:2026-27: '4.9'
+  mpc.proj.cpi.Q3:2026-27: '6.0'
+  mpc.proj.cpi.Q4:2026-27: '5.7'
+  mpc.proj.cpi.Q1:2027-28: '5.6'
+  mpc.proj.core_cpi.FY2026-27: '4.4'
+members:
+- Shri Sanjay Malhotra
+- Dr. Nagesh Kumar
+- Shri Saugata Bhattacharya
+- Prof. Ram Singh
+- Dr. Poonam Gupta
+- Shri Indranil Bhattacharyya
+dissents:
+- field: mpc.stance_dissent
+  member: Dr. Nagesh Kumar
+  view: that the stance be retained at neutral
+- field: mpc.stance_dissent
+  member: Prof. Ram Singh
+  view: that the stance be retained at neutral

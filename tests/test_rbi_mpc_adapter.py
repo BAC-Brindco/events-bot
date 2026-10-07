@@ -113,3 +113,23 @@ def test_stage1_numbers_all_from_resolution():
     body = m1.body_text.split("\nRelease:")[0]
     for tok in re.findall(r"\d+(?:\.\d+)?(?:-\d+)?", body):
         assert tok in text, tok
+
+
+def test_missing_required_field_is_flagged_not_silent():
+    """7 Oct 2026: new stance phrasing was missed and nothing said so. A missing field must show as failed."""
+    html = (FX / "pr_63742.html").read_bytes().replace(b"change the stance to calibrated tightening", b"tighten")
+    html = html.replace(b"decided to change the stance to calibrated tightening", b"tighten")
+    m1, _, ex, _ = rbi_mpc.build_messages(date(2026, 10, 7), html, None, None, {"resolution": "u"},
+                                          first_seen=datetime(2026, 10, 7, 5, 0, tzinfo=timezone.utc),
+                                          mode="dry_run", stage2=False)
+    assert "mpc.stance: not found in source" in m1.body_text
+    assert "EXTRACTION FAILED" in m1.body_html
+
+
+def test_oct_2026_hike_headline():
+    m1, _, _, _ = rbi_mpc.build_messages(date(2026, 10, 7), (FX / "pr_63742.html").read_bytes(), None, None,
+                                         {"resolution": "u"}, first_seen=datetime(2026, 10, 7, 5, 0,
+                                                                                  tzinfo=timezone.utc),
+                                         mode="dry_run", stage2=False)
+    assert m1.subject == ("[RBI] MPC decision | Repo raised by 25 bps to 5.50 per cent; "
+                          "stance calibrated tightening")

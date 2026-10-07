@@ -14,6 +14,7 @@ from ..core.models import Message
 from ..core.timeutil import fmt_ist
 from ..diff.redline import redline
 from ..extract.base import Extraction
+from ..extract import mpc as mx
 from ..extract.validator import first, good
 from . import render
 from .render import Doc, Table, change
@@ -37,6 +38,9 @@ def headline(ex: list[Extraction]) -> str:
     verb = {"keep": "Repo unchanged at", "maintain": "Repo unchanged at", "reduce": "Repo cut to",
             "cut": "Repo cut to", "raise": "Repo raised to", "increase": "Repo raised to",
             "hike": "Repo raised to"}.get(act.value_text, f"Repo ({act.value_text})")
+    chg = good(ex, "mpc.change_bps")
+    if chg and verb.endswith(" to"):
+        verb = verb[:-3] + f" by {chg.value_text} bps to"
     s = f"{verb} {repo.value_text} per cent"
     return s + (f"; stance {stance.value_text}" if stance else "")
 
@@ -104,7 +108,8 @@ def build_stage1(ref: str, ex: list[Extraction], docs: list[Doc], *, release_at:
                          event_name="Monetary Policy Committee", title=head, key=key, tables=[t] if t else [],
                          bullets=bullets[:8], source_time=fmt_ist(release_at) + " (scheduled)",
                          first_seen=fmt_ist(first_seen), docs=docs,
-                         failed=[f"{e.field}: {e.validation_error}" for e in ex if not e.ok], mode=mode)
+                         failed=[f"{e.field}: {e.validation_error}" for e in ex if not e.ok]
+                         + [f"{f}: not found in source" for f in mx.missing(ex)], mode=mode)
 
 
 def _body(text: str) -> str:

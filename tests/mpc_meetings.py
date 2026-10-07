@@ -9,4 +9,5 @@ MEETINGS = {
     date(2026, 4, 8): {"resolution": 62514, "governor": 62515},
     date(2026, 6, 5): {"resolution": 62863, "governor": 62864},
     date(2026, 8, 5): {"resolution": 63287, "governor": 63288},
+    date(2026, 10, 7): {"resolution": 63742, "governor": 63744},   # first live meeting (rate hike)
 }

@@ -52,6 +52,8 @@ _Q_QUAL = re.compile(rf"for Q([1-4]):({FY}) (?:is|has been) (?:now )?(?:projecte
 _Q_PAIR = re.compile(rf"for Q([1-4]):({FY}) and Q([1-4]) are (?:now )?projected (?:at|to be(?: at)?) {PCT} and {PCT}")
 _Q_ITEM = re.compile(rf"\bQ([1-4]) at {PCT}")
 _CORE = re.compile(rf"Core inflation is projected at {PCT} for ({FY})")
+# Oct 2026: "CPI inflation is projected to be 5.2 per cent for 2026-27 with Q2 at 4.9 per cent; ..."
+_FY_TAIL = re.compile(rf"(?:is|has been) (?:now )?projected (?:to be|at)(?: at)? {PCT} for ({FY})")
 
 
 def parse_projections(text: str, period: str) -> list[Extraction]:
@@ -80,6 +82,9 @@ def parse_projections(text: str, period: str) -> list[Extraction]:
         if m:
             base_fy = m.group(1)
             add(var, f"FY{base_fy}", sa + m.start(2), sa + m.end(2))
+        elif (t := _FY_TAIL.search(s)) and not re.search(r"for Q[1-4]:", s[:t.start()]):
+            base_fy = t.group(2)
+            add(var, f"FY{base_fy}", sa + t.start(1), sa + t.end(1))
         m = _Q_PAIR.search(s)
         if m:
             fy = m.group(2)
@@ -105,17 +110,21 @@ def parse_projections(text: str, period: str) -> list[Extraction]:
 _DECISION = re.compile(
     r"the MPC (?P<vote>voted(?: unanimously)?|unanimously voted)(?: by a majority of (?P<maj>\d+ to \d+))?"
     r" to (?P<act>keep|reduce|raise|increase|maintain|cut|hike)[^.]*?policy repo rate[^.]*?"
-    rf"(?:unchanged at|to|at|by \d+ (?:basis points|bps) to) {PCT}")
+    rf"(?:unchanged at|to|at|by (?P<chg>\d+) (?:basis points|bps) to) {PCT}")
 _DECISION_ALT = re.compile(rf"the MPC (?P<vote>voted(?: unanimously)?|unanimously voted) to (?P<act>maintain|keep) the policy repo rate at {PCT}")
 _UNANIMOUS = re.compile(r"the MPC (unanimously voted|voted unanimously) to \w+ the (?:policy )?repo rate")
 _SDF = re.compile(rf"standing deposit facility \(SDF\) rate[^.;]*? {PCT}")
 _MSF = re.compile(rf"marginal standing facility \(MSF\) rate and the Bank Rate[^.;]*? {PCT}")
 _STANCE = re.compile(r"(?:continue with|retain|change to|changed to|adopt|maintain) the (?P<s>neutral|accommodative|"
-                     r"withdrawal of accommodation|calibrated tightening|tightening)\b stance|stance (?:from \w+ )?to (?P<s2>neutral|accommodative)")
+                     r"withdrawal of accommodation|calibrated tightening|tightening)\b stance|stance (?:from [\w ]+? )?to (?P<s2>neutral|accommodative|calibrated tightening|"
+                     r"withdrawal of accommodation|tightening)\b")
 _MEMBERS = re.compile(r"chairmanship of (?P<gov>(?:Shri|Smt\.|Dr\.) [A-Z][\w.]*(?: [A-Z][\w.]*)+), Governor.*?The MPC members (?P<rest>.+?) attended the meeting")
 _PERSON = re.compile(r"(?:Shri|Smt\.|Dr\.|Prof\.) [A-Z][\w.]*(?: [A-Z][\w.]*)*")
 _DISSENT = re.compile(r"(?P<who>(?:Shri|Smt\.|Dr\.|Prof\.) [A-Z][\w.]*(?: [A-Z][\w.]*)*) (?:was of the view|retained (?:his|her) view|voted)"
                       r"(?P<view>[^.]*(?:\.\d[^.]*)*)\.")
+# Oct 2026: "Two members - Dr. Nagesh Kumar and Prof. Ram Singh - were of the view that ..."
+_DISSENT_GROUP = re.compile(r"\w+ members? ?[-–—] ?(?P<names>.+?) ?[-–—] ?were of the view"
+                            r"(?P<view>[^.]*(?:\.\d[^.]*)*)\.")
 _CRR = re.compile(rf"(?:cash reserve ratio \(CRR\)|CRR)[^.]*?(?:by (\d+ basis points)|to {PCT})")
 _SLR = re.compile(rf"statutory liquidity ratio \(SLR\)[^.]*?(?:by (\d+ basis points)|to {PCT})")
 
@@ -143,6 +152,9 @@ def parse_resolution(content: bytes, meeting: date) -> tuple[str, list[Extractio
                 vote = (u.start(1), u.end(1))
         ex.append(span(text, vote[0], vote[1], "mpc.rate_vote", unit="text", norm=False,
                        doc="resolution", period=period))
+        if m.groupdict().get("chg"):
+            ex.append(span(text, m.start("chg"), m.end("chg"), "mpc.change_bps", unit="bps", doc="resolution",
+                           period=period))
         if m.groupdict().get("maj"):
             ex.append(span(text, m.start("maj"), m.end("maj"), "mpc.rate_vote_split", unit="text", norm=False,
                            doc="resolution", period=period))
@@ -177,6 +189,14 @@ def parse_resolution(content: bytes, meeting: date) -> tuple[str, list[Extractio
         e = span(text, d.start("who"), d.end("who"), kind, unit="text", norm=False, doc="resolution", period=period)
         e.meta["view"] = text[d.start("view"):d.end("view")].strip()
         ex.append(e)
+    for g in _DISSENT_GROUP.finditer(text):
+        view = g.group("view").strip()
+        kind = "mpc.stance_dissent" if "stance" in view else "mpc.rate_dissent"
+        for p in _PERSON.finditer(g.group("names")):
+            e = span(text, g.start("names") + p.start(), g.start("names") + p.end(), kind, unit="text", norm=False,
+                     doc="resolution", period=period)
+            e.meta["view"] = view
+            ex.append(e)
     for rx, field in ((_CRR, "mpc.crr"), (_SLR, "mpc.slr")):
         c = rx.search(text)
         if c:
@@ -185,6 +205,16 @@ def parse_resolution(content: bytes, meeting: date) -> tuple[str, list[Extractio
                            unit="text" if g == 1 else "percent", norm=g != 1, doc="resolution", period=period))
     ex += parse_projections(text, period)
     return text, ex
+
+
+REQUIRED = ("mpc.doc_date", "mpc.action", "mpc.repo", "mpc.sdf", "mpc.msf", "mpc.bank_rate", "mpc.stance",
+            "mpc.rate_vote")
+
+
+def missing(ex: list[Extraction]) -> list[str]:
+    """Required fields the parser did not find at all: shown as EXTRACTION FAILED, never silently absent."""
+    have = {e.field for e in ex}
+    return [f for f in REQUIRED if f not in have]
 
 
 def consistency(ex: list[Extraction], prior: list[Extraction] | None = None) -> list[str]:
