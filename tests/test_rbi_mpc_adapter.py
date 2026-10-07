@@ -92,7 +92,7 @@ def _run(make_app, monkeypatch, via_rss: bool):
     a.poll_event(app.db.get_event("rbi_mpc:2026-08-05"))
     assert len(site.hits) == n
     s2 = next(p for p in app.settings.out_dir.rglob("*stage2*.html")).read_text(encoding="utf-8")
-    assert "Resolution redline" in s2 and "05 Jun 2026" in s2
+    assert "Policy paragraphs redline" in s2 and "05 Jun 2026" in s2
     return app
 
 

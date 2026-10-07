@@ -112,12 +112,16 @@ def build_stage1(ref: str, ex: list[Extraction], docs: list[Doc], *, release_at:
                          + [f"{f}: not found in source" for f in mx.missing(ex)], mode=mode)
 
 
+_POLICY_PARA = re.compile(r"\bvoted\b|\bstance\b|policy repo rate|\bwere of the view\b|\bwas of the view\b")
+
+
 def _body(text: str) -> str:
-    """Resolution paragraphs only: from the decisions heading to the signature line."""
+    """Policy paragraphs only (decision, stance, vote, dissent): RBI rewrites the growth and inflation
+    outlook every meeting, so a redline of the whole resolution is mostly noise (7 Oct 2026)."""
     lines = text.split("\n")
     a = next((i for i, l in enumerate(lines) if l.startswith("The Monetary Policy Committee (MPC) held")), 0)
     b = next((i for i, l in enumerate(lines) if re.match(r"\(.+\) (Chief )?General Manager", l)), len(lines))
-    return "\n".join(re.sub(r"^\d+\. ", "", l) for l in lines[a:b])
+    return "\n".join(re.sub(r"^\d+\. ", "", l) for l in lines[a:b] if _POLICY_PARA.search(l))
 
 
 def build_stage2(ref: str, ex: list[Extraction], text: str, prior_ex: list[Extraction] | None, prior_text: str | None,
@@ -165,6 +169,6 @@ def build_stage2(ref: str, ex: list[Extraction], text: str, prior_ex: list[Extra
                             "* " + COMPUTED + " Blank prior: the period was not projected last time.", bold_col=4))
     return render.stage2(ref=ref, subject=f"[RBI] Stage 2 | MPC {ref.split(':', 1)[1]}", source_tag="RBI",
                          event_name="Monetary Policy Committee", title=headline(ex),
-                         redline_title="Resolution redline", prior_label=prior_label, redline=red_html,
+                         redline_title="Policy paragraphs redline", prior_label=prior_label, redline=red_html,
                          red_stats=stats, vote=vote, tables=tables, transcript_status=transcript_status,
                          market_line=market_line, docs=docs, mode=mode)

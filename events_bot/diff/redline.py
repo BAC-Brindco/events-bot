@@ -12,7 +12,7 @@ from difflib import SequenceMatcher
 
 # Split after . ? ! or : when followed by space + capital/quote, but not after initials ("Jerome H. Powell")
 # or common abbreviations.
-_SENT = re.compile(r"(?<=[.?!:])(?<!\b[A-Z]\.)(?<!p\.m\.)(?<!a\.m\.)(?<!U\.S\.)\s+(?=[\"'“A-Z])")
+_SENT = re.compile(r"(?<=[.?!:])(?<!\b[A-Z]\.)(?<!p\.m\.)(?<!a\.m\.)(?<!U\.S\.)(?<!\bDr\.)(?<!\bMr\.)(?<!\bMs\.)(?<!\bSmt\.)(?<!\bProf\.)(?<!\bNo\.)\s+(?=[\"'“A-Z])")
 _WORD = re.compile(r"\s+|[^\s]+")
 
 

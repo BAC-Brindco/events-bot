@@ -189,3 +189,13 @@ Fails from both: the MoSPI API (needs a POST), YouTube RSS, dot.gov.in and cbo.g
 - Market reaction line (F-21b).
 - Transcript follow-ups: Fed official PDF at 8–13 days, RBI edited transcript at about 2 days (F-19).
 - Human review of the golden YAMLs.
+
+## Live test: RBI MPC 2026-10-07 (dry run)
+
+- **Decision:** repo +25 bps to 5.50, unanimous; stance changed to calibrated tightening. Stance dissents from Dr. Nagesh Kumar and Prof. Ram Singh, who wanted it kept at neutral.
+- **Release timing:** RSS pubDate 10:25 IST for the resolution (prid 63742), Governor's statement (63744) at 10:35, SDRP (63743) at 10:30. For first-seen timing per channel, see the `mpc_capture` artifact.
+- **Failures found and fixed the same day:**
+  1. The armed `windows` run slept about 5 h inside its own job, so the 6 h timeout killed it at 10:24 IST, one minute before the resolution appeared. The waiting now happens in hand-off runs only (`windows.yml`, `mpc_capture.yml`).
+  2. Three phrasings were new, and the parser missed all of them: "change the stance to X", "CPI inflation is projected to be X per cent for FY", and "Two members - A and B - were of the view". The first draft therefore had no stance, CPI FY or quarterly figures, or dissents. All three are fixed. Required fields that are not found now render as EXTRACTION FAILED instead of being silently absent.
+  3. The full-resolution redline was about 5,500 px of noise, because the outlook section is rewritten every meeting. Stage 2 now redlines only the policy paragraphs (decision, stance, vote, dissent). The sentence splitter no longer splits after Dr./Prof./Smt.
+- After the fixes, the bot re-ran on GitHub in dry run and produced Stage 1 and Stage 2. The 7 Oct resolution is golden case 8. 131 tests pass.
