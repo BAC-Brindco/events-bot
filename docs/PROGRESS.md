@@ -199,3 +199,18 @@ Fails from both: the MoSPI API (needs a POST), YouTube RSS, dot.gov.in and cbo.g
   2. Three phrasings were new, and the parser missed all of them: "change the stance to X", "CPI inflation is projected to be X per cent for FY", and "Two members - A and B - were of the view". The first draft therefore had no stance, CPI FY or quarterly figures, or dissents. All three are fixed. Required fields that are not found now render as EXTRACTION FAILED instead of being silently absent.
   3. The full-resolution redline was about 5,500 px of noise, because the outlook section is rewritten every meeting. Stage 2 now redlines only the policy paragraphs (decision, stance, vote, dissent). The sentence splitter no longer splits after Dr./Prof./Smt.
 - After the fixes, the bot re-ran on GitHub in dry run and produced Stage 1 and Stage 2. The 7 Oct resolution is golden case 8. 131 tests pass.
+
+## Go-live for scheduled events (2026-10-07)
+
+- **User request:** fire today's MPC email, and arm the tracker so that no event is ever missed.
+- **Live switch:** repo variable `EVENTS_BOT_LIVE=scheduled`. Scheduled events (`windows.yml`, `ops fire`) send to bac-reports. The stream `tick` stays dry until the Phase 4 filters exist; set `true` to make everything live.
+- **Bug fixed:** every DRY expression used `cond && '' || '--dry-run'`, which always yields `--dry-run` because `''` is falsy. The live switch therefore never worked before this fix.
+- **Today's sends:** the 7 Oct MPC Stage 1 and Stage 2 were sent live at 11:17 IST via `ops fire` (sends 1 and 2). The bot first saw the resolution at 11:00 IST in the dry re-run; RBI posted it at 10:25 IST.
+- **Never-miss arming:**
+  - `cli arm --hours 36` claims every event opening within 36 h.
+  - Both `calendars` (now 4 times a day) and `tick` (cron-job.org plus the GitHub schedule) dispatch `windows.yml` with `start_utc` 5 minutes before each window.
+  - The claim on the events row ensures exactly one armed chain per event.
+- **Health alerts:**
+  - `unarmed:<ref>`: the window opens within 6 h and nothing is armed.
+  - `missed:<ref>`: the window closed with no Stage 1.
+  - Operator alerts are sent live whenever SMTP is configured. `calendars` runs `health` each time.
