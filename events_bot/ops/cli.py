@@ -52,6 +52,8 @@ def main(argv: list[str] | None = None) -> int:
     p = sub.add_parser("fire", help="run a scheduled event's capture now (Stage 1, then Stage 2)")
     p.add_argument("ref")
     p.add_argument("--dry-run", action="store_true")
+    p.add_argument("--resend", metavar="REASON", default="",
+                   help="send both stages again as a tracked resend, subject '[Resend · REASON] ...'")
     p = sub.add_parser("windows")
     p.add_argument("--max-minutes", type=int, default=330)
     p.add_argument("--dry-run", action="store_true")
@@ -151,6 +153,21 @@ def main(argv: list[str] | None = None) -> int:
                 print("unknown event", a.ref)
                 return 1
             adapter = app.adapter(ev["source_id"])
+            if a.resend:
+                # A resend is its own send kind, so (ref, stage, kind) stays unique: the original sends
+                # are untouched and each resend stage still goes out at most once per reason.
+                n = 1 + (app.db.one("select count(distinct kind) n from sends where ref = %s and kind like 'resend%%'",
+                                    (a.ref,)) or {"n": 0})["n"]
+                orig = app.dispatcher.dispatch
+
+                def dispatch(msg, recipients):
+                    msg = msg.model_copy(update={"kind": f"resend{n}",
+                                                 "subject": f"[Resend · {a.resend}] {msg.subject}"})
+                    return orig(msg, recipients)
+
+                app.dispatcher.dispatch = dispatch
+                app.db.q("update events set meta = meta - 'stage1_at' - 'stage2_at' - 'stage1_complete' "
+                         "where ref = %s", (a.ref,))
             for _ in range(2):
                 adapter.poll_event(app.db.get_event(a.ref))
             ev = app.db.get_event(a.ref)

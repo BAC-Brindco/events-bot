@@ -13,6 +13,9 @@ on:
       ref:
         description: "Event ref for fire, e.g. rbi_mpc:2026-10-07"
         default: ""
+      resend:
+        description: "fire only: resend reason (empty = normal fire)"
+        default: ""
 
 env:
   EVENTS_BOT_DSN: ${{ secrets.EVENTS_BOT_DSN }}
@@ -41,9 +44,14 @@ jobs:
           DRY: ${{ !(vars.EVENTS_BOT_LIVE == 'true' || vars.EVENTS_BOT_LIVE == 'scheduled') && '--dry-run' || '' }}
           CMD: ${{ inputs.command }}
           REF: ${{ inputs.ref }}
+          RESEND: ${{ inputs.resend }}
         run: |
           if [ "$CMD" = "fire" ]; then
-            uv run python -m events_bot.ops.cli fire "$REF" $DRY
+            if [ -n "$RESEND" ]; then
+              uv run python -m events_bot.ops.cli fire "$REF" --resend "$RESEND" $DRY
+            else
+              uv run python -m events_bot.ops.cli fire "$REF" $DRY
+            fi
           else
             uv run python -m events_bot.ops.cli "$CMD"
           fi
