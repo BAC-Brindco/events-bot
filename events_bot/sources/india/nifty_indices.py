@@ -26,6 +26,7 @@ from ...extract import nifty_indices as nx
 from ...stage1.render import Doc, _provenance
 
 BASE = "https://www.niftyindices.com/"
+LISTING_ROWS = 60        # newest first; older rows can never be new (the page holds ~1,500 back to 1998)
 HEADLINE = ("Nifty 50", "Nifty Next 50", "Nifty 100", "Nifty 200", "Nifty 500", "Nifty Bank",
             "Nifty Financial Services", "Nifty Midcap 50", "Nifty Midcap 100", "Nifty Midcap 150",
             "Nifty Smallcap 100", "Nifty Smallcap 250")
@@ -54,7 +55,7 @@ class NiftyIndices(SourceAdapter):
                         source_published_at=datetime.combine(r["date"], time(0), tzinfo=IST) if r["date"] else None,
                         published_raw=r["date"].strftime("%b %d, %Y") if r["date"] else None,
                         meta={"date_only": True, "priority_tags": ["index_change"]})
-                for r in parse_listing(res.content)]
+                for r in parse_listing(res.content)[:LISTING_ROWS]]
 
     def enrich(self, it: RawItem) -> RawItem:
         """Kept releases: parse the PDF so watchlist tagging sees every company/symbol."""

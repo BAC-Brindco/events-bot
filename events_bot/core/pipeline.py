@@ -65,7 +65,13 @@ class Pipeline:
     def process(self, cfg: SourceConfig, items: list[RawItem], enrich=None, render=None) -> PollStats:
         st = PollStats(seen=len(items))
         baseline = self.is_baseline(cfg)
+        # One round trip for "which of these do we already have" instead of one insert attempt per item
+        # (a 1,500-row listing took 10 min against the Supabase pooler; 7 Oct 2026).
+        known = {r["ext_id"] for r in self.db.q("select ext_id from items where source_id = %s and ext_id = any(%s)",
+                                                 (cfg.id, [it.ext_id for it in items]))} if items else set()
         for it in items:
+            if it.ext_id in known:
+                continue
             now = utcnow()
             item_id = self.db.insert_item(it, url_norm=dedupe.normalise_url(it.url),
                                           title_norm=dedupe.normalise_title(it.title),
