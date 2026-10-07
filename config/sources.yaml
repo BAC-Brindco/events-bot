@@ -141,3 +141,19 @@ sources:
       expect: json
       min_items: 5
       stale_after_hours: 240
+
+  - id: oea
+    label: OEA
+    event_name: Price / output release
+    country: IN
+    tier: 1
+    kind: stream
+    feed_type: html
+    urls:
+      home: https://eaindustry.nic.in/
+    poll_interval: 900
+    adapter: india.oea:Oea
+    health_rules:
+      expect: html
+      min_items: 2
+      stale_after_hours: 1000    # monthly releases

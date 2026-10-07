@@ -22,8 +22,12 @@ REQUIRED = {
     "cpi": ("mospi.cpi.combined.current", "mospi.cpi.combined.prior", "mospi.cfpi.combined.current"),
     "iip": ("mospi.iip.growth.current", "mospi.iip.growth.prior"),
     "gdp": ("mospi.gdp.real.current", "mospi.gdp.nominal.current"),
+    "wpi": ("oea.wpi.headline.current", "oea.wpi.headline.prior"),
+    "ici": ("oea.ici.growth.current", "oea.ici.growth.prior"),
 }
-NAMES = {"cpi": "CPI inflation", "iip": "Industrial production (IIP)", "gdp": "GDP"}
+NAMES = {"cpi": "CPI inflation", "iip": "Industrial production (IIP)", "gdp": "GDP",
+         "wpi": "WPI inflation", "ici": "Core industries (ICI)"}
+TAGS = {"wpi": "OEA", "ici": "OEA"}            # everything else is MoSPI
 
 
 def _v(ex, f) -> str:
@@ -50,6 +54,13 @@ def headline(kind: str, ex: list[Extraction]) -> str:
             return FAILED
         s = f"Real GDP growth {c.value_text}% in {c.period}"
         return s + (f"; {y.value_text}% in {y.period}" if y else "")
+    if kind in ("wpi", "ici"):
+        f = "oea.wpi.headline" if kind == "wpi" else "oea.ici.growth"
+        c, p = good(ex, f + ".current"), good(ex, f + ".prior")
+        if not c:
+            return FAILED
+        s = f"{'WPI inflation' if kind == 'wpi' else 'Core industries growth'} {c.value_text}% in {c.period}"
+        return s + (f"; prior {p.value_text}% in {p.period}" if p else "")
     return FAILED
 
 
@@ -80,6 +91,13 @@ def _cards(kind: str, ex: list[Extraction]) -> list[dict]:
                 ("Nominal GVA growth", "mospi.gva.nominal.current", None),
                 ("GFCF growth (real)", "mospi.gfcf.real.current", None),
                 ("PFCE growth (real)", "mospi.pfce.real.current", None)],
+        "wpi": [("WPI inflation", "oea.wpi.headline.current", "oea.wpi.headline.prior"),
+                ("Food index", "oea.wpi.food.current", "oea.wpi.food.prior"),
+                ("Primary articles", "oea.wpi.primary.current", "oea.wpi.primary.prior"),
+                ("Fuel and power", "oea.wpi.fuel.current", "oea.wpi.fuel.prior"),
+                ("Manufactured products", "oea.wpi.manufactured.current", "oea.wpi.manufactured.prior")],
+        "ici": [("Core industries growth", "oea.ici.growth.current", "oea.ici.growth.prior"),
+                ("Cumulative, fiscal year to date", "oea.ici.cumulative.current", "oea.ici.cumulative.year_ago")],
     }[kind]
     out = []
     for label, f, pf in spec:
@@ -114,9 +132,15 @@ def build(kind: str, ref: str, ex: list[Extraction], texts: dict[str, str], *, r
     missing = [f"{f}: not found in source" for f in REQUIRED.get(kind, ()) if first(ex, f) is None]
     failed = [f"{e.field}: {e.validation_error}" for e in ex if not e.ok] + missing
     tables = [t for t in ([_cpi_table(ex)] if kind == "cpi" else []) if t]
-    bullets = mx.highlights(kind, texts)
+    if kind in ("wpi", "ici"):
+        from ..extract import oea
+        bullets = oea.highlights(texts)
+    else:
+        bullets = mx.highlights(kind, texts)
+    tag = TAGS.get(kind, "MOSPI")
     return render.stage1(
-        ref=ref, subject=f"[MoSPI] {NAMES[kind]} | {head}", source_tag="MOSPI", event_name=NAMES[kind],
+        ref=ref, subject=f"[{'OEA' if tag == 'OEA' else 'MoSPI'}] {NAMES[kind]} | {head}", source_tag=tag,
+        event_name=NAMES[kind],
         title=head, key=_cards(kind, ex), tables=tables, bullets=bullets[:8],
         source_time=fmt_ist(published) if published else "per MoSPI listing", first_seen=fmt_ist(first_seen),
         docs=docs, failed=failed, mode=mode, heading=NAMES[kind], callout_title="The print",

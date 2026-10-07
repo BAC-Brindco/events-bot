@@ -18,7 +18,8 @@ from ..deliver import house as hs
 
 FOOTER = "RAAS Research Capital · Events Desk · {ref}"
 SOURCES = {"RBI": ("Reserve Bank of India", "MPC"), "FED": ("Federal Reserve", "FOMC"),
-           "MOSPI": ("Ministry of Statistics and Programme Implementation (NSO)", "MoSPI")}
+           "MOSPI": ("Ministry of Statistics and Programme Implementation (NSO)", "MoSPI"),
+           "OEA": ("Office of the Economic Adviser, DPIIT", "OEA")}
 
 
 @dataclass
