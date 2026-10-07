@@ -284,3 +284,9 @@ Fails from both: the MoSPI API (needs a POST), YouTube RSS, dot.gov.in and cbo.g
   - Cross-month check: August's "prior" equals July's printed value.
   - Latency is 15-minute polling for now. Scheduled windows from the advance release calendar are a follow-up, so 16:00 prints arrive within about 15 minutes.
 - **Tests:** 151 passing.
+- **OEA (DPIIT).** WPI (headline, food index, primary, fuel and manufactured groups, each current and prior) and Eight Core Industries (growth current and prior, fiscal-year-to-date cumulative), with verbatim key highlights.
+  - Discovery is from the homepage "Latest ... Press Release" links; file names shift with holidays.
+  - Image-only (scanned) PDFs extract nothing, so the alert subject says EXTRACTION FAILED.
+  - Live on the runner: baselined 3 releases.
+- **Live triage, 12 new PIB releases:** 4 removed by rules and 8 by the model, none sent. All decisions were reasonable; the EFTA TEPA remarks are borderline.
+- **Tests:** 156 passing.
