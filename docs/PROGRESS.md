@@ -290,3 +290,14 @@ Fails from both: the MoSPI API (needs a POST), YouTube RSS, dot.gov.in and cbo.g
   - Live on the runner: baselined 3 releases.
 - **Live triage, 12 new PIB releases:** 4 removed by rules and 8 by the model, none sent. All decisions were reasonable; the EFTA TEPA remarks are borderline.
 - **Tests:** 156 passing.
+- **NSE surveillance (ASM long- and short-term, GSM).**
+  - Cookie bootstrap, then the full lists are diffed against the previous archived snapshot. Each change produces one consolidated alert (added, removed, stage change). Watchlist names are flagged; their symbols and names are in the summary so tagging works.
+  - Baselined on the runner.
+- **NSE Indices.**
+  - Listing of about 1,500 press releases; the adapter reads the newest 60.
+  - Routine maintenance is filtered out: Nifty IPO, fixed income, bonds, SME.
+  - The release PDF is parsed into verbatim (index, action, company, symbol) rows. The semi-annual 10 Aug review gives 980 rows, with Nifty 50 changes WIPRO out and BSE in.
+  - Single-index notices take the index from the title.
+  - The alert is compact: headline indices by symbol, a watchlist table, and counts for the other indices. It stays under 90 KB, below Gmail's clipping limit of about 100 KB.
+- **Performance.** The pipeline now runs one "known ext_ids" query per poll. The NSE Indices baseline had made one tick take 11 min 40 s; polling all 11 sources now takes 36 s.
+- **Tests:** 162 passing.
