@@ -46,6 +46,7 @@ class PollStats:
     realtime: int = 0
     queued: int = 0
     send_failed: int = 0
+    pending_llm: int = 0
     refs: list[str] = field(default_factory=list)
 
 
@@ -61,7 +62,7 @@ class Pipeline:
         row = self.db.one("select exists(select 1 from items where source_id = %s) as has", (cfg.id,))
         return not row["has"]
 
-    def process(self, cfg: SourceConfig, items: list[RawItem]) -> PollStats:
+    def process(self, cfg: SourceConfig, items: list[RawItem], enrich=None) -> PollStats:
         st = PollStats(seen=len(items))
         baseline = self.is_baseline(cfg)
         for it in items:
@@ -87,28 +88,41 @@ class Pipeline:
             dec = self.kf.decide(cfg, it)
             if dec.keep:
                 dec = self.classifier.classify(cfg, it)
+            if not dec.keep and dec.rule == "uncertain":
+                self.db.update_item(item_id, status="pending_llm", meta={**it.meta, "filter": dec.reason})
+                st.pending_llm += 1
+                continue
             if not dec.keep:
                 self.db.insert_filtered(item_id, cfg.id, it.title, it.url, dec.rule, dec.reason)
                 self.db.update_item(item_id, status="filtered")
                 st.filtered += 1
                 continue
-            tags = self.watchlist.tags(it)
-            route = self.delivery.route_for(cfg)
-            if route == "realtime" and it.source_published_at is not None and \
-                    now - it.source_published_at > timedelta(hours=self.delivery.realtime_max_age_hours):
-                route = DIGEST_FOR_COUNTRY[cfg.country]
-                log.warning("item_too_old_for_realtime", ref=it.ref, published=str(it.source_published_at))
-            if route != "realtime":
-                self.db.update_item(item_id, status="queued", route=route, tags=tags)
-                st.queued += 1
-                continue
-            msg = stage1_item(cfg, it, first_seen_at=now, tags=tags, mode=self.dispatcher.mode)
-            res = self.dispatcher.dispatch(msg, self.recipients)
-            if res.status in ("failed", "no_recipients"):
-                self.db.update_item(item_id, status="error", route=route, tags=tags,
-                                    meta={**it.meta, "dispatch": res.status, "detail": res.detail})
-                st.send_failed += 1
-            else:
-                self.db.update_item(item_id, status="routed", route=route, tags=tags)
-                st.realtime += 1
+            self.deliver(cfg, item_id, it, now, st, enrich)
         return st
+
+    def deliver(self, cfg: SourceConfig, item_id: int, it: RawItem, now, st: PollStats, enrich=None) -> None:
+        """Route one kept item: optional enrichment (detail page), tags, realtime send or digest queue."""
+        if enrich is not None:
+            try:
+                it = enrich(it)
+            except Exception as e:  # noqa: BLE001  a detail-page failure must not lose the item
+                log.warning("enrich_failed", ref=it.ref, error=str(e)[:200])
+        tags = self.watchlist.tags(it)
+        route = self.delivery.route_for(cfg)
+        if route == "realtime" and it.source_published_at is not None and \
+                now - it.source_published_at > timedelta(hours=self.delivery.realtime_max_age_hours):
+            route = DIGEST_FOR_COUNTRY[cfg.country]
+            log.warning("item_too_old_for_realtime", ref=it.ref, published=str(it.source_published_at))
+        if route != "realtime":
+            self.db.update_item(item_id, status="queued", route=route, tags=tags, meta=it.meta)
+            st.queued += 1
+            return
+        msg = stage1_item(cfg, it, first_seen_at=now, tags=tags, mode=self.dispatcher.mode)
+        res = self.dispatcher.dispatch(msg, self.recipients)
+        if res.status in ("failed", "no_recipients"):
+            self.db.update_item(item_id, status="error", route=route, tags=tags,
+                                meta={**it.meta, "dispatch": res.status, "detail": res.detail})
+            st.send_failed += 1
+        else:
+            self.db.update_item(item_id, status="routed", route=route, tags=tags, meta=it.meta)
+            st.realtime += 1

@@ -75,4 +75,8 @@ class KeywordFilter:
             return Decision(True, "keyword", hit)
         if not r["include_any"] and not r["ministries"]:
             return Decision(True, "exclude_only")
+        if (cfg.filters or {}).get("llm_triage"):
+            # Neither a clear keep nor a clear reject: the batched LLM triage decides (or the digest
+            # fallback if it cannot run). Hard excludes above never reach the model.
+            return Decision(False, "uncertain", f"ministry={ministry or 'n/a'}")
         return Decision(False, "no_match", f"ministry={ministry or 'n/a'}")
