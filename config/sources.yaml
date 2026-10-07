@@ -69,3 +69,23 @@ sources:
     route: realtime
     health_rules:
       expect: html
+
+  - id: pib
+    label: PIB
+    event_name: Government release
+    country: IN
+    tier: 1
+    kind: stream
+    feed_type: html
+    urls:
+      allrel: https://www.pib.gov.in/allRel.aspx?reg=3&lang=1
+      rss: https://www.pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3&reg=3
+    poll_interval: 300
+    adapter: india.pib:Pib
+    filters:
+      keywords: pib
+      llm_triage: true          # undecided items go to the local LLM, else the EOD digest
+    health_rules:
+      expect: html
+      min_items: 1
+      stale_after_hours: 36     # PIB posts every day, incl. weekends

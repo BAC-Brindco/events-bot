@@ -50,7 +50,7 @@ class KeywordFilter:
 
     def rules(self, cfg: SourceConfig) -> dict[str, list[str]]:
         f = cfg.filters or {}
-        merged = {"include_any": [], "exclude_any": [], "ministries": []}
+        merged = {"include_any": [], "exclude_any": [], "ministries": [], "exclude_ministries": []}
         if f.get("keywords"):
             for k, v in load_keywords(self.config_dir, f["keywords"]).items():
                 if k in merged:
@@ -68,6 +68,8 @@ class KeywordFilter:
         if hit:
             return Decision(False, "exclude_keyword", hit)
         ministry = (item.meta.get("ministry") or "").strip()
+        if ministry and any(ministry.lower() == m.lower() for m in r["exclude_ministries"]):
+            return Decision(False, "exclude_ministry", ministry)
         if ministry and any(ministry.lower() == m.lower() for m in r["ministries"]):
             return Decision(True, "ministry", ministry)
         hit = _matches(r["include_any"], text)

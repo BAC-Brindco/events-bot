@@ -1,15 +1,101 @@
-# PIB filter (SPEC seed list). Editable without a code change; review misses with
+# PIB filter. Editable without a code change; review misses with
 #   uv run python -m events_bot.ops.cli rejected --source pib
-# Matching is case-insensitive on word boundaries. Phase 4 extends both lists.
-include_any:
-  - MSP
-  - subsidy
-  - PLI
-  - export
-  - duty
-  - disinvestment
-  - FDI
-exclude_any: []
+# Matching is case-insensitive on word boundaries, on title + opening text.
+# Order: exclude (keyword or ministry) -> keep ministry -> keep keyword -> otherwise "uncertain",
+# which the local LLM triage decides (llm_triage: true on the source).
+# Measured against tests/golden/pib/triage_labels.json (263 real releases, 31 relevant).
+
+# Clear noise: never market-moving, never sent to the model.
+exclude_any:
+  - congratulates
+  - congratulated
+  - pays tributes
+  - pays tribute
+  - birthday greetings
+  - greetings
+  - condolence
+  - expresses grief
+  - Subhashitam
+  - Swachhata
+  - Special Campaign
+  - Shramdaan
+  - Jayanti
+  - Mementos
+  - e-Auction
+  - Hindi Pakhwada
+  - Blood Donation
+  - Plantation Drive
+  - Ek Ped Maa Ke Naam
+  - Annual Day
+  - Foundation Day
+  - Quiz Competition
+  - Extempore Competition
+  - Graduation Day
+  - Bird Walk
+  - Mann Ki Baat
+  - Change of Guard
+  - Asian Games
+  - Olympic
+  - WorldSkills
+  - Induction Programme
+  - Awareness Programme
+  - Nasha Mukt
+
+exclude_ministries:
+  - PIB Backgrounder
+  - Vice President's Secretariat
+  - President's Secretariat
+  - Lok Sabha Secretariat
+  - Rajya Sabha Secretariat
+  - Ministry of Parliamentary Affairs
+  - Ministry of Minority Affairs
+  - Ministry of Culture
+
+# Always relevant by issuing body.
 ministries:
   - Cabinet
   - Cabinet Committee on Economic Affairs (CCEA)
+  - Competition Commission of India
+
+# Market-moving terms (SPEC seed list first).
+include_any:
+  - MSP
+  - Minimum Support Price
+  - subsidy
+  - PLI
+  - export
+  - import
+  - duty
+  - duties
+  - tariff
+  - disinvestment
+  - FDI
+  - Cabinet approves
+  - CCEA
+  - GST
+  - CBDT
+  - CBIC
+  - customs
+  - excise
+  - Income Tax
+  - due date
+  - Index of Industrial Production
+  - Index of Services Production
+  - Consumer Price Index
+  - Wholesale Price Index
+  - GDP
+  - Annual Survey of Industries
+  - Accounts of Union Government
+  - CAPEX
+  - Subscription Data
+  - norms notified
+  - stock holding
+  - stock limit
+  - Bill, 20
+  - auction of
+  - Approves ₹
+  - RoSCTL
+  - RoDTEP
+  - CCI approves
+
+# Anything matching none of the above (e.g. only 'crore' or 'procurement') is 'uncertain' -> LLM.

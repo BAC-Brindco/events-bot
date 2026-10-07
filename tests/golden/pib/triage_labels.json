@@ -1,0 +1,1584 @@
+{
+ "labelled_by": "Claude (hand), 2026-10-07; needs_human_review",
+ "note": "relevant = can move Indian markets, sectors or macro",
+ "items": [
+  {
+   "prid": 2315463,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Sawan Barwal on winning historic Silver medal in Men’s Marathon at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2315470,
+   "ministry": "Ministry of Agriculture & Farmers Welfare",
+   "title": "Two-Day National Conference on Rabi Campaign 2026 to Begin Tomorrow in New Delhi",
+   "relevant": false
+  },
+  {
+   "prid": 2315489,
+   "ministry": "PIB Backgrounder",
+   "title": "Bharat Maritime Insurance Pool",
+   "relevant": false
+  },
+  {
+   "prid": 2315491,
+   "ministry": "Prime Minister's Office",
+   "title": "English rendering of PM’s address in the 138th Episode of Mann Ki Baat on 27.09.2026",
+   "relevant": false
+  },
+  {
+   "prid": 2315501,
+   "ministry": "PIB Backgrounder",
+   "title": "Power from Waste",
+   "relevant": false
+  },
+  {
+   "prid": 2315516,
+   "ministry": "Ministry of Defence",
+   "title": "India Does Not Seek to Occupy Any Country’s Territory, But Will Safeguard Its Security and Strategic Autonomy When Threatened: Rajnath Singh",
+   "relevant": false
+  },
+  {
+   "prid": 2315523,
+   "ministry": "Ministry of Commerce & Industry",
+   "title": "Union Minister of Commerce and Industry Shri Piyush Goyal Highlights Uttar Pradesh’s Growing Global Trade and Investment Opportunities",
+   "relevant": false
+  },
+  {
+   "prid": 2315530,
+   "ministry": "Vice President's Secretariat",
+   "title": "Vice-President C. P. Radhakrishnan Participates in Vishwa Seva Dinam Celebrations Marking Mata Amritanandamayi Devi’s 73rd Birthday in Amritapuri , Kollam",
+   "relevant": false
+  },
+  {
+   "prid": 2315531,
+   "ministry": "Ministry of Science & Technology",
+   "title": "Nanomedicine to Drive the Next Generation of Precision Medicine and Personalised Healthcare: Dr. Jitendra Singh",
+   "relevant": false
+  },
+  {
+   "prid": 2315532,
+   "ministry": "Ministry of Culture",
+   "title": "Rajasthan’s Art, Faith, Royalty and Sporting Legacy on Display at PM Mementos e-Auction 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2315538,
+   "ministry": "Ministry of Fisheries, Animal Husbandry & Dairying",
+   "title": "Union Minister Shri Rajiv Ranjan Singh alias Lalan Singh to Launch Livestock Insurance Portal in New Delhi on 28 September 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2315543,
+   "ministry": "Ministry of Home Affairs",
+   "title": "Union Home Minister and Minister of Cooperation Shri Amit Shah inaugurates development projects worth ₹1,472 crore and flagged off the country’s first LNG-powered train from Sabarmati Railway Station ",
+   "relevant": false
+  },
+  {
+   "prid": 2315563,
+   "ministry": "Ministry of Defence",
+   "title": "EXERCISE TARANG SHAKTI 2026: “POWER IN PARTNERSHIP”",
+   "relevant": false
+  },
+  {
+   "prid": 2315566,
+   "ministry": "Ministry of Youth Affairs and Sports",
+   "title": "PM Modi Highlights Youth-Led Momentum of Nasha Mukt Yuva Abhiyan",
+   "relevant": false
+  },
+  {
+   "prid": 2315577,
+   "ministry": "Ministry of Social Justice & Empowerment",
+   "title": "Senior Citizens of Jay Shriram Senior Citizen Home, Kargani Maharashtra Lead by Example in Swachhata Drive",
+   "relevant": false
+  },
+  {
+   "prid": 2315585,
+   "ministry": "Ministry of Defence",
+   "title": "INDIAN NAVAL SHIPS SAHYADRI AND KULISH CONCLUDE PARTICIPATION IN ADMM-PLUS MARITIME SECURITY JOINT COOPERATION ACTIVITY",
+   "relevant": false
+  },
+  {
+   "prid": 2315603,
+   "ministry": "Vice President's Secretariat",
+   "title": "Vice-President Shri C. P. Radhakrishnan graces the 15th Graduation Day Ceremony of Sree Uthradom Thirunal (SUT) Academy of Medical Sciences in Thiruvananthapuram",
+   "relevant": false
+  },
+  {
+   "prid": 2315617,
+   "ministry": "Ministry of Culture",
+   "title": "Lalit Kala Akademi Announces 20 Lalit Kala Akademi Awards at the 65th National Exhibition of Art",
+   "relevant": false
+  },
+  {
+   "prid": 2315631,
+   "ministry": "Ministry of Home Affairs",
+   "title": "Union Home Minister and Minister of Cooperation Shri Amit Shah addresses the inaugural ceremony of centenary year celebrations commemorating birth anniversary of former VHP president Ashok Singhal",
+   "relevant": false
+  },
+  {
+   "prid": 2315634,
+   "ministry": "Ministry of Environment, Forest and Climate Change",
+   "title": "National Zoological Park organises 15th Sunday Bird Walk and 4th Butterfly and Dragonfly Walk, to promote Citizen Science and Biodiversity Conservation",
+   "relevant": false
+  },
+  {
+   "prid": 2315637,
+   "ministry": "Ministry of Tourism",
+   "title": "Tourism growth must reach beyond popular destinations and create opportunities for local communities: Union Minister of Tourism & Culture Shri Gajendra Singh Shekhawat",
+   "relevant": false
+  },
+  {
+   "prid": 2315639,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Abhay Singh on winning Silver Medal in Men’s Singles Squash at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2315640,
+   "ministry": "Ministry of Skill Development and Entrepreneurship",
+   "title": "India Ranks 10th at WorldSkills Shanghai 2026, Wins 6 Silver Medals and 20 Medal for Excellence",
+   "relevant": false
+  },
+  {
+   "prid": 2315641,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Anahat Singh on winning Silver medal in Women’s Singles Squash at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2315642,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Harita Bhadra on winning Bronze medal in Women’s 200m at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2315644,
+   "ministry": "Ministry of Finance",
+   "title": "Union Minister for Finance & Corporate Affairs Smt. Nirmala Sitharaman will embark on an official visit to Qatar from 27 to 29 September 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2315646,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Ancy Sojan on winning Silver Medal in Women’s Long Jump at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2315667,
+   "ministry": "Ministry of Youth Affairs and Sports",
+   "title": "‘Mera Swasthya, Mera Garv’ Activities Held at 400+ Locations Under Nasha Mukt Yuva for Viksit Bharat Abhiyan",
+   "relevant": false
+  },
+  {
+   "prid": 2315673,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Sarvesh Kushare on winning historic Silver medal in Men’s High Jump at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2315675,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Parul Chaudhary on winning Bronze in Women’s 3000m Steeplechase at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2315677,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Tejaswin Shankar on winning Bronze Medal in Men’s Decathlon at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2315705,
+   "ministry": "Ministry of Steel",
+   "title": "NMDC commissions Rs 5,427 crore Iron ore processing plant,",
+   "relevant": true
+  },
+  {
+   "prid": 2315717,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister pays tributes to Shaheed Bhagat Singh on his Jayanti",
+   "relevant": false
+  },
+  {
+   "prid": 2315719,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister pays tributes to Lata Mangeshkar on her Jayanti",
+   "relevant": false
+  },
+  {
+   "prid": 2315735,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister shares a Sanskrit Subhashitam, highlighting good health as the foundation for the four goals of life",
+   "relevant": false
+  },
+  {
+   "prid": 2315740,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister pays tributes to Shri Ashok Singhal, highlighting his spiritual commitment and dedication to social unity",
+   "relevant": false
+  },
+  {
+   "prid": 2315840,
+   "ministry": "PIB Backgrounder",
+   "title": "Pradhan Mantri Anusuchit Jaati Abhyuday Yojna (PM-AJAY)",
+   "relevant": false
+  },
+  {
+   "prid": 2315847,
+   "ministry": "Ministry of Fisheries, Animal Husbandry & Dairying",
+   "title": "Insuring the Blue Revolution: How PM-MKSSY Is Transforming Risk Management for India's Aquaculture Farmers",
+   "relevant": false
+  },
+  {
+   "prid": 2315851,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Indian Chess players",
+   "relevant": false
+  },
+  {
+   "prid": 2315856,
+   "ministry": "Ministry of Defence",
+   "title": "INDIAN ARMED FORCES CONTINGENT DEPARTS FOR JOINT MILITARY EXERCISE KAZIND-2026",
+   "relevant": false
+  },
+  {
+   "prid": 2315890,
+   "ministry": "Ministry of Heavy Industries",
+   "title": "GARC advances automotive testing under PM E-DRIVE",
+   "relevant": false
+  },
+  {
+   "prid": 2315919,
+   "ministry": "Ministry of Consumer Affairs, Food & Public Distribution",
+   "title": "Department of Consumer Affairs observes “Swachhata Hi Seva (SHS) 2026” and Special Campaign 6",
+   "relevant": false
+  },
+  {
+   "prid": 2315941,
+   "ministry": "Ministry of Environment, Forest and Climate Change",
+   "title": "Union Environment Minister reviews Delhi’s Air Pollution Mitigation Plan with CM Smt. Rekha Gupta; Calls for Time-bound, Coordinated Action and Public Participation",
+   "relevant": false
+  },
+  {
+   "prid": 2315943,
+   "ministry": "Ministry of Finance",
+   "title": "DRI busts pan-India gold smuggling network and seizes around 6.6 kg of foreign-origin gold worth more than Rs. 10 crore; 11, including a mastermind, arrested",
+   "relevant": false
+  },
+  {
+   "prid": 2315947,
+   "ministry": "AYUSH",
+   "title": "24-Week Clinical Trial Finds No Evidence of Liver or Kidney Injury with Standardised Ashwagandha Root Extract",
+   "relevant": false
+  },
+  {
+   "prid": 2315957,
+   "ministry": "Ministry of Statistics & Programme Implementation",
+   "title": "Quick Estimates of Index of Industrial Production and Use- Based Index for the Month of August 2026 (Base 2022-23=100)",
+   "relevant": true
+  },
+  {
+   "prid": 2315966,
+   "ministry": "PIB Backgrounder",
+   "title": "Beyond the Fab",
+   "relevant": false
+  },
+  {
+   "prid": 2315968,
+   "ministry": "Ministry of Commerce & Industry",
+   "title": "14th India-UAE High Level Joint Task Force Meeting Held in Mumbai",
+   "relevant": true
+  },
+  {
+   "prid": 2315977,
+   "ministry": "NITI Aayog",
+   "title": "NITI Aayog launches Special Campaign 6.0 to institutionalise Swachhata and minimising pendency",
+   "relevant": false
+  },
+  {
+   "prid": 2315989,
+   "ministry": "PIB Backgrounder",
+   "title": "When Festivities Find a Greener Way to Celebrate",
+   "relevant": false
+  },
+  {
+   "prid": 2315990,
+   "ministry": "Ministry of Social Justice & Empowerment",
+   "title": "From Addiction to Recovery",
+   "relevant": false
+  },
+  {
+   "prid": 2315994,
+   "ministry": "Department of Space",
+   "title": "India-France Space Cooperation Enters New Phase with Focus on Human Spaceflight, Start-ups and New Space Ecosystem: Dr. Jitendra Singh",
+   "relevant": false
+  },
+  {
+   "prid": 2315998,
+   "ministry": "Ministry of Labour & Employment",
+   "title": "Dr. Mansukh Mandaviya Addresses National Conference on Industrial Relations and Labour & Awards 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2316006,
+   "ministry": "Ministry of Communications",
+   "title": "Trai assesses mobile network quality across South Delhi and nearby areas route under Delhi LSA during July, 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2316029,
+   "ministry": "Ministry of Social Justice & Empowerment",
+   "title": "The Path to Self-Reliance with NSFDC",
+   "relevant": false
+  },
+  {
+   "prid": 2316033,
+   "ministry": "Ministry of Culture",
+   "title": "‘Seva Hi Sanskriti’ Initiative Takes the Message of Cleanliness, Cultural Awareness and Public Participation Across the Country; Over 2 Lakh People Participate",
+   "relevant": false
+  },
+  {
+   "prid": 2316034,
+   "ministry": "Ministry of Communications",
+   "title": "Highlights of Telecom Subscription Data at the end of August 2026",
+   "relevant": true
+  },
+  {
+   "prid": 2316037,
+   "ministry": "Ministry of Defence",
+   "title": "INDIAN COAST GUARD RESPONDS TO MARITIME DISTRESS OFF PARADIP",
+   "relevant": false
+  },
+  {
+   "prid": 2316038,
+   "ministry": "Ministry of Jal Shakti",
+   "title": "NDSA Holds Stakeholder Consultation on Emergency Action Plans for Enhanced Dam Safety at Lonavala and Bhushi Dams",
+   "relevant": false
+  },
+  {
+   "prid": 2316042,
+   "ministry": "Ministry of Environment, Forest and Climate Change",
+   "title": "India Reaffirms Commitment to Conservation of Whales and Other Cetaceans at IWC-70 in Hobart, Australia",
+   "relevant": false
+  },
+  {
+   "prid": 2316045,
+   "ministry": "Ministry of Defence",
+   "title": "INDIAN NAVY TO HOST SECOND EDITION OF COMMANDERS’ CONFERENCE 2026 AT NAUSENA BHAWAN, NEW DELHI",
+   "relevant": false
+  },
+  {
+   "prid": 2316050,
+   "ministry": "Ministry of Finance",
+   "title": "CBDT extends due date for furnishing Return of Income for AY 2026-27 from 31st October, 2026 to 21st November, 2026 in respect of persons subject to audit under the Income-tax Act, 1961",
+   "relevant": true
+  },
+  {
+   "prid": 2316055,
+   "ministry": "Ministry of Social Justice & Empowerment",
+   "title": "From Financial Hardship to Academic Achievement",
+   "relevant": false
+  },
+  {
+   "prid": 2316062,
+   "ministry": "Ministry of Road Transport & Highways",
+   "title": "FASTag Annual Pass Reaches One Crore Milestone",
+   "relevant": false
+  },
+  {
+   "prid": 2316065,
+   "ministry": "Ministry of Railways",
+   "title": "Indian Railways Approves ₹223 Crore for Kavach 4.0 on 614.75 Route Kilometres of Varanasi Division",
+   "relevant": true
+  },
+  {
+   "prid": 2316066,
+   "ministry": "Ministry of Railways",
+   "title": "Indian Railways Approves ₹122 Crore for 6 km Barbil–Bolanikhadan Doubling Project of South Eastern Railway",
+   "relevant": true
+  },
+  {
+   "prid": 2316070,
+   "ministry": "Ministry of Railways",
+   "title": "Indian Railways Approves New Tri-Weekly Train Between Machilipatnam and Kurnool City via Vijayawada of South Coast Railway",
+   "relevant": false
+  },
+  {
+   "prid": 2316076,
+   "ministry": "Ministry of Mines",
+   "title": "Ministry of Mines Strengthens E-Waste Collection Drive under Special Campaign 6 to Promote Circular Economy and Critical Mineral Recovery",
+   "relevant": false
+  },
+  {
+   "prid": 2316081,
+   "ministry": "Ministry of Communications",
+   "title": "TRAI Assesses Mobile Network Quality along the Delhi-Agra Highway route and Agra-Delhi Railway route under Delhi LSA, during the month of July 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2316086,
+   "ministry": "Ministry of Defence",
+   "title": "Second JDC meeting between India and Ethiopia held in Addis Ababa",
+   "relevant": false
+  },
+  {
+   "prid": 2316100,
+   "ministry": "Ministry of Agriculture & Farmers Welfare",
+   "title": "Union Minister Shri Shivraj Chouhan Calls for Data-Driven Planning, Timely Procurement and Scientific Monitoring for Rabi Season 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2316101,
+   "ministry": "Ministry of Communications",
+   "title": "Department of Telecommunications undertakes Special Campaign 6 for Swachhata, efficient record management and better office administration",
+   "relevant": false
+  },
+  {
+   "prid": 2316115,
+   "ministry": "Ministry of Steel",
+   "title": "Ministry of Steel Announces Apex Body for Strengthening Safety Standards and improve safety culture in Steel sector",
+   "relevant": false
+  },
+  {
+   "prid": 2316118,
+   "ministry": "Ministry of Defence",
+   "title": "Second India-Fiji Bilateral Joint Working Group Meeting Held in New Delhi",
+   "relevant": false
+  },
+  {
+   "prid": 2316126,
+   "ministry": "Ministry of Culture",
+   "title": "Tamil Nadu’s Cultural Heritage and Sporting Achievements Featured in PM Mementos e-Auction 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2316127,
+   "ministry": "Ministry of Commerce & Industry",
+   "title": "Union Minister of Commerce and Industry Shri Piyush Goyal to Visit the United States to Participate in G20 Trade Ministers’ Meeting",
+   "relevant": false
+  },
+  {
+   "prid": 2316139,
+   "ministry": "PIB Backgrounder",
+   "title": "Green Highways",
+   "relevant": false
+  },
+  {
+   "prid": 2316140,
+   "ministry": "Ministry of Consumer Affairs, Food & Public Distribution",
+   "title": "Department of Food and Public Distribution Continues Swachhata Hi Seva-2026 Campaign with Cleanliness Drives and Public Awareness Activities",
+   "relevant": false
+  },
+  {
+   "prid": 2316147,
+   "ministry": "Ministry of Labour & Employment",
+   "title": "District Awareness Programme on Labour Codes Held at Regional Labour Institute, Faridabad as part of Shram Samvad Initiative",
+   "relevant": false
+  },
+  {
+   "prid": 2316150,
+   "ministry": "Ministry of Health and Family Welfare",
+   "title": "Union Health Minister Shri J.P. Nadda Reviews Progress of Lady Hardinge Medical College and its Associated Hospitals",
+   "relevant": false
+  },
+  {
+   "prid": 2316153,
+   "ministry": "Ministry of Home Affairs",
+   "title": "Union Home Minister and Minister of Cooperation Shri Amit Shah inaugurates the Conference on ‘PRAHAAR - CT Policy and Strategy’ in New Delhi",
+   "relevant": false
+  },
+  {
+   "prid": 2316156,
+   "ministry": "Ministry of Social Justice & Empowerment",
+   "title": "Department of Social Justice and Empowerment Organises Extempore Competition on ‘Swachhata’ under Swachhata Hi Seva Campaign 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2316167,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Esha Singh on winning Silver Medal in Women’s 25m Pistol Individual event at Asian Games 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2316168,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Pinkcy Balhara on securing Bronze Medal in Women’s 78kg Kurash at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2316187,
+   "ministry": "Ministry of Education",
+   "title": "Union Education Minister holds bilateral meeting with French Minister for Higher Education in New Delhi",
+   "relevant": false
+  },
+  {
+   "prid": 2316206,
+   "ministry": "Ministry of Petroleum & Natural Gas",
+   "title": "India Energy Week 2027 Sets the Stage for Global Energy Dialogue in Kolkata",
+   "relevant": false
+  },
+  {
+   "prid": 2316210,
+   "ministry": "Ministry of Jal Shakti",
+   "title": "DoWR, RD & GR to implement Special Campaign 6 during 02-31 October, 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2316216,
+   "ministry": "Ministry of Environment, Forest and Climate Change",
+   "title": "India showcases Forest and Landscape Restoration Initiatives at COFO 28, in Rome",
+   "relevant": false
+  },
+  {
+   "prid": 2316242,
+   "ministry": "Ministry of Fisheries, Animal Husbandry & Dairying",
+   "title": "Ho'nble Union Minister for Fisheries Animal Husbandry and Dairying & Panchayatiraj Shri Rajiv Ranjan Singh alias Lalan Singh launched Live Stock insurance portal",
+   "relevant": false
+  },
+  {
+   "prid": 2316247,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Murali Sreeshankar on winning medal in Men’s Long Jump at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2316250,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Yashvir Singh and Rohit Yadav on winning Silver and Bronze medals in Javelin Throw at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2316253,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Parul Chaudhary on winning Bronze in Women’s 5000m at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2316256,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Gulveer Singh on winning Silver in Men’s 1500m at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2316259,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Vithya Ramraj on winning Bronze in Women’s 400m hurdles at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2316334,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister shares Sanskrit Subhashitam highlighting the six qualities that invite success",
+   "relevant": false
+  },
+  {
+   "prid": 2316355,
+   "ministry": "Ministry of Environment, Forest and Climate Change",
+   "title": "Union Environment Minister hands over India’s first PRAMAAN certificates under the Indian Forest and Wood Certification Scheme to Andhra Pradesh Forest Development Corporation and a Bamboo Farmer from",
+   "relevant": false
+  },
+  {
+   "prid": 2316357,
+   "ministry": "PIB Backgrounder",
+   "title": "Literacy for All",
+   "relevant": false
+  },
+  {
+   "prid": 2316364,
+   "ministry": "Ministry of Tourism",
+   "title": "Ministry of Tourism Gears Up for Special Campaign 6.0 with Focus on Swachhata and Reducing Pendency",
+   "relevant": false
+  },
+  {
+   "prid": 2316376,
+   "ministry": "Ministry of Textiles",
+   "title": "NIFT Students Make a Mark at WorldSkills Shanghai 2026 with Two Silver Medals and a Medal for Excellence",
+   "relevant": false
+  },
+  {
+   "prid": 2316383,
+   "ministry": "Ministry of Home Affairs",
+   "title": "Two officials apprehended for seeking illegal gratification to facilitate FCRA registration",
+   "relevant": false
+  },
+  {
+   "prid": 2316391,
+   "ministry": "Ministry of Skill Development and Entrepreneurship",
+   "title": "Ministry of Skill Development and Entrepreneurship Prepares for Special Campaign 6 building on Strong Outcomes Achieved under Special Campaign 5.0",
+   "relevant": false
+  },
+  {
+   "prid": 2316411,
+   "ministry": "Ministry of Tribal Affairs",
+   "title": "Ministry of Tribal Affairs and IGNCA Sign MoU for Preservation, Documentation and Promotion of Tribal Cultural Heritage",
+   "relevant": false
+  },
+  {
+   "prid": 2316423,
+   "ministry": "Ministry of Road Transport & Highways",
+   "title": "Ministry of Road Transport and Highways to Undertake Special Campaign 6.0 with Focus on Cleanliness of National Highways and Toll Plazas",
+   "relevant": false
+  },
+  {
+   "prid": 2316429,
+   "ministry": "Ministry of Micro,Small & Medium Enterprises",
+   "title": "Ministry of MSME and Ministry of Statistics and Programme Implementation Sign Memorandum of Understanding (MoU) for development and strengthening of the Statistical Business Register",
+   "relevant": false
+  },
+  {
+   "prid": 2316456,
+   "ministry": "Ministry of Agriculture & Farmers Welfare",
+   "title": "Shri Shivraj Singh Chouhan Calls for ‘Team Agriculture’ to Make India a Global Food Basket",
+   "relevant": false
+  },
+  {
+   "prid": 2316459,
+   "ministry": "Ministry of Jal Shakti",
+   "title": "DDWS organises Eleventh Edition of Sujal Gram Samvad",
+   "relevant": false
+  },
+  {
+   "prid": 2316460,
+   "ministry": "Ministry of Communications",
+   "title": "Principal Controller of Communication Accounts releases schedule for Telecom Pensioners Jeevan Praman Camps across Delhi NCR for the month of October",
+   "relevant": false
+  },
+  {
+   "prid": 2316474,
+   "ministry": "Ministry of Commerce & Industry",
+   "title": "Government to Launch Special Campaign 6 from 2–31 October with Focus on Swachhata and Reducing Pendency",
+   "relevant": false
+  },
+  {
+   "prid": 2316489,
+   "ministry": "Ministry of Statistics & Programme Implementation",
+   "title": "Release of Sub-Sectoral Trial Index of Services Production (ISP) for July 2026 (Base Year 2024–25)",
+   "relevant": true
+  },
+  {
+   "prid": 2316492,
+   "ministry": "Ministry of Defence",
+   "title": "India stands as the First Responder, Preferred Security Partner in the Indian Ocean Region: Shri Rajnath Singh",
+   "relevant": false
+  },
+  {
+   "prid": 2316493,
+   "ministry": "Ministry of Railways",
+   "title": "Indian Railways Approves Introduction of Two MEMU Services Connecting Meerut City with Khurja and Saharanpur in Uttar Pradesh",
+   "relevant": false
+  },
+  {
+   "prid": 2316495,
+   "ministry": "Ministry of Housing & Urban Affairs",
+   "title": "Union Minister Shri Manohar Lal Launches PRAGATI-50 initiative to Develop 50 Model Cities for Swachhata in New Delhi today",
+   "relevant": false
+  },
+  {
+   "prid": 2316520,
+   "ministry": "Ministry of Social Justice & Empowerment",
+   "title": "From Recovery to Self-Reliance",
+   "relevant": false
+  },
+  {
+   "prid": 2316533,
+   "ministry": "Ministry of Social Justice & Empowerment",
+   "title": "Financial Support Today, Self-Reliance Tomorrow",
+   "relevant": false
+  },
+  {
+   "prid": 2316535,
+   "ministry": "Ministry of Civil Aviation",
+   "title": "DGCA Introduces Training Framework for Gyroplane Pilots",
+   "relevant": false
+  },
+  {
+   "prid": 2316545,
+   "ministry": "Ministry of Science & Technology",
+   "title": "TDB signs agreement with Multi Nano Sense Technologies for ₹37.51 crore RDI support to build indigenous multi-gas sensing platform",
+   "relevant": false
+  },
+  {
+   "prid": 2316548,
+   "ministry": "Ministry of Social Justice & Empowerment",
+   "title": "Safaimitra Suraksha Evam Samman Shivir To Be Organised Tomorrow Under Swachhata Hi Seva 2026 Campaign",
+   "relevant": false
+  },
+  {
+   "prid": 2316556,
+   "ministry": "Ministry of Coal",
+   "title": "Ministry of Coal ready for Conducting Special Campaign 6 from 2nd to 31st October",
+   "relevant": false
+  },
+  {
+   "prid": 2316561,
+   "ministry": "PIB Backgrounder",
+   "title": "When Swachhata Becomes Shared Faith",
+   "relevant": false
+  },
+  {
+   "prid": 2316563,
+   "ministry": "NITI Aayog",
+   "title": "NITI Aayog organises National Workshop on “Viksit Panchayat: Connecting People, Places, Resources and Opportunities”- an initiative under NITI Aayog’s State Support Mission (SSM)",
+   "relevant": false
+  },
+  {
+   "prid": 2316569,
+   "ministry": "Ministry of Culture",
+   "title": "Uttar Pradesh’s Rich Heritage and Modern Milestones on Display at the Prime Minister Mementos e-Auction 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2316596,
+   "ministry": "Ministry of Housing & Urban Affairs",
+   "title": "Ministry of Housing and Urban Affairs (MoHUA) Organized Voluntary Blood Donation Camp",
+   "relevant": false
+  },
+  {
+   "prid": 2316597,
+   "ministry": "Ministry of Environment, Forest and Climate Change",
+   "title": "CAQM Approves Revised GRAP Schedule; Tightens Measures for Vehicles, Dust and Pollution Control",
+   "relevant": true
+  },
+  {
+   "prid": 2316602,
+   "ministry": "Ministry of Home Affairs",
+   "title": "Union Home Minister and Minister of Cooperation Shri Amit Shah inaugurates and lays foundation stone of various projects worth more than ₹1,941 crore to make travel easier for people of Delhi",
+   "relevant": false
+  },
+  {
+   "prid": 2316607,
+   "ministry": "Ministry of Tourism",
+   "title": "India and Italy agree to strengthen bilateral cooperation in tourism",
+   "relevant": false
+  },
+  {
+   "prid": 2316608,
+   "ministry": "Ministry of Textiles",
+   "title": "Ministry of Textiles and Its Organisations Undertake Various Cleanliness and Awareness Activities under Swachhata Hi Seva 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2316610,
+   "ministry": "Ministry of Textiles",
+   "title": "Textiles Organisations Undertake Cleanliness, Awareness and Environmental Initiatives under Swachhata Hi Seva 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2316616,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Neeru Dhanda on winning historic Gold in Women’s Trap at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2316619,
+   "ministry": "Prime Minister's Office",
+   "title": "Chief Minister of Delhi meets Prime Minister",
+   "relevant": false
+  },
+  {
+   "prid": 2316623,
+   "ministry": "Prime Minister's Office",
+   "title": "Governor of Tripura meets Prime Minister",
+   "relevant": false
+  },
+  {
+   "prid": 2316643,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Manisha Keer, Neeru and Aashima Ahlawat on winning Silver in Women’s Trap Team event at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2316647,
+   "ministry": "Ministry of Ports, Shipping and Waterways",
+   "title": "Ministry of Ports, Shipping & Waterways (MoPSW) Completes Preparatory Phase for Special Campaign 6",
+   "relevant": false
+  },
+  {
+   "prid": 2316657,
+   "ministry": "Ministry of Development of North-East Region",
+   "title": "Union Minister Jyotiraditya M. Scindia Launches The Trailer of Documentary Series ‘The Enchanting 8: A Culinary Journey Through the Northeast’",
+   "relevant": false
+  },
+  {
+   "prid": 2316661,
+   "ministry": "Ministry of Civil Aviation",
+   "title": "Civil Aviation Minister Ram Mohan Naidu curtain-raises Routes Asia",
+   "relevant": false
+  },
+  {
+   "prid": 2316681,
+   "ministry": "Ministry of Environment, Forest and Climate Change",
+   "title": "Union Environment Minister honours India’s Environmental Champions at 4th Eco Warrior Awards 2026, calls Conservation a National Responsibility",
+   "relevant": false
+  },
+  {
+   "prid": 2316688,
+   "ministry": "Ministry of Information & Broadcasting",
+   "title": "Dr. L. Murugan Highlights Role of Creator Economy and AI in Building Viksit Bharat at YouTube Impact Summit 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2316698,
+   "ministry": "Ministry of Rural Development",
+   "title": "“By treating the landscape, twin objectives of watershed development as well as river rejuvenation can be achieved”- Secretary, DoLR, Shri Narendra Bhooshan",
+   "relevant": false
+  },
+  {
+   "prid": 2316701,
+   "ministry": "Ministry of Labour & Employment",
+   "title": "District Capacity Building and Awareness Programme on Labour Codes Held at Okhla Industrial Estate, New Delhi as part of Shram Samvad Initiative",
+   "relevant": false
+  },
+  {
+   "prid": 2316706,
+   "ministry": "Ministry of Electronics & IT",
+   "title": "UIDAI unveils five new initiatives at Aadhaar Samvaad Kolkata to further advance trusted digital identity and good governance",
+   "relevant": false
+  },
+  {
+   "prid": 2316707,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Kiran Pahal, Poovamma MR, Prachi and Vithya Ramraj on winning Gold in Women’s 4×400m Relay at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2316732,
+   "ministry": "Ministry of Rural Development",
+   "title": "NRIDA and IIM Kolkata Sign MoU for Four-Year Impact Assessment Study of PMGSY-IV and PM-JANMAN",
+   "relevant": false
+  },
+  {
+   "prid": 2316749,
+   "ministry": "Ministry of Defence",
+   "title": "India and Republic of Korea Hold 10th Joint Committee Meeting on Defence Industries and Logistics Cooperation",
+   "relevant": false
+  },
+  {
+   "prid": 2316750,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Gulveer Singh on winning Bronze in Men’s 5000m at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2316753,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Pooja on winning Bronze in Women’s High Jump at Asian Games 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2316754,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Dharmveer Chaudhary, Manu TS, Jay Kumar and Vishal TK on winning Bronze in Men’s 4×400m Relay at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2316755,
+   "ministry": "Ministry of Culture",
+   "title": "Union Minister of Culture and Tourism Shri Gajendra Singh Shekhawat Felicitates 20 Award-Winning Artists at National Exhibition of Arts",
+   "relevant": false
+  },
+  {
+   "prid": 2316792,
+   "ministry": "Ministry of Power",
+   "title": "NEW CORPORATE AVERAGE FUEL ECONOMY (CAFE) NORMS NOTIFIED",
+   "relevant": true
+  },
+  {
+   "prid": 2316801,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister shares Sanskrit Subhashitam highlighting the importance of dedication to one’s duties",
+   "relevant": false
+  },
+  {
+   "prid": 2316840,
+   "ministry": "PIB Backgrounder",
+   "title": "UNION PUBLIC SERVICE COMMISSION",
+   "relevant": false
+  },
+  {
+   "prid": 2316848,
+   "ministry": "Ministry of Communications",
+   "title": "TRAI Assesses Mobile Network Quality across Sonitpur district under Assam LSA in the state of Assam",
+   "relevant": false
+  },
+  {
+   "prid": 2316851,
+   "ministry": "Ministry of Petroleum & Natural Gas",
+   "title": "Draft Petroleum (Amendment) Bill, 2026 Released for Stakeholder and Public Consultation",
+   "relevant": true
+  },
+  {
+   "prid": 2316858,
+   "ministry": "Ministry of Defence",
+   "title": "SECOND EDITION OF NAVAL COMMANDERS’ CONFERENCE 2026 AT NEW DELHI",
+   "relevant": false
+  },
+  {
+   "prid": 2316863,
+   "ministry": "Ministry of Heavy Industries",
+   "title": "India’s indigenous technology push gains momentum as HD Kumaraswamy unveils MHI Industry Accelerator Impact Report at Navigyaan 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2316864,
+   "ministry": "PIB Backgrounder",
+   "title": "Beyond Wastewater: Turning Used Water into a Resource",
+   "relevant": false
+  },
+  {
+   "prid": 2316865,
+   "ministry": "Ministry of Consumer Affairs, Food & Public Distribution",
+   "title": "Department of Food and Public Distribution Strengthens Preparations for Special Campaign 6",
+   "relevant": false
+  },
+  {
+   "prid": 2316866,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister expresses grief over loss of lives in mishap in Anand, Gujarat",
+   "relevant": false
+  },
+  {
+   "prid": 2316869,
+   "ministry": "AYUSH",
+   "title": "Ayush Emerges as One of India’s Fastest-Growing Service Sectors, RIS Study Estimates US$36.92 Billion Economy",
+   "relevant": false
+  },
+  {
+   "prid": 2316873,
+   "ministry": "Ministry of Defence",
+   "title": "Defence Accounts Department to Celebrate 279th Annual Day",
+   "relevant": false
+  },
+  {
+   "prid": 2316883,
+   "ministry": "PIB Backgrounder",
+   "title": "Beyond Cleanliness: The Women and Transgender Changemakers of Swachhata",
+   "relevant": false
+  },
+  {
+   "prid": 2316890,
+   "ministry": "Ministry of Defence",
+   "title": "ICG Interdicts Transnational Syndicate with Rs 3,000 Cr Narcotics Seizure",
+   "relevant": false
+  },
+  {
+   "prid": 2316904,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Jyothi Surekha Vennam, Prithika Pradeep and Chikitha Taniparthi on winning Gold in Women’s Compound Team event at Asian Games 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2316906,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Neeru and Kynan Chenai on winning Gold in Trap Mixed Team event at Asian Games 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2316911,
+   "ministry": "Prime Minister's Office",
+   "title": "PM to participate in Centenary Celebrations of UPSC on October 1 at Bharat Mandapam",
+   "relevant": false
+  },
+  {
+   "prid": 2316922,
+   "ministry": "Ministry of Coal",
+   "title": "India Mining Week 2026 Brings Together Diplomatic Missions from 19 Countries for ‘India Mining: Global Connect’",
+   "relevant": false
+  },
+  {
+   "prid": 2316926,
+   "ministry": "Ministry of Social Justice & Empowerment",
+   "title": "From Financial Assistance to Self-Reliance",
+   "relevant": false
+  },
+  {
+   "prid": 2316935,
+   "ministry": "Ministry of Social Justice & Empowerment",
+   "title": "From Peer Pressure to Purpose",
+   "relevant": false
+  },
+  {
+   "prid": 2316939,
+   "ministry": "Ministry of Agriculture & Farmers Welfare",
+   "title": "Shri Chouhan Approves ₹5,547.99 Crore Procurement of Pulses and Oilseeds Under PSS for Kharif 2026-27",
+   "relevant": true
+  },
+  {
+   "prid": 2316941,
+   "ministry": "Cabinet Committee on Economic Affairs (CCEA)",
+   "title": "Cabinet approves Minimum Support Prices (MSP) for Rabi Crops for Marketing Season 2027-28",
+   "relevant": true
+  },
+  {
+   "prid": 2316948,
+   "ministry": "Cabinet",
+   "title": "Cabinet approves Green Energy Corridor Phase-III scheme for Development of Intra-State Transmission System with Battery Energy Storage Systems",
+   "relevant": true
+  },
+  {
+   "prid": 2316950,
+   "ministry": "Ministry of New and Renewable Energy",
+   "title": "Cabinet approves Green Energy Corridor Phase-III scheme for Development of Intra-State Transmission System with Battery Energy Storage Systems",
+   "relevant": true
+  },
+  {
+   "prid": 2316953,
+   "ministry": "Cabinet Committee on Economic Affairs (CCEA)",
+   "title": "Cabinet approves One Network, Smarter Traffic: Delhi Moves to Real-Time Traffic Management",
+   "relevant": true
+  },
+  {
+   "prid": 2316955,
+   "ministry": "Ministry of Home Affairs",
+   "title": "Cabinet approves One Network, Smarter Traffic: Delhi Moves to Real-Time Traffic Management",
+   "relevant": true
+  },
+  {
+   "prid": 2316956,
+   "ministry": "Ministry of Agriculture & Farmers Welfare",
+   "title": "Cabinet approves Minimum Support Prices (MSP) for Rabi Crops for Marketing Season 2027-28",
+   "relevant": true
+  },
+  {
+   "prid": 2316964,
+   "ministry": "Ministry of Finance",
+   "title": "Special Campaign 6.0: DIPAM Engages MSTC to Auction and Responsibly Recycle Departmental E-Waste",
+   "relevant": false
+  },
+  {
+   "prid": 2316978,
+   "ministry": "Ministry of Social Justice & Empowerment",
+   "title": "From Financial Assistance to Academic Excellence",
+   "relevant": false
+  },
+  {
+   "prid": 2316981,
+   "ministry": "Ministry of Statistics & Programme Implementation",
+   "title": "Release of the Annual Survey of Industries (2024-25) results",
+   "relevant": true
+  },
+  {
+   "prid": 2316983,
+   "ministry": "Ministry of Home Affairs",
+   "title": "In a major success in the fight against drugs, 526 kilograms of methamphetamine and heroin seized from an Iranian boat in India's EEZ, and 5 Pakistani nationals arrested during a joint operation invol",
+   "relevant": false
+  },
+  {
+   "prid": 2316997,
+   "ministry": "Ministry of Home Affairs",
+   "title": "Indian security forces neutralize senior Laskhar-E-Taiba Commander, Musa aka Asif Fauji, in an intelligence-led operation in J&K",
+   "relevant": false
+  },
+  {
+   "prid": 2317006,
+   "ministry": "Ministry of Science & Technology",
+   "title": "SWACHHATA HI SEVA (17th SEPTEMBER- 2nd OCTOBER 2026)",
+   "relevant": false
+  },
+  {
+   "prid": 2317011,
+   "ministry": "Ministry of Electronics & IT",
+   "title": "Digital India BHASHINI Division and CAG Launch “CAG-BHASHINI Anuvaad” to Enable AI-powered Multilingual Translation of Official Documents",
+   "relevant": false
+  },
+  {
+   "prid": 2317012,
+   "ministry": "Ministry of Coal",
+   "title": "Union Minister Shri G. Kishan Reddy Reviews Coal India Limited’s Preparations for Special Campaign 6",
+   "relevant": false
+  },
+  {
+   "prid": 2317034,
+   "ministry": "Ministry of Finance",
+   "title": "Monthly Review of Accounts of Union Government of India upto the month of August 2026 (FY 2026-27)",
+   "relevant": true
+  },
+  {
+   "prid": 2317044,
+   "ministry": "Ministry of Parliamentary Affairs",
+   "title": "Ministry of Parliamentary Affairs Successfully Concludes Hindi Pakhwada",
+   "relevant": false
+  },
+  {
+   "prid": 2317061,
+   "ministry": "Ministry of Road Transport & Highways",
+   "title": "NHAI to Conduct Special Quality Checks on Projects with Abnormally Low Quoted Bids",
+   "relevant": true
+  },
+  {
+   "prid": 2317073,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Kushal Dalal, Sahil Rajesh Jadhav and Ganesh Maniratnam Thirumuru on winning Gold in Men’s Compound Team event at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2317084,
+   "ministry": "Ministry of Electronics & IT",
+   "title": "Ministry of Electronics and Information Technology (MeitY) Commences Preparatory Phase of Special Campaign 6",
+   "relevant": false
+  },
+  {
+   "prid": 2317090,
+   "ministry": "Ministry of Commerce & Industry",
+   "title": "Commerce and Industry Minister Shri Piyush Goyal Arrives in Milwaukee, U.S. to Attend G20 Trade Ministers’ Meeting",
+   "relevant": false
+  },
+  {
+   "prid": 2317093,
+   "ministry": "Ministry of Environment, Forest and Climate Change",
+   "title": "CAQM Reviews Preparedness for Stubble-Burning Prevention, Vehicular and Industrial Emission Control",
+   "relevant": false
+  },
+  {
+   "prid": 2317100,
+   "ministry": "Ministry of Youth Affairs and Sports",
+   "title": "Department of Youth Affairs Gears Up for Special Campaign 6.0 with Focus on Effective Collection, Segregation and Disposal of E-Waste",
+   "relevant": false
+  },
+  {
+   "prid": 2317106,
+   "ministry": "Ministry of Science & Technology",
+   "title": "Scientists map earliest glow of hydrogen, opening a new window to the universe",
+   "relevant": false
+  },
+  {
+   "prid": 2317123,
+   "ministry": "Ministry of Science & Technology",
+   "title": "Induction Programme for Newly Recruited Scientists, September 21-30, 2026 | CSIR-HRDC Campus, Ghaziabad",
+   "relevant": false
+  },
+  {
+   "prid": 2317134,
+   "ministry": "Ministry of Defence",
+   "title": "RAKSHA RAJYA MANTRI SANJAY SETH ATTENDS CLOSING CEREMONY OF MILITARY NURSING SERVICE CENTENARY CELEBRATIONS",
+   "relevant": false
+  },
+  {
+   "prid": 2317142,
+   "ministry": "Ministry of Coal",
+   "title": "ECL sets the stage for action-driven Special Campaign 6",
+   "relevant": false
+  },
+  {
+   "prid": 2317151,
+   "ministry": "PIB Backgrounder",
+   "title": "Bankers Books Evidence Act, 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2317152,
+   "ministry": "Ministry of Parliamentary Affairs",
+   "title": "Ministry of Parliamentary Affairs Completes Preparatory Phase of Special Campaign 6",
+   "relevant": false
+  },
+  {
+   "prid": 2317160,
+   "ministry": "Ministry of Culture",
+   "title": "Auction of 109 Mementos Showcases West Bengal’s Diverse Cultural and Artistic Heritage",
+   "relevant": false
+  },
+  {
+   "prid": 2317164,
+   "ministry": "Competition Commission of India",
+   "title": "CCI approves acquisition of 100% shareholding of FMC India by Crystal Crop Protection Ltd",
+   "relevant": true
+  },
+  {
+   "prid": 2317165,
+   "ministry": "Competition Commission of India",
+   "title": "CCI approves acquisition of majority of the shares and voting rights in Volkswagen subsidiary Everllence SE by funds managed and/or advised by Bain Capital Investors, LLC",
+   "relevant": true
+  },
+  {
+   "prid": 2317169,
+   "ministry": "Competition Commission of India",
+   "title": "CCI approves the acquisition of certain equity share capital in IndiaFirst Life Insurance Co. Ltd. by BNP Paribas Cardif",
+   "relevant": true
+  },
+  {
+   "prid": 2317170,
+   "ministry": "Competition Commission of India",
+   "title": "CCI approves acquisition of certain equity shareholding in Continuum Green Energy Ltd by Chubu Electric Power Company Netherlands B.V.",
+   "relevant": true
+  },
+  {
+   "prid": 2317191,
+   "ministry": "Ministry of Development of North-East Region",
+   "title": "Special Campaign 6",
+   "relevant": false
+  },
+  {
+   "prid": 2317206,
+   "ministry": "Ministry of Defence",
+   "title": "ASEAN-INDIA MARITIME EXERCISE (AIME-2026) COMMENCES IN SUBIC BAY, PHILIPPINES",
+   "relevant": false
+  },
+  {
+   "prid": 2317207,
+   "ministry": "Ministry of Mines",
+   "title": "Ministry of Mines to Launch Auction of Offshore Mineral Blocks in Andaman Sea",
+   "relevant": true
+  },
+  {
+   "prid": 2317218,
+   "ministry": "Vice President's Secretariat",
+   "title": "Vice-President Shri C. P. Radhakrishnan Interacts with Indian Defence Estates Service Probationers at Uprashtrapati Bhavan",
+   "relevant": false
+  },
+  {
+   "prid": 2317223,
+   "ministry": "Ministry of New and Renewable Energy",
+   "title": "Ministry of New & Renewable Energy completes Preparatory Phase of Special Campaign 6; Implementation Phase to Begin from 2nd October, 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2317226,
+   "ministry": "Ministry of New and Renewable Energy",
+   "title": "Ministry of New and Renewable Energy organizes Plantation Drive under “Ek Ped Maa Ke Naam” Initiative",
+   "relevant": false
+  },
+  {
+   "prid": 2317229,
+   "ministry": "Ministry of Chemicals and Fertilizers : Department of Pharmaceuticals",
+   "title": "New Discovery Track for Startups and MSMEs with Financial Assistance upto ₹50 cr under PRIP Scheme announced",
+   "relevant": false
+  },
+  {
+   "prid": 2317233,
+   "ministry": "Ministry of Law and Justice",
+   "title": "India Showcases Justice Reforms and Global Legal Partnerships at 15th UN Congress in Abu Dhabi",
+   "relevant": false
+  },
+  {
+   "prid": 2317241,
+   "ministry": "Ministry of Science & Technology",
+   "title": "India’s emerging quantum ecosystem strengthened by enabling policy of the Modi government: Dr Jitendra Singh",
+   "relevant": false
+  },
+  {
+   "prid": 2317243,
+   "ministry": "Ministry of Science & Technology",
+   "title": "Dr. Jitendra Singh Reviews Preparedness for Special Campaign 6.0",
+   "relevant": false
+  },
+  {
+   "prid": 2317251,
+   "ministry": "Ministry of Mines",
+   "title": "Union Minister for Coal and Mines Shri G. Kishan Reddy to Participate in Cleanliness Drive under Swachhata Hi Seva 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2317258,
+   "ministry": "Ministry of Law and Justice",
+   "title": "Legislative Department, Ministry of Law and Justice, organized a Workshop on “Best out of Waste” Turning Waste into Wonder “Kabad Se Jugad”",
+   "relevant": false
+  },
+  {
+   "prid": 2317260,
+   "ministry": "President's Secretariat",
+   "title": "No Change of Guard Ceremony on October 3",
+   "relevant": false
+  },
+  {
+   "prid": 2317266,
+   "ministry": "Office of Principal Scientific Advisor to GoI",
+   "title": "Scientific Steering Committee on One Health Reviews Progress Towards Strengthening One Health Systems in India",
+   "relevant": false
+  },
+  {
+   "prid": 2317267,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister Shri Narendra Modi speaks with US President Donald Trump",
+   "relevant": true
+  },
+  {
+   "prid": 2317286,
+   "ministry": "Ministry of Environment, Forest and Climate Change",
+   "title": "Union Environment Minister Shri Bhupender Yadav launches Guidelines for National Coastal Mission 2.0",
+   "relevant": false
+  },
+  {
+   "prid": 2317296,
+   "ministry": "Ministry of Chemicals and Fertilizers : Department of Pharmaceuticals",
+   "title": "₹1,600 Crore Approved for 41 Pharma & MedTech Innovation Projects under PRIP First Round",
+   "relevant": true
+  },
+  {
+   "prid": 2317301,
+   "ministry": "Ministry of Social Justice & Empowerment",
+   "title": "Social Justice & Empowerment Ministry Organizes National Level SafaiMitra Suraksha Evam Samman Shivir Under Swachhata Hi Seva 2026 Campaign",
+   "relevant": false
+  },
+  {
+   "prid": 2317305,
+   "ministry": "Ministry of Minority Affairs",
+   "title": "Ministry of Minority Affairs observes Swachhata Hi Seva 2026 in New Delhi",
+   "relevant": false
+  },
+  {
+   "prid": 2317308,
+   "ministry": "Ministry of Environment, Forest and Climate Change",
+   "title": "Delhi Records Lowest September Average AQI in Five Years; Air Quality Improvement Trend Continues in 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2317318,
+   "ministry": "Ministry of Defence",
+   "title": "OPERATION DRISHTI: Armed Forces Medical Services Conduct Two Landmark Mega Eye Surgical Camps in Kashmir",
+   "relevant": false
+  },
+  {
+   "prid": 2317322,
+   "ministry": "Ministry of Law and Justice",
+   "title": "Quiz Competition Organised by Department of Legal Affairs under Special Campaign 6 and Swachhata Hi Seva 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2317327,
+   "ministry": "Ministry of Personnel, Public Grievances & Pensions",
+   "title": "Central Information Commission observes Hindi Pakhwada 2026 from 14th September, 2026 to 28th September, 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2317336,
+   "ministry": "Ministry of Personnel, Public Grievances & Pensions",
+   "title": "UPSC Centenary Celebrations ‘Manthan’ Focus on Future-Ready Civil Services, Innovation and Constitutional Values",
+   "relevant": false
+  },
+  {
+   "prid": 2317338,
+   "ministry": "Ministry of Textiles",
+   "title": "Ministry of Textiles extends RoSCTL Scheme till 31 December 2026",
+   "relevant": true
+  },
+  {
+   "prid": 2317346,
+   "ministry": "Ministry of Health and Family Welfare",
+   "title": "Union Minister for Health and Family Welfare Shri J.P. Nadda Addresses World Congress of Gastroenterology 2026 in New Delhi",
+   "relevant": false
+  },
+  {
+   "prid": 2317351,
+   "ministry": "Ministry of Environment, Forest and Climate Change",
+   "title": "NBA to Mark 23rd Foundation Day tomorrow with significant progress in Access and Benefit Sharing",
+   "relevant": false
+  },
+  {
+   "prid": 2317352,
+   "ministry": "Election Commission",
+   "title": "Election Commission of India extends the SIR dates in Andhra Pradesh and Meghalaya",
+   "relevant": false
+  },
+  {
+   "prid": 2317383,
+   "ministry": "Ministry of Micro,Small & Medium Enterprises",
+   "title": "KVIC Chairman Shri Manoj Goyal interacted with the artisan women of Lijjat Papad and commended their women empowerment efforts.",
+   "relevant": false
+  },
+  {
+   "prid": 2317393,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister congratulates Sunil Kumar on winning Bronze in Men’s Greco-Roman 87kg at Asian Games",
+   "relevant": false
+  },
+  {
+   "prid": 2317401,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister lauds Captain Smit Machchhar for immense courage and valour in saving lives",
+   "relevant": false
+  },
+  {
+   "prid": 2317403,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister extends birthday greetings to former President Shri Ram Nath Kovind",
+   "relevant": false
+  },
+  {
+   "prid": 2317404,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister shares Sanskrit Subhashitam highlighting the importance of determination and perseverance",
+   "relevant": false
+  },
+  {
+   "prid": 2317416,
+   "ministry": "Ministry of Health and Family Welfare",
+   "title": "Union Ministry of Health and Family Welfare Organises Shramdaan under ‘Swachhata Hi Seva 2026’",
+   "relevant": false
+  },
+  {
+   "prid": 2317440,
+   "ministry": "Ministry of Tribal Affairs",
+   "title": "Union Tribal Affairs Minister Shri Jual Oram to Undertake Four-Day Visit to Uttar Pradesh and Uttarakhand",
+   "relevant": false
+  },
+  {
+   "prid": 2317443,
+   "ministry": "Ministry of Environment, Forest and Climate Change",
+   "title": "Shri Narendra Bhooshan assumes charge as Secretary of Union Ministry of Environment, Forest and Climate Change",
+   "relevant": false
+  },
+  {
+   "prid": 2317450,
+   "ministry": "Ministry of Jal Shakti",
+   "title": "DDWS Organizes Second Follow-up Meeting to accelerate drinking water coverage in tribal areas under PM-JANMAN and DA-JGUA",
+   "relevant": false
+  },
+  {
+   "prid": 2317462,
+   "ministry": "Ministry of Mines",
+   "title": "Union Minister Shri G. Kishan Reddy leads Swachhata Hi Seva 2026 Cleanliness Drive; calls for collective action towards a cleaner India",
+   "relevant": false
+  },
+  {
+   "prid": 2317470,
+   "ministry": "AYUSH",
+   "title": "Union Minister Shri Prataprao Jadhav Seeks Surya Kiran Air Show at Lonar to Promote Maharashtra’s Tourism Potential",
+   "relevant": false
+  },
+  {
+   "prid": 2317480,
+   "ministry": "Ministry of Culture",
+   "title": "Ministry of Culture Gears Up for Special Campaign 6.0 launched by DARPG, with Focus on Cleanliness, E-Waste Disposal and Records Management",
+   "relevant": false
+  },
+  {
+   "prid": 2317494,
+   "ministry": "Ministry of Panchayati Raj",
+   "title": "Special Gram Sabhas across India to Mark 2nd October with Discussions on Transformative Governance Reforms ; Launch People’s Plan Campaign 2026-27 ‘Sabki Yojana, Sabka Vikas’",
+   "relevant": false
+  },
+  {
+   "prid": 2317497,
+   "ministry": "Ministry of Consumer Affairs, Food & Public Distribution",
+   "title": "Government Revises Sugar Stock Holding Norms to Prevent Hoarding and Ensure Smooth Supply to Consumers During Festive Season",
+   "relevant": true
+  },
+  {
+   "prid": 2317507,
+   "ministry": "PIB Backgrounder",
+   "title": "From AI to EVs: How Technology Is Transforming Urban Swachhata",
+   "relevant": false
+  },
+  {
+   "prid": 2317509,
+   "ministry": "Ministry of Science & Technology",
+   "title": "Clarification regarding closure of Call for Proposal under Research Development & Innovation (RDI) Scheme by Technology Development Board (TDB)",
+   "relevant": false
+  },
+  {
+   "prid": 2317514,
+   "ministry": "Ministry of Textiles",
+   "title": "Ministry of Textiles undertakes Swachhata initiatives to promote Cleanliness, Sustainability and Waste-is-Wealth practices",
+   "relevant": false
+  },
+  {
+   "prid": 2317515,
+   "ministry": "Ministry of Social Justice & Empowerment",
+   "title": "Government Strengthens Implementation of PCR and SC/ST (Prevention of Atrocities) Acts through Special Courts, Victim Support, Awareness and Grievance Redressal Mechanisms",
+   "relevant": false
+  },
+  {
+   "prid": 2317528,
+   "ministry": "PIB Backgrounder",
+   "title": "Finding New Purpose in What We Discard",
+   "relevant": false
+  },
+  {
+   "prid": 2317531,
+   "ministry": "Prime Minister's Office",
+   "title": "Prime Minister Shri Narendra Modi participates in Centenary Celebrations of UPSC",
+   "relevant": false
+  },
+  {
+   "prid": 2317535,
+   "ministry": "Prime Minister's Office",
+   "title": "Text of PM’s address at the Centenary Celebrations of UPSC",
+   "relevant": false
+  },
+  {
+   "prid": 2317552,
+   "ministry": "Ministry of Defence",
+   "title": "INS TRISHUL PARTICIPATES IN 24TH EDITION OF INDIA–FRANCE BILATERAL MARITIME EXERCISE VARUNA",
+   "relevant": false
+  },
+  {
+   "prid": 2317553,
+   "ministry": "Ministry of Rural Development",
+   "title": "Special Campaign 6 (2nd October to 31st October, 2026) in the Department of Land Resources",
+   "relevant": false
+  },
+  {
+   "prid": 2317554,
+   "ministry": "Ministry of Rural Development",
+   "title": "Department of Land Resources Honours Cleaning Staff under Swachhata Hi Seva Initiative",
+   "relevant": false
+  },
+  {
+   "prid": 2317557,
+   "ministry": "Ministry of Health and Family Welfare",
+   "title": "National Voluntary Blood Donation Day 2026 Observed with Renewed Call for Regular Voluntary Blood Donation",
+   "relevant": false
+  },
+  {
+   "prid": 2317567,
+   "ministry": "Ministry of Finance",
+   "title": "5th Kautilya Economic Conclave to be held in New Delhi from 3 to 5 October 2026 under the theme “Resilience in an Age of Flux”",
+   "relevant": false
+  },
+  {
+   "prid": 2317578,
+   "ministry": "Lok Sabha Secretariat",
+   "title": "LOK SABHA SPEAKER PAYS TRIBUTES TO FORMER SPEAKER, LOK SABHA, SHRI G.M.C. BALAYOGI",
+   "relevant": false
+  },
+  {
+   "prid": 2317580,
+   "ministry": "Ministry of Education",
+   "title": "Students play a pivotal role in building a clean, green and healthy Viksit Bharat 2047: Shri Pralhad Joshi",
+   "relevant": false
+  },
+  {
+   "prid": 2317586,
+   "ministry": "Ministry of Defence",
+   "title": "Raksha Mantri Launches Key Digital and Financial Management Initiatives at Defence Accounts Department’s 279th Annual Day Celebration in New Delhi",
+   "relevant": false
+  },
+  {
+   "prid": 2317589,
+   "ministry": "Ministry of Agriculture & Farmers Welfare",
+   "title": "Department of Agricultural Research and Education - Indian Council of Agricultural Research’s Swachhata Hi Seva 2026: From Participation to a Viksit Bharat",
+   "relevant": false
+  },
+  {
+   "prid": 2317606,
+   "ministry": "Ministry of Statistics & Programme Implementation",
+   "title": "Forward-Looking Survey on Private Corporate Sector CAPEX Investment Intentions",
+   "relevant": true
+  },
+  {
+   "prid": 2317611,
+   "ministry": "Ministry of Youth Affairs and Sports",
+   "title": "Dr. Mansukh Mandaviya Launches Physical Education Professionals’ Module, Highlights Critical Role in Scientific Talent Identification at Grassroots",
+   "relevant": false
+  },
+  {
+   "prid": 2317612,
+   "ministry": "Ministry of Parliamentary Affairs",
+   "title": "Minister of Parliamentary Affairs leads “Ek Din – Ek Ghanta – Ek Saath Shramdaan” under Swachhata Hi Seva Campaign 2026",
+   "relevant": false
+  },
+  {
+   "prid": 2317614,
+   "ministry": "Ministry of Labour & Employment",
+   "title": "Ministry of Labour & Employment expands “Shram Samvad” outreach across industrial clusters",
+   "relevant": false
+  },
+  {
+   "prid": 2317615,
+   "ministry": "Ministry of Communications",
+   "title": "Department of Posts Takes Special Campaign 6 to the Last Mile with Focus on Swachhata, Efficiency and Customer-Centric Services",
+   "relevant": false
+  }
+ ]
+}

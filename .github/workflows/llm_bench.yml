@@ -49,7 +49,7 @@ jobs:
           "$srv" -m "models/$(basename '${{ inputs.model }}')" -c 8192 -t $(nproc) --port 8080 -np 1 > server.log 2>&1 &
           for i in $(seq 1 120); do curl -sf http://127.0.0.1:8080/health >/dev/null && break; sleep 1; done; curl -sf http://127.0.0.1:8080/health >/dev/null || { tail -40 server.log; exit 1; }
           echo "server ready in $(( $(date +%s) - t0 ))s"
-          uv run python harness/llm_bench.py --label "${{ inputs.label }}" | tee -a "$GITHUB_STEP_SUMMARY"
+          PYTHONPATH=. uv run python harness/llm_eval_pib.py --label "${{ inputs.label }}" | tee -a "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
