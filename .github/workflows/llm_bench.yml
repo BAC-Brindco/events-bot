@@ -1,0 +1,59 @@
+name: llm-bench
+
+# Measure a local small model on the runner CPU (llama.cpp llama-server, no external API).
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "GGUF repo/file on Hugging Face"
+        default: "Qwen/Qwen2.5-3B-Instruct-GGUF/qwen2.5-3b-instruct-q4_k_m.gguf"
+      label:
+        default: "qwen2.5-3b-q4"
+
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      LLAMA_BUILD: b11460
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+          enable-cache: true
+      - run: uv sync --frozen --no-dev
+      - name: Cache model
+        uses: actions/cache@v4
+        with:
+          path: models
+          key: gguf-${{ inputs.model }}
+      - name: Fetch llama.cpp and model
+        run: |
+          nproc; free -g | head -2
+          curl -sL -o llama.tgz "https://github.com/ggml-org/llama.cpp/releases/download/${LLAMA_BUILD}/llama-${LLAMA_BUILD}-bin-ubuntu-x64.tar.gz"
+          mkdir -p llama && tar -xzf llama.tgz -C llama && find llama -name llama-server -type f
+          mkdir -p models
+          f="models/$(basename '${{ inputs.model }}')"
+          if [ ! -f "$f" ]; then
+            repo=$(dirname '${{ inputs.model }}'); file=$(basename '${{ inputs.model }}')
+            time curl -sL -o "$f" "https://huggingface.co/${repo}/resolve/main/${file}"
+          fi
+          ls -la models
+      - name: Run benchmark
+        run: |
+          srv=$(find llama -name llama-server -type f | head -1); chmod +x "$srv"
+          export LD_LIBRARY_PATH="$(dirname "$srv"):${LD_LIBRARY_PATH:-}"
+          t0=$(date +%s)
+          "$srv" -m "models/$(basename '${{ inputs.model }}')" -c 8192 -t $(nproc) --port 8080 -np 1 > server.log 2>&1 &
+          until curl -sf http://127.0.0.1:8080/health >/dev/null; do sleep 1; done
+          echo "server ready in $(( $(date +%s) - t0 ))s"
+          uv run python harness/llm_bench.py --label "${{ inputs.label }}" | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: llm-bench-${{ inputs.label }}
+          path: |
+            out/llm_bench
+            server.log
