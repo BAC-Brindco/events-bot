@@ -31,11 +31,13 @@ env:
   EVENTS_BOT_RECIPIENTS: ${{ secrets.EVENTS_BOT_RECIPIENTS }}
   EVENTS_BOT_OPERATOR_EMAILS: ${{ secrets.EVENTS_BOT_OPERATOR_EMAILS }}
   DRY: ${{ vars.EVENTS_BOT_LIVE != 'true' && '--dry-run' || '' }}
+  LLAMA_BUILD: b11460
+  LLM_GGUF_DEFAULT: bartowski/Qwen_Qwen3-4B-Instruct-2507-GGUF/Qwen_Qwen3-4B-Instruct-2507-Q4_K_M.gguf
 
 jobs:
   tick:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
@@ -45,6 +47,36 @@ jobs:
       - run: uv sync --frozen --no-dev
       - name: Poll stream sources
         run: uv run python -m events_bot.ops.cli tick $DRY | tee -a "$GITHUB_STEP_SUMMARY"
+      # ── Local LLM triage: only when the rules left items undecided ─────────────
+      - name: Items waiting for LLM triage
+        id: pending
+        run: echo "n=$(uv run python -m events_bot.ops.cli llm-pending | tail -1)" >> "$GITHUB_OUTPUT"
+      - name: Cache model
+        if: steps.pending.outputs.n != '0'
+        uses: actions/cache@v4
+        with:
+          path: models
+          key: gguf-${{ vars.LLM_GGUF || env.LLM_GGUF_DEFAULT }}
+      - name: Start local model (llama.cpp on the runner CPU)
+        if: steps.pending.outputs.n != '0'
+        env:
+          GGUF: ${{ vars.LLM_GGUF || env.LLM_GGUF_DEFAULT }}
+        run: |
+          f="models/$(basename "$GGUF")"
+          mkdir -p models
+          [ -f "$f" ] || curl -sfL -o "$f" "https://huggingface.co/$(dirname "$GGUF")/resolve/main/$(basename "$GGUF")"
+          curl -sfL -o llama.tgz "https://github.com/ggml-org/llama.cpp/releases/download/${LLAMA_BUILD}/llama-${LLAMA_BUILD}-bin-ubuntu-x64.tar.gz"
+          mkdir -p llama && tar -xzf llama.tgz -C llama
+          srv=$(find llama -name llama-server -type f | head -1); chmod +x "$srv"
+          LD_LIBRARY_PATH="$(dirname "$srv")" nohup "$srv" -m "$f" -c 4096 -t $(nproc) --port 8080 -np 1 > llama.log 2>&1 &
+          for i in $(seq 1 120); do curl -sf http://127.0.0.1:8080/health >/dev/null && break; sleep 1; done
+          curl -sf http://127.0.0.1:8080/health >/dev/null || { tail -30 llama.log; echo "model not up; triage falls back"; }
+      - name: LLM triage
+        if: steps.pending.outputs.n != '0'
+        env:
+          LLM_BASE_URL: http://127.0.0.1:8080
+          LLM_MODEL: ${{ vars.LLM_GGUF || env.LLM_GGUF_DEFAULT }}
+        run: uv run python -m events_bot.ops.cli llm-triage $DRY | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Arm burst jobs for events opening within 36 h
         env:
           GH_TOKEN: ${{ github.token }}
