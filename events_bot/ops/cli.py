@@ -54,6 +54,10 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--resend", metavar="REASON", default="",
                    help="send both stages again as a tracked resend, subject '[Resend · REASON] ...'")
+    p = sub.add_parser("llm-triage", help="decide pending_llm items with the local model (LLM_BASE_URL)")
+    p.add_argument("--max-wait-min", type=int, default=60)
+    p.add_argument("--dry-run", action="store_true")
+    sub.add_parser("llm-pending", help="print how many items wait for LLM triage")
     p = sub.add_parser("windows")
     p.add_argument("--max-minutes", type=int, default=330)
     p.add_argument("--dry-run", action="store_true")
@@ -173,6 +177,31 @@ def main(argv: list[str] | None = None) -> int:
             ev = app.db.get_event(a.ref)
             print(a.ref, ev["status"], {k: ev["meta"].get(k) for k in ("stage1_at", "stage2_at")})
         finally:
+            app.close()
+        return 0
+
+    if a.cmd == "llm-pending":
+        app = _app()
+        try:
+            print(app.db.one("select count(*) n from items where status = 'pending_llm'")["n"])
+        finally:
+            app.close()
+        return 0
+
+    if a.cmd == "llm-triage":
+        from datetime import timedelta
+        from ..llm import triage
+        from ..llm.client import LLM, LLMConfig
+        app = _app(a.dry_run)
+        cfg = LLMConfig.from_env()
+        llm = LLM(cfg, app.db) if cfg else None
+        try:
+            st = triage.run(app, llm, max_wait=timedelta(minutes=a.max_wait_min))
+            print(f"pending {st.seen}: delivered {st.realtime} realtime + {st.queued} digest, filtered {st.filtered}"
+                  + (f"; model calls {llm.calls}, cache hits {llm.cache_hits}" if llm else "; no LLM configured"))
+        finally:
+            if llm:
+                llm.close()
             app.close()
         return 0
 

@@ -53,11 +53,12 @@ class App:
         cfg: SourceConfig = self.sources[source_id]
         at = utcnow()
         try:
-            items = self.adapter(source_id).poll()
+            adapter = self.adapter(source_id)
+            items = adapter.poll()
             if cfg.health_rules.min_items is not None and 0 < len(items) < cfg.health_rules.min_items:
                 raise FetchError(next(iter(cfg.urls.values())), "shape",
                                  f"parse yielded {len(items)} rows < min_items {cfg.health_rules.min_items}")
-            stats = self.pipeline.process(cfg, items)
+            stats = self.pipeline.process(cfg, items, enrich=getattr(adapter, "enrich", None))
         except Exception as e:  # noqa: BLE001  a source failure must never kill the scheduler
             n = self.db.health_error(source_id, at, f"{type(e).__name__}: {e}")
             log.error("poll_failed", source=source_id, consecutive=n, error=str(e)[:300])

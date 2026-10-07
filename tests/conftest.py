@@ -42,7 +42,7 @@ def schema_ready():
 def db(schema_ready):
     d = Database(TEST_DSN)
     d.q("truncate sources, http_cache, documents, events, items, extractions, filtered_items, sends, "
-        "digests, source_health, health_alerts, raw_blobs restart identity cascade")
+        "digests, source_health, health_alerts, raw_blobs, llm_cache restart identity cascade")
     yield d
     d.close()
 

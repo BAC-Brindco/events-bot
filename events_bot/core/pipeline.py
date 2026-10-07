@@ -100,15 +100,16 @@ class Pipeline:
             self.deliver(cfg, item_id, it, now, st, enrich)
         return st
 
-    def deliver(self, cfg: SourceConfig, item_id: int, it: RawItem, now, st: PollStats, enrich=None) -> None:
+    def deliver(self, cfg: SourceConfig, item_id: int, it: RawItem, now, st: PollStats, enrich=None,
+                route: str | None = None, extra_tags: list[str] | None = None) -> None:
         """Route one kept item: optional enrichment (detail page), tags, realtime send or digest queue."""
         if enrich is not None:
             try:
                 it = enrich(it)
             except Exception as e:  # noqa: BLE001  a detail-page failure must not lose the item
                 log.warning("enrich_failed", ref=it.ref, error=str(e)[:200])
-        tags = self.watchlist.tags(it)
-        route = self.delivery.route_for(cfg)
+        tags = self.watchlist.tags(it) + list(extra_tags or [])
+        route = route or self.delivery.route_for(cfg)
         if route == "realtime" and it.source_published_at is not None and \
                 now - it.source_published_at > timedelta(hours=self.delivery.realtime_max_age_hours):
             route = DIGEST_FOR_COUNTRY[cfg.country]
