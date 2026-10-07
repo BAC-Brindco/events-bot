@@ -29,6 +29,8 @@ def test_tick_polls_every_stream_source_once_with_db_archive(db, settings):
     def handler(req: httpx.Request) -> httpx.Response:
         name = req.url.path.rsplit("/", 1)[-1]
         hits.append(name)
+        if name not in feeds:                       # other stream sources (PIB, ...) are down here
+            return httpx.Response(404, content=b"nf")
         return httpx.Response(200, content=(FIXTURES / "rbi" / feeds[name]).read_bytes())
 
     mock_fetcher(app, handler)
@@ -36,9 +38,10 @@ def test_tick_polls_every_stream_source_once_with_db_archive(db, settings):
         out = app.tick()
     finally:
         app.close()
-    assert set(out) == {"rbi_pr", "rbi_notif"}
-    assert all("baseline 10" in v for v in out.values()), out
-    assert sorted(hits) == sorted(feeds)
+    assert {"rbi_pr", "rbi_notif"} <= set(out)
+    assert all("baseline 10" in out[s] for s in ("rbi_pr", "rbi_notif")), out
+    assert all(v == "error" for s, v in out.items() if s not in ("rbi_pr", "rbi_notif")), out  # isolated
+    assert sorted(h for h in hits if h in feeds) == sorted(feeds)
     assert db.one("select count(*) n from raw_blobs")["n"] == 2
     # replay reads the archived bytes back through the same backend
     doc = db.one("select storage_key from documents limit 1")
