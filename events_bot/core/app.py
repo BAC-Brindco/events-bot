@@ -31,7 +31,11 @@ class App:
         self.delivery = load_delivery(settings.config_dir)
         self.ctx = registry.Context(settings=settings, db=self.db, fetcher=self.fetcher, archive=self.archive)
         self.dispatcher = Dispatcher(self.db, [EmailChannel(settings)], mode, settings.out_dir)
-        self.ops_dispatcher = Dispatcher(self.db, [EmailChannel(settings)], mode, settings.out_dir)
+        # Operator alerts (health, missed events) go only to the operator, so they are sent for real
+        # whenever SMTP is configured, even while desk alerts are still in dry run.
+        ops_mode: Mode = "live" if (mode == "dry_run" and settings.smtp_host and settings.operator_emails
+                                    and settings.ops_live) else mode
+        self.ops_dispatcher = Dispatcher(self.db, [EmailChannel(settings)], ops_mode, settings.out_dir)
         self.pipeline = Pipeline(self.db, self.delivery, KeywordFilter(settings.config_dir),
                                  Watchlist(settings.config_dir / "watchlist.csv"), self.dispatcher,
                                  settings.recipients)

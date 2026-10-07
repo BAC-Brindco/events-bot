@@ -8,8 +8,11 @@ on:
       command:
         description: "CLI command"
         type: choice
-        options: [test-email, health, sources]
+        options: [test-email, health, sources, fire]
         default: test-email
+      ref:
+        description: "Event ref for fire, e.g. rbi_mpc:2026-10-07"
+        default: ""
 
 env:
   EVENTS_BOT_DSN: ${{ secrets.EVENTS_BOT_DSN }}
@@ -34,4 +37,13 @@ jobs:
           python-version: "3.12"
           enable-cache: true
       - run: uv sync --frozen --no-dev
-      - run: uv run python -m events_bot.ops.cli ${{ inputs.command }}
+      - env:
+          DRY: ${{ (vars.EVENTS_BOT_LIVE == 'true' || vars.EVENTS_BOT_LIVE == 'scheduled') && '' || '--dry-run' }}
+          CMD: ${{ inputs.command }}
+          REF: ${{ inputs.ref }}
+        run: |
+          if [ "$CMD" = "fire" ]; then
+            uv run python -m events_bot.ops.cli fire "$REF" $DRY
+          else
+            uv run python -m events_bot.ops.cli "$CMD"
+          fi

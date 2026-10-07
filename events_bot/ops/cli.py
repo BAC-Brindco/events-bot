@@ -47,6 +47,11 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--dry-run", action="store_true")
     p = sub.add_parser("due-windows")
     p.add_argument("--within", type=int, default=25, help="minutes ahead")
+    p = sub.add_parser("arm", help="claim events opening within --hours; print 'ref start_utc' per event")
+    p.add_argument("--hours", type=float, default=36)
+    p = sub.add_parser("fire", help="run a scheduled event's capture now (Stage 1, then Stage 2)")
+    p.add_argument("ref")
+    p.add_argument("--dry-run", action="store_true")
     p = sub.add_parser("windows")
     p.add_argument("--max-minutes", type=int, default=330)
     p.add_argument("--dry-run", action="store_true")
@@ -124,6 +129,36 @@ def main(argv: list[str] | None = None) -> int:
             app.close()
         return 0
 
+    if a.cmd == "arm":
+        # The armed run starts polling 5 min before the window opens (windows.yml start_utc).
+        from datetime import timedelta
+        app = _app()
+        try:
+            for r in app.db.claim_arms(timedelta(hours=a.hours)):
+                start = r["window_start"] - timedelta(minutes=5)
+                print(r["ref"], start.strftime("%Y-%m-%dT%H:%M:%SZ"))
+        finally:
+            app.close()
+        return 0
+
+    if a.cmd == "fire":
+        # Late or repeat delivery for one event: Stage 1, then Stage 2 if its time has come.
+        # The sends table still guarantees each stage goes out at most once.
+        app = _app(a.dry_run)
+        try:
+            ev = app.db.get_event(a.ref)
+            if ev is None:
+                print("unknown event", a.ref)
+                return 1
+            adapter = app.adapter(ev["source_id"])
+            for _ in range(2):
+                adapter.poll_event(app.db.get_event(a.ref))
+            ev = app.db.get_event(a.ref)
+            print(a.ref, ev["status"], {k: ev["meta"].get(k) for k in ("stage1_at", "stage2_at")})
+        finally:
+            app.close()
+        return 0
+
     if a.cmd == "windows":
         # Burst job: poll scheduled events while any is inside its window, then exit.
         import time as _t
@@ -175,6 +210,7 @@ def main(argv: list[str] | None = None) -> int:
 
     if a.cmd == "health":
         app = _app()
+        print("new alerts sent:", app.check_health())       # raises/clears alerts, mails the operator
         for r in app.db.health_rows():
             print(f"{r['source_id']:14} {r['last_status'] or '-':6} ok {fmt_ist(r['last_success_at'])}  "
                   f"new {fmt_ist(r['last_new_item_at'])}  errors {r['consecutive_errors']}  {r['last_error'] or ''}")

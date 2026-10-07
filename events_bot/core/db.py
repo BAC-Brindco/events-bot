@@ -183,6 +183,14 @@ class Database:
                          returning ref""", (within,))
         return [r["ref"] for r in rows]
 
+    def claim_arms(self, horizon: timedelta) -> list[dict]:
+        """Events whose window opens within `horizon` (or is open) and has no burst job; claims them."""
+        return self.q("""update events set meta = meta || jsonb_build_object('burst_launched_at', now())
+                         where window_start <= now() + %s and window_end >= now()
+                           and status in ('scheduled', 'in_window')
+                           and not (meta ? 'burst_launched_at')
+                         returning ref, window_start""", (horizon,))
+
     def get_event(self, ref: str) -> dict | None:
         return self.one("select * from events where ref = %s", (ref,))
 

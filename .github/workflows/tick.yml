@@ -45,15 +45,15 @@ jobs:
       - run: uv sync --frozen --no-dev
       - name: Poll stream sources
         run: uv run python -m events_bot.ops.cli tick $DRY | tee -a "$GITHUB_STEP_SUMMARY"
-      - name: Launch burst jobs for event windows opening soon
+      - name: Arm burst jobs for events opening within 36 h
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          refs=$(uv run python -m events_bot.ops.cli due-windows --within 25)
-          if [ -n "$refs" ]; then
-            echo "windows due: $refs" | tee -a "$GITHUB_STEP_SUMMARY"
-            gh workflow run windows.yml -R "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME"
-          fi
+          uv run python -m events_bot.ops.cli arm --hours 36 | while read -r ref start; do
+            [ -z "$ref" ] && continue
+            echo "armed $ref for $start" | tee -a "$GITHUB_STEP_SUMMARY"
+            gh workflow run windows.yml -R "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME" -f start_utc="$start"
+          done
       - uses: actions/upload-artifact@v4
         if: always()
         with:

@@ -45,6 +45,19 @@ def evaluate(db: Database, sources: dict[str, SourceConfig]) -> list[Breach]:
                 newest = db.one("select max(first_seen_at) as m from items where source_id = %s", (sid,))["m"]
             if newest is not None and now - newest > timedelta(hours=stale_h):
                 out.append(Breach(sid, "stale", f"no new item since {fmt_ist(newest)} (threshold {stale_h} h)"))
+    # Scheduled events are never silently missed. Both rules stay active while true, so each alerts once.
+    for e in db.q("""select ref, source_id, title, window_start, window_end, status from events
+                     where window_end < now() and window_end > now() - interval '7 days'
+                       and not (meta ? 'stage1_at')"""):
+        out.append(Breach(e["source_id"], f"missed:{e['ref']}",
+                          f"{e['title']}: window {fmt_ist(e['window_start'])} to {fmt_ist(e['window_end'])} closed "
+                          f"with no Stage 1 (status {e['status']}). Check the source and the windows run."))
+    for e in db.q("""select ref, source_id, title, window_start from events
+                     where window_start between now() and now() + interval '6 hours'
+                       and not (meta ? 'burst_launched_at')"""):
+        out.append(Breach(e["source_id"], f"unarmed:{e['ref']}",
+                          f"{e['title']} opens {fmt_ist(e['window_start'])} and no burst job is armed. "
+                          f"Run the calendars workflow or dispatch windows.yml."))
     for r in db.q("select id, ref, stage, kind, claimed_at from sends where status = 'claimed' "
                   "and claimed_at < now() - interval '10 minutes'"):
         out.append(Breach(None, f"stuck_send:{r['id']}",

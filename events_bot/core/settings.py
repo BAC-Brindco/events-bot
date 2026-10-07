@@ -31,6 +31,7 @@ def _csv(v: str | None) -> list[str]:
 class Settings(BaseModel):
     dsn: str = "host=localhost port=55433 user=postgres dbname=events_bot"
     db_schema: str | None = None
+    ops_live: bool = True            # EVENTS_BOT_OPS_LIVE=0 keeps operator alerts in dry run too
     archive_dir: Path = ROOT / "archive" / "raw"
     archive_backend: str = "file"   # file | db
     out_dir: Path = ROOT / "out"
@@ -61,6 +62,8 @@ class Settings(BaseModel):
         kw: dict = {}
         if e.get("EVENTS_BOT_DSN"):
             kw["dsn"] = e["EVENTS_BOT_DSN"]
+        if e.get("EVENTS_BOT_OPS_LIVE"):
+            kw["ops_live"] = e["EVENTS_BOT_OPS_LIVE"].lower() in ("1", "true", "yes")
         if e.get("EVENTS_BOT_DB_SCHEMA"):
             kw["db_schema"] = e["EVENTS_BOT_DB_SCHEMA"]
         if e.get("EVENTS_BOT_ARCHIVE_DIR"):

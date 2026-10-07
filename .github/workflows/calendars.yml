@@ -7,7 +7,13 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "30 0 * * *"   # 06:00 IST
+    - cron: "30 6 * * *"   # 12:00 IST
     - cron: "30 12 * * *"  # 18:00 IST, catches same-day calendar changes
+    - cron: "30 18 * * *"  # 00:00 IST
+
+permissions:
+  actions: write
+  contents: read
 
 concurrency:
   group: calendars
@@ -17,6 +23,12 @@ env:
   EVENTS_BOT_DSN: ${{ secrets.EVENTS_BOT_DSN }}
   EVENTS_BOT_DB_SCHEMA: events_bot
   EVENTS_BOT_ARCHIVE: db
+  SMTP_HOST: ${{ secrets.SMTP_HOST }}
+  SMTP_PORT: ${{ secrets.SMTP_PORT }}
+  SMTP_USER: ${{ secrets.SMTP_USER }}
+  SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+  SMTP_FROM: ${{ secrets.SMTP_FROM }}
+  EVENTS_BOT_OPERATOR_EMAILS: ${{ secrets.EVENTS_BOT_OPERATOR_EMAILS }}
 
 jobs:
   calendars:
@@ -30,3 +42,14 @@ jobs:
           enable-cache: true
       - run: uv sync --frozen --no-dev
       - run: uv run python -m events_bot.ops.cli calendar --days 21 | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Arm burst jobs for events opening within 36 h
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          uv run python -m events_bot.ops.cli arm --hours 36 | while read -r ref start; do
+            [ -z "$ref" ] && continue
+            echo "armed $ref for $start" | tee -a "$GITHUB_STEP_SUMMARY"
+            gh workflow run windows.yml -R "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME" -f start_utc="$start"
+          done
+      - name: Health (missed or unarmed events alert the operator)
+        run: uv run python -m events_bot.ops.cli health | tee -a "$GITHUB_STEP_SUMMARY"

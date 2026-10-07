@@ -67,3 +67,29 @@ def test_window_launch_claimed_once_and_survives_calendar_refresh(db, make_app):
     assert db.one("select meta from events")["meta"]["k"] == 1
     db.upsert_event(ev(now + timedelta(minutes=15)), now)              # window moved: relaunch
     assert db.claim_window_launches(timedelta(minutes=25)) == ["rbi_pr:test"]
+
+
+def test_arm_claims_once_and_health_flags_unarmed_and_missed(db, make_app):
+    from datetime import timedelta
+    from events_bot.core.models import ScheduledEvent
+    from events_bot.core.timeutil import utcnow
+    from events_bot.ops import health
+    app = make_app()
+    now = utcnow()
+
+    def ev(ref, start, hours=2):
+        db.upsert_event(ScheduledEvent(ref=ref, source_id="rbi_pr", event_type="t", title=ref, scheduled_at=start,
+                                       window_start=start, window_end=start + timedelta(hours=hours),
+                                       calendar_url="u"), now)
+
+    ev("soon", now + timedelta(hours=3))
+    ev("later", now + timedelta(hours=60))
+    ev("gone", now - timedelta(hours=5))                     # window closed, never captured
+    rules = {b.rule for b in health.evaluate(db, app.sources)}
+    assert "unarmed:soon" in rules and "missed:gone" in rules and "unarmed:later" not in rules
+    armed = [r["ref"] for r in db.claim_arms(timedelta(hours=36))]
+    assert armed == ["soon"] and db.claim_arms(timedelta(hours=36)) == []
+    rules = {b.rule for b in health.evaluate(db, app.sources)}
+    assert "unarmed:soon" not in rules and "missed:gone" in rules
+    db.mark_event("gone", None, stage1_at=now)
+    assert "missed:gone" not in {b.rule for b in health.evaluate(db, app.sources)}
