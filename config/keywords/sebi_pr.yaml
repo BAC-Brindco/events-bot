@@ -1,0 +1,30 @@
+# SEBI press releases: board outcomes, policy and market-structure items are kept; investor-awareness
+# campaigns and administrative notices are noise. Unmatched -> local LLM triage.
+exclude_any:
+  - Jagrook
+  - awareness
+  - Samajh Se Investing
+  - opens a Local Office
+  - Local Office
+  - Quiz
+  - Hindi Pakhwada
+  - Swachhata
+  - Special Campaign
+  - recruitment
+  - Officer Grade
+  - holiday
+include_any:
+  - Key decisions taken
+  - Board Meeting
+  - framework
+  - regulations
+  - amendment
+  - consultation
+  - FPI
+  - mutual fund
+  - derivatives
+  - F&O
+  - IPO
+  - settlement
+  - margin
+  - cautions investors

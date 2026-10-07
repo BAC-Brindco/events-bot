@@ -89,3 +89,39 @@ sources:
       expect: html
       min_items: 1
       stale_after_hours: 36     # PIB posts every day, incl. weekends
+
+  - id: sebi_circ
+    label: SEBI
+    event_name: Circular / consultation
+    country: IN
+    tier: 1
+    kind: stream
+    feed_type: html
+    urls:
+      circulars: https://www.sebi.gov.in/sebiweb/home/HomeAction.do?doListing=yes&sid=1&ssid=7&smid=0
+      consultation: https://www.sebi.gov.in/sebiweb/home/HomeAction.do?doListing=yes&sid=4&ssid=38&smid=35
+    poll_interval: 600
+    adapter: india.sebi:Sebi
+    health_rules:
+      expect: html
+      min_items: 5
+      stale_after_hours: 336   # circulars can pause for a week or two
+
+  - id: sebi_pr
+    label: SEBI
+    event_name: Press release
+    country: IN
+    tier: 1
+    kind: stream
+    feed_type: html
+    urls:
+      press: https://www.sebi.gov.in/sebiweb/home/HomeAction.do?doListing=yes&sid=6&ssid=23&smid=0
+    poll_interval: 600
+    adapter: india.sebi:Sebi
+    filters:
+      keywords: sebi_pr
+      llm_triage: true
+    health_rules:
+      expect: html
+      min_items: 5
+      stale_after_hours: 336

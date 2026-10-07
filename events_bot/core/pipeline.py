@@ -108,10 +108,13 @@ class Pipeline:
                 it = enrich(it)
             except Exception as e:  # noqa: BLE001  a detail-page failure must not lose the item
                 log.warning("enrich_failed", ref=it.ref, error=str(e)[:200])
-        tags = self.watchlist.tags(it) + list(extra_tags or [])
+        tags = self.watchlist.tags(it) + list(extra_tags or []) + list(it.meta.get("priority_tags") or [])
         route = route or self.delivery.route_for(cfg)
-        if route == "realtime" and it.source_published_at is not None and \
-                now - it.source_published_at > timedelta(hours=self.delivery.realtime_max_age_hours):
+        published = it.source_published_at
+        if published is not None and it.meta.get("date_only"):
+            published += timedelta(days=1)          # a date-only stamp could mean any time that day
+        if route == "realtime" and published is not None and \
+                now - published > timedelta(hours=self.delivery.realtime_max_age_hours):
             route = DIGEST_FOR_COUNTRY[cfg.country]
             log.warning("item_too_old_for_realtime", ref=it.ref, published=str(it.source_published_at))
         if route != "realtime":
