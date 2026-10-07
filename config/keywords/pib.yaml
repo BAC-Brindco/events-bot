@@ -40,6 +40,9 @@ exclude_any:
   - Induction Programme
   - Awareness Programme
   - Nasha Mukt
+  - shares an article
+  - shares a video
+  - shares glimpses
 
 exclude_ministries:
   - PIB Backgrounder

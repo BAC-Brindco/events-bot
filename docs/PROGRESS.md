@@ -250,3 +250,26 @@ Fails from both: the MoSPI API (needs a POST), YouTube RSS, dot.gov.in and cbo.g
 **Live:** a `tick` run on the runner polled PIB and baselined 20 items. The LLM step is skipped when nothing is pending.
 
 **Tests:** 140 passing.
+
+## 2026-10-07 (afternoon)
+
+- **Detailed MPC review.** The user found Stage 2 unhelpful; the new `stage2/mpc.py` follows the house template and has these sections:
+  1. decision, with settings against the prior meeting;
+  2. what the MPC decided;
+  3. rationale;
+  4. growth, with the GDP table;
+  5. inflation, with the CPI and core tables;
+  6. global backdrop;
+  7. vote and dissent;
+  8. Governor's Statement by topic (from the PDF, footnotes and sign-off removed);
+  9. developmental and regulatory measures (SDRP);
+  10. what happens next;
+  11. wording changes.
+
+  All text is verbatim, and a test checks every quoted paragraph against the sources. Today's review was re-sent to bac-reports (send 5, `resend2`).
+- **SEBI.** `sebi_circ` (circulars and consultation papers) and `sebi_pr` (press releases, filtered, with board outcomes tagged). Listing pages are used because the RSS is stale. A date-only stamp counts as end of day for freshness.
+- **First live LLM triage on the runner.**
+  - 6 PIB items, all judged not relevant, correctly (five "PM shares an article", one event inauguration).
+  - Timing: 15 s model cache restore, 4 s server start, 33 s total.
+  - "shares an article" was added to the PIB excludes so these no longer cost calls.
+- **Tests:** 144 passing.
