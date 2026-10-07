@@ -50,16 +50,15 @@ jobs:
           fi
           wait=$(( start - now ))
           max=$(( MAX_WAIT_MIN * 60 ))
-          if [ "$wait" -gt "$max" ]; then
-            echo "Sleeping ${max}s, then re-dispatching (start in ${wait}s)"
-            sleep "$max"
+          # The job timeout counts waiting time too, so the capturing run must start
+          # <= 10 min before the start; every earlier run only sleeps and hands off.
+          if [ "$wait" -gt 600 ]; then
+            nap=$(( wait - 600 )); [ "$nap" -gt "$max" ] && nap=$max
+            echo "Sleeping ${nap}s, then re-dispatching (start in ${wait}s)"
+            sleep "$nap"
             gh workflow run mpc_capture.yml -R "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME" \
               -f start_utc="$START_UTC" -f until_ist="$UNTIL_IST" -f max_wait_min="$MAX_WAIT_MIN"
             echo "go=false" >> "$GITHUB_OUTPUT"; exit 0
-          fi
-          if [ "$wait" -gt 600 ]; then
-            # Too early to spend setup now; sleep until 10 min before start.
-            sleep $(( wait - 600 ))
           fi
           echo "go=true" >> "$GITHUB_OUTPUT"
       - uses: actions/checkout@v4

@@ -54,14 +54,17 @@ jobs:
           if [ -z "$START_UTC" ]; then echo "go=true" >> "$GITHUB_OUTPUT"; exit 0; fi
           start=$(date -u -d "$START_UTC" +%s); now=$(date -u +%s)
           wait=$(( start - now )); max=$(( MAX_WAIT_MIN * 60 ))
-          if [ "$wait" -gt "$max" ]; then
-            echo "Sleeping ${max}s, then re-dispatching (start in ${wait}s)"
-            sleep "$max"
+          # The job timeout counts waiting time too (7 Oct: a run that slept 5 h was killed
+          # 24 min into the window). So the run that polls must start <= 5 min before the
+          # start; every earlier run only sleeps and hands off.
+          if [ "$wait" -gt 300 ]; then
+            nap=$(( wait - 300 )); [ "$nap" -gt "$max" ] && nap=$max
+            echo "Sleeping ${nap}s, then re-dispatching (start in ${wait}s)"
+            sleep "$nap"
             gh workflow run windows.yml -R "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME" \
               -f start_utc="$START_UTC" -f max_wait_min="$MAX_WAIT_MIN"
             echo "go=false" >> "$GITHUB_OUTPUT"; exit 0
           fi
-          if [ "$wait" -gt 300 ]; then sleep $(( wait - 300 )); fi
           echo "go=true" >> "$GITHUB_OUTPUT"
       - uses: actions/checkout@v4
         if: steps.wait.outputs.go == 'true'
