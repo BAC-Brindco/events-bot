@@ -47,7 +47,7 @@ def stage1_item(cfg: SourceConfig, item: RawItem, *, first_seen_at: datetime, ta
                else (item.published_raw or "not stated by source"),
                first_seen=fmt_ist(first_seen_at), key_numbers=[], bullets=[],
                excerpt=plain_excerpt(item.summary), links=[])
-    body_html = _env.get_template("stage1_item.html.j2").render(**ctx)
+    body_html = _house_item(ctx)
     lines = [item.title, "", f"Source: {item.url}", f"Source time: {ctx['source_time']}",
              f"First seen: {ctx['first_seen']}"]
     if tags:
@@ -57,3 +57,31 @@ def stage1_item(cfg: SourceConfig, item: RawItem, *, first_seen_at: datetime, ta
     lines += ["", f"RAAS Research Capital · Economic Events Bot · {item.ref}"]
     return Message(ref=item.ref, stage="stage1", kind="realtime", subject=subject,
                    body_html=body_html, body_text="\n".join(lines))
+
+
+def _house_item(ctx: dict) -> str:
+    """Stream-item alert in the BAC house style (deliver/design.py), like the other bac-reports e-mails."""
+    from html import escape as e
+
+    from ..core.timeutil import IST, utcnow
+    from ..deliver import design as dz
+    from ..deliver import house as hs
+    from .render import Doc
+
+    body = dz.masthead(kicker=hs.KICKER, title=e(f"{ctx['source_tag']} {ctx['event_name']}"),
+                       dateline=f"{utcnow().astimezone(IST):%a %d-%b-%Y} &middot; Release alert",
+                       subline=f"source time {e(ctx['source_time'])} &middot; first seen {e(ctx['first_seen'])}")
+    head = f"<strong>{e(ctx['title'])}</strong>"
+    if ctx["tags"]:
+        head += "".join(dz.badge(t) for t in ctx["tags"])
+    body += dz.row(dz.callout(head, accent="gold", title="Release"), pad=dz.BLOCK_PAD)
+    if ctx["excerpt"]:
+        body += dz.row(dz.callout(e(ctx["excerpt"]), accent="navy", title="Opening of the source text, verbatim"),
+                       pad=dz.BLOCK_PAD)
+    body += dz.row(hs.section_caption("", "Source documents")
+                   + hs.links([Doc("Release", ctx["url"])]), pad=dz.SECTION_PAD)
+    prov = f"Compiled by the RAAS Events Bot. Ref {e(ctx['ref'])}."
+    if ctx["mode"] != "live":
+        prov += f" {dz.value(ctx['mode'].upper().replace('_', ' ') + ' — not sent', 'warn')}"
+    body += dz.row(dz.colophon(prov, hs.DISCLAIMER), pad="26px 24px 26px 24px")
+    return dz.doc_open(e(ctx["subject"]), e(ctx["title"])) + body + dz.DOC_CLOSE

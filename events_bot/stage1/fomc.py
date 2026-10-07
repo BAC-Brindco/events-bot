@@ -90,7 +90,8 @@ def build(meeting_ref: str, ex: list[Extraction], docs: list[Doc], *, release_at
     head = headline(ex)
     vote, vote_note = vote_line(ex)
     key = [{"label": "Vote", "value_text": vote, "note": vote_note}]
-    key += [{"label": label, "value_text": v} for field, label, suffix in SETTINGS if (v := _v(ex, field, suffix))]
+    key += [{"label": label, "value_text": v, "note": suffix.strip()} for field, label, suffix in SETTINGS
+            if (v := _v(ex, field))]
     bullets = dissent_bullets(ex)
     against = good(ex, "fomc.votes_against_count")
     if not bullets and against is not None and against.value_norm == 0:

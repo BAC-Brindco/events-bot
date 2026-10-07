@@ -1,16 +1,23 @@
 """Shared Stage 1 / Stage 2 rendering for scheduled events (HTML + plain text from one structure).
 
 Builders (stage1/fomc.py, stage1/mpc.py, ...) decide *what* goes in -- only validated
-extraction strings and labelled computed values -- and these functions lay it out.
+extraction strings and labelled computed values -- and these functions lay it out in the
+BAC house style (deliver/design.py, the module the bac-reports deals and announcements
+e-mails use): masthead, KPI cards, gold callouts, house tables with source lines, colophon.
 """
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from datetime import date
+from html import escape as _e
 
 from ..core.models import Message
-from .build import _env
+from ..core.timeutil import fmt_ist, utcnow
+from ..deliver import design as dz
+from ..deliver import house as hs
 
-FOOTER = "RAAS Research Capital · Economic Events Bot · {ref}"
+FOOTER = "RAAS Research Capital · Events Desk · {ref}"
+SOURCES = {"RBI": ("Reserve Bank of India", "MPC"), "FED": ("Federal Reserve", "FOMC")}
 
 
 @dataclass
@@ -28,13 +35,73 @@ class Table:
     bold_col: int = 0                                  # stage 2: 1-based column to bold (current values)
 
 
+def _meta(ref: str, source_tag: str) -> tuple[str, str, date | None]:
+    name, short = SOURCES.get(source_tag, (source_tag, source_tag))
+    try:
+        d = date.fromisoformat(ref.split(":", 1)[1])
+    except (IndexError, ValueError):
+        d = None
+    return name, short, d
+
+
+def _provenance(source_name: str, ref: str, mode: str) -> str:
+    now = utcnow()
+    p = (f"Compiled by the RAAS Events Bot at {fmt_ist(now, with_date=False).replace(' IST', '')} IST on "
+         f"{now.strftime('%d %B %Y')}. Source: {_e(source_name)} official releases, linked above. Ref {_e(ref)}.")
+    if mode != "live":
+        p += f" {dz.value(mode.upper().replace('_', ' ') + ' — not sent', 'warn')}"
+    return p
+
+
+def _split_bullet(b: str) -> tuple[str, str]:
+    head, sep, rest = b.partition(": ")
+    if sep and len(head) <= 40:
+        return _e(head) + ":", _e(rest)
+    return "", _e(b)
+
+
+def _cell(v: str) -> str:
+    if v == "EXTRACTION FAILED":
+        return dz.value(v, "bad")
+    return dz.value(_e(v)) if v != "" else dz.value("")
+
+
 def stage1(*, ref: str, subject: str, source_tag: str, event_name: str, title: str, key: list[dict],
            tables: list[Table], bullets: list[str], source_time: str, first_seen: str, docs: list[Doc],
            failed: list[str], mode: str) -> Message:
-    body_html = _env.get_template("event_stage1.html.j2").render(
-        subject=subject, ref=ref, stage="stage1", mode=mode, source_tag=source_tag, event_name=event_name,
-        title=title, key_numbers=key, tables=tables, bullets=bullets, source_time=source_time,
-        first_seen=first_seen, docs=docs, failed=failed)
+    source_name, short, ev_date = _meta(ref, source_tag)
+    body = dz.masthead(
+        kicker=hs.KICKER,
+        title=f"{short} Decision",
+        dateline=(ev_date.strftime("%a %d-%b-%Y") if ev_date else "") + " &middot; Release alert",
+        subline=f"{_e(source_name)} &middot; released {_e(source_time)} &middot; first seen {_e(first_seen)}",
+    )
+    body += dz.row(dz.callout(f"<strong>{_e(title)}</strong>", accent="gold", title="The decision"),
+                   pad=dz.BLOCK_PAD)
+    cards = []
+    for k in key:
+        v = k["value_text"]
+        cards.append({"label": _e(k["label"]), "value": _e(v) if v != "EXTRACTION FAILED" else dz.value(v, "bad"),
+                      "sub": _e(k.get("note", "")), "flag": "bad" if v == "EXTRACTION FAILED" else None})
+    body += dz.row(dz.kpi_grid(cards, per_row=3), pad=dz.BLOCK_PAD)
+    if failed:
+        body += dz.row(hs.failed_panel(failed), pad=dz.BLOCK_PAD)
+    if bullets:
+        body += dz.row(dz.callout(dz.numbered_list([_split_bullet(b) for b in bullets]), accent="gold",
+                                  title="Key points"), pad=dz.BLOCK_PAD)
+    for i, t in enumerate(tables, 1):
+        body += dz.row(
+            hs.section_caption(hs.ROMAN[i], _e(t.title))
+            + dz.datatable([""] + [_e(c) for c in t.cols],
+                           [[_e(r["label"])] + [_cell(c) for c in r["cells"]] for r in t.rows],
+                           align=["l"] + ["r"] * len(t.cols),
+                           source=f"{_e(source_name)} &middot; official release",
+                           caption=_e(t.note)),
+            pad=dz.SECTION_PAD)
+    body += dz.row(hs.section_caption("", "Source documents") + hs.links(docs), pad=dz.SECTION_PAD)
+    body += dz.row(dz.colophon(_provenance(source_name, ref, mode), hs.DISCLAIMER), pad="26px 24px 26px 24px")
+    body_html = dz.doc_open(_e(subject), _e(title)) + body + dz.DOC_CLOSE
+
     lines = [title, ""]
     lines += [f"{k['label']}: {k['value_text']}" + (f" ({k['note']})" if k.get("note") else "") for k in key]
     for t in tables:
@@ -56,10 +123,57 @@ def stage1(*, ref: str, subject: str, source_tag: str, event_name: str, title: s
 def stage2(*, ref: str, subject: str, source_tag: str, event_name: str, title: str, redline_title: str,
            prior_label: str | None, redline: str, red_stats, vote: dict, tables: list[Table],
            transcript_status: str, market_line: str | None, docs: list[Doc], mode: str) -> Message:
-    body_html = _env.get_template("event_stage2.html.j2").render(
-        subject=subject, ref=ref, stage="stage2", mode=mode, source_tag=source_tag, event_name=event_name,
-        title=title, redline_title=redline_title, prior_label=prior_label, redline=redline, red_stats=red_stats,
-        vote=vote, tables=tables, transcript_status=transcript_status, market_line=market_line, docs=docs)
+    source_name, short, ev_date = _meta(ref, source_tag)
+    body = dz.masthead(
+        kicker=hs.KICKER,
+        title=f"{short} Review",
+        dateline=(ev_date.strftime("%a %d-%b-%Y") if ev_date else "") + " &middot; Post-meeting summary",
+        subline=f"{_e(source_name)} &middot; compared with {_e(prior_label or 'the prior meeting')}",
+    )
+    body += dz.row(dz.callout(f"<strong>{_e(title)}</strong>", accent="gold", title="The decision"),
+                   pad=dz.BLOCK_PAD)
+    n = 0
+    # Vote
+    n += 1
+    vote_html = dz.strip([("This meeting", f"<strong>{_e(vote['now'])}</strong> "
+                                           f"<span style=\"color:{dz.INK_FAINT};\">{_e(vote['now_note'])}</span>"),
+                          (_e(prior_label or "Prior"), f"{_e(vote['prior'])} "
+                                                       f"<span style=\"color:{dz.INK_FAINT};\">{_e(vote['prior_note'])}</span>")])
+    vote_html += ('<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">'
+                  '<tr><td style="padding:14px 0 0 0;">'
+                  + dz.numbered_list([_split_bullet(l) for l in vote["lines"]]) + "</td></tr></table>")
+    body += dz.row(hs.section_caption(hs.ROMAN[n], "Vote and dissent") + vote_html, pad=dz.SECTION_PAD)
+    # Tables
+    for t in tables:
+        n += 1
+        rows = []
+        for r in t.rows:
+            cells = [_cell(c) for c in r]
+            if t.bold_col and t.bold_col - 1 < len(cells) and r[t.bold_col - 1]:
+                cells[t.bold_col - 1] = f"<strong>{cells[t.bold_col - 1]}</strong>"
+            rows.append(cells)
+        body += dz.row(
+            hs.section_caption(hs.ROMAN[n], _e(t.title))
+            + dz.datatable([_e(c) for c in t.cols], rows, align=["l"] + ["r"] * (len(t.cols) - 1),
+                           source=f"{_e(source_name)} &middot; this and the prior official release",
+                           caption=_e(t.note)),
+            pad=dz.SECTION_PAD)
+    # Redline
+    n += 1
+    stats = (f"{red_stats.changed} sentences changed &middot; {red_stats.added} added &middot; "
+             f"{red_stats.removed} removed &middot; {red_stats.unchanged} unchanged" if red_stats
+             else "prior document not available")
+    red = (redline.replace("<del>", f'<del style="{hs.DEL_STYLE}">').replace("<ins>", f'<ins style="{hs.INS_STYLE}">')
+           if redline else "")
+    body += dz.row(hs.section_caption(hs.ROMAN[n], f"{_e(redline_title)} vs {_e(prior_label or 'prior')}", stats)
+                   + (hs.redline_block(red) if red else ""), pad=dz.SECTION_PAD)
+    # Press conference + market
+    body += dz.row(dz.callout(_e(transcript_status) + (f"<br /><br />{_e(market_line)}" if market_line else ""),
+                              accent="navy", title="Press conference"), pad=dz.BLOCK_PAD)
+    body += dz.row(hs.section_caption("", "Source documents") + hs.links(docs), pad=dz.SECTION_PAD)
+    body += dz.row(dz.colophon(_provenance(source_name, ref, mode), hs.DISCLAIMER), pad="26px 24px 26px 24px")
+    body_html = dz.doc_open(_e(subject), _e(title)) + body + dz.DOC_CLOSE
+
     lines = [title, f"{redline_title} vs {prior_label or 'prior'}: "
              + (f"{red_stats.changed} sentences changed, {red_stats.added} added, {red_stats.removed} removed"
                 if red_stats else "prior document not available"),

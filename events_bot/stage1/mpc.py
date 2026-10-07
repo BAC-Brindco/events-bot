@@ -92,7 +92,10 @@ def build_stage1(ref: str, ex: list[Extraction], docs: list[Doc], *, release_at:
                  mode: str = "live") -> Message:
     head = headline(ex)
     vote, note = vote_text(ex)
-    key = [{"label": label, "value_text": v} for field, label in RATES if (v := _v(ex, field, " per cent"))]
+    key = [{"label": label, "value_text": v, "note": "per cent"} for field, label in RATES if (v := _v(ex, field))]
+    chg = good(ex, "mpc.change_bps")
+    if key and chg and key[0]["value_text"] != FAILED:
+        key[0]["note"] = f"per cent · change of {chg.value_text} bps as stated"
     key.append({"label": "Stance", "value_text": _v(ex, "mpc.stance") or FAILED})
     key.append({"label": "Rate vote", "value_text": vote, "note": note})
     for field, label in (("mpc.crr", "CRR"), ("mpc.crr_change", "CRR change"), ("mpc.slr", "SLR"),
