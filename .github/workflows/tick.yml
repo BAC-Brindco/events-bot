@@ -30,7 +30,7 @@ env:
   SMTP_FROM: ${{ secrets.SMTP_FROM }}
   EVENTS_BOT_RECIPIENTS: ${{ secrets.EVENTS_BOT_RECIPIENTS }}
   EVENTS_BOT_OPERATOR_EMAILS: ${{ secrets.EVENTS_BOT_OPERATOR_EMAILS }}
-  DRY: ${{ vars.EVENTS_BOT_LIVE == 'true' && '' || '--dry-run' }}
+  DRY: ${{ vars.EVENTS_BOT_LIVE != 'true' && '--dry-run' || '' }}
 
 jobs:
   tick:
