@@ -39,6 +39,7 @@ TRANSCRIPT_PENDING = ("RBI posts an edited transcript of the post-policy press c
                       "(Annualpolicy.aspx). A follow-up will be sent when it is available.")
 _RES_TITLE = re.compile(r"Resolution of the Monetary Policy Committee", re.I)
 _GOV_TITLE = re.compile(r"Governor.s Statement", re.I)
+_SDRP_TITLE = re.compile(r"Statement on Developmental and Regulatory Policies", re.I)
 
 
 def release_at(d: date) -> datetime:
@@ -101,20 +102,32 @@ def assemble(d: date, content: bytes):
 
 
 def build_messages(d: date, content: bytes, prior_d: date | None, prior_content: bytes | None, urls: dict[str, str],
-                   *, first_seen: datetime, mode: str, stage2: bool = True):
+                   *, first_seen: datetime, mode: str, stage2: bool = True, sdrp: bytes | None = None,
+                   governor_pdf: bytes | None = None):
+    """Pure: Stage 1 + the detailed Stage 2 review from archived bytes. Used live, by fire and by replay."""
+    from ...stage2 import mpc as review
+
     ex, text = assemble(d, content)
     prior_ex, prior_text = assemble(prior_d, prior_content) if prior_d and prior_content else (None, None)
     mx.consistency(ex, prior_ex)
     ref = f"rbi_mpc:{d.isoformat()}"
     docs = [Doc("MPC resolution", urls["resolution"])]
-    if urls.get("governor"):
-        docs.append(Doc("Governor's statement", urls["governor"]))
+    if urls.get("governor_pdf") or urls.get("governor"):
+        docs.append(Doc("Governor's statement", urls.get("governor_pdf") or urls["governor"]))
+    if urls.get("sdrp"):
+        docs.append(Doc("Developmental and regulatory policies", urls["sdrp"]))
     m1 = sm.build_stage1(ref, ex, docs, release_at=release_at(d), first_seen=first_seen, mode=mode)
     m2 = None
     if stage2:
-        m2 = sm.build_stage2(ref, ex, text, prior_ex, prior_text, prior_d.strftime("%d %b %Y") if prior_d else None,
-                             docs, transcript_status=TRANSCRIPT_PENDING, mode=mode)
+        m2 = review.build(ref, ex, text, prior_ex, prior_text, prior_d.strftime("%d %b %Y") if prior_d else None,
+                          docs, transcript_status=TRANSCRIPT_PENDING, mode=mode,
+                          sdrp_text=mx.resolution_text(sdrp) if sdrp else None, governor_pdf=governor_pdf)
     return m1, m2, ex, text
+
+
+def governor_pdf_url(page: bytes) -> str | None:
+    m = re.search(rb'https://rbidocs\.rbi\.org\.in/rdocs/PressRelease/PDFs/[A-Z0-9]+\.PDF', page, re.I)
+    return m.group(0).decode() if m else None
 
 
 class RbiMpc(SourceAdapter):
@@ -158,8 +171,8 @@ class RbiMpc(SourceAdapter):
         return b if HTMLParser(b.decode("utf-8", "replace")).css_first(".tablebg") is not None else None
 
     def _discover(self, d: date, meta: dict) -> dict[str, int]:
-        found = {k: meta[k] for k in ("resolution_prid", "governor_prid") if meta.get(k)}
-        if "resolution_prid" in found:
+        found = {k: meta[k] for k in ("resolution_prid", "governor_prid", "sdrp_prid") if meta.get(k)}
+        if all(k in found for k in ("resolution_prid", "governor_prid", "sdrp_prid")):
             return found
         fp = feedparser.parse(self.ctx.fetcher.get(self.cfg.urls["press_releases"], source_id=self.cfg.id,
                                                    doc_type="rbi_mpc:rss", expect="xml", conditional=False).content)
@@ -175,6 +188,8 @@ class RbiMpc(SourceAdapter):
                 found["resolution_prid"] = prid
             elif _GOV_TITLE.search(title):
                 found["governor_prid"] = prid
+            elif _SDRP_TITLE.search(title):
+                found["sdrp_prid"] = prid
         if "resolution_prid" not in found and max_prid:
             for prid in range(max_prid + 1, max_prid + 1 + PROBE_AHEAD):
                 b = self._page(prid)
@@ -185,6 +200,8 @@ class RbiMpc(SourceAdapter):
                     found["resolution_prid"] = prid
                 elif _GOV_TITLE.search(t[:300]):
                     found["governor_prid"] = prid
+                elif _SDRP_TITLE.search(t[:300]):
+                    found["sdrp_prid"] = prid
         return found
 
     def poll_event(self, ev: dict) -> None:
@@ -210,11 +227,30 @@ class RbiMpc(SourceAdapter):
         prior_d = date.fromisoformat(meta["prior"]) if meta.get("prior") else None
         prior_content = self._page(meta["prior_resolution_prid"]) if do2 and meta.get("prior_resolution_prid") else None
         urls = {"resolution": PR_PAGE.format(found["resolution_prid"])}
+        sdrp = governor_pdf = None
         if found.get("governor_prid"):
             urls["governor"] = PR_PAGE.format(found["governor_prid"])
+        if found.get("sdrp_prid"):
+            urls["sdrp"] = PR_PAGE.format(found["sdrp_prid"])
+        if do2:
+            # Stage 2 is the full review: the measures statement (HTML) and the Governor's Statement
+            # (PDF only). Either may be missing or late; the review says so instead of waiting.
+            if found.get("sdrp_prid"):
+                sdrp = self._page(found["sdrp_prid"])
+            if found.get("governor_prid"):
+                gpage = self._page(found["governor_prid"])
+                pdf_url = governor_pdf_url(gpage) if gpage else None
+                if pdf_url:
+                    urls["governor_pdf"] = pdf_url
+                    try:
+                        governor_pdf = self.ctx.fetcher.get_with_retry(
+                            pdf_url, tries=3, base_delay=3, source_id=self.cfg.id, doc_type="rbi_mpc:governor_pdf",
+                            expect="pdf", conditional=False, headers={"Referer": "https://www.rbi.org.in/"}).content
+                    except FetchError as e:
+                        log.warning("governor_pdf_failed", error=str(e)[:200])
         app = self.ctx.app
         m1, m2, ex, text = build_messages(d, content, prior_d, prior_content, urls, first_seen=first_seen,
-                                          mode=app.mode, stage2=do2)
+                                          mode=app.mode, stage2=do2, sdrp=sdrp, governor_pdf=governor_pdf)
         row = self.ctx.db.latest_document(urls["resolution"])
         if row is not None:
             self.ctx.db.set_document_text(row["id"], text)

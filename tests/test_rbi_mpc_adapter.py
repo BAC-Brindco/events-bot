@@ -92,7 +92,9 @@ def _run(make_app, monkeypatch, via_rss: bool):
     a.poll_event(app.db.get_event("rbi_mpc:2026-08-05"))
     assert len(site.hits) == n
     s2 = next(p for p in app.settings.out_dir.rglob("*stage2*.html")).read_text(encoding="utf-8")
-    assert "Policy paragraphs redline" in s2 and "05 Jun 2026" in s2
+    for part in ("What the MPC decided", "Why: the MPC", "Growth assessment", "Inflation assessment",
+                 "Vote and dissent", "Wording changes in the policy paragraphs vs 05 Jun 2026", "What happens next"):
+        assert part in s2, part
     return app
 
 
@@ -133,3 +135,27 @@ def test_oct_2026_hike_headline():
                                          mode="dry_run", stage2=False)
     assert m1.subject == ("[RBI] MPC decision | Repo raised by 25 bps to 5.50 per cent; "
                           "stance calibrated tightening")
+
+
+def test_detailed_review_is_sectioned_and_verbatim():
+    """7 Oct 2026: the review must let a reader follow the meeting, in RBI's own words."""
+    from events_bot.extract import rbi_docs
+    from events_bot.extract.base import html_text
+    u = {"resolution": "u1", "governor": "u2", "sdrp": "u3"}
+    _, m2, _, text = rbi_mpc.build_messages(
+        date(2026, 10, 7), (FX / "pr_63742.html").read_bytes(), date(2026, 8, 5), (FX / "pr_63287.html").read_bytes(),
+        u, first_seen=datetime(2026, 10, 7, 5, 0, tzinfo=timezone.utc), mode="dry_run",
+        sdrp=(FX / "pr_63743.html").read_bytes(), governor_pdf=(FX / "govstmt_63744.pdf").read_bytes())
+    html = m2.body_html
+    for part in ("MPC Review", "What the MPC decided", "Why: the MPC", "Growth assessment", "Inflation assessment",
+                 "Global backdrop", "Vote and dissent", "Governor's Statement", "Liquidity and Financial Market",
+                 "External Sector", "Developmental and regulatory measures", "Account Aggregator",
+                 "Technical Consultative Committee", "What happens next", "October 21, 2026", "December 2 to 4"):
+        assert part in html, part
+    assert "Press Release:" not in m2.body_text and "General Manager" not in m2.body_text
+    # every quoted paragraph is verbatim from the resolution or the Governor's PDF
+    gov = " ".join(p for _, ps in rbi_docs.governor_sections((FX / "govstmt_63744.pdf").read_bytes()) for p in ps)
+    sdrp = html_text((FX / "pr_63743.html").read_bytes(), ".tablebg")
+    for line in m2.body_text.split("\n"):
+        if len(line) > 120 and not line.startswith(("RBI posts", "u1", "u2", "u3")):
+            assert line in text or line in gov or line in sdrp.replace("\n", " "), line[:80]

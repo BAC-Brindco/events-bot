@@ -16,6 +16,9 @@ on:
       resend:
         description: "fire only: resend reason (empty = normal fire)"
         default: ""
+      only:
+        description: "fire --resend only: stage1 or stage2 (empty = both)"
+        default: ""
 
 env:
   EVENTS_BOT_DSN: ${{ secrets.EVENTS_BOT_DSN }}
@@ -45,10 +48,11 @@ jobs:
           CMD: ${{ inputs.command }}
           REF: ${{ inputs.ref }}
           RESEND: ${{ inputs.resend }}
+          ONLY: ${{ inputs.only }}
         run: |
           if [ "$CMD" = "fire" ]; then
             if [ -n "$RESEND" ]; then
-              uv run python -m events_bot.ops.cli fire "$REF" --resend "$RESEND" $DRY
+              uv run python -m events_bot.ops.cli fire "$REF" --resend "$RESEND" ${ONLY:+--only $ONLY} $DRY
             else
               uv run python -m events_bot.ops.cli fire "$REF" $DRY
             fi

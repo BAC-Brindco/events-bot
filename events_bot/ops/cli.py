@@ -54,6 +54,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--resend", metavar="REASON", default="",
                    help="send both stages again as a tracked resend, subject '[Resend · REASON] ...'")
+    p.add_argument("--only", choices=["stage1", "stage2"], default=None, help="with --resend: send just this stage")
     p = sub.add_parser("llm-triage", help="decide pending_llm items with the local model (LLM_BASE_URL)")
     p.add_argument("--max-wait-min", type=int, default=60)
     p.add_argument("--dry-run", action="store_true")
@@ -165,6 +166,8 @@ def main(argv: list[str] | None = None) -> int:
                 orig = app.dispatcher.dispatch
 
                 def dispatch(msg, recipients):
+                    if a.only and msg.stage != a.only:
+                        return None
                     msg = msg.model_copy(update={"kind": f"resend{n}",
                                                  "subject": f"[Resend · {a.resend}] {msg.subject}"})
                     return orig(msg, recipients)
