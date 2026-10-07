@@ -214,3 +214,39 @@ Fails from both: the MoSPI API (needs a POST), YouTube RSS, dot.gov.in and cbo.g
   - `unarmed:<ref>`: the window opens within 6 h and nothing is armed.
   - `missed:<ref>`: the window closed with no Stage 1.
   - Operator alerts are sent live whenever SMTP is configured. `calendars` runs `health` each time.
+
+## Phase 4 (started 2026-10-07): PIB and a local LLM with no paid API
+
+**Decision (user):** no API LLM, nothing that depends on the user's PC, and the LLM work should be heavily optimized.
+
+**Model:** llama.cpp `llama-server` (build b11460) runs on the GitHub runner's 4 CPUs, serving a small GGUF model from the Actions cache. The default is Qwen3-4B-Instruct-2507 Q4_K_M (2.5 GB), configurable through repo variable `LLM_GGUF`. The client is OpenAI-compatible, so any endpoint can be substituted via `LLM_BASE_URL`.
+
+**Optimizations:**
+- The model sees only what the rules cannot decide.
+- One item per call. The system prompt is byte-identical, so the KV cache is reused.
+- Output is a schema-constrained boolean of a few tokens.
+- Every answer is cached in `llm_cache` by sha256 of the request.
+- The step runs only when the queue is non-empty.
+- If the model is down, an item waits up to 60 minutes, then goes to the digest tagged "unclassified". Nothing is lost.
+
+**PIB:**
+- `allRel` (ministry-tagged, complete for the day) is merged with RSS (fast, covers midnight rollover) by PRID.
+- The release page (ministry, Posted On in IST, paragraphs) is fetched only for kept or uncertain items.
+
+**Evaluation on 263 hand-labelled releases** (`tests/golden/pib/triage_labels.json`, needs human review):
+- The rules alone keep 21, all relevant; reject 120 with no relevant item lost; and leave 122 uncertain, of which 10 are relevant.
+- The models scored on those 122:
+
+  | Model | Relevant found (of 10) | False alarms | Unparsed | Median time per item |
+  |---|---|---|---|---|
+  | Qwen3-4B | 8 | 3 | 0 | 1.8 s |
+  | Qwen2.5-7B | 8 | 4 | 0 | 2.2 s |
+  | Llama3.2-3B | 6 | 4 | 75 unparsed | — |
+  | Qwen2.5-3B | 4 | 2 | 0 | — |
+
+- **Overall: 29 of 31 relevant captured, 3 noise items.** The two misses are the India-UAE task force meeting and the PM-Trump call, both borderline labels.
+- Regression test `tests/test_pib.py` fails if a `pib.yaml` edit rejects any relevant release.
+
+**Live:** a `tick` run on the runner polled PIB and baselined 20 items. The LLM step is skipped when nothing is pending.
+
+**Tests:** 140 passing.
