@@ -125,3 +125,19 @@ sources:
       expect: html
       min_items: 5
       stale_after_hours: 336
+
+  - id: mospi
+    label: MoSPI
+    event_name: NSO release
+    country: IN
+    tier: 1
+    kind: stream
+    feed_type: api
+    urls:
+      releases: https://www.mospi.gov.in/api/latest-release/get-web-latest-release-list
+    poll_interval: 900
+    adapter: india.mospi:Mospi
+    health_rules:
+      expect: json
+      min_items: 5
+      stale_after_hours: 240

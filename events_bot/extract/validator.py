@@ -14,6 +14,7 @@ from .base import Extraction
 
 RATE_UNITS = {"percent"}
 RATE_BOUNDS = (Decimal(0), Decimal(20))
+GROWTH_BOUNDS = (Decimal(-60), Decimal(100))     # y-o-y growth / inflation prints (unit "growth_pct")
 
 
 def validate(ex: Extraction, text: str, *, expected_period: str | None = None) -> Extraction:
@@ -26,6 +27,10 @@ def validate(ex: Extraction, text: str, *, expected_period: str | None = None) -
         lo, hi = RATE_BOUNDS
         if not (lo <= ex.value_norm <= hi):
             errs.append(f"rate {ex.value_norm} outside {lo}-{hi}")
+    if ex.unit == "growth_pct" and ex.value_norm is not None:
+        lo, hi = GROWTH_BOUNDS
+        if not (lo <= ex.value_norm <= hi):
+            errs.append(f"growth {ex.value_norm} outside {lo}-{hi}")
     if ex.unit is not None and ex.value_norm is None and ex.unit != "text":
         errs.append("unparseable number")
     if expected_period is not None and ex.period is not None and ex.period != expected_period:

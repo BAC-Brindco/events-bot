@@ -62,7 +62,7 @@ class Pipeline:
         row = self.db.one("select exists(select 1 from items where source_id = %s) as has", (cfg.id,))
         return not row["has"]
 
-    def process(self, cfg: SourceConfig, items: list[RawItem], enrich=None) -> PollStats:
+    def process(self, cfg: SourceConfig, items: list[RawItem], enrich=None, render=None) -> PollStats:
         st = PollStats(seen=len(items))
         baseline = self.is_baseline(cfg)
         for it in items:
@@ -97,11 +97,11 @@ class Pipeline:
                 self.db.update_item(item_id, status="filtered")
                 st.filtered += 1
                 continue
-            self.deliver(cfg, item_id, it, now, st, enrich)
+            self.deliver(cfg, item_id, it, now, st, enrich, render=render)
         return st
 
     def deliver(self, cfg: SourceConfig, item_id: int, it: RawItem, now, st: PollStats, enrich=None,
-                route: str | None = None, extra_tags: list[str] | None = None) -> None:
+                route: str | None = None, extra_tags: list[str] | None = None, render=None) -> None:
         """Route one kept item: optional enrichment (detail page), tags, realtime send or digest queue."""
         if enrich is not None:
             try:
@@ -121,7 +121,8 @@ class Pipeline:
             self.db.update_item(item_id, status="queued", route=route, tags=tags, meta=it.meta)
             st.queued += 1
             return
-        msg = stage1_item(cfg, it, first_seen_at=now, tags=tags, mode=self.dispatcher.mode)
+        msg = render(it, first_seen=now, mode=self.dispatcher.mode) if render is not None else None
+        msg = msg or stage1_item(cfg, it, first_seen_at=now, tags=tags, mode=self.dispatcher.mode)
         res = self.dispatcher.dispatch(msg, self.recipients)
         if res.status in ("failed", "no_recipients"):
             self.db.update_item(item_id, status="error", route=route, tags=tags,

@@ -81,9 +81,12 @@ class Fetcher:
 
     def get(self, url: str, *, source_id: str, doc_type: str, expect: str = "any",
             conditional: bool = True, archive: bool = True, parent_id: int | None = None,
-            headers: dict | None = None) -> FetchResult:
+            headers: dict | None = None, json_body: dict | None = None) -> FetchResult:
+        """GET (or POST with `json_body`, e.g. MoSPI's POST-only release API). POSTs are never conditional."""
         host = urlparse(url).netloc
         h = dict(headers or {})
+        if json_body is not None:
+            conditional = False
         if conditional and self.db is not None:
             v = self.db.get_validators(url)
             if v:
@@ -96,7 +99,8 @@ class Fetcher:
             if gap < self.min_gap:
                 time.sleep(self.min_gap - gap)
             try:
-                r = self.client.get(url, headers=h)
+                r = (self.client.post(url, headers=h, json=json_body) if json_body is not None
+                     else self.client.get(url, headers=h))
             except httpx.HTTPError as e:
                 raise FetchError(url, "network", f"{type(e).__name__}: {e}"[:300]) from e
             finally:

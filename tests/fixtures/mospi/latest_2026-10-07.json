@@ -1,0 +1,788 @@
+{
+ "status": "success",
+ "code": 200,
+ "message": "Latest Releases retrieved successfully.",
+ "data": [
+  {
+   "id": "3618",
+   "title": "Press Release on an Approach Paper on Expanding the scope and coverage for the Index of Services Production",
+   "published_year": "2026-10-06",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1791290120444_07b52565-b7da-4dc4-973d-aa868c96653d_Press_release___Additional_sectors.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press release _ Additional sectors.pdf",
+    "filesize": 221255
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-10-06T00:00:00.000Z",
+   "end_date": "2027-10-06T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3616",
+   "title": "Press Note on National Household Travel Survey July, 2025 – June, 2026",
+   "published_year": "2026-10-05",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1791197961812_aef550fd-c694-4955-9e26-296148e3714d_Press_Note_-_NHTS.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press Note - NHTS.pdf",
+    "filesize": 468654
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-10-05T00:00:00.000Z",
+   "end_date": "2027-10-05T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3615",
+   "title": "\r\nPress Release on Forward-Looking Survey on Private Corporate Sector CAPEX Investment Intentions (Survey period: October–December 2026)\r\n",
+   "published_year": "2026-10-01",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1790848960861_b1bc778a-20ca-4db2-9bbe-571e4dbc7b6c_Press_Note_launching_CAPEX_2026_Final.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press Note_launching_CAPEX 2026_Final.pdf",
+    "filesize": 592426
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-10-01T00:00:00.000Z",
+   "end_date": "2027-10-01T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3614",
+   "title": "Press Note on Annual Survey of Industries: Insights from ASI 2024-25 (Survey period: October 2025 to June 2026)",
+   "published_year": "2026-09-30",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1790768522303_b1ee6ba9-c9d3-481a-b30e-45a24c7f3729_PIB_Note_ASI_2024-25_English.pdf",
+    "type": "document",
+    "filemime": "application/pdf",
+    "filename": "PIB Note_ASI 2024-25_English.pdf",
+    "filesize": 678241
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-09-30T00:00:00.000Z",
+   "end_date": "2027-09-30T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3613",
+   "title": "Press Release on Release of sub – sectoral Trial Index of Services Production (ISP) for July 2026 (Base Year 2024 -25)",
+   "published_year": "2026-09-29",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1790677328840_daf83042-6bd2-4ffc-86f6-d1d775755291_PR_ISP_July-26.pdf",
+    "filemime": "application/pdf",
+    "filename": "PR ISP July-26.pdf",
+    "filesize": 337798
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-09-29T00:00:00.000Z",
+   "end_date": "2027-09-29T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3611",
+   "title": "Press Release in r/o Monthly Flash Report on Infrastructure Projects worth Rs. 150 crore and above - August 2026",
+   "published_year": "2026-09-28",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1790577940866_2ed7a068-629e-4d30-888b-b31d2feac1bd_Press_Release_in_ro_Monthly_Flash_Report_on_Infrastructure_Projects_worth_Rs._150_crore_and_above_-_August_2026_(1).pdf",
+    "filemime": "application/pdf",
+    "filename": "Press Release in ro Monthly Flash Report on Infrastructure Projects worth Rs. 150 crore and above - August 2026  (1).pdf",
+    "filesize": 400954
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-09-28T00:00:00.000Z",
+   "end_date": "2027-09-28T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3612",
+   "title": "Press Release on Quick Estimates of all India Index of Industrial Production (IIP) base year 2022-23 for August 2026",
+   "published_year": "2026-09-28",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1790590696008_1b346687-0a5f-445a-83a2-28283c586094_IIP_Press_Release_August_2026.pdf",
+    "filemime": "application/pdf",
+    "filename": "IIP Press Release August 2026.pdf",
+    "filesize": 1074631
+   },
+   "file_two": {
+    "path": "uploads/latestReleases/latest_release_1790590696633_c0f8dc21-040f-4f5c-bfc1-63be2e5775d7_Indices_IIP_2022-23_Monthly_annual_Aug_2026.xlsx",
+    "filemime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "filename": "Indices IIP 2022-23 Monthly_annual Aug 2026.xlsx",
+    "filesize": 43257
+   },
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-09-28T00:00:00.000Z",
+   "end_date": "2027-09-28T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3610",
+   "title": "Press Note on Domestic Tourism Expenditure Survey NSS 80th round (July 2025 to June 2026)",
+   "published_year": "2026-09-23",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1790159417509_e87601c9-a7f3-4290-9600-46c078186d81_Press_Note_DTES_220926.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press Note DTES 220926.pdf",
+    "filesize": 681958
+   },
+   "file_two": {
+    "path": "uploads/latestReleases/latest_release_1790240909313_a9391c9f-d46a-4be4-a0a9-110933a3f5f8_Press_Note_DTES_final_hindi_v1.pdf",
+    "type": "document",
+    "filemime": "application/pdf",
+    "filename": "Press Note DTES final hindi_v1.pdf",
+    "filesize": 375128
+   },
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-09-23T00:00:00.000Z",
+   "end_date": "2027-09-23T00:00:00.000Z",
+   "is_new": "4"
+  },
+  {
+   "id": "3609",
+   "title": "Press Note on Sources and Methods for Compilation of National Accounts Statistics",
+   "published_year": "2026-09-21",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1789988911616_c0cfdbfb-61e9-4316-a532-0dd2b52c0997_Press_Note_for_release_of_Sources_and_Methods_for_compilation_of_National_Accounts_Statistics.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press Note for release of Sources and Methods for compilation of National Accounts Statistics.pdf",
+    "filesize": 233248
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-09-21T00:00:00.000Z",
+   "end_date": "2026-10-31T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3608",
+   "title": "Press Note on Labour Market Snapshot of Selected Districts",
+   "published_year": "2026-09-18",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1789723473975_48f4df72-a0d8-462a-bda5-7bdf84bb1704_PLFS_district_PressNote_1709.2026.pdf",
+    "filemime": "application/pdf",
+    "filename": "PLFS_district_PressNote_1709.2026.pdf",
+    "filesize": 845635
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-09-18T00:00:00.000Z",
+   "end_date": "2027-09-17T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3607",
+   "title": "Press Note on Periodic Labour Force Survey (PLFS) Monthly Bulletin August 2026",
+   "published_year": "2026-09-15",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1789465219488_2c7319c0-05c4-4d44-9eac-a99be911de26_Monthly_Press_note_Aug_2026.pdf",
+    "filemime": "application/pdf",
+    "filename": "Monthly_Press_note_Aug_2026.pdf",
+    "filesize": 663351
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-09-15T00:00:00.000Z",
+   "end_date": "2027-09-15T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3606",
+   "title": "Press release of CPI for the month of August 2026",
+   "published_year": "2026-09-14",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1789381904344_6c792dcf-8a9f-4fca-93d3-99d833bdb358_Press_Release_of_CPI_for_August_2026.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press Release of CPI for August 2026.pdf",
+    "filesize": 664134
+   },
+   "file_two": {
+    "path": "uploads/latestReleases/latest_release_1789381904444_46c81890-7430-4e08-9e41-33aa2c182b59_Press_Release_for_CPI_à¤¹à¤¿à¤à¤¦à¥_à¤à¤à¤¸à¥à¤¤_2026.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press Release for CPI à¤¹à¤¿à¤à¤¦à¥ à¤à¤à¤¸à¥à¤¤ 2026.pdf",
+    "filesize": 796018
+   },
+   "file_three": {
+    "path": "uploads/latestReleases/latest_release_1789381904539_f0c30481-3c7a-4e65-ada0-8f64e286684d_Annex.xlsx",
+    "filemime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "filename": "Annex.xlsx",
+    "filesize": 23838
+   },
+   "is_active": true,
+   "start_date": "2026-09-14T00:00:00.000Z",
+   "end_date": "2027-02-15T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3605",
+   "title": "Press Note on unincorporated Sector at the district level: insights from ASUSE 2025 (survey period: January 2025 to December 2025)",
+   "published_year": "2026-09-10",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1789035138998_a5c9e7a1-007e-43d5-97a7-efa59a676e81_Press_Note_District_Report_ASUSE_English.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press_Note_District_Report_ASUSE_English.pdf",
+    "filesize": 341138
+   },
+   "file_two": {
+    "path": "uploads/latestReleases/latest_release_1789035139062_d95a2f1b-6fa9-47ba-93d1-213073656736_Press_Note_District_Report_ASUSE_Hindi.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press_Note_District_Report_ASUSE_Hindi.pdf",
+    "filesize": 511593
+   },
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-09-10T00:00:00.000Z",
+   "end_date": "2027-09-10T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3604",
+   "title": "Press Release on additional information related to GDP estimates received after release of Q1 Estimates of FY 2026-27",
+   "published_year": "2026-09-02",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1788359345406_054ae876-9661-4bf2-b16c-29736e5f72e9_Press_Release_Page___Press_Information_Bureau.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press Release Page _ Press Information Bureau.pdf",
+    "filesize": 331359
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-09-02T00:00:00.000Z",
+   "end_date": "2027-02-06T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3601",
+   "title": "Press Release on Release of sub – sectoral Trial Index of Services Production (ISP) for June 2026 (Base Year 2024 -25)",
+   "published_year": "2026-08-31",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1788158339643_a805288a-0679-437c-a9e8-f35246cca221_Press_Release_31st_August_final.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press Release 31st August_final.pdf",
+    "filesize": 330348
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-08-31T00:00:00.000Z",
+   "end_date": "2027-02-28T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3602",
+   "title": "Press Release of National Accounts Statistics - 2026 publication",
+   "published_year": "2026-08-31",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1788171660220_f2a7f5ed-3ce3-45cc-a5b2-eebc84623a01_Final_Press_Release_on_NAS_2026.pdf",
+    "filemime": "application/pdf",
+    "filename": "Final Press Release on NAS 2026.pdf",
+    "filesize": 207968
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-08-31T00:00:00.000Z",
+   "end_date": "2027-02-28T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3603",
+   "title": "Press Note On Quarterly estimates of Gross Domestic Product for the first quarter (April-June) of 2026-27",
+   "published_year": "2026-08-31",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1788172583113_d65a77cf-240e-4491-82ee-59f78618fa41_Press_Note_on_GDP_Estimates_for_Q1_2026-27.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press Note on GDP Estimates for Q1 2026-27.pdf",
+    "filesize": 821560
+   },
+   "file_two": {
+    "path": "uploads/latestReleases/latest_release_1790243982552_9c3fa4da-ea54-4d64-92f1-3e2dfd769ca9_Hindi_Version_of_Press_Note_Quarterly_Estimates_of_Gross_Domestic_Product_for_the_First_Quarter_(April-June)_of_FY_2026-27.pdf",
+    "type": "document",
+    "filemime": "application/pdf",
+    "filename": "Hindi Version of Press Note Quarterly Estimates of Gross Domestic Product for the First Quarter (April-June) of FY 2026-27.pdf",
+    "filesize": 808580
+   },
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-08-31T00:00:00.000Z",
+   "end_date": "2027-02-28T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3600",
+   "title": "Press Release on Quick Estimates of all India Index of Industrial Production (IIP) base year 2022-23 for July 2026",
+   "published_year": "2026-08-28",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1787912132242_3d2fc197-d8a9-48a0-840f-d0cdc12c6835_IIP_Press_Release_July_2026.pdf",
+    "filemime": "application/pdf",
+    "filename": "IIP_Press_Release_July_2026.pdf",
+    "filesize": 1123650
+   },
+   "file_two": {
+    "path": "uploads/latestReleases/latest_release_1787914506882_a1a21c7f-6079-4e36-a765-06e951641318_Indices_IIP_2022-23_Monthly_annual_Jul_2026.xlsx",
+    "type": "document",
+    "filemime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "filename": "Indices IIP 2022-23 Monthly_annual Jul 2026.xlsx",
+    "filesize": 42794
+   },
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-08-28T00:00:00.000Z",
+   "end_date": "2026-09-28T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3599",
+   "title": "Press Note on Quarterly Bulletin of Unincorporated Sector Enterprises (QBUSE) (Survey period: April 2026 to June 2026)",
+   "published_year": "2026-08-21",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1787307936963_624dc319-700e-40f2-8606-6f75c824de66_Press_Note_QBUSE_Q2_2026_English_(1).pdf",
+    "filemime": "application/pdf",
+    "filename": "Press_Note_QBUSE_Q2_2026_English (1).pdf",
+    "filesize": 386317
+   },
+   "file_two": {
+    "path": "uploads/latestReleases/latest_release_1787307937056_b8ef1398-58eb-477c-98a0-bd935d7768f6_Press_Note_QBUSE_Q2_2026_Hindi.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press_Note_QBUSE_Q2_2026_Hindi.pdf",
+    "filesize": 746342
+   },
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-08-21T00:00:00.000Z",
+   "end_date": "2027-08-31T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3598",
+   "title": "Press Note on Periodic Labour Force Survey (PLFS) Monthly Bulletin July 2026\r\n",
+   "published_year": "2026-08-17",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1786961114962_47b9343c-f726-4581-8440-c2f119a86ab6_Monthly_Press_note_July_2026.pdf",
+    "filemime": "application/pdf",
+    "filename": "Monthly_Press_note_July_2026.pdf",
+    "filesize": 768825
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-08-17T00:00:00.000Z",
+   "end_date": "2027-02-16T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3597",
+   "title": "Press release of CPI for the month of July 2026",
+   "published_year": "2026-08-12",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1786529680747_3113661d-1a2b-4b9a-af06-b340193ef9a0_Press_Release_CPI_July_2026.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press_Release_CPI_July_2026.pdf",
+    "filesize": 609903
+   },
+   "file_two": {
+    "path": "uploads/latestReleases/latest_release_1786529680812_c62b5fad-f389-47be-99a1-a02fa0d091f5_Annexures.xlsx",
+    "filemime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "filename": "Annexures.xlsx",
+    "filesize": 22184
+   },
+   "file_three": {
+    "path": "uploads/latestReleases/latest_release_1788332395916_44090c9f-89a4-4826-8628-09888e2be2a1_press_release_for_CPI_à¤¹à¤¿à¤à¤¦à¥_à¤à¥à¤²à¤¾à¤_2026_(1).pdf",
+    "type": "document",
+    "filemime": "application/pdf",
+    "filename": "press release for CPI à¤¹à¤¿à¤à¤¦à¥ à¤à¥à¤²à¤¾à¤ 2026 (1).pdf",
+    "filesize": 715623
+   },
+   "is_active": true,
+   "start_date": "2026-08-12T00:00:00.000Z",
+   "end_date": "2027-08-12T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3596",
+   "title": "Press Note on Periodic Labour Force Survey (PLFS) Quarterly Bulletin April to June, 2026",
+   "published_year": "2026-08-10",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1786356517178_3a125c52-4680-4258-9dc5-aebea9b8f3f0_Press_note_Apr-Jun_2026_PLFS_QB.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press_note_Apr-Jun_2026 PLFS_QB.pdf",
+    "filesize": 417118
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-08-10T00:00:00.000Z",
+   "end_date": "2027-02-10T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3595",
+   "title": "Joint Statement of Meeting of Heads of NSOs of BRICS Countries held on 03-04 August, 2026 in Lucknow",
+   "published_year": "2026-08-04",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1785840278403_a094383d-aeca-4106-a3d4-02fd91a2686e_Joint_statement_for_Meeting_of_Heads_of_NSOs.pdf",
+    "filemime": "application/pdf",
+    "filename": "Joint statement for Meeting of Heads of NSOs.pdf",
+    "filesize": 158961
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-08-04T00:00:00.000Z",
+   "end_date": "2027-08-03T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3594",
+   "title": "Press Release for the Report of the Expert Committee on Energy Statistics",
+   "published_year": "2026-08-03",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1785751703922_7e3da0d7-849d-41fd-b75f-b6cc7b2246ae_Press_Release_Final.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press Release_Final.pdf",
+    "filesize": 264476
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-08-03T00:00:00.000Z",
+   "end_date": "2027-08-03T00:00:00.000Z",
+   "is_new": "0"
+  },
+  {
+   "id": "3593",
+   "title": "Press Release on Release of sub – sectoral Trial Index of Services Production (ISP) for May 2026 (Base Year 2024 -25)",
+   "published_year": "2026-07-29",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1785322284120_78fe6844-3fe3-4f1c-a0fd-084300d0f5c0_ISP_Press_Release_29th_July.pdf",
+    "filemime": "application/pdf",
+    "filename": "ISP Press Release 29th July.pdf",
+    "filesize": 352148
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-07-29T00:00:00.000Z",
+   "end_date": "2027-07-28T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3592",
+   "title": "Press Release on Quick Estimates of all India Index of Industrial Production (IIP) base year 2022-23 for June 2026",
+   "published_year": "2026-07-28",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1785234090071_a0da1e19-8970-4e3c-8188-3fd540cfa461_IIP_Press_release_Jun_2026.pdf",
+    "filemime": "application/pdf",
+    "filename": "IIP Press release Jun 2026.pdf",
+    "filesize": 1119583
+   },
+   "file_two": {
+    "path": "uploads/latestReleases/latest_release_1785234090192_27afeff3-7139-43d7-b871-7e94fb05ea55_Indices_IIP_2022-23_Monthly_annual_Jun_2026.xlsx",
+    "filemime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "filename": "Indices IIP 2022-23 Monthly_annual Jun 2026.xlsx",
+    "filesize": 42267
+   },
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-07-28T00:00:00.000Z",
+   "end_date": "2027-07-28T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3591",
+   "title": "Quarterly Release of the Performance Monitoring Dashboard of the Infrastructure Sector",
+   "published_year": "2026-07-16",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1784203600435_6f56179f-2a1d-45f1-8937-afd2042fce9e_Press_Release_Page___PIB_Performance_Monitoring.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press Release Page _ PIB_Performance Monitoring.pdf",
+    "filesize": 410505
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-07-16T00:00:00.000Z",
+   "end_date": "2029-07-16T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3590",
+   "title": "Press Note on Periodic Labour Force Survey (PLFS) Monthly Bulletin June 2026",
+   "published_year": "2026-07-15",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1784110763693_05e4144f-1428-4be3-817c-cae6072d34a5_Monthly_Press_note_June_2026.pdf",
+    "filemime": "application/pdf",
+    "filename": "Monthly_Press_note_June_2026.pdf",
+    "filesize": 760265
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-07-15T00:00:00.000Z",
+   "end_date": "2029-07-15T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3589",
+   "title": "Press Release on First Release of sub – sectoral Trial Index of Services Production (ISP) (Base Year 2024 -25)",
+   "published_year": "2026-07-14",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1784022895781_802c2c9e-effc-4255-bdc5-e7ceee5372d1_Press_Release_14th_July__Final.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press Release 14th July _Final.pdf",
+    "filesize": 415035
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-07-14T00:00:00.000Z",
+   "end_date": "2029-07-13T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3588",
+   "title": "Press release of CPI for the month of June 2026",
+   "published_year": "2026-07-13",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1783937698596_1013f1a1-3400-41aa-b4f4-5bbff10db7b7_Press_Release_of_CPI_for_June_2026.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press Release of CPI for June 2026.pdf",
+    "filesize": 612211
+   },
+   "file_two": {
+    "path": "uploads/latestReleases/latest_release_1783937698667_f735dab9-e48b-4544-a662-eb99e2cb5efc_Annexures_(5).xlsx",
+    "filemime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "filename": "Annexures (5).xlsx",
+    "filesize": 23675
+   },
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-07-13T00:00:00.000Z",
+   "end_date": "2029-07-12T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3587",
+   "title": "Press Release on Release of Report of Technical Advisory Committee on Index of Services Production",
+   "published_year": "2026-07-07",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1783419294291_b0590fd0-b35c-48ea-bb7f-46197b46dd25_Press_Release_of_the_TAC_report.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press Release of the TAC report.pdf",
+    "filesize": 284744
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-07-07T00:00:00.000Z",
+   "end_date": "2029-07-07T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3586",
+   "title": "Press Release on Quick Estimates of all India Index of Industrial Production (IIP) base year 2022-23 for May 2026\r\n",
+   "published_year": "2026-06-29",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1782727994645_1af6a37e-b7fb-4ee8-bf52-96fcea2a47e2_IIP_Press_release_May_2026.pdf",
+    "filemime": "application/pdf",
+    "filename": "IIP Press release May 2026.pdf",
+    "filesize": 1305676
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-06-29T00:00:00.000Z",
+   "end_date": "2029-06-29T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3585",
+   "title": "Press Note on the Reports “Labour Market Dynamics in Million-Plus Cities” and “Urban Unincorporated Enterprise Landscape: ASUSE 2025 Insights from Million-Plus Cities”",
+   "published_year": "2026-06-29",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1782725204673_8c25a276-1b11-4737-b5b9-82061dad2ff8_Million_+cities-combined_Press_note.pdf",
+    "filemime": "application/pdf",
+    "filename": "Million +cities-combined Press note.pdf",
+    "filesize": 383828
+   },
+   "file_two": {
+    "path": "uploads/latestReleases/latest_release_1782821845805_e7c65f98-132f-4794-ad4b-581988ee6bd7_Million_+cities_à¤¹à¤¿à¤à¤¦à¥_Press_note.pdf",
+    "type": "document",
+    "filemime": "application/pdf",
+    "filename": "Million +cities à¤¹à¤¿à¤à¤¦à¥ Press note.pdf",
+    "filesize": 1156299
+   },
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-06-29T00:00:00.000Z",
+   "end_date": "2029-06-29T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3584",
+   "title": "Press Release on FAQs on Index of Services Production – Trial Indices with Base year 2024 -25",
+   "published_year": "2026-06-24",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1782292366710_eef9114f-767b-4f72-a868-2bc185b33507_Press_Release-_FAQs_on_Index_of_Services_Production_(1).pdf",
+    "type": "document",
+    "filemime": "application/pdf",
+    "filename": "Press Release- FAQs on Index of Services Production (1).pdf",
+    "filesize": 333400
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-06-24T00:00:00.000Z",
+   "end_date": "2029-06-24T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3583",
+   "title": "National-Level Hackathon “STATATHON – A Data\r\nJourney for Viksit Bharat” Successfully Concludes,\r\nShowcasing Innovative Data Solutions by Young\r\nTalent",
+   "published_year": "2026-06-22",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1782105743209_3c3bf9ef-3d1b-416f-ace3-690d88fe0998_National-Level_Hackathon_âSTATATHON_â_A_Data.pdf",
+    "filemime": "application/pdf",
+    "filename": "National-Level Hackathon âSTATATHON â A Data.pdf",
+    "filesize": 871488
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-06-22T00:00:00.000Z",
+   "end_date": "2026-10-31T00:00:00.000Z",
+   "is_new": "5"
+  },
+  {
+   "id": "3582",
+   "title": "Press Note on Periodic Labour Force Survey (PLFS) Monthly Bulletin May 2026",
+   "published_year": "2026-06-15",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1781518707399_03f124d5-eccd-44a7-a9ed-92e470c7867d_Monthly_Press_note_May_2026.pdf",
+    "filemime": "application/pdf",
+    "filename": "Monthly_Press_note_May_2026.pdf",
+    "filesize": 1024629
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-06-15T00:00:00.000Z",
+   "end_date": "2029-06-15T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3581",
+   "title": "Press release of CPI for the month of May 2026",
+   "published_year": "2026-06-12",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1781259853555_04875571-19f2-4830-9cad-3a1bfd5992e1_Press_Release_of_CPI_for_May_2026.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press Release of CPI for May 2026.pdf",
+    "filesize": 916987
+   },
+   "file_two": {
+    "path": "uploads/latestReleases/latest_release_1781259853656_e502a98c-e740-40f2-8be9-2cfde41812cd_Annexures_(4).xlsx",
+    "filemime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "filename": "Annexures (4).xlsx",
+    "filesize": 20767
+   },
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-06-12T00:00:00.000Z",
+   "end_date": "2029-06-12T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3580",
+   "title": "Press Note on Provisional Estimates of Annual GDP FY 2025-26 and Quarterly Estimates of GDP for Q4 of FY 2025-26",
+   "published_year": "2026-06-05",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1780655857536_5ac01869-ca4a-422d-b7a7-57b81da60932_Press_Note_on_GDP_Estimates_for_Q4_2025-26_and_PE_FY_2025-26_F.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press Note on GDP Estimates for Q4 2025-26 and PE FY 2025-26_F.pdf",
+    "filesize": 968042
+   },
+   "file_two": {
+    "path": "uploads/latestReleases/latest_release_1780655857647_a7d93fe9-3223-49c5-bec6-5caec188faa8_Statements.xls",
+    "filemime": "application/vnd.ms-excel",
+    "filename": "Statements.xls",
+    "filesize": 124928
+   },
+   "file_three": {
+    "path": "uploads/latestReleases/latest_release_1783681216170_17cacaa0-f981-4833-af45-1f9972782f15_Press_Note_on_Provisional_Estimates_and_Q4_Estimates_of_GDP_2024-25_Hindi.pdf",
+    "type": "document",
+    "filemime": "application/pdf",
+    "filename": "Press Note on Provisional Estimates and Q4 Estimates of GDP 2024-25 Hindi.pdf",
+    "filesize": 1111079
+   },
+   "is_active": true,
+   "start_date": "2026-06-05T00:00:00.000Z",
+   "end_date": "2029-06-05T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3579",
+   "title": "Press Release of Uniform Guideline for Compilation of District Domestic Product (DDP) Estimates \r\nwith Base Year 2022-23 ",
+   "published_year": "2026-06-03",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1780483607776_d85a8150-cf66-42d4-b13d-407a584c06ef_Press_Release_for_DDP.pdf",
+    "filemime": "application/pdf",
+    "filename": "Press Release for DDP.pdf",
+    "filesize": 147042
+   },
+   "file_two": null,
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-06-03T00:00:00.000Z",
+   "end_date": "2029-06-03T00:00:00.000Z",
+   "is_new": "3"
+  },
+  {
+   "id": "3578",
+   "title": "First Press Release of All India Index of Industrial Production of New Series With Base Year 2022-23",
+   "published_year": "2026-06-01",
+   "file_one": {
+    "path": "uploads/latestReleases/latest_release_1786014640160_3fd04bad-3d94-472f-93ff-3f80cf2c86ce_latest_release_1780371708887_52b83604-666c-443a-82c6-4411103e2ede_Press_Release_IIP_2022-23f.pdf",
+    "type": "document",
+    "filemime": "application/pdf",
+    "filename": "latest_release_1780371708887_52b83604-666c-443a-82c6-4411103e2ede_Press_Release_IIP_2022-23f.pdf",
+    "filesize": 743293
+   },
+   "file_two": {
+    "path": "uploads/latestReleases/latest_release_1786014640234_075cdefb-844c-48a2-b99b-661cb5998e87_Item_Group_with_weights_(3).xlsx",
+    "type": "document",
+    "filemime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "filename": "Item Group with weights (3).xlsx",
+    "filesize": 42416
+   },
+   "file_three": null,
+   "is_active": true,
+   "start_date": "2026-06-01T00:00:00.000Z",
+   "end_date": "2029-06-01T00:00:00.000Z",
+   "is_new": "3"
+  }
+ ],
+ "pagination": {
+  "currentPage": 1,
+  "totalItems": 114,
+  "totalPages": 3,
+  "pageSize": 40
+ }
+}

@@ -17,7 +17,8 @@ from ..deliver import design as dz
 from ..deliver import house as hs
 
 FOOTER = "RAAS Research Capital · Events Desk · {ref}"
-SOURCES = {"RBI": ("Reserve Bank of India", "MPC"), "FED": ("Federal Reserve", "FOMC")}
+SOURCES = {"RBI": ("Reserve Bank of India", "MPC"), "FED": ("Federal Reserve", "FOMC"),
+           "MOSPI": ("Ministry of Statistics and Programme Implementation (NSO)", "MoSPI")}
 
 
 @dataclass
@@ -68,15 +69,17 @@ def _cell(v: str) -> str:
 
 def stage1(*, ref: str, subject: str, source_tag: str, event_name: str, title: str, key: list[dict],
            tables: list[Table], bullets: list[str], source_time: str, first_seen: str, docs: list[Doc],
-           failed: list[str], mode: str) -> Message:
-    source_name, short, ev_date = _meta(ref, source_tag)
+           failed: list[str], mode: str, heading: str | None = None, callout_title: str = "The decision",
+           ev_date: date | None = None) -> Message:
+    source_name, short, ref_date = _meta(ref, source_tag)
+    ev_date = ev_date or ref_date
     body = dz.masthead(
         kicker=hs.KICKER,
-        title=f"{short} Decision",
+        title=_e(heading) if heading else f"{short} Decision",
         dateline=(ev_date.strftime("%a %d-%b-%Y") if ev_date else "") + " &middot; Release alert",
         subline=f"{_e(source_name)} &middot; released {_e(source_time)} &middot; first seen {_e(first_seen)}",
     )
-    body += dz.row(dz.callout(f"<strong>{_e(title)}</strong>", accent="gold", title="The decision"),
+    body += dz.row(dz.callout(f"<strong>{_e(title)}</strong>", accent="gold", title=callout_title),
                    pad=dz.BLOCK_PAD)
     cards = []
     for k in key:
