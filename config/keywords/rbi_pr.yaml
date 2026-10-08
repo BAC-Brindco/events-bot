@@ -1,0 +1,29 @@
+# RBI press releases: everything is kept except routine market-operation and statistical notices,
+# which RBI posts several times a day (8 Oct 2026: 5 of the first 5 items were these).
+# Excluded items are logged to filtered_items (`cli rejected rbi_pr`). Exclude wins over everything.
+exclude_any:
+  - Money Market Operations as on
+  - Variable Rate Reverse Repo
+  - Variable Rate Repo
+  - VRRR
+  - VRR auction
+  - Result of the
+  - Results of the
+  - Underwriting Auction
+  - Auction of State Government Securities
+  - Auction of Treasury Bills
+  - Auction of GoI Dated Securities
+  - Treasury Bills auction
+  - Reserve Money for the
+  - Money Supply for the
+  - Sectoral Deployment of Bank Credit
+  - Lending and Deposit Rates of Scheduled Commercial Banks
+  - extends the validity of Directions
+  - Weekly Statistical Supplement
+  - Overnight Money Market
+  # Penalties and directions on co-operative banks and small NBFCs arrive almost daily and do not move
+  # listed names; penalties on scheduled commercial banks stay (tagged rbi:enforcement).
+  - Co-operative Bank
+  - Co-op Bank
+  - Sahakari Bank
+  - Certificate of Registration

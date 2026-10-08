@@ -12,8 +12,10 @@ sources:
     feed_type: rss
     urls:
       press_releases: https://rbi.org.in/pressreleases_rss.xml
-    poll_interval: 120          # 10-item feed, about a day deep (T-04)
+    poll_interval: 120          # 10-item feed, about a day deep (T-04); gaps backfilled by prid
     adapter: india.rbi:RbiRss
+    filters:
+      keywords: rbi_pr          # routine market operations / statistics out; everything else kept
     health_rules:
       expect: xml
       min_items: 5
