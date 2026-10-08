@@ -1,0 +1,18 @@
+# CBDT: rules, amendments, circulars, extensions and policy press releases are kept. Approvals of
+# individual institutions, authorities and funds (several a week, all under the same sections) are not.
+# Excluded items are logged to filtered_items (`cli rejected cbdt`).
+exclude_any:
+  - u/s 45(3)
+  - section 45(3)
+  - Schedule III (Table Sl No 36)
+  - Schedule III Table Sl No 36
+  - Schedule III Table Sl. No. 36
+  - section 536 (1)
+  - section 536(1)
+  - Notification in the case of
+  - u/s 10(46)
+  - section 10(46)
+  - u/s 80G
+  - u/s 35(1)
+  - section 35(1)
+  - Condonation of delay

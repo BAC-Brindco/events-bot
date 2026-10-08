@@ -1,0 +1,32 @@
+# BSE notices: about 45 a day, nearly all routine. Kept: main-board index changes, buybacks, delistings,
+# equity suspensions and revocations, and equity corporate actions that change the share count.
+# Segment / category / department are in the item summary ("Segment: SME") so they can be excluded here.
+# Excluded and unmatched items are logged to filtered_items (`cli rejected bse_notices`).
+exclude_any:
+  - "Segment: SME"
+  - "Segment: Debt"
+  - "Segment: Mutual Fund"
+  - "Segment: SLB"
+  - SME IPO
+  - BSE SME IPO Index
+  - Daily Bulletin
+  - Demat Auction
+  - Non-Competitive Bidding
+  - Price Band
+  - Periodic Call Auction
+  - Settlement Schedule
+include_any:
+  - "Category: Index"
+  - Buyback
+  - Delisting
+  - Suspension of trading in equity
+  - Suspension in trading of equity
+  - Revocation of Suspension
+  - Bonus Issue
+  - Sub-Division
+  - Stock Split
+  - Scheme of Arrangement
+  - Amalgamation
+  - Demerger
+  - Rights Issue
+  - Open Offer

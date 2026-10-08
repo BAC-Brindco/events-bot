@@ -1,0 +1,3115 @@
+{
+  "aggregations" : {
+    "sections_per_chapter" : {
+      "buckets" : [ {
+        "childrenAggregationResults" : { },
+        "docCount" : 12,
+        "key" : "12509296"
+      }, {
+        "childrenAggregationResults" : { },
+        "docCount" : 141,
+        "key" : "13590315"
+      }, {
+        "childrenAggregationResults" : { },
+        "docCount" : 11214,
+        "key" : "37788"
+      }, {
+        "childrenAggregationResults" : { },
+        "docCount" : 2,
+        "key" : "38131"
+      }, {
+        "childrenAggregationResults" : { },
+        "docCount" : 8,
+        "key" : "38134"
+      }, {
+        "childrenAggregationResults" : { },
+        "docCount" : 4,
+        "key" : "38137"
+      }, {
+        "childrenAggregationResults" : { },
+        "docCount" : 24,
+        "key" : "38140"
+      }, {
+        "childrenAggregationResults" : { },
+        "docCount" : 37,
+        "key" : "38143"
+      }, {
+        "childrenAggregationResults" : { },
+        "docCount" : 15,
+        "key" : "38146"
+      }, {
+        "childrenAggregationResults" : { },
+        "docCount" : 32,
+        "key" : "38149"
+      } ],
+      "errorDocCounts" : 0,
+      "name" : "sections_per_chapter",
+      "otherDocCounts" : 15677
+    }
+  },
+  "items" : [ {
+    "dateCreated" : "2026-10-01T06:36:56Z",
+    "dateModified" : "2026-10-01T06:37:57Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No. 133/2026 [F. No. 300187/1/2026-ITA-I] / SO 5368(E) : Further amendments to the Notification of the Government of India, Ministry of Finance, Department of Revenue, Central Board of Direct Taxes, vide number S.O. 359, dated the 30th March, 1988"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/notification-133-2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26107086,
+            "sizeInBytes" : 253397,
+            "title" : "Notification-133-2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-30T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-30T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-10-01 11:30"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-notification-133-2026",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26107044,
+            "sizeInBytes" : 647258,
+            "title" : "Evidence-Notification-133-2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/26107110",
+    "title" : "Notification No. 133/2026 [F. No. 300187/1/2026-ITA-I] / SO 5368(E) : Further amendments to the Notification of the Government of India, Ministry of Finance, Department of Revenue, Central Board of Direct Taxes, vide number S.O. 359, dated the 30th March, 1988"
+  }, {
+    "dateCreated" : "2026-09-30T07:50:06Z",
+    "dateModified" : "2026-09-30T08:50:55Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No. 132/2026"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/en_notification_132-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26054716,
+            "sizeInBytes" : 222592,
+            "title" : "EN_Notification_132.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-29T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-29T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-30 12:40"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence_132",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26054637,
+            "sizeInBytes" : 430310,
+            "title" : "Evidence_132"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/26054748",
+    "title" : "Notification No. 132/2026-CBDT [F. No. 203/25/2025/ITA-II] / SO 5353(E) : Notification u/s 45(3)(a)(i) r.w.s. 45(4)(b) of the Income Tax Act, 2025 in the case of Jai Research Foundation, Valsad, Gujarat"
+  }, {
+    "dateCreated" : "2026-09-29T12:32:27Z",
+    "dateModified" : "2026-09-30T08:27:56Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No. 08/2026 : Order under section 45(3)(b) of the Income Tax Act, 2025 read with Rule 35 of the Income Tax Rules, 2026"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/notification-gcs-foundation-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26047730,
+            "sizeInBytes" : 358341,
+            "title" : "Notification-GCS-FOUNDATION.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-29 17:53"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-notification-08-2026",
+            "description" : "",
+            "encodingFormat" : "image/png",
+            "fileExtension" : "png",
+            "id" : 26047686,
+            "sizeInBytes" : 88545,
+            "title" : "Evidence-notification-08-2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/26047745",
+    "title" : "Notification No. 08/2026 : Order under section 45(3)(b) of the Income Tax Act, 2025 read with Rule 35 of the Income Tax Rules, 2026"
+  }, {
+    "dateCreated" : "2026-09-29T09:01:44Z",
+    "dateModified" : "2026-09-30T08:50:37Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No. 131/2026-CBDT [F. No. 203/42/2025/ITA-II] / SO 5334(E) : Notification u/s 45(3)(a)(i) r.w.s 45(4)(b) of the Income Tax Act, 2025 in the case of Santhigiri Ashram, Thiruvananthapuram"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/notification-no-131-2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26044740,
+            "sizeInBytes" : 580395,
+            "title" : "Notification-no-131-2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-29 12:00"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-notification-no-131-2026",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26044621,
+            "sizeInBytes" : 1156983,
+            "title" : "Evidence-notification-no-131-2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/26044768",
+    "title" : "Notification No. 131/2026-CBDT [F. No. 203/42/2025/ITA-II] / SO 5334(E) : Notification u/s 45(3)(a)(i) r.w.s 45(4)(b) of the Income Tax Act, 2025 in the case of Santhigiri Ashram, Thiruvananthapuram"
+  }, {
+    "dateCreated" : "2026-09-29T09:05:35Z",
+    "dateModified" : "2026-09-30T09:00:10Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No.  130/2026-CBDT [F. No. 203/40/2025/ITA-II] / SO 5333(E) : Notification u/s 45(3)(a)(ii) r.w.s 45(4)(b) of the Income Tax Act, 2025 in the case of Institute for Financial Management and Research, Chennai"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/notification-no-130-2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26044816,
+            "sizeInBytes" : 522237,
+            "title" : "Notification-no-130-2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-29 12:00"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-notification-no-130-2026",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26044579,
+            "sizeInBytes" : 1084626,
+            "title" : "Evidence-notification-no-130-2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/26044842",
+    "title" : "Notification No.  130/2026-CBDT [F. No. 203/40/2025/ITA-II] / SO 5333(E) : Notification u/s 45(3)(a)(ii) r.w.s 45(4)(b) of the Income Tax Act, 2025 in the case of Institute for Financial Management and Research, Chennai"
+  }, {
+    "dateCreated" : "2026-09-29T09:09:20Z",
+    "dateModified" : "2026-09-30T08:59:55Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No. 129/2026-CBDT [F. No. 203/37/2025/ITA-II] / SO 5332(E) : Notification u/s 45(3)(a)(i) r.w.s 45(4)(b) of the Income Tax Act, 2025 in the case of UPASI Tea Research Foundation (UPASI TRF), Tamil Nadu"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/notification-no-129-2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26044890,
+            "sizeInBytes" : 404945,
+            "title" : "Notification-no-129-2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-29 12:00"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-notification-no-129-2026",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26044537,
+            "sizeInBytes" : 614043,
+            "title" : "Evidence-notification-no-129-2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/26044914",
+    "title" : "Notification No. 129/2026-CBDT [F. No. 203/37/2025/ITA-II] / SO 5332(E) : Notification u/s 45(3)(a)(i) r.w.s 45(4)(b) of the Income Tax Act, 2025 in the case of UPASI Tea Research Foundation (UPASI TRF), Tamil Nadu"
+  }, {
+    "dateCreated" : "2026-09-29T09:13:11Z",
+    "dateModified" : "2026-09-30T08:59:40Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No. 128/2026-CBDT [F. No. 203/36/2025/ITA-II] / SO 5331(E) : Notification u/s 45(3)(a)(ii) r.w.s 45(4)(b) of the Income Tax Act, 2025 in the case of Santhigiri Ashram, Thiruvananthapuram"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/notification-no-128-2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26044962,
+            "sizeInBytes" : 408504,
+            "title" : "Notification-no-128-2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-29 12:00"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-notification-no-128-2026",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26044495,
+            "sizeInBytes" : 619798,
+            "title" : "Evidence-notification-no-128-2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/26044997",
+    "title" : "Notification No. 128/2026-CBDT [F. No. 203/36/2025/ITA-II] / SO 5331(E) : Notification u/s 45(3)(a)(ii) r.w.s 45(4)(b) of the Income Tax Act, 2025 in the case of Santhigiri Ashram, Thiruvananthapuram"
+  }, {
+    "dateCreated" : "2026-09-29T09:16:54Z",
+    "dateModified" : "2026-09-30T08:59:23Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No. 127/2026-CBDT [F. No. 203/35/2025/ITA-II] / SO 5330(E) : Notification u/s 45(3)(a)(i) r.w.s 45(4)(b) of the Income Tax Act, 2025 in the case of Indian Institute of Health Management Research, Jaipur"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/notification-no-127-2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26045049,
+            "sizeInBytes" : 408387,
+            "title" : "Notification-no-127-2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-29 12:00"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-notification-no-127-2026",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26044451,
+            "sizeInBytes" : 620491,
+            "title" : "Evidence-notification-no-127-2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/26045075",
+    "title" : "Notification No. 127/2026-CBDT [F. No. 203/35/2025/ITA-II] / SO 5330(E) : Notification u/s 45(3)(a)(i) r.w.s 45(4)(b) of the Income Tax Act, 2025 in the case of Indian Institute of Health Management Research, Jaipur"
+  }, {
+    "dateCreated" : "2026-09-29T09:20:31Z",
+    "dateModified" : "2026-09-30T08:56:36Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No. 126/2026-CBDT [F. No. 203/34/2025/ITA-II] / SO 5329(E) : Notification u/s 45(3)(a)(i) r.w.s 45(4)(b) of the Income Tax Act, 2025 in the case of Bhartiya Sanskriti Darshan Trust, Pune"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/notification-no-126-2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26045123,
+            "sizeInBytes" : 410207,
+            "title" : "Notification-no-126-2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-29 12:00"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-notification-no-126-2026",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26044409,
+            "sizeInBytes" : 621278,
+            "title" : "Evidence-notification-no-126-2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/26045147",
+    "title" : "Notification No. 126/2026-CBDT [F. No. 203/34/2025/ITA-II] / SO 5329(E) : Notification u/s 45(3)(a)(i) r.w.s 45(4)(b) of the Income Tax Act, 2025 in the case of Bhartiya Sanskriti Darshan Trust, Pune"
+  }, {
+    "dateCreated" : "2026-09-29T09:24:19Z",
+    "dateModified" : "2026-09-30T08:56:16Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No. 125/2026-CBDT [F. No. 203/30/2025/ITA-II] / SO 5328(E) : Notification u/s 45(3)(a)(i) r.w.s 45(4)(b) of the Income Tax Act, 2025 in the case of The Voluntary Health Services, Chennai"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/notification-no-125-2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26045195,
+            "sizeInBytes" : 408240,
+            "title" : "Notification-no-125-2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-29 12:00"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-notification-no-125-2026",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26044367,
+            "sizeInBytes" : 500237,
+            "title" : "Evidence-notification-no-125-2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/26045221",
+    "title" : "Notification No. 125/2026-CBDT [F. No. 203/30/2025/ITA-II] / SO 5328(E) : Notification u/s 45(3)(a)(i) r.w.s 45(4)(b) of the Income Tax Act, 2025 in the case of The Voluntary Health Services, Chennai"
+  }, {
+    "dateCreated" : "2026-09-29T09:27:47Z",
+    "dateModified" : "2026-09-30T08:55:56Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No. 124/2026-CBDT [F. No. 203/28/2025/ITA-II] / SO 5327(E) : Notification u/s 45(3)(a)(i) r.w.s 45(4)(b) of the Income Tax Act, 2025 in the case of Zandu Foundation for Health Care, Mumbai"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/notification-no-124-2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26045269,
+            "sizeInBytes" : 688494,
+            "title" : "Notification-no-124-2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-29 12:00"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-notification-no-124-2026",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26044325,
+            "sizeInBytes" : 965602,
+            "title" : "Evidence-notification-no-124-2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/26045301",
+    "title" : "Notification No. 124/2026-CBDT [F. No. 203/28/2025/ITA-II] / SO 5327(E) : Notification u/s 45(3)(a)(i) r.w.s 45(4)(b) of the Income Tax Act, 2025 in the case of Zandu Foundation for Health Care, Mumbai"
+  }, {
+    "dateCreated" : "2026-09-29T09:32:02Z",
+    "dateModified" : "2026-09-30T08:53:58Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No. 123/2026-CBDT [F. No. 203/26/2025/ITA-II] / SO 5326(E) : Notification u/s 45(3)(a)(i) r.w.s 45(4)(b) of the Income Tax Act, 2025) in the case of Ashoka Trust for Research in Ecology and the Environment (ATREE), Bengaluru"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/notification-no-123-2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26045357,
+            "sizeInBytes" : 489061,
+            "title" : "Notification-no-123-2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-29 12:00"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-notification-no-123-2026",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26044281,
+            "sizeInBytes" : 766000,
+            "title" : "Evidence-notification-no-123-2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/26045381",
+    "title" : "Notification No. 123/2026-CBDT [F. No. 203/26/2025/ITA-II] / SO 5326(E) : Notification u/s 45(3)(a)(i) r.w.s 45(4)(b) of the Income Tax Act, 2025) in the case of Ashoka Trust for Research in Ecology and the Environment (ATREE), Bengaluru"
+  }, {
+    "dateCreated" : "2026-09-29T09:35:52Z",
+    "dateModified" : "2026-09-30T08:53:43Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No. 122/2026-CBDT [F. No. 203/24/2025/ITA-II] / SO 5325(E) : Notification u/s 45(3)(a)(i) r.w.s 45(4)(b) of the Income Tax Act, 2025, in the case of Schizophrenia Research Foundation (I), Chennai"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/notification-no-122-2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26045429,
+            "sizeInBytes" : 597957,
+            "title" : "Notification-no-122-2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-29 12:00"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-notification-no-122-2026",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26044239,
+            "sizeInBytes" : 870884,
+            "title" : "Evidence-notification-no-122-2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/26045455",
+    "title" : "Notification No. 122/2026-CBDT [F. No. 203/24/2025/ITA-II] / SO 5325(E) : Notification u/s 45(3)(a)(i) r.w.s 45(4)(b) of the Income Tax Act, 2025, in the case of Schizophrenia Research Foundation (I), Chennai"
+  }, {
+    "dateCreated" : "2026-09-23T06:51:03Z",
+    "dateModified" : "2026-09-23T06:56:01Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No 121/2026  [F. No. 370142/29/2026-TPL] / G.S.R. 830(E) : Income-tax (Fifth Amendment) Rules, 2026"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/notification-no-121-2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 23537593,
+            "sizeInBytes" : 421278,
+            "title" : "Notification-no-121-2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-22T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-22T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-23 11:00"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-notification-121-2026",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 23537400,
+            "sizeInBytes" : 860242,
+            "title" : "Evidence-Notification-121-2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/23538131",
+    "title" : "Notification No 121/2026  [F. No. 370142/29/2026-TPL] / G.S.R. 830(E) : Income-tax (Fifth Amendment) Rules, 2026"
+  }, {
+    "dateCreated" : "2026-09-18T06:17:52Z",
+    "dateModified" : "2026-09-18T06:19:44Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No. 120/2026 [F. No. 370142/30/2026-TPL] / G.S.R. 822(E) : Income tax (Fourth Amendment) Rules, 2026"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/notification-no-120-2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 22343862,
+            "sizeInBytes" : 329260,
+            "title" : "Notification-no-120-2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-17T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-17T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-18 11:00"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-notification-120-2026",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 22343821,
+            "sizeInBytes" : 757955,
+            "title" : "Evidence-Notification-120-2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/22343934",
+    "title" : "Notification No. 120/2026 [F. No. 370142/30/2026-TPL] / G.S.R. 822(E) : Income tax (Fourth Amendment) Rules, 2026"
+  }, {
+    "dateCreated" : "2026-09-16T05:22:13Z",
+    "dateModified" : "2026-09-18T05:28:30Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No. 3 of 2026 :"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/notificationno-3-of-2026-1-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 22333335,
+            "sizeInBytes" : 929515,
+            "title" : "NotificationNo-3-of-2026 (1).pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-15T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-15T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-16 10:18"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-notification-03-2026",
+            "description" : "",
+            "encodingFormat" : "image/png",
+            "fileExtension" : "png",
+            "id" : 22262087,
+            "sizeInBytes" : 50809,
+            "title" : "Evidence-Notification-03-2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/22262157",
+    "title" : "Notification No. 3 of 2026 : Procedure for registration of reporting person/entity and submission of Form No. 98 as per rule 160 of the Income-tax Rules, 2026"
+  }, {
+    "dateCreated" : "2026-09-14T10:03:19Z",
+    "dateModified" : "2026-09-15T07:26:00Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No. 119 of 2026-CBDT [F. No. 203/32/2025/ITA-II] / SO 5063(E) : Notification u/s 45(3)(a)(i) r.w.s. 45(4)(b) of the Income Tax Act, 2025 in the case of Indian Institute of Technology, Roorkee"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/notification-no-119-2026-1-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 22262745,
+            "sizeInBytes" : 250900,
+            "title" : "Notification-No-119-2026 (1).pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-14T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-14T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-14 15:00"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-notification-no-119-2026",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 22251081,
+            "sizeInBytes" : 982282,
+            "title" : "Evidence-Notification-No-119-2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/22251151",
+    "title" : "Notification No. 119/2026-CBDT [F. No. 203/32/2025/ITA-II] / SO 5063(E) : Notification u/s 45(3)(a)(i) r.w.s. 45(4)(b) of the Income Tax Act, 2025 in the case of Indian Institute of Technology, Roorkee"
+  }, {
+    "dateCreated" : "2026-09-11T12:08:58Z",
+    "dateModified" : "2026-09-16T06:28:35Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No. 1 of 2026"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/notification_1_sft-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 22175450,
+            "sizeInBytes" : 2217331,
+            "title" : "Notification_1_SFT.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-10T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-10T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-11 17:29"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence_notification_11_09",
+            "description" : "",
+            "encodingFormat" : "image/png",
+            "fileExtension" : "png",
+            "id" : 22174901,
+            "sizeInBytes" : 205865,
+            "title" : "Evidence_Notification_11_09"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/22175192",
+    "title" : "Notification No. 1 of 2026 : Format, Procedure and Guidelines for submission of Statement of Financial Transactions (SFT-2517) for Depository Transactions under section 508(1) of the Income-tax Act, 2025 read with sub-rule 6 of rule 237 the Income-tax Rules, 2026"
+  }, {
+    "dateCreated" : "2026-09-11T12:13:31Z",
+    "dateModified" : "2026-09-16T08:23:55Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No. 2 of 2026"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/notification_2_sft-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 22175507,
+            "sizeInBytes" : 1927274,
+            "title" : "Notification_2_SFT.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-10T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-10T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-11 17:29"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence_notification_11_09",
+            "description" : "",
+            "encodingFormat" : "image/png",
+            "fileExtension" : "png",
+            "id" : 22174901,
+            "sizeInBytes" : 205865,
+            "title" : "Evidence_Notification_11_09"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/22175346",
+    "title" : "Notification No. 2 of 2026 : Format, Procedure and Guidelines for submission of Statement of Financial Transactions (SFT-2518) for Mutual Fund Transactions under section 508(1) of the Income-tax Act, 2025 read with sub-rule 6 of rule 237 of the Income-tax Rules, 2026 by Registrar and Share Transfer Agent"
+  }, {
+    "dateCreated" : "2026-09-09T12:21:41Z",
+    "dateModified" : "2026-09-10T06:02:42Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Notification No. 118/2026 [F. No. 225/84/2024/ITA-II] / SO 5003(E)"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Notification Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/notification-no-118-2026-2-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 22073716,
+            "sizeInBytes" : 107218,
+            "title" : "Notification-No-118-2026 (2).pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-09T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Notification Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-09T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-09 17:40"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-notification-118-2026",
+            "description" : "",
+            "encodingFormat" : "image/png",
+            "fileExtension" : "png",
+            "id" : 21988615,
+            "sizeInBytes" : 234845,
+            "title" : "Evidence-Notification-118-2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37788,
+        "taxonomyCategoryName" : "Notification",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "dd45ddef-39d7-78b5-d0f7-01761cc703a2",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/21988679",
+    "title" : "Notification No. 118/2026 [F. No. 225/84/2024/ITA-II] / SO 5003(E) : Notification under section 258(1)(b) of Income Tax Act, 2025 specifying Secretary, ITE and C, Government of Andhra Pradesh for sharing of information regarding income tax payers for identifying eligible beneficiaries under various welfare schemes being implemented by Government of Andhra Pradesh"
+  } ],
+  "lastPage" : 75,
+  "page" : 1,
+  "pageSize" : 20,
+  "totalCount" : 1500
+}

@@ -4,6 +4,7 @@ version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = [
     "apscheduler>=3.11.3",
+    "certifi>=2026.7.22",
     "curl-cffi>=0.16.3",
     "feedparser>=6.0.14",
     "httpx>=0.28.1",

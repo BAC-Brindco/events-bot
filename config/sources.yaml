@@ -195,3 +195,58 @@ sources:
       expect: html
       min_items: 20
       stale_after_hours: 336
+
+  - id: cbdt
+    label: CBDT
+    event_name: Income-tax notification / circular
+    country: IN
+    tier: 1
+    kind: stream
+    feed_type: api
+    urls:
+      search: https://www.incometaxindia.gov.in/o/search/v1.0/search   # POST, curl_cffi (Akamai 403s httpx)
+    poll_interval: 900
+    adapter: india.cbdt:Cbdt
+    filters:
+      keywords: cbdt
+    health_rules:
+      expect: json
+      min_items: 10
+      stale_after_hours: 720    # notifications come in bursts, sometimes weeks apart
+
+  - id: cbic
+    label: CBIC
+    event_name: GST / Customs / Excise notification
+    country: IN
+    tier: 1
+    kind: stream
+    feed_type: api
+    urls:
+      gst: https://taxinformation.cbic.gov.in/api/cbic-notification-msts/fetchUpdatesByTaxId/1000001
+      customs: https://taxinformation.cbic.gov.in/api/cbic-notification-msts/fetchUpdatesByTaxId/1000002
+      excise: https://taxinformation.cbic.gov.in/api/cbic-notification-msts/fetchUpdatesByTaxId/1000003
+    poll_interval: 900
+    adapter: india.cbic:Cbic
+    filters:
+      keywords: cbic
+    health_rules:
+      expect: json
+      min_items: 3
+      stale_after_hours: 720
+
+  - id: bse_notices
+    label: BSE
+    event_name: Notice
+    country: IN
+    tier: 1
+    kind: stream
+    feed_type: api
+    urls:
+      notices: https://api.bseindia.com/BseIndiaAPI/api/getCurrPreNextNoticesData_New/w?flag=   # curl_cffi
+    poll_interval: 900
+    adapter: india.bse:BseNotices
+    filters:
+      keywords: bse
+    health_rules:
+      expect: json
+      stale_after_hours: 96     # no notices on exchange holidays and weekends

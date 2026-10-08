@@ -13,8 +13,10 @@ import json
 import ssl
 import threading
 import time
+from pathlib import Path
 from urllib.parse import urlparse
 
+import certifi
 import httpx
 import structlog
 import truststore
@@ -60,19 +62,66 @@ def check_content(content: bytes, expect: str) -> str | None:
     return None
 
 
+CERTS = Path(__file__).parent / "certs"
+# Hosts that do not send their intermediate certificate (FLAGS T-10). Windows fills the gap through AIA;
+# OpenSSL on the Linux runners does not. For these hosts only, the missing intermediate (fetched from the
+# issuer's AIA URL and shipped in core/certs) is added to a certifi-based store. Verification stays on.
+HOST_INTERMEDIATES = {
+    "www.cbic.gov.in": "sectigo_public_server_ca_ov_r36.pem",
+    "taxinformation.cbic.gov.in": "sectigo_public_server_ca_ov_r36.pem",
+}
+
+
+class _Resp:
+    """The parts of a response the fetcher needs, from httpx or curl_cffi alike."""
+
+    def __init__(self, status: int, headers, content: bytes, url: str):
+        self.status_code, self.content, self.url = status, content, url
+        self.headers = {k.lower(): v for k, v in headers.items()}
+
+
 class Fetcher:
     def __init__(self, db: Database | None, archive: Archive, user_agent: str,
                  min_gap: float = 1.1, timeout: float = 30.0, transport: httpx.BaseTransport | None = None):
-        self.db, self.archive, self.min_gap = db, archive, min_gap
-        ctx = truststore.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
-        self.client = httpx.Client(
+        self.db, self.archive, self.min_gap, self.timeout = db, archive, min_gap, timeout
+        self.transport = transport
+        self._client_kw = dict(
             headers={"User-Agent": user_agent, "Accept-Language": "en-US,en;q=0.9",
                      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"},
-            follow_redirects=True, timeout=httpx.Timeout(timeout, connect=15.0),
-            verify=ctx, transport=transport)
+            follow_redirects=True, timeout=httpx.Timeout(timeout, connect=15.0), transport=transport)
+        self.client = httpx.Client(verify=truststore.SSLContext(ssl.PROTOCOL_TLS_CLIENT), **self._client_kw)
+        self._pinned: dict[str, httpx.Client] = {}
+        self._cffi = None
         self._host_locks: dict[str, threading.Lock] = {}
         self._host_last: dict[str, float] = {}
         self._guard = threading.Lock()
+
+    def _client_for(self, host: str) -> httpx.Client:
+        name = HOST_INTERMEDIATES.get(host)
+        if name is None:
+            return self.client
+        with self._guard:
+            if name not in self._pinned:
+                ctx = ssl.create_default_context(cafile=certifi.where())
+                ctx.load_verify_locations(cafile=str(CERTS / name))
+                self._pinned[name] = httpx.Client(verify=ctx, **self._client_kw)
+            return self._pinned[name]
+
+    def _impersonated(self, method: str, url: str, headers: dict, json_body: dict | None) -> _Resp:
+        """curl_cffi with a Chrome TLS fingerprint, for Akamai-fronted hosts that 403 httpx (F-06):
+        api.bseindia.com, incometaxindia.gov.in. Tests (a mock transport) go through httpx instead."""
+        if self.transport is not None:
+            r = self.client.request(method, url, headers=headers, json=json_body)
+            return _Resp(r.status_code, r.headers, r.content, str(r.url))
+        from curl_cffi import requests as creq
+        with self._guard:
+            if self._cffi is None:
+                self._cffi = creq.Session(impersonate="chrome124")
+        try:
+            r = self._cffi.request(method, url, headers=headers, json=json_body, timeout=self.timeout)
+        except Exception as e:  # noqa: BLE001  curl_cffi raises its own exception tree
+            raise httpx.TransportError(f"{type(e).__name__}: {e}") from e
+        return _Resp(r.status_code, r.headers, r.content, str(r.url))
 
     def _polite(self, host: str) -> threading.Lock:
         with self._guard:
@@ -81,8 +130,10 @@ class Fetcher:
 
     def get(self, url: str, *, source_id: str, doc_type: str, expect: str = "any",
             conditional: bool = True, archive: bool = True, parent_id: int | None = None,
-            headers: dict | None = None, json_body: dict | None = None) -> FetchResult:
-        """GET (or POST with `json_body`, e.g. MoSPI's POST-only release API). POSTs are never conditional."""
+            headers: dict | None = None, json_body: dict | None = None,
+            impersonate: bool = False) -> FetchResult:
+        """GET (or POST with `json_body`, e.g. MoSPI's POST-only release API). POSTs are never conditional.
+        `impersonate` sends the request through curl_cffi with a Chrome fingerprint."""
         host = urlparse(url).netloc
         h = dict(headers or {})
         if json_body is not None:
@@ -99,8 +150,11 @@ class Fetcher:
             if gap < self.min_gap:
                 time.sleep(self.min_gap - gap)
             try:
-                r = (self.client.post(url, headers=h, json=json_body) if json_body is not None
-                     else self.client.get(url, headers=h))
+                method = "POST" if json_body is not None else "GET"
+                if impersonate:
+                    r = self._impersonated(method, url, h, json_body)
+                else:
+                    r = self._client_for(host).request(method, url, headers=h, json=json_body)
             except httpx.HTTPError as e:
                 raise FetchError(url, "network", f"{type(e).__name__}: {e}"[:300]) from e
             finally:
@@ -145,3 +199,7 @@ class Fetcher:
 
     def close(self) -> None:
         self.client.close()
+        for c in self._pinned.values():
+            c.close()
+        if self._cffi is not None:
+            self._cffi.close()

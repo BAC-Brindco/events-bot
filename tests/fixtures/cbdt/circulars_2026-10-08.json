@@ -1,0 +1,3000 @@
+{
+  "aggregations" : {
+    "sections_per_chapter" : {
+      "buckets" : [ {
+        "childrenAggregationResults" : { },
+        "docCount" : 7,
+        "key" : "12509296"
+      }, {
+        "childrenAggregationResults" : { },
+        "docCount" : 7,
+        "key" : "13590315"
+      }, {
+        "childrenAggregationResults" : { },
+        "docCount" : 1381,
+        "key" : "37776"
+      }, {
+        "childrenAggregationResults" : { },
+        "docCount" : 1,
+        "key" : "38134"
+      }, {
+        "childrenAggregationResults" : { },
+        "docCount" : 1,
+        "key" : "38137"
+      }, {
+        "childrenAggregationResults" : { },
+        "docCount" : 1,
+        "key" : "38140"
+      }, {
+        "childrenAggregationResults" : { },
+        "docCount" : 1,
+        "key" : "38143"
+      }, {
+        "childrenAggregationResults" : { },
+        "docCount" : 1,
+        "key" : "38146"
+      }, {
+        "childrenAggregationResults" : { },
+        "docCount" : 1,
+        "key" : "38149"
+      }, {
+        "childrenAggregationResults" : { },
+        "docCount" : 2,
+        "key" : "38152"
+      } ],
+      "errorDocCounts" : 0,
+      "name" : "sections_per_chapter",
+      "otherDocCounts" : 1605
+    }
+  },
+  "items" : [ {
+    "dateCreated" : "2026-09-29T01:18:07Z",
+    "dateModified" : "2026-09-29T12:28:59Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No. 7/2026"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular-7-2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 26036932,
+            "sizeInBytes" : 169428,
+            "title" : "Circular-7-2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-09-28 22:32"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-circular7-2026",
+            "description" : "",
+            "encodingFormat" : "image/png",
+            "fileExtension" : "png",
+            "id" : 26013759,
+            "sizeInBytes" : 366064,
+            "title" : "Evidence-Circular7-2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/26036947",
+    "title" : "Circular No. 7/2026 : Extension of timelines for filing of various reports of audit and Income Tax Returns (ITRs) for the Assessment Year 2026-27"
+  }, {
+    "dateCreated" : "2026-07-02T11:02:28Z",
+    "dateModified" : "2026-07-03T07:08:06Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No. 6/2026"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular-no-06-2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 19799801,
+            "sizeInBytes" : 3204618,
+            "title" : "Circular-No-06-2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-07-02T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-07-02T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidance-circular-no-06-2026",
+            "description" : "",
+            "encodingFormat" : "image/png",
+            "fileExtension" : "png",
+            "id" : 19799904,
+            "sizeInBytes" : 63073,
+            "title" : "Evidance-Circular-No-06-2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/19800010",
+    "title" : "Circular No. 6/2026 : Condonation of delay in filing Form No. 10AB electronically for approval under clause(ii) of the first proviso to section 80G(5) of the Income-tax Act, 1961"
+  }, {
+    "dateCreated" : "2026-07-06T09:34:55Z",
+    "dateModified" : "2026-07-06T13:11:45Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No. 5/2026"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular_no_5_2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 19974586,
+            "sizeInBytes" : 363406,
+            "title" : "Circular_No_5_2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-05-12T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-05-12T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-07-06 13:28"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/screenshot-2026-07-06-140042",
+            "description" : "",
+            "encodingFormat" : "image/png",
+            "fileExtension" : "png",
+            "id" : 19961742,
+            "sizeInBytes" : 320555,
+            "title" : "evidence_circular_5_2026"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/19974625",
+    "title" : "Circular No. 5/2026 : Clarification on the safe harbour rules for sale of rough diamonds in special notified zones (SNZs)."
+  }, {
+    "dateCreated" : "2026-03-31T14:45:14Z",
+    "dateModified" : "2026-04-06T05:54:32Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No. 4/2026"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular-4-2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 16971926,
+            "sizeInBytes" : 559776,
+            "title" : "Circular-4-2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-03-31T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-03-31T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-03-31 16:26"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-circular-no-4-2026-png",
+            "description" : "",
+            "encodingFormat" : "image/png",
+            "fileExtension" : "png",
+            "id" : 16971937,
+            "sizeInBytes" : 236385,
+            "title" : "Evidence-Circular-no-4-2026.png"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/16971951",
+    "title" : "Circular No. 4/2026 : Referencing by Document Identification Number (DIN)"
+  }, {
+    "dateCreated" : "2026-03-30T09:24:48Z",
+    "dateModified" : "2026-04-01T07:28:02Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No. 3/2026"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular-3-2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 16939534,
+            "sizeInBytes" : 1947697,
+            "title" : "Circular-3-2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-03-30T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-03-30T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-03-30 14:28"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-circular-no-3-2026-png",
+            "description" : "",
+            "encodingFormat" : "image/png",
+            "fileExtension" : "png",
+            "id" : 16939545,
+            "sizeInBytes" : 348391,
+            "title" : "Evidence-Circular-no-3-2026.png"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 8325573,
+        "taxonomyCategoryName" : "Income-tax Act, 2025",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "f39612f2-d70c-aa4d-faa0-5994386c6d9e",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/16939561",
+    "title" : "Circular No. 3/2026 : Notification of Sovereign Wealth Fund under Schedule V [Table: Sl. No. 7.Note S(a)(ii)(G)] of the Income-tax Act, 2025"
+  }, {
+    "dateCreated" : "2026-03-26T09:14:01Z",
+    "dateModified" : "2026-09-29T05:38:13Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No. 2/2026"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular-2-2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 16724365,
+            "sizeInBytes" : 310638,
+            "title" : "Circular-2-2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-03-25T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-03-26T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-03-26 14:27"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/evidence-circular-no-2-2026-png",
+            "description" : "",
+            "encodingFormat" : "image/png",
+            "fileExtension" : "png",
+            "id" : 16724387,
+            "sizeInBytes" : 299861,
+            "title" : "Evidence-Circular-no-2-2026.png"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 4578936,
+        "taxonomyCategoryName" : "Section - 119",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "afff87e3-543a-8ff5-4503-761ca6f29484",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/16724412",
+    "title" : "Circular No. 2/2026 : Order under section 119 of the Income-tax Act, 1961 for extension of timeline for issuance of tax deducted at source (TDS) certificate under section 203 of the Act for the quarter ending 31st December 2025"
+  }, {
+    "dateCreated" : "2026-03-23T11:48:54Z",
+    "dateModified" : "2026-03-30T14:08:20Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No. 1/2026"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular-no-1-2026-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 16485845,
+            "sizeInBytes" : 411458,
+            "title" : "Circular-No-1-2026.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-03-23T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-03-23T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2026-03-23 14:06"
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular-1-2026-jpg",
+            "description" : "",
+            "encodingFormat" : "image/jpeg",
+            "fileExtension" : "jpg",
+            "id" : 16492354,
+            "sizeInBytes" : 53230,
+            "title" : "Circular-1-2026.jpg"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 4209131,
+        "taxonomyCategoryName" : "Income-tax Act, 1961",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "3fb49857-e5e0-570c-9d6c-1ae5585b79d3",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 4222997,
+        "taxonomyCategoryName" : "Section - 12A",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "7a4dc761-e0f2-80b1-6034-434b26c7ea87",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 13590315,
+        "taxonomyCategoryName" : "2026",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "d18b2fe1-a17a-0ac0-faa6-746a4b53a387",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/16486124",
+    "title" : "Circular No. 1/2026 : Clarification regarding power to condone delay in filing Form No. 10A under sub-clause (i) clause (ac) of sub-section (1) of section 12A of the Income Tax Act, 1961"
+  }, {
+    "dateCreated" : "2025-11-29T04:35:58Z",
+    "dateModified" : "2025-12-25T14:24:29Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No.15/2025"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular-15-2025-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 8416370,
+            "sizeInBytes" : 388985,
+            "title" : "Circular-15-2025.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-10-29T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-10-29T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : { },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 38332,
+        "taxonomyCategoryName" : "2025",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "08f3a5d3-5b96-3c60-86a0-b45627962258",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/8416621",
+    "title" : "Circular No.15/2025 : Extension of timelines for filing of various reports of audit and Income Tax Returns (ITRs) for the Assessment Year 2025-26"
+  }, {
+    "dateCreated" : "2025-11-29T04:35:55Z",
+    "dateModified" : "2025-12-24T21:05:46Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No. 14/2025"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular-no-14-2025-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 8416333,
+            "sizeInBytes" : 572468,
+            "title" : "Circular-No-14-2025.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-09-25T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-09-25T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : { },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 38332,
+        "taxonomyCategoryName" : "2025",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "08f3a5d3-5b96-3c60-86a0-b45627962258",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/8416589",
+    "title" : "Circular No. 14/2025 : Extension of timelines for filing of various reports of audit for Financial Year 2024-25 (relevant to Assessment Year 2025-26) by auditable assessees"
+  }, {
+    "dateCreated" : "2025-11-29T04:35:53Z",
+    "dateModified" : "2025-12-24T21:05:44Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No. 13 /2025"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/waiver-of-interest-circular-no-13-2025-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 8416294,
+            "sizeInBytes" : 410954,
+            "title" : "Waiver-of-interest-Circular-No-13-2025.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-09-19T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-09-19T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : { },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 38332,
+        "taxonomyCategoryName" : "2025",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "08f3a5d3-5b96-3c60-86a0-b45627962258",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/8416555",
+    "title" : "Circular No. 13 /2025 : Order under section 119 of tbe Income-tax Act, 1961 for waiver of interest payable under section 220(2) due to late payment of demand, in certain cases"
+  }, {
+    "dateCreated" : "2025-11-29T04:35:51Z",
+    "dateModified" : "2025-12-24T21:05:41Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No. 12/2025"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular-12-2025-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 8416258,
+            "sizeInBytes" : 340127,
+            "title" : "Circular-12-2025.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-09-15T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-09-15T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : { },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 38332,
+        "taxonomyCategoryName" : "2025",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "08f3a5d3-5b96-3c60-86a0-b45627962258",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/8416523",
+    "title" : "Circular No. 12/2025 : Extension of due date for filing of ITRs for the Assessment Year 2025-26"
+  }, {
+    "dateCreated" : "2025-11-29T04:35:49Z",
+    "dateModified" : "2025-12-24T21:05:39Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No. 11/2025"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular-11-2025-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 8416221,
+            "sizeInBytes" : 288282,
+            "title" : "Circular-11-2025.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-09-02T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-09-02T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : { },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 38332,
+        "taxonomyCategoryName" : "2025",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "08f3a5d3-5b96-3c60-86a0-b45627962258",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/8416491",
+    "title" : "Circular No. 11/2025 : Modification to Circular No. 9 of 2022 (F. No.370142/2/2022-TPL) dated 09.05.2022 of CBDT"
+  }, {
+    "dateCreated" : "2025-11-11T13:48:45Z",
+    "dateModified" : "2025-12-24T22:19:10Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No. 10/2025"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular-10-2025-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 6574057,
+            "sizeInBytes" : 266812,
+            "title" : "Circular-10-2025.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-07-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-07-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : { },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 38332,
+        "taxonomyCategoryName" : "2025",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "08f3a5d3-5b96-3c60-86a0-b45627962258",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/6574081",
+    "title" : "Circular No. 10/2025 : Relaxation of time limit for processing of returns of income filed electronically which were incorrectly invalidated by CPC"
+  }, {
+    "dateCreated" : "2025-11-11T13:48:41Z",
+    "dateModified" : "2025-12-24T22:19:06Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No. 9/2025"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular-9-2025-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 6574018,
+            "sizeInBytes" : 823368,
+            "title" : "Circular-9-2025.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-07-21T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-07-21T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : { },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 38332,
+        "taxonomyCategoryName" : "2025",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "08f3a5d3-5b96-3c60-86a0-b45627962258",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/6574042",
+    "title" : "Circular No. 9/2025 : Partial Modification of Circular No.3 of 2023 dated 28-3-2023 regarding consequences of pan becoming inoperative as per Rule 114AAA of the Income-tax Rules, 1962"
+  }, {
+    "dateCreated" : "2025-11-11T13:48:37Z",
+    "dateModified" : "2025-12-24T22:19:03Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No. 8/2025"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular-no-8-2025-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 6573975,
+            "sizeInBytes" : 267919,
+            "title" : "Circular-no-8-2025.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-07-01T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-07-01T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : { },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 38332,
+        "taxonomyCategoryName" : "2025",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "08f3a5d3-5b96-3c60-86a0-b45627962258",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/6574000",
+    "title" : "Circular No. 8/2025 : Clarification regarding CBDT's Circular No. 5/2025 dated 28.03.2025 for waiver on levy of interest under section 201(1A)(ii)/ 206C(7) of the Income-tax Act, 1961, as the case may be, in specific cases"
+  }, {
+    "dateCreated" : "2025-11-11T13:48:33Z",
+    "dateModified" : "2025-12-24T22:18:59Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No. 7/2025"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular-no-07-2025-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 6573935,
+            "sizeInBytes" : 484158,
+            "title" : "Circular-No-07-2025.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-06-25T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-06-25T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : { },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 38332,
+        "taxonomyCategoryName" : "2025",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "08f3a5d3-5b96-3c60-86a0-b45627962258",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/6573959",
+    "title" : "Circular No. 7/2025 : Relaxation of time limit for processing of valid returns of income filed electronically pursuant to order u/s 119(2)(b) of the Income-tax Act,1961 passed by Competent Authority"
+  }, {
+    "dateCreated" : "2025-11-11T13:48:29Z",
+    "dateModified" : "2025-12-24T22:18:56Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No. 6/2025"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular-6-2025-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 6573894,
+            "sizeInBytes" : 365922,
+            "title" : "Circular-6-2025.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-05-27T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-05-27T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : { },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 38332,
+        "taxonomyCategoryName" : "2025",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "08f3a5d3-5b96-3c60-86a0-b45627962258",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/6573918",
+    "title" : "Circular No. 6/2025 : Extension of due date for furnishing return of income for the Assessment Year 2025-26"
+  }, {
+    "dateCreated" : "2025-11-11T13:48:25Z",
+    "dateModified" : "2025-12-24T22:18:51Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No. 5/2025"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular-no-5-2025-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 6573849,
+            "sizeInBytes" : 330337,
+            "title" : "Circular-No-5-2025.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-03-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-03-28T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : { },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 38332,
+        "taxonomyCategoryName" : "2025",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "08f3a5d3-5b96-3c60-86a0-b45627962258",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/6573873",
+    "title" : "Circular No. 5/2025 : Order under section 119 of the Income-tax Act, 1961 for waiver on levy of interest under section 201(1A)(ii)/ 206C(7) of the Act, as the case maybe, in specific cases"
+  }, {
+    "dateCreated" : "2025-11-11T13:48:21Z",
+    "dateModified" : "2025-12-24T22:18:47Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No. 4/2025"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular-no-04-2025-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 6573809,
+            "sizeInBytes" : 3144636,
+            "title" : "Circular-no-04-2025.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-03-17T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-03-17T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : { },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 38332,
+        "taxonomyCategoryName" : "2025",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "08f3a5d3-5b96-3c60-86a0-b45627962258",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/6573834",
+    "title" : "Circular No. 4/2025 : Frequently Asked Questions (FAQs) on Guidelines for Compounding of Offences under the Income-Tax Act, 1961 dated 17.10.2024"
+  }, {
+    "dateCreated" : "2025-11-11T13:48:17Z",
+    "dateModified" : "2025-12-24T22:18:42Z",
+    "embedded" : {
+      "contentFields" : [ {
+        "contentFieldValue" : {
+          "data" : "Circular No. 3/2025"
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Circular Number",
+        "name" : "circularNotificationNumber",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "inputControl" : "text",
+        "label" : "Summary",
+        "name" : "summary",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "PDF",
+          "value" : "pdf"
+        },
+        "dataType" : "string",
+        "inputControl" : "radio",
+        "label" : "Content Type",
+        "name" : "selectType",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Document Content",
+        "name" : "documentContent",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Foot Note",
+        "name" : "footNote",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "document" : {
+            "contentType" : "Document",
+            "contentUrl" : "/documents/d/guest/circular-no-03-2025-pdf",
+            "description" : "",
+            "encodingFormat" : "application/pdf",
+            "fileExtension" : "pdf",
+            "id" : 6573767,
+            "sizeInBytes" : 3575932,
+            "title" : "Circular-no-03-2025.pdf"
+          }
+        },
+        "dataType" : "document",
+        "label" : "Upload PDF",
+        "name" : "reportFile",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-02-20T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Circular Date",
+        "name" : "circularNotificationDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : "2025-02-20T00:00:00Z"
+        },
+        "dataType" : "date",
+        "label" : "Date of Upload",
+        "name" : "uploadDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "datetime",
+        "label" : "Received Date",
+        "name" : "receivedDate",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : { },
+        "dataType" : "document",
+        "label" : "Evidence Attachment",
+        "name" : "evidenceAttachment",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "integer",
+        "label" : "Any Exception in Hours",
+        "name" : "anyExceptionInHours",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      }, {
+        "contentFieldValue" : {
+          "data" : ""
+        },
+        "dataType" : "string",
+        "label" : "Exception Reason",
+        "name" : "exceptionReason",
+        "nestedContentFields" : [ ],
+        "repeatable" : false
+      } ],
+      "taxonomyCategoryBriefs" : [ {
+        "taxonomyCategoryId" : 37776,
+        "taxonomyCategoryName" : "Circulars",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "aaaddd9e-7071-8c09-9ba0-b700a3f1b69b",
+          "siteKey" : "Guest"
+        }
+      }, {
+        "taxonomyCategoryId" : 38332,
+        "taxonomyCategoryName" : "2025",
+        "taxonomyCategoryReference" : {
+          "externalReferenceCode" : "08f3a5d3-5b96-3c60-86a0-b45627962258",
+          "siteKey" : "Guest"
+        }
+      } ]
+    },
+    "itemURL" : "https://www.incometaxindia.gov.in/o/headless-delivery/v1.0/structured-contents/6573792",
+    "title" : "Circular No. 3/2025 : Income-tax deduction from salaries during the financial year 2024-25 under section 192 of the Income-tax Act, 1961"
+  } ],
+  "lastPage" : 70,
+  "page" : 1,
+  "pageSize" : 20,
+  "totalCount" : 1381
+}

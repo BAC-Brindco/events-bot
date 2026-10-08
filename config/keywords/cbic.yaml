@@ -1,0 +1,9 @@
+# CBIC: rate, tariff, anti-dumping/safeguard notifications and GST/customs policy circulars are kept.
+# Routine non-tariff notices are not: the fortnightly tariff-value and exchange-rate fixations and
+# case-specific adjudication appointments. Excluded items are logged to filtered_items.
+exclude_any:
+  - Fixation of Tariff Value
+  - Exchange Rates of Foreign Currency
+  - rate of exchange of conversion
+  - Appointment of Common Adjudicating Authority
+  - Common Adjudicating Authority in the case of
