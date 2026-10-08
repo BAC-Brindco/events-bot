@@ -63,8 +63,9 @@ def test_cross_source_title_duplicate_but_not_same_source_recurring(make_app):
     app = make_app()
     seed_baseline(app, "rbi_pr")
     seed_baseline(app, "rbi_notif")
-    t1 = "Money Market Operations as on October 01, 2026"
-    t2 = "Money Market Operations as on October 02, 2026"
+    # Recurring titles that the rbi_pr routine filter does not drop.
+    t1 = "Monthly Data on India's International Trade in Services for August 2026"
+    t2 = "Monthly Data on India's International Trade in Services for September 2026"
     st = app.pipeline.process(app.sources["rbi_pr"], [item(ext="prid:20", title=t1), item(ext="prid:21", title=t2)])
     assert st.duplicate == 0 and st.realtime == 2           # same source, different day: both alert
     st = app.pipeline.process(app.sources["rbi_notif"], [item(source="rbi_notif", ext="id:20", title=t1 + ".")])
