@@ -38,6 +38,8 @@ env:
   EVENTS_BOT_RECIPIENTS: ${{ secrets.EVENTS_BOT_RECIPIENTS }}
   EVENTS_BOT_OPERATOR_EMAILS: ${{ secrets.EVENTS_BOT_OPERATOR_EMAILS }}
   DRY: ${{ !(vars.EVENTS_BOT_LIVE == 'true' || vars.EVENTS_BOT_LIVE == 'scheduled') && '--dry-run' || '' }}
+  # Data-print windows render stream items; they stay dry until the stream switch is "true".
+  EVENTS_BOT_LIVE: ${{ vars.EVENTS_BOT_LIVE }}
 
 jobs:
   windows:

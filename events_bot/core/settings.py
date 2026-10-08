@@ -29,7 +29,7 @@ def _csv(v: str | None) -> list[str]:
 
 
 class Settings(BaseModel):
-    dsn: str = "host=localhost port=55433 user=postgres dbname=events_bot"
+    dsn: str = "host=localhost port=54433 user=postgres dbname=events_bot"
     db_schema: str | None = None
     ops_live: bool = True            # EVENTS_BOT_OPS_LIVE=0 keeps operator alerts in dry run too
     archive_dir: Path = ROOT / "archive" / "raw"

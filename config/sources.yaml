@@ -250,3 +250,39 @@ sources:
     health_rules:
       expect: json
       stale_after_hours: 96     # no notices on exchange holidays and weekends
+
+  - id: imd
+    label: IMD
+    event_name: Monsoon / seasonal forecast
+    country: IN
+    tier: 1
+    kind: stream
+    feed_type: html
+    urls:
+      press: https://internal.imd.gov.in/pages/press_release_mausam.php
+    poll_interval: 3600
+    tick_every_minutes: 60      # 4 MB page, no validators; PIB (MoES) is the fast channel
+    active_hours: {start: "07:00", end: "23:00"}
+    adapter: india.imd:ImdPress
+    filters:
+      keywords: imd
+    health_rules:
+      expect: html
+      min_items: 5
+      stale_after_hours: 72
+
+  - id: data_prints
+    label: DATA
+    event_name: Data print
+    country: IN
+    tier: 1
+    kind: scheduled
+    feed_type: api
+    urls:
+      arc: https://www.mospi.gov.in/api/documents/get-latest-release-calender   # -> ARC PDF
+      oea: https://eaindustry.nic.in/                                            # rule-based (no calendar)
+    poll_interval: 43200        # calendar only; the prints come through the mospi / oea stream adapters
+    window_poll_interval: 30
+    adapter: india.data_prints:DataPrints
+    health_rules:
+      expect: json

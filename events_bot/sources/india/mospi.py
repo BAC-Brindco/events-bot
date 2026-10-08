@@ -52,7 +52,9 @@ class Mospi(SourceAdapter):
                                    expect="json", json_body=BODY,
                                    headers={"Origin": "https://www.mospi.gov.in",
                                             "Referer": "https://www.mospi.gov.in/latest-releases"})
-        return self.parse(res, "releases")
+        from .data_prints import held_kinds
+        held = held_kinds(self.ctx.db)          # files can appear before the 16:00 embargo (T-09)
+        return [i for i in self.parse(res, "releases") if i.meta.get("kind") not in held]
 
     def parse(self, res: FetchResult, url_name: str) -> list[RawItem]:
         import json

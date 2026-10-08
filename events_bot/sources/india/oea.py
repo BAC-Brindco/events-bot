@@ -46,6 +46,11 @@ def parse_home(content: bytes) -> list[dict]:
 class Oea(SourceAdapter):
     doc_type = "oea"
 
+    def poll(self) -> list[RawItem]:
+        from .data_prints import held_kinds
+        held = held_kinds(self.ctx.db)          # files can appear before the release time (T-09)
+        return [i for i in super().poll() if i.meta.get("kind") not in held]
+
     def parse(self, res: FetchResult, url_name: str) -> list[RawItem]:
         return [RawItem(source_id=self.cfg.id, ext_id=f"file:{r['url'].rsplit('/', 1)[-1]}", url=r["url"],
                         title=r["title"], document_id=res.document_id,

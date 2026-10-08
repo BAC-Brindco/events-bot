@@ -90,8 +90,11 @@ class App:
         """One pass over every enabled stream source, then health. For cron-driven hosts
         (GitHub Actions), where each run is a fresh process: poll_interval is ignored
         because the trigger cadence sets the pace; active_hours still applies."""
+        from datetime import timedelta
         from .timeutil import IST
-        now_ist = utcnow().astimezone(IST).time()
+        now = utcnow()
+        now_ist = now.astimezone(IST).time()
+        attempted = {r["source_id"]: r["last_attempt_at"] for r in self.db.health_rows()}
         out: dict[str, str] = {}
         for sid, cfg in self.sources.items():
             if not cfg.enabled or cfg.kind == "scheduled":
@@ -99,8 +102,26 @@ class App:
             if cfg.active_hours is not None and not cfg.active_hours.contains(now_ist):
                 out[sid] = "off-hours"
                 continue
+            last = attempted.get(sid)
+            # 2 min of slack so a 60-min source is not skipped by a tick that fires a little early.
+            if cfg.tick_every_minutes and last is not None and \
+                    now - last < timedelta(minutes=cfg.tick_every_minutes) - timedelta(minutes=2):
+                out[sid] = "throttled"
+                continue
             st = self.poll_source(sid)
             out[sid] = "error" if st is None else f"new {st.new} realtime {st.realtime} queued {st.queued} baseline {st.baseline}"
+        # Scheduled sources whose results arrive through a stream (data prints) close their events here,
+        # e.g. a CPI print that slipped to the next working day and was caught by this tick.
+        for sid, cfg in self.sources.items():
+            if cfg.enabled and cfg.kind == "scheduled":
+                reconcile = getattr(self.adapter(sid), "reconcile", None)
+                if reconcile is not None:
+                    try:
+                        n = reconcile()
+                        if n:
+                            out[sid] = f"reconciled {n}"
+                    except Exception as e:  # noqa: BLE001
+                        log.error("reconcile_failed", source=sid, error=str(e)[:300])
         self.check_health()
         return out
 

@@ -36,6 +36,8 @@ class SourceConfig(BaseModel):
     feed_type: Literal["rss", "api", "ics", "html"]
     urls: dict[str, str]
     poll_interval: int = Field(gt=0, description="seconds")
+    # Cron-driven `tick` ignores poll_interval; this throttles heavy sources there (IMD's list is 4 MB).
+    tick_every_minutes: int | None = Field(default=None, gt=0)
     window_poll_interval: int | None = Field(default=None, gt=0)
     filters: dict = Field(default_factory=dict)
     adapter: str                                  # "india.rbi:RbiRss" under events_bot.sources

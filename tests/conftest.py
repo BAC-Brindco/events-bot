@@ -12,7 +12,7 @@ from events_bot.core.db import Database
 from events_bot.core.fetch import Fetcher
 from events_bot.core.settings import ROOT, Settings
 
-TEST_DSN = os.environ.get("EVENTS_BOT_TEST_DSN", "host=localhost port=55433 user=postgres dbname=events_bot_test")
+TEST_DSN = os.environ.get("EVENTS_BOT_TEST_DSN", "host=localhost port=54433 user=postgres dbname=events_bot_test")
 FIXTURES = Path(__file__).parent / "fixtures"
 
 

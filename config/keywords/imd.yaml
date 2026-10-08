@@ -1,0 +1,14 @@
+# IMD: keep monsoon and seasonal forecasts and major cyclone / heat-wave releases. The daily weather
+# bulletin ("PRESS RELEASE DATE: ...") and local rainfall warnings match nothing here and are logged
+# to filtered_items as no_match.
+include_any:
+  - LONG RANGE FORECAST
+  - SEASONAL OUTLOOK
+  - MONTHLY OUTLOOK
+  - MONSOON
+  - El Nino
+  - La Nina
+  - CYCLONIC STORM
+  - HEAT WAVE
+  - HEATWAVE
+  - SALIENT_FEATURES_SW_MONSOON
