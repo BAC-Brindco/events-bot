@@ -106,3 +106,21 @@ def test_intermediate_is_added_only_for_listed_hosts(tmp_path):
         assert ctx.verify_mode == ssl.CERT_REQUIRED
     finally:
         f.close()
+
+
+@requires_db
+def test_cbic_retries_a_connection_reset(make_app, monkeypatch):
+    import time as _time
+    monkeypatch.setattr(_time, "sleep", lambda s: None)
+    app = make_app()
+    n = {"calls": 0}
+
+    def handler(req: httpx.Request) -> httpx.Response:
+        n["calls"] += 1
+        if n["calls"] == 1:
+            raise httpx.ConnectError("[Errno 104] Connection reset by peer")
+        name = {v: k for k, v in cbic.URLS.items()}[str(req.url)]
+        return httpx.Response(200, content=(FIXTURES / "cbic" / f"{name}_2026-10-08.json").read_bytes())
+
+    mock_fetcher(app, handler)
+    assert len(app.adapter("cbic").poll()) == 12 and n["calls"] == 4

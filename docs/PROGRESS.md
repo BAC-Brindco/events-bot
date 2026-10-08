@@ -77,8 +77,8 @@ For each new release it archives the HTML and every linked PressRelease PDF, wit
 
 **Tests:** 38 passing (`uv run pytest`). They cover timezone parsing, URL and title dedupe (including recurring same-source titles), conditional GET with 304, bot-page rejection, archive idempotency, baseline, filter logging and word boundaries, the old-item reroute, watchlist tagging, restart double-send, the failed-send retry gate, health alert raise/dedupe/clear, the min_items shape check, stuck claims, registry and route coverage, and replay without network.
 
-**Local dev DB:** MSYS2 Postgres 18 in `C:\Users\HP\AppData\Local\events_bot_pg` on port 55433 (databases `events_bot` and `events_bot_test`). Start it with:
-`PATH=/c/msys64/ucrt64/bin:$PATH pg_ctl -D /c/Users/HP/AppData/Local/events_bot_pg -o "-p 55433" start`
+**Local dev DB:** MSYS2 Postgres 18 in `C:\Users\HP\AppData\Local\events_bot_pg` on port 54433 (was 55433 until 2026-10-08, see FLAGS F-28) (databases `events_bot` and `events_bot_test`). Start it with:
+`PATH=/c/msys64/ucrt64/bin:$PATH pg_ctl -D /c/Users/HP/AppData/Local/events_bot_pg -o "-p 54433" -l /c/Users/HP/AppData/Local/events_bot_pg.log start`
 
 **Deviations from the prompt** (recorded here per §9):
 1. Fetching is synchronous httpx on APScheduler threads, not async. Every job is short and I/O-bound, psycopg stays simple, and per-host politeness is a lock. This can be revisited if source count makes thread time matter.
@@ -301,3 +301,40 @@ Fails from both: the MoSPI API (needs a POST), YouTube RSS, dot.gov.in and cbo.g
   - The alert is compact: headline indices by symbol, a watchlist table, and counts for the other indices. It stays under 90 KB, below Gmail's clipping limit of about 100 KB.
 - **Performance.** The pipeline now runs one "known ext_ids" query per poll. The NSE Indices baseline had made one tick take 11 min 40 s; polling all 11 sources now takes 36 s.
 - **Tests:** 162 passing.
+
+## Phase 4 continued (2026-10-08): RBI directions, CBDT, CBIC, BSE, IMD, data-print windows
+
+All new stream sources are **dry** (tick runs `--dry-run` until `EVENTS_BOT_LIVE=true`). Everything below was verified with dispatched runs on a GitHub runner (ticks 37744055991 and 37744965586, calendars 37744961269) unless noted.
+
+**RBI** (`sources/india/rbi.py`, FLAGS F-23, T-18)
+- Title tags: `rbi:directions`, `rbi:amendment_directions`, `rbi:master_direction`, `rbi:draft`, `rbi:policy_rates`, `rbi:bulletin`, `rbi:enforcement`.
+- Gap backfill: prid and notification Id are sequential, so ids skipped between the stored maximum and the oldest new feed id are fetched from their display pages (an unpublished id has no `.tablebg`). At most 25 per poll; never on the baseline poll.
+- `rbi_pr` keyword file drops routine market operations (VRRR/VRR, Money Market Operations, auction notices and results, Reserve Money) and co-operative bank penalties. Runner: 5 new press releases on 8 Oct, all 5 correctly filtered.
+- Master directions and drafts were already covered by `rbi_notif` and `rbi_pr`; no separate scraper for `BS_ViewMasterDirections.aspx` (Phase 0: reference only).
+
+**Fetcher**
+- `impersonate=True` sends the request through curl_cffi (Chrome 124 fingerprint) for Akamai-fronted hosts. Tests route it through the mock transport.
+- `HOST_INTERMEDIATES`: for hosts that do not send their intermediate certificate, a certifi store plus the shipped intermediate (`core/certs/`), for that host only. Verification is never disabled. CBIC (Sectigo OV R36, from the issuer's AIA URL) is the first.
+- `certifi` is now an explicit dependency (it was already installed through httpx).
+
+**CBDT** (`sources/india/cbdt.py`, F-25): Liferay search API with the site's own blueprints, three POSTs per poll (notifications, circulars, press releases, 20 each). `receivedDate` gives the IST posting time. Institution approvals filtered (`config/keywords/cbdt.yaml`). Runner: baselined 60.
+
+**CBIC** (`sources/india/cbic.py`, F-24): `fetchUpdatesByTaxId` for GST, Customs and Central Excise (newest 4 each). Rate-bearing notifications (Rate, ADD, CVD, safeguard, excise tariff) tagged `cbic:rate`; tariff-value fixations and adjudication appointments filtered. Runner: baselined 12 with the shipped intermediate; the second tick hit "connection reset by peer", so polls now retry 3 times.
+
+**BSE notices** (`sources/india/bse.py`, F-26): curl_cffi, today and yesterday each poll. Segment/category/department go into the summary so the keyword file can exclude SME, debt, MF and SLB. About 5 of 45 a day are kept. Runner: baselined 54; next tick 4 new, all filtered.
+
+**IMD** (`sources/india/imd.py`, T-17): English rows of the press-release list; monsoon, seasonal and monthly outlooks, withdrawal/onset, cyclone and heat-wave releases kept; the daily bulletin is not. New `tick_every_minutes` (60) throttles the 4 MB page in `tick`; `active_hours` 07:00–23:00. Runner: baselined 44.
+
+**Data-print windows** (`sources/india/data_prints.py`, F-27)
+- Scheduled source `data_prints`: CPI, IIP and quarterly GDP from the MoSPI ARC PDF (pointer API, then pdfplumber tables), WPI and ICI by rule. Weekend dates move to Monday, which matches every weekend slip in the 2026 ARC.
+- Window 10 min before to 45 min after release; from release time it runs the `mospi`/`oea` stream poll every 30 s, so the existing validated print-vs-prior alert goes out within about 30 s.
+- `reconcile()` (called by `tick`) marks an event captured when its print arrives later, so a holiday slip raises one `missed:` alert that then clears.
+- Embargo (T-09): MoSPI/OEA hold back new items of a kind due within 12 h.
+- Window sends follow the stream switch: dry unless `EVENTS_BOT_LIVE=true` (`windows.yml` now passes the variable).
+- Runner calendars: CPI 12 Oct 16:00, WPI 14 Oct 12:00, ICI 20 Oct 17:00, IIP 28 Oct 16:00 (plus FOMC 28 Oct). They are armed by the usual `arm --hours 36`.
+
+**Tests:** 187 passing (new: test_rbi_phase4, test_tax, test_bse, test_imd, test_data_prints).
+
+**Still open in Phase 4:** CGA monthly fiscal deficit, GST Council outcomes (via PIB), Budget-day window (indiabudget.gov.in), DGFT (blocked from runners, F-17).
+
+**Local test DB moved to port 54433** (F-28).

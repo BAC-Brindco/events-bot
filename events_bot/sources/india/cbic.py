@@ -53,6 +53,16 @@ def parse_updates(content: bytes) -> list[dict]:
 class Cbic(SourceAdapter):
     doc_type = "cbic"
 
+    def poll(self) -> list[RawItem]:
+        # The host resets connections now and then (runner tick, 8 Oct 2026): retry before failing the poll.
+        items: list[RawItem] = []
+        for name, url in self.cfg.urls.items():
+            res = self.ctx.fetcher.get_with_retry(url, tries=3, base_delay=3, source_id=self.cfg.id,
+                                                  doc_type=f"cbic:{name}", expect="json")
+            if not res.not_modified:
+                items += self.parse(res, name)
+        return items
+
     def parse(self, res: FetchResult, url_name: str) -> list[RawItem]:
         items = []
         for r in parse_updates(res.content):
