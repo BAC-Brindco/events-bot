@@ -66,8 +66,13 @@ class WindowPoller:
                 self.app.db.health_error(cfg.id, now, f"window {ev['ref']}: {type(e).__name__}: {e}")
 
 
-def digest_job(kind: str) -> None:
-    log.warning("digest_not_built", kind=kind, note="digests arrive in Phases 3 (US wrap), 6 (EOD), 7 (weekly)")
+def digest_job(kind: str, app: App | None = None) -> None:
+    if kind == "india_eod" and app is not None:
+        from ..digest import run as dg
+        if utcnow().astimezone(IST).weekday() < 5:        # working days (F-29)
+            dg.run(app)
+        return
+    log.warning("digest_not_built", kind=kind, note="the US wrap and weekly digest arrive in later phases")
 
 
 def build_scheduler(app: App) -> BlockingScheduler:
@@ -88,5 +93,5 @@ def build_scheduler(app: App) -> BlockingScheduler:
     d = app.delivery
     for kind, spec in (("us_morning_wrap", d.us_morning_wrap), ("india_eod", d.india_eod), ("weekly", d.weekly)):
         s.add_job(digest_job, CronTrigger(timezone=IST, **spec.model_dump(exclude_none=True)),
-                  args=(kind,), id=f"digest:{kind}")
+                  args=(kind, app), id=f"digest:{kind}")
     return s

@@ -76,7 +76,35 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("test-email", help="send one test message to the operator addresses only")
     p = sub.add_parser("retry-send")
     p.add_argument("send_id", type=int)
+    p = sub.add_parser("digest", help="compile and send the Daily Macro Digest (everything queued for india_eod)")
+    p.add_argument("--dry-run", action="store_true")
+    p.add_argument("--date", help="digest date YYYY-MM-DD (IST); default today")
+    p.add_argument("--sample-days", type=int, default=0,
+                   help="review copy: items first seen on the last N days up to --date, any status; not marked")
+    p.add_argument("--to-operator", action="store_true", help="send to the operator addresses only (live)")
+    p.add_argument("--weekdays-only", action="store_true", help="exit quietly on Saturday and Sunday (IST)")
     a = ap.parse_args(argv)
+
+    if a.cmd == "digest":
+        from datetime import datetime
+        from ..core.timeutil import IST, utcnow
+        from ..digest import run as dg
+        day = (datetime.strptime(a.date, "%Y-%m-%d").replace(hour=18, minute=30, tzinfo=IST)
+               if a.date else utcnow().astimezone(IST))
+        if a.weekdays_only and day.weekday() >= 5:
+            print("weekend: no digest")
+            return 0
+        app = _app(a.dry_run)
+        try:
+            if a.sample_days:
+                since, until = dg.default_window(day, a.sample_days)
+                r = dg.run(app, day=day, since=since, until=until, sample=True, to_operator=a.to_operator)
+            else:
+                r = dg.run(app, day=day, to_operator=a.to_operator)
+        finally:
+            app.close()
+        print(f"{r.ref}: {r.status}, {r.items} items, {r.size:,} bytes, {r.trimmed} shortened -> {r.message_path}")
+        return 0
 
     if a.cmd == "migrate":
         configure(ROOT / "logs")

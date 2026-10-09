@@ -1,0 +1,76 @@
+name: digest
+
+# Daily Macro Digest (F-29): 18:30 IST on working days, everything queued for india_eod since the last
+# digest, one detailed write-up per release. Sent to the desk only when the repo variable
+# EVENTS_BOT_LIVE is "true"; otherwise it is rendered (artifact) and not sent.
+# The GitHub schedule is the backup; an external trigger (cron-job.org workflow_dispatch) is the primary.
+# Manual review copy: dispatch with sample_days=N and to_operator=true -> the last N days' in-scope items,
+# re-scoped with the current rules, sent only to EVENTS_BOT_OPERATOR_EMAILS with a SAMPLE subject.
+
+on:
+  workflow_dispatch:
+    inputs:
+      sample_days:
+        description: "Review copy of the last N days (0 = the real digest)"
+        default: "0"
+      to_operator:
+        description: "Send to the operator addresses only (always live)"
+        type: boolean
+        default: false
+      date:
+        description: "Digest date YYYY-MM-DD (IST), default today"
+        default: ""
+  schedule:
+    - cron: "0 13 * * 1-5"      # 18:30 IST, Monday to Friday
+
+permissions:
+  contents: read
+
+concurrency:
+  group: digest
+  cancel-in-progress: false
+
+env:
+  EVENTS_BOT_DSN: ${{ secrets.EVENTS_BOT_DSN }}
+  EVENTS_BOT_DB_SCHEMA: events_bot
+  EVENTS_BOT_ARCHIVE: db
+  SMTP_HOST: ${{ secrets.SMTP_HOST }}
+  SMTP_PORT: ${{ secrets.SMTP_PORT }}
+  SMTP_USER: ${{ secrets.SMTP_USER }}
+  SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+  SMTP_FROM: ${{ secrets.SMTP_FROM }}
+  EVENTS_BOT_RECIPIENTS: ${{ secrets.EVENTS_BOT_RECIPIENTS }}
+  EVENTS_BOT_OPERATOR_EMAILS: ${{ secrets.EVENTS_BOT_OPERATOR_EMAILS }}
+  DRY: ${{ vars.EVENTS_BOT_LIVE != 'true' && '--dry-run' || '' }}
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+          enable-cache: true
+      - run: uv sync --frozen --no-dev
+      - name: Compile and send
+        env:
+          SAMPLE_DAYS: ${{ inputs.sample_days || '0' }}
+          TO_OPERATOR: ${{ inputs.to_operator && 'yes' || 'no' }}
+          DAY: ${{ inputs.date }}
+        run: |
+          args="--weekdays-only"
+          [ "$SAMPLE_DAYS" != "0" ] && args="--sample-days $SAMPLE_DAYS"
+          [ "$TO_OPERATOR" = "yes" ] && args="$args --to-operator"
+          [ -n "$DAY" ] && args="$args --date $DAY"
+          uv run python -m events_bot.ops.cli digest $args $DRY | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: digest-${{ github.run_id }}
+          path: |
+            out/
+            logs/
+          if-no-files-found: ignore
+          retention-days: 30

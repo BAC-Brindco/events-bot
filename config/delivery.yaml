@@ -2,7 +2,7 @@
 realtime_channels: [email]
 
 us_morning_wrap: {hour: 7, minute: 0}
-india_eod: {hour: 19, minute: 30}
+india_eod: {hour: 18, minute: 30}     # Daily Macro Digest, working days (F-29)
 weekly: {day_of_week: sat, hour: 9, minute: 0}
 heartbeat: {hour: 8, minute: 0}
 

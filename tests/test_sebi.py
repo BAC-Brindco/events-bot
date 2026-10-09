@@ -33,8 +33,8 @@ def test_board_outcome_tagged_and_kind(make_app):
     assert all(i.meta["kind"] == "Press release" and i.meta["date_only"] for i in items)
 
 
-def test_date_only_item_from_this_evening_is_still_realtime(make_app):
-    """A circular listed 'Oct 07' must not be treated as 19 h old at 19:30 IST."""
+def test_circular_goes_to_the_daily_digest(make_app):
+    """F-29: SEBI circulars are digest items (detailed write-up at 18:30), not realtime alerts."""
     from events_bot.core.pipeline import PollStats
     app = make_app("dry_run")
     it = app.adapter("sebi_circ").parse(_res("circulars"), "circulars")[0]
@@ -42,4 +42,5 @@ def test_date_only_item_from_this_evening_is_still_realtime(make_app):
     iid = app.db.insert_item(it, url_norm=it.url, title_norm=it.title.lower(), tier=1, first_seen_at=late_evening)
     st = PollStats()
     app.pipeline.deliver(app.sources["sebi_circ"], iid, it, late_evening, st)
-    assert st.realtime == 1 and st.queued == 0
+    assert st.realtime == 0 and st.queued == 1
+    assert app.db.one("select route from items where id = %s", (iid,))["route"] == "india_eod"

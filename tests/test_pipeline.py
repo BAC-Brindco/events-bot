@@ -8,10 +8,11 @@ from events_bot.core.timeutil import utcnow
 from .conftest import FIXTURES, mock_fetcher
 
 
-def item(source="rbi_pr", ext="prid:1", title="RBI announces something new for banks today",
-         url=None, age_h=0.1, summary=None):
+def item(source="rbi_pr", ext="prid:1", title="RBI issues Directions on capital for commercial banks",
+         url=None, age_h=0.1, summary=None, meta=None):
     return RawItem(source_id=source, ext_id=ext, url=url or f"https://rbi.org.in/x.aspx?{ext.replace(':', '=')}",
-                   title=title, source_published_at=utcnow() - timedelta(hours=age_h), summary=summary)
+                   title=title, source_published_at=utcnow() - timedelta(hours=age_h), summary=summary,
+                   meta=meta or {})
 
 
 def seed_baseline(app, source="rbi_pr"):
@@ -25,16 +26,38 @@ def test_first_poll_is_baseline_no_alert(make_app):
     assert not (app.settings.out_dir / "dry_run").exists()
 
 
-def test_new_item_realtime_dry_run_writes_file_not_sends(make_app):
+def test_in_scope_stream_item_goes_to_the_daily_digest_not_realtime(make_app):
+    """F-29: only data prints alert in real time; a kept RBI release waits for the 18:30 digest."""
     app = make_app()
     seed_baseline(app)
     st = app.pipeline.process(app.sources["rbi_pr"], [item(ext="prid:5")])
+    assert (st.realtime, st.queued) == (0, 1)
+    row = app.db.get_item("item:rbi_pr:prid:5")
+    assert row["status"] == "queued" and row["route"] == "india_eod" and row["meta"]["scope"]
+    assert not (app.settings.out_dir / "dry_run").exists()
+
+
+def test_out_of_scope_item_is_logged_not_sent(make_app):
+    app = make_app()
+    seed_baseline(app)
+    st = app.pipeline.process(app.sources["rbi_pr"],
+                              [item(ext="prid:6", title="10 NBFCs surrender their Certificates of Registration to the RBI")])
+    assert (st.filtered, st.realtime, st.queued) == (1, 0, 0)
+    rej = app.db.recent_filtered(5)[0]
+    assert rej["rule"] == "out_of_scope"
+
+
+def test_data_print_is_realtime_dry_run_writes_file_not_sends(make_app):
+    app = make_app()
+    seed_baseline(app, "mospi")
+    st = app.pipeline.process(app.sources["mospi"], [item(
+        source="mospi", ext="id:5", title="Press Release of CPI for September 2026",
+        url="https://www.mospi.gov.in/uploads/cpi.pdf", meta={"kind": "cpi"})])
     assert st.realtime == 1
     files = list((app.settings.out_dir / "dry_run").glob("*.txt"))
     assert len(files) == 1
     body = files[0].read_text(encoding="utf-8")
-    assert body.startswith("Subject: [RBI] Press release | RBI announces something new")
-    assert "Source: https://rbi.org.in/x.aspx?prid=5" in body
+    assert "Press Release of CPI for September 2026" in body
     assert app.db.one("select count(*) as n from sends")["n"] == 0
 
 
@@ -67,7 +90,7 @@ def test_cross_source_title_duplicate_but_not_same_source_recurring(make_app):
     t1 = "Monthly Data on India's International Trade in Services for August 2026"
     t2 = "Monthly Data on India's International Trade in Services for September 2026"
     st = app.pipeline.process(app.sources["rbi_pr"], [item(ext="prid:20", title=t1), item(ext="prid:21", title=t2)])
-    assert st.duplicate == 0 and st.realtime == 2           # same source, different day: both alert
+    assert st.duplicate == 0 and st.queued == 2             # same source, different day: both kept
     st = app.pipeline.process(app.sources["rbi_notif"], [item(source="rbi_notif", ext="id:20", title=t1 + ".")])
     assert st.duplicate == 1                                 # echo on another channel: deduped
     assert app.db.get_item("item:rbi_notif:id:20")["dup_rule"].startswith("title:")
@@ -80,7 +103,7 @@ def test_filter_rejection_is_logged(make_app):
     st = app.pipeline.process(cfg, [item(ext="prid:30", title="RBI quiz for schools on repo rate"),
                                     item(ext="prid:31", title="Statement on repo rate decision"),
                                     item(ext="prid:32", title="Unrelated item about currency notes")])
-    assert (st.filtered, st.realtime) == (2, 1)
+    assert (st.filtered, st.queued) == (2, 1)
     rules = {r["title"]: r["rule"] for r in app.db.recent_filtered(10)}
     assert rules["RBI quiz for schools on repo rate"] == "exclude_keyword"
     assert rules["Unrelated item about currency notes"] == "no_match"

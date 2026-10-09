@@ -1,9 +1,10 @@
 """Stream pipeline: every new item goes insert -> dedupe -> filter -> classify -> tag -> route.
 
-Routing:
-  realtime          Stage 1 now (India Tier 1; US items per F-08 toggles)
-  us_morning_wrap   queued for the 07:00 IST wrap
-  india_eod         queued for the 19:30 IST digest
+Routing (desk scope, digest/scope.py, F-29):
+  realtime          Stage 1 now: only the data prints (MoSPI CPI/IIP/GDP, OEA WPI/ICI)
+  india_eod         queued for the 18:30 IST daily macro digest (everything else in scope)
+  dropped           out of scope: logged to filtered_items, never e-mailed
+  us_morning_wrap   queued for the 07:00 IST wrap (US sources, later phases)
   weekly            queued for the Saturday digest
 
 Two guards stop floods of old items:
@@ -21,6 +22,7 @@ from datetime import timedelta
 import structlog
 
 from ..deliver.interface import Dispatcher
+from ..digest import scope
 from ..filter.classifier import Classifier, PassThrough
 from ..filter.keywords import KeywordFilter
 from ..filter.watchlist import Watchlist
@@ -115,7 +117,22 @@ class Pipeline:
             except Exception as e:  # noqa: BLE001  a detail-page failure must not lose the item
                 log.warning("enrich_failed", ref=it.ref, error=str(e)[:200])
         tags = self.watchlist.tags(it) + list(extra_tags or []) + list(it.meta.get("priority_tags") or [])
-        route = route or self.delivery.route_for(cfg)
+        # Desk scope (F-29): only data prints alert in real time; the rest of the kept stream goes to the
+        # daily macro digest or is dropped (logged, never e-mailed).
+        sc = scope.decide(cfg, it)
+        if not sc.keep and "unclassified" in (extra_tags or []):
+            # The model could not run: the item goes to the digest flagged, never silently dropped.
+            sc = scope.Scope("india_eod", f"unclassified (model down); scope rule said: {sc.reason}")
+        if not sc.keep:
+            self.db.insert_filtered(item_id, cfg.id, it.title, it.url, "out_of_scope", sc.reason)
+            self.db.update_item(item_id, status="filtered", tags=tags, meta={**it.meta, "scope": sc.reason})
+            st.filtered += 1
+            return
+        it.meta["scope"] = sc.reason
+        # An explicit route from the caller (e.g. the LLM fallback's digest) is never upgraded to realtime.
+        route = route if route is not None and sc.route in ("realtime", "default") else sc.route
+        if route == "default":
+            route = self.delivery.route_for(cfg)
         published = it.source_published_at
         if published is not None and it.meta.get("date_only"):
             published += timedelta(days=1)          # a date-only stamp could mean any time that day
