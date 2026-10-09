@@ -338,3 +338,29 @@ All new stream sources are **dry** (tick runs `--dry-run` until `EVENTS_BOT_LIVE
 **Still open in Phase 4:** CGA monthly fiscal deficit, GST Council outcomes (via PIB), Budget-day window (indiabudget.gov.in), DGFT (blocked from runners, F-17).
 
 **Local test DB moved to port 54433** (F-28).
+
+## Desk scope and the Daily Macro Digest (2026-10-09, F-29)
+
+**Why:** with streams briefly live on 9 Oct, the user found the per-release e-mails too thin (title, excerpt, link) and too many, and paused them (`EVENTS_BOT_LIVE=scheduled`). The desk uses the bot to track macro releases that might affect the overall book. Approved design: few e-mails, each detailed.
+
+**Routing** (`events_bot/digest/scope.py`, applied in `Pipeline.deliver` after the source filter, LLM triage and enrichment):
+- Realtime: FOMC and RBI MPC (scheduled, unchanged) and the data prints (MoSPI CPI/IIP/GDP, OEA WPI/ICI) with their validated print-vs-prior alerts.
+- Daily digest (`india_eod`, 18:30 IST Mon–Fri): PIB macro policy, RBI rule changes and reports, SEBI circulars / consultation papers / market-rule press releases and Board outcomes, CBIC rate notifications, IMD monsoon forecasts, Nifty 50 / Nifty Bank changes, MoSPI/OEA non-print releases.
+- Dropped (stored and logged in `filtered_items` as `out_of_scope`, never e-mailed): BSE notices, NSE ASM/GSM, CBDT, CBIC procedure, other index changes, the rest of PIB, RBI routine operations / entity actions / narrow-class rules, MPC documents already covered by the MPC alert.
+- An item the LLM could not triage (model down) still reaches the digest, tagged unclassified.
+- Items queued before these rules are re-scoped when the digest compiles.
+
+**Digest item** (`digest/content.py`, `digest/select.py`, `digest/render.py`): the release is fetched and archived at compile time (RBI display page; SEBI page → embedded PDF; PIB release page; IMD/MoSPI/OEA/NSE Indices PDF; CBIC via `/api/cbic-*-msts/{id}` → `/content/pdf/<docFilePath>`, unverified from runners). Its text is a pure function of the bytes (stored on `documents.text`). Rendered per item:
+- header: issuer, kind, posted time, reference numbers, the "comes into effect" sentence (not for press releases that list many dates);
+- "What it says": 3–10 operative paragraphs picked by a deterministic score (directive verbs, figures, dates, the lede), in source order, from the first 40 paragraphs (Board outcomes: whole document); title repeats, sign-offs, reference lines, cover pages and Hindi blocks skipped; paragraphs over 1,100 chars cut at a sentence end and marked […];
+- key figures (₹/Rs/US$ amounts, crore/lakh, %, bps, tonnes, GW) as validated extractions, one row per sentence with the sentence quoted;
+- who it applies to (the addressee block after "To," or "All …" lines, "shall be applicable to …" sentences);
+- links to the release and the PDF.
+- No LLM is used in the digest; every quoted string is an exact substring of the archived release text (`tests/test_digest.py` checks this on 6 real releases).
+- If a release cannot be fetched, the item says so and shows the poll-time opening paragraphs (PIB) instead.
+
+**Size:** Gmail clips at about 102 KB. Blocks set the font once, and a long day is split into up to 3 numbered parts (`part 2 of 3`, refs `…:part2`) at full detail; only beyond that are the lowest-priority items shortened to 3 paragraphs.
+
+**Send:** `cli digest` (workflow `digest.yml`, GitHub cron 13:00 UTC Mon–Fri as backup; cron-job.org trigger still to add). Sends to the desk only when `EVENTS_BOT_LIVE=true`; otherwise rendered to the artifact. One digest per date (`sends` unique on `digest:india_eod:<date>`); after a full send the items are marked `digested` with a `digests` row (migration 0004). `--sample-days N --to-operator` sends a review copy of the last N days to the operator only, with a SAMPLE subject, marking nothing.
+
+**Backlog guard:** the stream `tick` keeps queuing digest items while dry, and dry digests do not mark them. A digest only takes items first seen in the last 4 days (a weekend plus a holiday); older queued items are logged to `filtered_items` as `stale`, so the first live digest is not weeks long.

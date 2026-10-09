@@ -27,6 +27,7 @@ log = structlog.get_logger()
 
 GMAIL_SAFE = 90_000            # bytes of HTML; Gmail clips at about 102 KB
 MAX_PARTS = 3                  # a long day goes out as up to 3 e-mails before anything is shortened
+MAX_AGE = timedelta(days=4)    # Friday's evening to Monday's, plus one holiday
 SECTION_WEIGHT = {"RBI": 3, "SEBI": 3, "Government": 3, "Index changes": 2, "Data": 2, "Weather": 1}
 NO_SINGLE_EFFECTIVE = {"pib", "mospi", "oea", "imd"}
 DIGEST_SOURCES = ["pib", "cbic", "rbi_pr", "rbi_notif", "sebi_circ", "sebi_pr", "mospi", "oea", "imd",
@@ -56,7 +57,14 @@ def collect(app, *, since: datetime | None = None, until: datetime | None = None
         rows = app.db.q("select * from items where status = 'queued' and route = 'india_eod' and digest_id is null "
                         "order by first_seen_at")
         keep = []
+        oldest = utcnow() - MAX_AGE
         for r in rows:
+            if r["first_seen_at"] < oldest:
+                # a backlog (e.g. weeks of dry-run queueing before go-live) is logged, not mailed
+                app.db.insert_filtered(r["id"], r["source_id"], r["title"], r["url"], "stale",
+                                       f"queued more than {MAX_AGE.days} days before the digest")
+                app.db.update_item(r["id"], status="filtered")
+                continue
             cfg = app.sources.get(r["source_id"])
             sc = scope.decide(cfg, _raw(r)) if cfg is not None else None
             if sc is not None and not sc.keep and "unclassified" not in (r["tags"] or []):
@@ -104,12 +112,13 @@ def compile_item(app, row: dict) -> DigestItem:
             app.db.set_document_text(body.document_id, body.text)
         it.who = [w for w in select.applies_to(body.text) if w in body.text]
         window = 400 if n > 6 else select.WINDOW          # Board outcomes run through the whole document
-        it.paras = [p for p in select.operative(body.paragraphs, n=n, title=it.title, exclude=it.who,
-                                                window=window) if p in body.text]
-        it.figs = select.figures(body.text, it.paras, limit=8)
         # A press release lists many measures with their own dates; one "effective" line would mislead.
         eff = select.effective(body.text) if it.source_id not in NO_SINGLE_EFFECTIVE else None
         it.eff = eff if eff and eff in body.text else None
+        shown_eff = [p for p in body.paragraphs if it.eff and p == it.eff]     # already in the header
+        it.paras = [p for p in select.operative(body.paragraphs, n=n, title=it.title,
+                                                exclude=list(it.who) + shown_eff, window=window) if p in body.text]
+        it.figs = select.figures(body.text, it.paras, limit=8)
         it.refs = select.reference(body.text)
         if not it.refs and meta.get("number"):
             it.refs = [meta["number"]]

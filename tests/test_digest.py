@@ -228,6 +228,17 @@ def test_items_queued_before_the_scope_rules_are_rescoped(make_app):
     assert app.db.recent_filtered(1)[0]["rule"] == "out_of_scope"
 
 
+def test_a_backlog_older_than_four_days_is_logged_not_mailed(make_app):
+    app = make_app("dry_run")
+    mock_fetcher(app, _handler)
+    ids = _seed(app)
+    app.db.q("update items set first_seen_at = now() - interval '6 days' where id = %s", (ids[0],))
+    r = dg.run(app)
+    assert r.items == len(ids) - 1
+    assert app.db.one("select status from items where id = %s", (ids[0],))["status"] == "filtered"
+    assert app.db.recent_filtered(1)[0]["rule"] == "stale"
+
+
 def test_fetch_failure_still_gives_the_opening_paragraphs(make_app):
     app = make_app("dry_run")
     mock_fetcher(app, lambda req: httpx.Response(503))

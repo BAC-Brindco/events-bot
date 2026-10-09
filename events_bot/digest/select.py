@@ -19,7 +19,8 @@ from ..extract.validator import validate
 _BOILER = re.compile(
     r"^(?:Yours faithfully|Sd/?-|Chief General Manager|General Manager|Deputy General Manager|"
     r"Press Release\s*:|Encl|Copy to|Tel\b|Fax\b|E-?mail|Page \d|\(Release ID|Visitor Counter|Follow us|"
-    r"Table of Contents|Chapter [IVX]+|Disclaimer|Note\s*:|\*{3}|Annex|Ministry of [A-Z][a-z]+$)", re.I)
+    r"Table of Contents|Chapter [IVX]+|Disclaimer|Note\s*:|\*{3}|Annex|Ministry of [A-Z][a-z]+$|"
+    r"(?:\d+\.\s+)?Table [A-Z0-9]+\b.{0,90}$)", re.I)
 _SIGNOFF = re.compile(r"^\((?:[A-Z][\w.]*\s?){1,5}\)\s*(?:Chief General Manager|General Manager|Director)?", re.I)
 _DIRECTIVE = re.compile(
     r"\bshall\b|\bhereby\b|\bdecided\b|\bdirected\b|\bapproved?\b|\bnotified\b|\bamend(?:ed|ment)?\b|"
@@ -29,7 +30,8 @@ _DIRECTIVE = re.compile(
     r"\bexempt(?:ed|ion)?\b|\brationalis|\brationaliz|\bprojected\b|\bforecast\b|\bestimated\b|\bgrew\b|"
     r"\bgrowth\b|\bdeclined\b|\brose\b|\bfell\b", re.I)
 _FIGURE_RX = re.compile(
-    r"(?:₹|Rs\.?\s?|INR\s?)\s?\d(?:[\d,]*\d)?(?:\.\d+)?(?:\s?(?:lakh crore|crore|lakh|billion|million|bn|mn))?"
+    r"(?:₹|Rs\.?\s?|INR\s?)\s?\d(?:[\d,]*\d)?(?:\.\d+)?(?:\s?[–-]\s?\d(?:[\d,]*\d)?(?:\.\d+)?)?"
+    r"(?:\s?(?:lakh crore|crore|lakh|billion|million|bn|mn))?"
     r"|(?:US\$|USD\s?|\$)\s?\d(?:[\d,]*\d)?(?:\.\d+)?(?:\s?(?:billion|million|trillion|bn|mn))?"
     r"|\b\d(?:[\d,]*\d)?(?:\.\d+)?\s?(?:lakh crore|crore|lakh tonnes?|million tonnes?|LMT|MT|GW|MW|billion units)\b"
     r"|(?<![\w.])-?\d+(?:\.\d+)?\s?(?:%|per\s?cent\b|percent\b)"
