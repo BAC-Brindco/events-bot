@@ -39,6 +39,8 @@ _DATE = re.compile(r"\b\d{1,2}(?:st|nd|rd|th)? (?:January|February|March|April|M
                    r"September|October|November|December) \d{1,2},? \d{4}\b", re.I)
 _SENT_SPLIT = re.compile(r"(?<=[.;])\s+(?=[A-Z(“\"])")
 _ABBREV_END = re.compile(r"(?:\b(?:No|Nos|Rs|Dr|Mr|Ms|Smt|Shri|Prof|viz|i\.e|e\.g|etc|Sr|Jr|Ltd|Co|vs|para|Govt)\.)$")
+_ENUMERATOR = re.compile(r"\(?(?:\d+(?:\.\d+)*|[ivxIVX]{1,5}|[a-zA-Z])[.)]?\)?")      # "2." "(ii)" "4.1" "a)"
+WINDOW = 40          # long instruments: the operative part is near the top (applicability, the change itself)
 
 
 @dataclass
@@ -52,7 +54,8 @@ def sentences(par: str) -> list[str]:
     out: list[str] = []
     start = 0
     for m in _SENT_SPLIT.finditer(par):
-        if _ABBREV_END.search(par[start:m.start()]):
+        seg = par[start:m.start()]
+        if _ABBREV_END.search(seg) or _ENUMERATOR.fullmatch(seg.strip()):
             continue
         s = par[start:m.start()].strip()
         if s:
@@ -101,8 +104,8 @@ def score(p: str, idx: int) -> float:
 
 
 def operative(paragraphs: list[str], n: int = 6, min_n: int = 3, title: str = "",
-              exclude: list[str] | tuple = ()) -> list[str]:
-    cands = [(i, p) for i, p in enumerate(paragraphs) if not _boiler(p, title) and p not in exclude]
+              exclude: list[str] | tuple = (), window: int = WINDOW) -> list[str]:
+    cands = [(i, p) for i, p in enumerate(paragraphs[:window]) if not _boiler(p, title) and p not in exclude]
     if not cands:
         return []
     ranked = sorted(cands, key=lambda ip: (-score(ip[1], ip[0]), ip[0]))
@@ -157,7 +160,7 @@ def applies_to(text: str, limit: int = 2) -> list[str]:
             out.append(lines[i + 1])                         # the addressee block of a circular
         elif _ADDRESSEE.match(line) and line not in out:
             out.append(line)
-    for line in lines:
+    for line in lines[:WINDOW + 20]:
         if len(out) >= limit:
             break
         if _APPLIES.search(line):

@@ -59,7 +59,7 @@ def test_rbi_directions_write_up_has_the_substance():
     text = _text("rbi_pr_63749.html", "rbi")
     ops = select.operative(content._paragraphs(text), title=BODIES[0][2])
     assert any("capital charge for CVA risk" in p for p in ops)
-    assert select.effective(text) == "These instructions will come into effect from April 1, 2027."
+    assert select.effective(text) == "5. These instructions will come into effect from April 1, 2027."
     assert select.reference(text) == ["Press Release: 2026-2027/1271"]
     assert not any(p.startswith("RBI issues Directions on") for p in ops)     # the title is not repeated
 
@@ -68,7 +68,7 @@ def test_sebi_circular_addressees_and_commencement():
     text = _text("sebi_105081.pdf", "pdf")
     who = select.applies_to(text)
     assert who[0].startswith("Issuers of debt securities; Entities operating as Online Bond Platform Providers")
-    assert select.effective(text) == ("The provisions of circular shall come into force after 45 days from the "
+    assert select.effective(text) == ("5. The provisions of circular shall come into force after 45 days from the "
                                       "date of issuance.")
 
 
@@ -217,6 +217,17 @@ def test_sample_without_operator_never_sends(make_app):
     assert r.status == "written" and ch.sent == []
 
 
+def test_items_queued_before_the_scope_rules_are_rescoped(make_app):
+    app = make_app("dry_run")
+    mock_fetcher(app, _handler)
+    ids = _seed(app)
+    old = _queue(app, "bse_notices", "n:1", "https://www.bseindia.com/n/1", "Rights issue of XYZ Ltd")
+    r = dg.run(app)
+    assert r.items == len(ids)
+    assert app.db.one("select status from items where id = %s", (old,))["status"] == "filtered"
+    assert app.db.recent_filtered(1)[0]["rule"] == "out_of_scope"
+
+
 def test_fetch_failure_still_gives_the_opening_paragraphs(make_app):
     app = make_app("dry_run")
     mock_fetcher(app, lambda req: httpx.Response(503))
@@ -228,11 +239,30 @@ def test_fetch_failure_still_gives_the_opening_paragraphs(make_app):
     assert "could not be fetched" in html and "chairpersonship" in html
 
 
+def test_a_long_day_is_split_into_parts_before_anything_is_shortened(make_app, monkeypatch):
+    app = make_app("live")
+    mock_fetcher(app, _handler)
+    ch = FakeChannel()
+    app.dispatcher.channels = [ch]
+    ids = _seed(app)
+    monkeypatch.setattr(dg, "GMAIL_SAFE", 20_000)
+    r = dg.run(app)
+    assert r.parts >= 2 and r.trimmed == 0 and r.status == "sent"
+    assert ch.sent[0] == r.ref and ch.sent[1] == r.ref + ":part2"
+    subjects = [x["subject"] for x in app.db.q("select subject from sends order by id")]
+    assert subjects[0].endswith(f"part 1 of {r.parts}")
+    texts = " ".join(p.read_text(encoding="utf-8") for p in r.paths)
+    for i in range(1, len(ids) + 1):                             # numbering continues across parts
+        assert f"{i}. " in texts
+    assert {x["status"] for x in app.db.q("select status from items where id = any(%s)", (ids,))} == {"digested"}
+
+
 def test_size_budget_shortens_lowest_priority_items_but_keeps_three_paragraphs(make_app, monkeypatch):
     app = make_app("dry_run")
     mock_fetcher(app, _handler)
     _seed(app)
-    monkeypatch.setattr(dg, "GMAIL_SAFE", 30_000)
+    monkeypatch.setattr(dg, "GMAIL_SAFE", 20_000)
+    monkeypatch.setattr(dg, "MAX_PARTS", 1)
     r = dg.run(app)
     assert r.trimmed >= 1
     html = r.message_path.read_text(encoding="utf-8")

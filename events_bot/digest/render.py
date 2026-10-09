@@ -78,7 +78,7 @@ def cap(p: str, limit: int = PARA_CAP) -> str:
         if len(cand) > limit:
             break
         out = cand
-    if not out or out not in p:
+    if len(out) < limit // 3 or out not in p:        # one very long first sentence: cut at a word
         out = p[:limit].rsplit(" ", 1)[0]
     return out + " […]"
 
@@ -106,9 +106,29 @@ def _posted(it: DigestItem) -> str:
 
 
 def _paras_html(ps: list[str], limit: int) -> str:
-    rows = "".join(f'<tr><td style="{dz.font(12.5, leading=19)}text-align:justify;padding:0 0 9px 0;">'
-                   f'{_e(cap(p, limit))}</td></tr>' for p in ps)
-    return f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">{rows}</table>'
+    # One cell carries the font; the paragraphs inside only set their spacing (keeps a long digest
+    # under Gmail's clipping size without dropping text).
+    inner = "".join(f'<p style="margin:0 0 9px 0;">{_e(cap(p, limit))}</p>' for p in ps)
+    return (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>'
+            f'<td style="{dz.font(12.5, leading=19)}text-align:justify;">{inner}</td></tr></table>')
+
+
+def _fig_table(rows: list[tuple[str, list[str]]], source: str) -> str:
+    """Key figures: the house table look (navy head, hairlines) with the font set once on the table."""
+    head = (f'<tr><th align="left" width="110" style="width:110px;color:{dz.NAVY};font-size:9.5px;letter-spacing:0.8px;'
+            f'text-transform:uppercase;background-color:{dz.BAND};border-top:2px solid {dz.NAVY};'
+            f'border-bottom:1px solid {dz.RULE_STRONG};padding:6px;">Figure</th>'
+            f'<th align="left" style="color:{dz.NAVY};font-size:9.5px;letter-spacing:0.8px;text-transform:uppercase;'
+            f'background-color:{dz.BAND};border-top:2px solid {dz.NAVY};border-bottom:1px solid {dz.RULE_STRONG};'
+            f'padding:6px;">In the release</th></tr>')
+    body = "".join(
+        f'<tr><td valign="top" style="border-bottom:1px solid {dz.ROW_RULE};padding:5px 6px;">'
+        f'{"<br />".join(f"<b>{_e(v)}</b>" for v in vals)}</td>'
+        f'<td valign="top" style="border-bottom:1px solid {dz.ROW_RULE};padding:5px 6px;">{_e(cap(ctx, 320))}</td></tr>'
+        for ctx, vals in rows)
+    return (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" '
+            f'style="border-collapse:collapse;{dz.font(12, leading=16)}">{head}{body}</table>'
+            f'<div style="{dz.font(10.5, color=dz.INK_FAINT)}padding:6px 0 0 0;">{source}</div>')
 
 
 def _label(text: str) -> str:
@@ -151,11 +171,8 @@ def item_html(it: DigestItem, n: int, limit: int = PARA_CAP) -> str:
             [[_e(r["index"]), _e(r["action"]), _e(r["company"]), f"<strong>{_e(r['symbol'])}</strong>"] for r in it.rows],
             align=["l", "l", "l", "l"], source="NSE Indices press release (PDF)")
     if it.figs:
-        out += _label("Key figures &middot; each quoted with its sentence") + dz.datatable(
-            ["Figure", "In the release"],
-            [["<br />".join(f"<strong>{_e(v)}</strong>" for v in vals), _e(cap(ctx, 320))]
-             for ctx, vals in group_figures(it.figs)],
-            align=["l", "l"], widths=[110, 0], source=_e(ISSUER.get(it.source_id, "")))
+        out += _label("Key figures &middot; each quoted with its sentence") + _fig_table(
+            group_figures(it.figs), _e(ISSUER.get(it.source_id, "")))
     if it.who:
         out += ('<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">'
                 '<tr><td style="padding:10px 0 0 0;">'
@@ -187,11 +204,19 @@ def item_text(it: DigestItem, n: int, limit: int = PARA_CAP) -> list[str]:
 
 
 def build(items: list[DigestItem], *, ref: str, day: datetime, period_start: datetime, period_end: datetime,
-          mode: str, sample: bool = False, limit: int = PARA_CAP) -> Message:
+          mode: str, sample: bool = False, limit: int = PARA_CAP, part: tuple[int, int] = (1, 1),
+          start_no: int = 1, total_items: int | None = None) -> Message:
+    """One e-mail. A long day is split into parts (each under Gmail's clip size); `part` is (i, n), the
+    numbering continues across parts from `start_no`."""
     by_sec = {s: [i for i in items if i.section == s] for s in SECTIONS}
     secs = [s for s in SECTIONS if by_sec[s]]
-    n_items = len(items)
-    title = f"{n_items} release{'s' if n_items != 1 else ''} across {len(secs)} section{'s' if len(secs) != 1 else ''}"
+    n_items = total_items if total_items is not None else len(items)
+    title = f"{n_items} release{'s' if n_items != 1 else ''}"
+    if part[1] == 1:
+        title += f" across {len(secs)} section{'s' if len(secs) != 1 else ''}"
+    else:
+        title += f" &middot; part {part[0]} of {part[1]} (items {start_no}&ndash;{start_no + len(items) - 1})"
+    title_plain = title.replace("&middot;", "·").replace("&ndash;", "-")
     body = dz.masthead(
         kicker=hs.KICKER, title="Daily Macro Digest",
         dateline=f"{day:%a %d-%b-%Y} &middot; {title}",
@@ -202,7 +227,7 @@ def build(items: list[DigestItem], *, ref: str, day: datetime, period_start: dat
               "WPI, core industries) and FOMC / RBI MPC decisions are sent as separate detailed alerts.")
     # contents
     contents = []
-    k = 0
+    k = start_no - 1
     for s in secs:
         names = []
         for it in by_sec[s]:
@@ -211,8 +236,8 @@ def build(items: list[DigestItem], *, ref: str, day: datetime, period_start: dat
         contents.append((f"{_e(s)} ({len(by_sec[s])})", "<br />".join(names)))
     body += dz.row(hs.section_caption("", "Contents") + dz.strip(contents), pad=dz.BLOCK_PAD)
 
-    k = 0
-    lines = [f"Daily Macro Digest - {day:%a %d-%b-%Y} - {title}", ""]
+    k = start_no - 1
+    lines = [f"Daily Macro Digest - {day:%a %d-%b-%Y} - {title_plain}", ""]
     for si, s in enumerate(secs, 1):
         html = ""
         lines += [s.upper(), ""]
@@ -231,9 +256,11 @@ def build(items: list[DigestItem], *, ref: str, day: datetime, period_start: dat
     if sample:
         prov += f" {dz.value('SAMPLE for review — not sent to the desk', 'warn')}"
     body += dz.row(dz.colophon(prov, hs.DISCLAIMER), pad="26px 24px 26px 24px")
-    subject = f"[MACRO] Daily digest | {day:%d-%b-%Y} | {title}"
+    subject = f"[MACRO] Daily digest | {day:%d-%b-%Y} | {n_items} release{'s' if n_items != 1 else ''}"
+    if part[1] > 1:
+        subject += f" | part {part[0]} of {part[1]}"
     if sample:
         subject = "SAMPLE " + subject
-    html = dz.doc_open(_e(subject), _e(title)) + body + dz.DOC_CLOSE
-    return Message(ref=ref, stage="digest", kind="india_eod", subject=subject, body_html=html,
-                   body_text="\n".join(lines))
+    html = dz.doc_open(_e(subject), _e(title_plain)) + body + dz.DOC_CLOSE
+    return Message(ref=ref if part[0] == 1 else f"{ref}:part{part[0]}", stage="digest", kind="india_eod",
+                   subject=subject, body_html=html, body_text="\n".join(lines))

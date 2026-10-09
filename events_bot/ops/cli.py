@@ -103,7 +103,8 @@ def main(argv: list[str] | None = None) -> int:
                 r = dg.run(app, day=day, to_operator=a.to_operator)
         finally:
             app.close()
-        print(f"{r.ref}: {r.status}, {r.items} items, {r.size:,} bytes, {r.trimmed} shortened -> {r.message_path}")
+        print(f"{r.ref}: {r.status}, {r.items} items in {r.parts} e-mail(s), largest {r.size:,} bytes, "
+              f"{r.trimmed} shortened -> {', '.join(str(p) for p in r.paths) or '-'}")
         return 0
 
     if a.cmd == "migrate":

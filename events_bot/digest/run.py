@@ -11,7 +11,7 @@ when the poll only saw a title.
 """
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -26,6 +26,7 @@ from .render import PARA_CAP, SECTIONS, DigestItem, build
 log = structlog.get_logger()
 
 GMAIL_SAFE = 90_000            # bytes of HTML; Gmail clips at about 102 KB
+MAX_PARTS = 3                  # a long day goes out as up to 3 e-mails before anything is shortened
 SECTION_WEIGHT = {"RBI": 3, "SEBI": 3, "Government": 3, "Index changes": 2, "Data": 2, "Weather": 1}
 NO_SINGLE_EFFECTIVE = {"pib", "mospi", "oea", "imd"}
 DIGEST_SOURCES = ["pib", "cbic", "rbi_pr", "rbi_notif", "sebi_circ", "sebi_pr", "mospi", "oea", "imd",
@@ -37,9 +38,11 @@ class Result:
     message_path: Path | None
     status: str
     items: int
-    size: int
+    size: int                  # largest part, bytes of HTML
     trimmed: int
     ref: str
+    parts: int = 0
+    paths: list = field(default_factory=list)
 
 
 def _raw(row: dict) -> RawItem:
@@ -50,8 +53,19 @@ def _raw(row: dict) -> RawItem:
 
 def collect(app, *, since: datetime | None = None, until: datetime | None = None, sample: bool = False) -> list[dict]:
     if not sample:
-        return app.db.q("select * from items where status = 'queued' and route = 'india_eod' and digest_id is null "
+        rows = app.db.q("select * from items where status = 'queued' and route = 'india_eod' and digest_id is null "
                         "order by first_seen_at")
+        keep = []
+        for r in rows:
+            cfg = app.sources.get(r["source_id"])
+            sc = scope.decide(cfg, _raw(r)) if cfg is not None else None
+            if sc is not None and not sc.keep and "unclassified" not in (r["tags"] or []):
+                # queued before the current scope rules (F-29): log it like any other out-of-scope item
+                app.db.insert_filtered(r["id"], r["source_id"], r["title"], r["url"], "out_of_scope", sc.reason)
+                app.db.update_item(r["id"], status="filtered")
+                continue
+            keep.append(r)
+        return keep
     rows = app.db.q("select * from items where first_seen_at >= %s and first_seen_at < %s and source_id = any(%s) "
                     "and status in ('routed', 'queued', 'error', 'digested') order by first_seen_at",
                     (since, until or utcnow(), DIGEST_SOURCES))
@@ -89,8 +103,9 @@ def compile_item(app, row: dict) -> DigestItem:
         if body.document_id is not None:
             app.db.set_document_text(body.document_id, body.text)
         it.who = [w for w in select.applies_to(body.text) if w in body.text]
-        it.paras = [p for p in select.operative(body.paragraphs, n=n, title=it.title, exclude=it.who)
-                    if p in body.text]
+        window = 400 if n > 6 else select.WINDOW          # Board outcomes run through the whole document
+        it.paras = [p for p in select.operative(body.paragraphs, n=n, title=it.title, exclude=it.who,
+                                                window=window) if p in body.text]
         it.figs = select.figures(body.text, it.paras, limit=8)
         # A press release lists many measures with their own dates; one "effective" line would mislead.
         eff = select.effective(body.text) if it.source_id not in NO_SINGLE_EFFECTIVE else None
@@ -109,24 +124,59 @@ def compile_item(app, row: dict) -> DigestItem:
     return it
 
 
-def fit(items: list[DigestItem], render) -> tuple[object, int]:
-    """Render; while the HTML is over GMAIL_SAFE, shorten the lowest-priority items to 3 paragraphs (never
-    fewer), then tighten the paragraph cap. Returns (message, number of items shortened)."""
+def _size(msg) -> int:
+    return len(msg.body_html.encode())
+
+
+def pack(items: list[DigestItem], render, limit: int) -> list[list[DigestItem]]:
+    """Greedy split, in digest order, into parts whose HTML stays under GMAIL_SAFE."""
+    parts: list[list[DigestItem]] = []
+    cur: list[DigestItem] = []
+    start = 1
+    for it in items:
+        trial = cur + [it]
+        if cur and _size(render(trial, (1, 2), start, limit)) > GMAIL_SAFE:
+            parts.append(cur)
+            start += len(cur)
+            cur = [it]
+        else:
+            cur = trial
+    if cur:
+        parts.append(cur)
+    return parts
+
+
+def fit(items: list[DigestItem], render) -> tuple[list, int]:
+    """Messages for the digest, each under GMAIL_SAFE, with full detail where possible.
+
+    Detail is never cut first: a long day is split into up to MAX_PARTS e-mails. Only when even that is not
+    enough are the lowest-priority items shortened to 3 paragraphs (never fewer), then the per-paragraph
+    cap is tightened. Returns (messages, number of items shortened)."""
     limit = PARA_CAP
-    msg = render(limit)
     trimmed = 0
+    parts = pack(items, render, limit)
     order = sorted(items, key=lambda i: (i.priority, -len(i.paras)))
     for it in order:
-        if len(msg.body_html.encode()) <= GMAIL_SAFE:
+        if len(parts) <= MAX_PARTS:
             break
         if len(it.paras) > 3 or len(it.figs) > 4:
             it.paras, it.figs, it.trimmed = it.paras[:3], it.figs[:4], True
             trimmed += 1
-            msg = render(limit)
-    while len(msg.body_html.encode()) > GMAIL_SAFE and limit > 500:
+            parts = pack(items, render, limit)
+    while len(parts) > MAX_PARTS and limit > 500:
         limit -= 200
-        msg = render(limit)
-    return msg, trimmed
+        parts = pack(items, render, limit)
+    msgs, start = [], 1
+    for i, p in enumerate(parts, 1):
+        m = render(p, (i, len(parts)), start, limit)
+        # a single oversized item (never seen in practice): shorten it rather than let Gmail clip it
+        if _size(m) > GMAIL_SAFE and len(p) == 1 and not p[0].trimmed:
+            p[0].paras, p[0].figs, p[0].trimmed = p[0].paras[:3], p[0].figs[:4], True
+            trimmed += 1
+            m = render(p, (i, len(parts)), start, limit)
+        msgs.append(m)
+        start += len(p)
+    return msgs, trimmed
 
 
 def run(app, *, day: datetime | None = None, since: datetime | None = None, until: datetime | None = None,
@@ -146,38 +196,43 @@ def run(app, *, day: datetime | None = None, since: datetime | None = None, unti
     if sample and not to_operator:
         mode = "dry_run"               # a review copy never goes to the desk
 
-    def render(limit: int):
-        return build(items, ref=ref, day=day, period_start=p_start, period_end=p_end, mode=mode, sample=sample,
-                     limit=limit)
+    def render(part_items, part, start, limit):
+        return build(part_items, ref=ref, day=day, period_start=p_start, period_end=p_end, mode=mode, sample=sample,
+                     limit=limit, part=part, start_no=start, total_items=len(items))
 
-    msg, trimmed = fit(items, render)
-    size = len(msg.body_html.encode())
+    msgs, trimmed = fit(items, render)
     out = (out_dir or app.settings.out_dir) / "digest"
     out.mkdir(parents=True, exist_ok=True)
-    path = out / (safe_name(ref.replace(":", "_")) + ".html")
-    path.write_text(msg.body_html, encoding="utf-8")
-    path.with_suffix(".txt").write_text(f"Subject: {msg.subject}\n\n{msg.body_text}", encoding="utf-8")
+    paths = []
+    for m in msgs:
+        p = out / (safe_name(m.ref.replace(":", "_")) + ".html")
+        p.write_text(m.body_html, encoding="utf-8")
+        p.with_suffix(".txt").write_text(f"Subject: {m.subject}\n\n{m.body_text}", encoding="utf-8")
+        paths.append(p)
 
     if to_operator:
         # Operator copies (samples, checks) are always real sends to the operator only, under their own ref.
         if not sample:
-            msg = msg.model_copy(update={"ref": ref + f":operator:{now:%H%M%S}"})
+            msgs = [m.model_copy(update={"ref": m.ref.replace(ref, ref + f":operator:{now:%H%M%S}")}) for m in msgs]
         recipients, disp = app.settings.operator_emails, Dispatcher(app.db, app.dispatcher.channels, "live",
                                                                        app.settings.out_dir)
     else:
         recipients, disp = app.settings.recipients, Dispatcher(app.db, app.dispatcher.channels, mode,
                                                                   app.settings.out_dir)
-    res = disp.dispatch(msg, recipients)
-    log.info("digest_dispatch", ref=ref, status=res.status, items=len(items), bytes=size, trimmed=trimmed,
-             to_operator=to_operator)
-    if res.status == "sent" and not sample and not to_operator:
+    statuses = [disp.dispatch(m, recipients).status for m in msgs]
+    status = next((s for s in ("failed", "no_recipients", "already_sent", "sent", "written") if s in statuses),
+                  statuses[0])
+    sizes = [_size(m) for m in msgs]
+    log.info("digest_dispatch", ref=ref, status=status, parts=len(msgs), items=len(items), bytes=sizes,
+             trimmed=trimmed, to_operator=to_operator)
+    if all(s == "sent" for s in statuses) and not sample and not to_operator:
         send = app.db.one("select id from sends where ref = %s and stage = 'digest' and kind = 'india_eod'", (ref,))
         d = app.db.one("insert into digests (kind, period_start, period_end, item_ids, send_id, rendered_at) "
                        "values ('india_eod', %s, %s, %s, %s, now()) returning id",
                        (p_start, p_end, [i.item_id for i in items], send["id"] if send else None))
         app.db.q("update items set digest_id = %s, status = 'digested' where id = any(%s)",
                  (d["id"], [i.item_id for i in items]))
-    return Result(path, res.status, len(items), size, trimmed, ref)
+    return Result(paths[0], status, len(items), max(sizes), trimmed, ref, parts=len(msgs), paths=paths)
 
 
 def default_window(day: datetime, days: int = 1) -> tuple[datetime, datetime]:
