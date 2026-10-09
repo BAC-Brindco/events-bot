@@ -363,4 +363,6 @@ All new stream sources are **dry** (tick runs `--dry-run` until `EVENTS_BOT_LIVE
 
 **Send:** `cli digest` (workflow `digest.yml`, GitHub cron 13:00 UTC Mon–Fri as backup; cron-job.org trigger still to add). Sends to the desk only when `EVENTS_BOT_LIVE=true`; otherwise rendered to the artifact. One digest per date (`sends` unique on `digest:india_eod:<date>`); after a full send the items are marked `digested` with a `digests` row (migration 0004). `--sample-days N --to-operator` sends a review copy of the last N days to the operator only, with a SAMPLE subject, marking nothing.
 
+**Sample (runner, 9 Oct):** today alone had 1 in-scope item (14 KB). The last 3 days had 17 items (4 Government, 8 RBI, 5 SEBI) in 2 parts of 89.5 KB and 46 KB at full detail, with nothing shortened. That 3-day sample was sent to the operator only (run 37931253943, subject "SAMPLE [MACRO] Daily digest …"). The HTMLs are in `out/digest/` and the run artifact. Tests: 233 passing.
+
 **Backlog guard:** the stream `tick` keeps queuing digest items while dry, and dry digests do not mark them. A digest only takes items first seen in the last 4 days (a weekend plus a holiday); older queued items are logged to `filtered_items` as `stale`, so the first live digest is not weeks long.
