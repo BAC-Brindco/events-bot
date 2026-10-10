@@ -366,3 +366,19 @@ All new stream sources are **dry** (tick runs `--dry-run` until `EVENTS_BOT_LIVE
 **Sample (runner, 9 Oct):** today alone had 1 in-scope item (14 KB). The last 3 days had 17 items (4 Government, 8 RBI, 5 SEBI) in 2 parts of 89.5 KB and 46 KB at full detail, with nothing shortened. That 3-day sample was sent to the operator only (run 37931253943, subject "SAMPLE [MACRO] Daily digest …"). The HTMLs are in `out/digest/` and the run artifact. Tests: 233 passing.
 
 **Backlog guard:** the stream `tick` keeps queuing digest items while dry, and dry digests do not mark them. A digest only takes items first seen in the last 4 days (a weekend plus a holiday); older queued items are logged to `filtered_items` as `stale`, so the first live digest is not weeks long.
+
+## Digest presentation, v2 (2026-10-10)
+
+**Feedback (user):** the sample is good, but make it neater. All content depth is kept; only the presentation changed.
+
+- **Cards.** Each release sits in its own bordered card (navy top rule) with a number, a section badge and the issuer line, then the title.
+- **Meta grid** under the title: Posted (PIB's own "Posted On" time, read from the release page, else first seen) and Reference side by side; Takes effect and Applies to across the card. Empty fields are omitted.
+- **Body text** is left-aligned at 14 px with 21 px leading. Each quoted paragraph starts with a small gold marker, and figures are set in bold inside the paragraphs.
+- **Key figures** is now a compact strip: the figure in bold beside the short clause it sits in (at most about 20 words, "…" where cut). Figures close together in one sentence ("from 58.0% to 58.2%") share one clause and one row. The clause is a verbatim slice of the sentence (`select.clause`).
+- **Links** are labelled ("Read release →", "PDF →"), never raw URLs.
+- **Header:** an "At a glance" row of section pills with counts for the whole digest (all parts). Contents are grouped under solid section pills, with anchor links to each card.
+- **Text fixes at extraction** (`content.tidy`): inline `<b>/<span>/<sup>` joins no longer leave "Rajasthan ,", "( 5 per cent )", "‘ CVA" or "57 th". Only whitespace next to punctuation changes, so the body text is still a pure function of the archived bytes and every quote is a line of it. Leading PDF bullet glyphs (private-use code points that render as boxes) are dropped on display; what remains is still a verbatim slice.
+- `digest --sample-label` and the `sample_label` workflow input set a review copy's subject prefix.
+- **Width:** the card stays the house 640 px (`design.py` is vendored unchanged); Gmail mobile scales it to fit.
+- **Size:** a 6-item day is 59 KB; an 18-item test day splits into 2 parts (84 KB and 79 KB) with nothing shortened.
+- **Tests:** 235 passing (verbatim clause and lead-trim checks, tidy rules, figure clustering).

@@ -20,6 +20,9 @@ on:
       date:
         description: "Digest date YYYY-MM-DD (IST), default today"
         default: ""
+      sample_label:
+        description: "Subject prefix of a review copy"
+        default: "SAMPLE"
   schedule:
     - cron: "0 13 * * 1-5"      # 18:30 IST, Monday to Friday
 
@@ -59,12 +62,13 @@ jobs:
           SAMPLE_DAYS: ${{ inputs.sample_days || '0' }}
           TO_OPERATOR: ${{ inputs.to_operator && 'yes' || 'no' }}
           DAY: ${{ inputs.date }}
+          SAMPLE_LABEL: ${{ inputs.sample_label || 'SAMPLE' }}
         run: |
           args="--weekdays-only"
           [ "$SAMPLE_DAYS" != "0" ] && args="--sample-days $SAMPLE_DAYS"
           [ "$TO_OPERATOR" = "yes" ] && args="$args --to-operator"
           [ -n "$DAY" ] && args="$args --date $DAY"
-          uv run python -m events_bot.ops.cli digest $args $DRY | tee -a "$GITHUB_STEP_SUMMARY"
+          uv run python -m events_bot.ops.cli digest $args --sample-label "$SAMPLE_LABEL" $DRY | tee -a "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         if: always()
         with:

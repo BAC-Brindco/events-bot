@@ -83,6 +83,7 @@ def main(argv: list[str] | None = None) -> int:
                    help="review copy: items first seen on the last N days up to --date, any status; not marked")
     p.add_argument("--to-operator", action="store_true", help="send to the operator addresses only (live)")
     p.add_argument("--weekdays-only", action="store_true", help="exit quietly on Saturday and Sunday (IST)")
+    p.add_argument("--sample-label", default="SAMPLE", help="subject prefix of a review copy (e.g. 'SAMPLE v2')")
     a = ap.parse_args(argv)
 
     if a.cmd == "digest":
@@ -98,7 +99,8 @@ def main(argv: list[str] | None = None) -> int:
         try:
             if a.sample_days:
                 since, until = dg.default_window(day, a.sample_days)
-                r = dg.run(app, day=day, since=since, until=until, sample=True, to_operator=a.to_operator)
+                r = dg.run(app, day=day, since=since, until=until, sample=True, to_operator=a.to_operator,
+                           sample_label=a.sample_label)
             else:
                 r = dg.run(app, day=day, to_operator=a.to_operator)
         finally:

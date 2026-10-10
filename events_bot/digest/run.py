@@ -122,10 +122,12 @@ def compile_item(app, row: dict) -> DigestItem:
         it.refs = select.reference(body.text)
         if not it.refs and meta.get("number"):
             it.refs = [meta["number"]]
+        if it.published is None and body.posted is not None:
+            it.published, it.date_only = body.posted, False        # PIB's own "Posted On" time
     except Exception as e:  # noqa: BLE001  one bad release must not stop the digest
         log.warning("digest_fetch_failed", ref=row["ref"], error=str(e)[:200])
         it.error = f"{type(e).__name__}: {e}"[:300]
-        paras = [p for p in (meta.get("paragraphs") or []) if len(p) >= content.MIN_PARA]
+        paras = [content.tidy(p) for p in (meta.get("paragraphs") or []) if len(p) >= content.MIN_PARA]
         it.paras = paras[:4]           # PIB: the release page read at poll time (enrich), verbatim
     if it.source_id == "nifty_indices":
         it.rows = [r for r in (meta.get("rows") or []) if r.get("index") in scope.BENCHMARK_INDICES]
@@ -189,7 +191,8 @@ def fit(items: list[DigestItem], render) -> tuple[list, int]:
 
 
 def run(app, *, day: datetime | None = None, since: datetime | None = None, until: datetime | None = None,
-        sample: bool = False, to_operator: bool = False, mode: str | None = None, out_dir: Path | None = None) -> Result:
+        sample: bool = False, to_operator: bool = False, mode: str | None = None, out_dir: Path | None = None,
+        sample_label: str = "SAMPLE") -> Result:
     now = utcnow()
     day = (day or now).astimezone(IST)
     rows = collect(app, since=since, until=until, sample=sample)
@@ -205,9 +208,12 @@ def run(app, *, day: datetime | None = None, since: datetime | None = None, unti
     if sample and not to_operator:
         mode = "dry_run"               # a review copy never goes to the desk
 
+    counts = {s: sum(1 for i in items if i.section == s) for s in SECTIONS}
+
     def render(part_items, part, start, limit):
         return build(part_items, ref=ref, day=day, period_start=p_start, period_end=p_end, mode=mode, sample=sample,
-                     limit=limit, part=part, start_no=start, total_items=len(items))
+                     limit=limit, part=part, start_no=start, total_items=len(items), section_counts=counts,
+                     sample_label=sample_label)
 
     msgs, trimmed = fit(items, render)
     out = (out_dir or app.settings.out_dir) / "digest"

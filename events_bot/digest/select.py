@@ -49,6 +49,61 @@ WINDOW = 40          # long instruments: the operative part is near the top (app
 class Figure:
     ex: Extraction
     context: str            # the sentence containing the figure, verbatim
+    clause: str = ""        # the short clause around the figure: a verbatim slice of `context`
+    cut_left: bool = False  # the clause starts after the sentence start (shown with a leading "…")
+    cut_right: bool = False
+
+
+CLAUSE_WORDS = 20
+CLUSTER_GAP = 45            # chars between two figures of one sentence that share a clause
+_CLAUSE_STOP = ";:()"
+
+
+def _is_boundary(s: str, i: int, commas: bool = False) -> bool:
+    c = s[i]
+    if c in _CLAUSE_STOP:
+        return True
+    if c == ",":           # a clause comma: not "4,030" and not "Act, 2017" / "October 3, 2026"
+        return commas and not (i + 1 < len(s) and (s[i + 1].isdigit() or s[i + 1:i + 2] == " "
+                                                   and s[i + 2:i + 3].isdigit()))
+    if c == ".":                                   # a sentence-internal full stop, not a decimal or "Rs."
+        return i + 1 < len(s) and s[i + 1] == " " and not _ABBREV_END.search(s[max(0, i - 6):i + 1])
+    return False
+
+
+def _around(sent: str, a: int, b: int, commas: bool, skip: int = 0) -> tuple[int, int]:
+    """Nearest boundaries left of `a` and right of `b`, skipping `skip` boundaries on each side."""
+    lefts = [i + 1 for i in range(a - 1, -1, -1) if _is_boundary(sent, i, commas)]
+    rights = [i for i in range(b, len(sent)) if _is_boundary(sent, i, commas)]
+    return (lefts[skip] if len(lefts) > skip else 0), (rights[skip] if len(rights) > skip else len(sent))
+
+
+def clause(sent: str, a: int, b: int, words: int = CLAUSE_WORDS) -> tuple[str, bool, bool]:
+    """The clause of `sent` around the figure at [a, b): cut at ; : ( ) and, only when that is still long,
+    at clause commas; then to at most `words` words around the figure. Returns (slice, cut_left, cut_right);
+    the slice is verbatim."""
+    left, right = _around(sent, a, b, commas=False)
+    if len(sent[left:right].split()) > words:
+        l2, r2 = _around(sent, a, b, commas=True)
+        if len(sent[l2:r2].split()) >= 6:
+            left, right = l2, r2
+    if len(sent[left:right].split()) < 6:          # "(Rs. 20 crore under CGST": widen by one clause each side
+        left, right = _around(sent, a, b, commas=False, skip=1)
+    # word budget: about 8 words before the figure and the rest after
+    before = [m.start() for m in re.finditer(r"(?<=\s)\S", sent[left:a])]
+    if len(sent[left:a].split()) > 8:
+        left += before[-8]
+    after_ws = [m.start() for m in re.finditer(r"\s", sent[b:right])]
+    budget = max(4, words - len(sent[left:b].split()))
+    if len(after_ws) >= budget:
+        right = b + after_ws[budget - 1]
+    seg = sent[left:right]
+    lead = len(seg) - len(seg.lstrip(" ,;:"))
+    seg = seg.strip(" ,;:")
+    left += lead
+    right = left + len(seg)
+    tail = sent[right:].strip(" .,;:")
+    return seg, left > 0, bool(tail)
 
 
 def sentences(par: str) -> list[str]:
@@ -129,7 +184,10 @@ def figures(text: str, paragraphs: list[str], limit: int = 10, doc: str = "relea
         if base < 0:
             continue
         for sent in sentences(par):
+            if sent not in text:
+                continue
             s0 = base + par.find(sent)
+            found: list[Extraction] = []
             for m in _FIGURE_RX.finditer(sent):
                 val = m.group(0).strip()
                 if val in seen or not re.search(r"\d", val):     # a figure repeated later adds nothing
@@ -142,10 +200,23 @@ def figures(text: str, paragraphs: list[str], limit: int = 10, doc: str = "relea
                                 value_norm=parse_number(core.group(0)) if core else None,
                                 unit="text", char_start=a, char_end=b, snippet=sent, doc=doc)
                 validate(ex, text)
-                if ex.ok and sent in text:
-                    out.append(Figure(ex, sent))
-                if len(out) >= limit:
-                    return out
+                if ex.ok:
+                    found.append(ex)
+                if len(out) + len(found) >= limit:
+                    break
+            # figures close together ("from 58.0% to 58.2%") share one clause, so they read as one row
+            clusters: list[list[Extraction]] = []
+            for ex in found:
+                if clusters and ex.char_start - clusters[-1][-1].char_end <= CLUSTER_GAP:
+                    clusters[-1].append(ex)
+                else:
+                    clusters.append([ex])
+            for cl_exs in clusters:
+                n_words = min(CLAUSE_WORDS + 6 * (len(cl_exs) - 1), 34)
+                seg, cl, cr = clause(sent, cl_exs[0].char_start - s0, cl_exs[-1].char_end - s0, words=n_words)
+                out += [Figure(ex, sent, seg, cl, cr) for ex in cl_exs]
+            if len(out) >= limit:
+                return out[:limit]
     return out
 
 

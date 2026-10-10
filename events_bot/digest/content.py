@@ -21,6 +21,7 @@ import base64
 import json
 import re
 from dataclasses import dataclass, field
+from datetime import datetime
 from urllib.parse import parse_qs, urljoin, urlparse
 
 from selectolax.parser import HTMLParser
@@ -39,6 +40,19 @@ class Body:
     pdf_url: str | None = None
     document_id: int | None = None
     notes: list[str] = field(default_factory=list)
+    posted: datetime | None = None              # the source's own "Posted On" time, when the page prints one
+
+
+# Inline tags (<b>, <span>, <a>) are joined with a space when a block's text is read, which leaves
+# "Rajasthan ," and "( 5 per cent )". Close those gaps; only whitespace next to punctuation changes, so
+# the text stays a pure function of the archived bytes and every quote is still a line of it.
+_SP_BEFORE = re.compile(r"(?<=\S) +(?=[,.;:!?)\]](?:\s|$|[\"”’)\]]))", re.M)
+_SP_AFTER = re.compile(r"(?<=[(\[‘“]) +(?=\w)")
+_SP_ORDINAL = re.compile(r"(?<=\d) (?=(?:st|nd|rd|th)\b)")          # "57 <sup>th</sup>" -> "57th"
+
+
+def tidy(text: str) -> str:
+    return _SP_ORDINAL.sub("", _SP_AFTER.sub("", _SP_BEFORE.sub("", text)))
 
 
 def _norm_ws(s: str) -> str:
@@ -55,7 +69,7 @@ def _paragraphs(text: str) -> list[str]:
 
 
 def html_body(content: bytes, selector: str) -> str:
-    return html_text(content, selector)
+    return tidy(html_text(content, selector))
 
 
 _PDF_PAGE = re.compile(r"^(?:Page\s+)?\d+\s*(?:of|/)\s*\d+$|^-?\s*\d{1,3}\s*-?$", re.I)
@@ -92,7 +106,12 @@ def pdf_body(pdf: bytes) -> str:
 
 def pib_body(content: bytes) -> str:
     from ..sources.india.pib import parse_release
-    return "\n".join(parse_release(content)["paragraphs"])
+    return tidy("\n".join(parse_release(content)["paragraphs"]))
+
+
+def pib_posted(content: bytes) -> datetime | None:
+    from ..sources.india.pib import parse_release
+    return parse_release(content)["posted"]
 
 
 _RBI_SKIP_PDF = re.compile(r"Utkarsh|Accessibility", re.I)
@@ -128,7 +147,7 @@ def sebi_html_body(content: bytes) -> str:
         except ValueError:
             continue
         if len(t) > 200:
-            return t
+            return tidy(t)
     return ""
 
 
@@ -173,7 +192,7 @@ def fetch(ctx, it: RawItem) -> Body:
     if sid == "pib":
         r = get(it.url, "html", "pib_page", impersonate=False)
         text = pib_body(r.content)
-        return Body(text, _paragraphs(text), it.url, None, r.document_id)
+        return Body(text, _paragraphs(text), it.url, None, r.document_id, posted=pib_posted(r.content))
 
     if sid == "cbic":
         kind = "circular" if "/Circulars" in it.url else "notification"

@@ -8,7 +8,7 @@ import pytest
 from events_bot.core.models import RawItem
 from events_bot.core.timeutil import IST, utcnow
 from events_bot.digest import content, run as dg, scope, select
-from events_bot.digest.render import shown
+from events_bot.digest.render import lead_trim, shown
 
 from .conftest import FIXTURES, mock_fetcher
 from .test_sends_and_health import FakeChannel
@@ -44,9 +44,12 @@ def test_every_quoted_string_is_an_exact_substring_of_the_source_text(name, how,
     assert len(ops) >= 3
     for p in ops:
         assert p in text and shown(p) in text            # the cut paragraph is a verbatim prefix
+        assert lead_trim(shown(p)) in text               # dropping a leading bullet glyph keeps it verbatim
     for f in select.figures(text, ops):
         assert f.ex.ok and text[f.ex.char_start:f.ex.char_end] == f.ex.value_text
         assert f.context in text and f.ex.value_text in f.context
+        assert f.clause and f.clause in f.context and f.ex.value_text in f.clause   # the short clause too
+        assert len(f.clause.split()) <= 36
     for w in select.applies_to(text):
         assert w in text
     eff = select.effective(text)
@@ -78,6 +81,29 @@ def test_gst_council_figures_come_with_their_sentence():
     figs = {f.ex.value_text: f.context for f in select.figures(text, ops)}
     assert "₹40 crore" in figs and "pre-deposit" in figs["₹40 crore"]
     assert not any(v.endswith(",") for v in figs)
+
+
+def test_inline_tag_gaps_are_closed_in_the_text():
+    # PIB wraps figures and ordinals in <b>/<sup>; reading a block joined them with stray spaces
+    text = _text("pib_2320934.html", "pib")
+    assert "57th Meeting" in text and "57 th" not in text
+    assert not any(t in text for t in (" ,", " .\n", "( ", "‘ "))
+    assert content.tidy("Rajasthan , and ( 5 per cent ) the ‘ CVA’ 57 th, Rs. 5 .5") == \
+        "Rajasthan, and (5 per cent) the ‘CVA’ 57th, Rs. 5 .5"
+
+
+def test_figure_clause_is_short_and_figures_close_together_share_it():
+    text = _text("mospi_plfs.pdf", "pdf")
+    ops = select.operative(content._paragraphs(text), title=BODIES[5][2])
+    figs = select.figures(text, ops)
+    by_val = {f.ex.value_text: f for f in figs}
+    assert by_val["58.2%"].clause == by_val["58.0%"].clause          # "to 58.2% ..., from 58.0% in July"
+    sent = ("Compared to the corresponding month of the previous year, the overall LFPR increased by 0.6 percentage "
+            "point, from 55.0% in August, 2025 to 55.6% in August, 2026; rural LFPR also increased.")
+    a = sent.index("55.0%")
+    seg, left, right = select.clause(sent, a, a + 5)
+    assert seg in sent and "55.0%" in seg and len(seg.split()) <= select.CLAUSE_WORDS
+    assert not seg.startswith("2025") and left and right and "rural" not in seg     # stops at the ";"
 
 
 # ---- scope ------------------------------------------------------------------------------------
@@ -164,7 +190,8 @@ def test_digest_dry_run_renders_detailed_items_and_marks_nothing(make_app):
     html = r.message_path.read_text(encoding="utf-8")
     for needle in ("Daily Macro Digest", "RAAS Research Capital", "What it says", "Key figures",
                    "These instructions will come into effect from April 1, 2027.",
-                   "capital charge for CVA risk", "Credit Risk-o-Meter", "57", "Who it applies to",
+                   "capital charge for CVA risk", "Credit Risk-o-Meter", "57", "Applies to", "Key figures",
+                   "Read release", "At a glance", "Takes effect",
                    "Government", "RBI", "SEBI", SEBI_PDF):
         assert escape(needle, quote=False) in html or needle in html, needle
     # nothing marked in dry run; the archived release text is stored on its document
