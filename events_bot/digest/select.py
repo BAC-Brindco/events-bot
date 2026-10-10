@@ -172,6 +172,8 @@ def operative(paragraphs: list[str], n: int = 6, min_n: int = 3, title: str = ""
     out = [p for i, p in cands if i in keep]
     if len(out) < min_n:
         out = [p for _, p in cands[:min_n]]
+    # a quote that is repeated inside a longer chosen paragraph (PIB often prints a tweet, then the whole post)
+    out = [p for p in out if not any(p != q and p in q for q in out)]
     return out[: max(n, min_n) + 1]
 
 

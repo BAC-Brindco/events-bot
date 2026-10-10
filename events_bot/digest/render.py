@@ -284,14 +284,15 @@ def _contents(secs: list[str], by_sec: dict[str, list[DigestItem]], start_no: in
     out = f'<div style="{_CAP}padding:0 0 4px 0;">Contents</div>'
     k = start_no - 1
     for s in secs:
-        links = []
+        rows = ""
         for it in by_sec[s]:
             k += 1
-            links.append(f'<a href="#i{k}" style="color:{dz.INK};text-decoration:none;">'
-                         f'<span style="color:{dz.GOLD};font-weight:bold;">{k}</span>&nbsp;&nbsp;{_e(it.title)}</a>')
+            rows += (f'<tr><td valign="top" width="24" style="width:24px;color:{dz.GOLD};font-weight:bold;">{k}</td>'
+                     f'<td valign="top"><a href="#i{k}" style="color:{dz.INK};text-decoration:none;">'
+                     f'{_e(it.title)}</a></td></tr>')
         out += (f'<table {_TBL}><tr><td style="padding:10px 0 0 0;border-top:1px solid {dz.RULE};">'
                 f'{_pill(f"{_e(s)}&nbsp;&middot;&nbsp;{len(by_sec[s])}", solid=True)}'
-                f'<div style="{dz.font(12.5, leading=19)}padding:6px 0 10px 0;">{"<br />".join(links)}</div>'
+                f'<table {_TBL} style="{dz.font(12.5, leading=19)}margin:6px 0 10px 0;">{rows}</table>'
                 f'</td></tr></table>')
     return out
 
