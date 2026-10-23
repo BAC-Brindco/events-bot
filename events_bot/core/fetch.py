@@ -69,6 +69,10 @@ CERTS = Path(__file__).parent / "certs"
 HOST_INTERMEDIATES = {
     "www.cbic.gov.in": "sectigo_public_server_ca_ov_r36.pem",
     "taxinformation.cbic.gov.in": "sectigo_public_server_ca_ov_r36.pem",
+    # IMD sends its full chain most of the time but intermittently not (runner CERTIFICATE_VERIFY_FAILED on
+    # 14 and 17 Oct). The file holds EM DV TLS CA - G2A-1 and the cross-signed emSign Root TLS CA - G1, which
+    # certifi lacks, so a leaf-only handshake still chains to emSign Root CA - G1.
+    "internal.imd.gov.in": "emsign_dv_tls_ca_g2a1.pem",
 }
 
 

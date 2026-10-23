@@ -177,6 +177,7 @@ sources:
     health_rules:
       expect: json
       stale_after_hours: 120
+      max_consecutive_errors: 8   # NSE API flaps; ASM/GSM is out of desk scope (F-29)
 
   - id: nifty_indices
     label: NSE Indices
@@ -195,6 +196,7 @@ sources:
       expect: html
       min_items: 20
       stale_after_hours: 336
+      max_consecutive_errors: 8   # 403/503 around 06:00-07:30 IST most mornings; alert only past 2 h
 
   - id: cbdt
     label: CBDT
@@ -213,6 +215,7 @@ sources:
       expect: json
       min_items: 10
       stale_after_hours: 720    # notifications come in bursts, sometimes weeks apart
+      max_consecutive_errors: 16  # timeouts/503 flap daily and CBDT is out of desk scope (F-29); alert past 4 h
 
   - id: cbic
     label: CBIC
