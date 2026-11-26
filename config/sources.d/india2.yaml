@@ -1,0 +1,293 @@
+# India Tier 2: sector regulators, ministries and monthly auto sales -> 18:30 IST Daily Macro Digest
+# (route india_eod; adapters set meta.route_hint 'india_eod' | 'drop'). Adapters:
+# events_bot/sources/india/regulators.py and india/autosales.py. Evidence: docs/phase0/india_t23.md,
+# PROPOSAL §d. Live-verified 2026-11-26 from this PC (Indian IP): every enabled URL returned 200 with the
+# expected content (fixtures in tests/fixtures/india2/). NOT yet verified from the GitHub runner egress.
+# None of these hosts was flagged geo/IP-gated in Phase 0; NPCI is blocked for every non-browser client.
+sources:
+  - id: trai
+    label: TRAI
+    event_name: Press release
+    country: IN
+    tier: 2
+    kind: stream
+    feed_type: html
+    urls:
+      # Every regulation, recommendation, consultation paper, direction and the monthly subscription data
+      # is announced with a numbered PR here (30 newest, "Date of Publication"). rss.xml is 10 mixed items.
+      press: https://www.trai.gov.in/notifications/press-release
+    poll_interval: 3600
+    tick_every_minutes: 60      # ~800 KB page, ~7 PRs a week
+    adapter: india.regulators:Trai
+    section: Regulators
+    issuer: Telecom Regulatory Authority of India
+    health_rules:
+      expect: html
+      min_items: 20
+      stale_after_hours: 336
+    enabled: true
+
+  - id: irdai
+    label: IRDAI
+    event_name: Release
+    country: IN
+    tier: 2
+    kind: stream
+    feed_type: html
+    urls:
+      press: https://irdai.gov.in/press-releases
+      circulars: https://irdai.gov.in/circulars
+    poll_interval: 3600
+    tick_every_minutes: 60      # two ~500-600 KB Liferay pages, 20 rows each
+    adapter: india.regulators:Irdai
+    section: Regulators
+    issuer: Insurance Regulatory and Development Authority of India
+    health_rules:
+      expect: html
+      min_items: 20
+      stale_after_hours: 504
+    enabled: true
+
+  - id: pfrda
+    label: PFRDA
+    event_name: Regulation
+    country: IN
+    tier: 2
+    kind: stream
+    feed_type: html
+    urls:
+      regulations: https://www.pfrda.org.in/regulatory-framework/regulations
+      circulars: https://www.pfrda.org.in/regulatory-framework/circulars/active-circulars
+    poll_interval: 21600
+    tick_every_minutes: 360     # low cadence, low equity relevance (Phase 0: daily is enough)
+    adapter: india.regulators:Pfrda
+    section: Regulators
+    issuer: Pension Fund Regulatory and Development Authority
+    health_rules:
+      expect: html
+      min_items: 10
+      stale_after_hours: 2160
+    enabled: true
+
+  - id: cerc
+    label: CERC
+    event_name: Regulation
+    country: IN
+    tier: 2
+    kind: stream
+    feed_type: html
+    urls:
+      drafts: https://cercind.gov.in/Draft_reg.html          # draft regulations, suo-motu draft orders
+      regulations: https://cercind.gov.in/Current_reg.html   # notified regulations with gazette date
+    poll_interval: 3600
+    tick_every_minutes: 60      # ETag + Last-Modified: conditional GET, 304 most ticks
+    adapter: india.regulators:Cerc
+    section: Regulators
+    issuer: Central Electricity Regulatory Commission
+    health_rules:
+      expect: html
+      min_items: 50
+      # no stale rule: draft rows carry no date and notified regulations come every few weeks
+    enabled: true
+
+  - id: power_whatsnew
+    label: MoP
+    event_name: Notice
+    country: IN
+    tier: 2
+    kind: stream
+    feed_type: api
+    urls:
+      whats_new: https://www.powermin.gov.in/cms/wp-json/post-page/whats_new   # undocumented NIC WP-JSON
+    poll_interval: 3600
+    tick_every_minutes: 60
+    adapter: india.regulators:NicWhatsNew
+    section: Regulators
+    issuer: Ministry of Power
+    health_rules:
+      expect: json
+      min_items: 10
+      stale_after_hours: 1440
+    enabled: true
+
+  - id: dot_whatsnew
+    label: DoT
+    event_name: Notice
+    country: IN
+    tier: 2
+    kind: stream
+    feed_type: api
+    urls:
+      # documents?sort=acf (mostly admin orders) timed out at 120 s twice on 2026-11-26 (Phase 0: up to 46 s):
+      # not used. whats_new holds only the few policy items DoT features (4 on 2026-11-26).
+      whats_new: https://www.dot.gov.in/cms/wp-json/post-page/whats_new
+    poll_interval: 3600
+    tick_every_minutes: 120
+    adapter: india.regulators:NicWhatsNew
+    section: Regulators
+    issuer: Department of Telecommunications
+    health_rules:
+      expect: json
+      min_items: 1
+    enabled: true
+
+  - id: meity_whatsnew
+    label: MeitY
+    event_name: Notice
+    country: IN
+    tier: 2
+    kind: stream
+    feed_type: api
+    urls:
+      # documents?sort=acf answered 504 on 2026-11-26 (twice); policy goes out via PIB first anyway.
+      whats_new: https://www.meity.gov.in/cms/wp-json/post-page/whats_new
+    poll_interval: 3600
+    tick_every_minutes: 120
+    adapter: india.regulators:NicWhatsNew
+    section: Regulators
+    issuer: Ministry of Electronics and Information Technology
+    health_rules:
+      expect: json
+      min_items: 1
+    enabled: true
+
+  - id: pngrb
+    label: PNGRB
+    event_name: Notice
+    country: IN
+    tier: 2
+    kind: stream
+    feed_type: api
+    urls:
+      # hand-edited `var data = [...]` with // comments (not JSON); ETag + Last-Modified
+      whats_new: https://www.pngrb.gov.in/eng-web/whatsnew/whats-new-json.js
+    poll_interval: 3600
+    tick_every_minutes: 60
+    adapter: india.regulators:Pngrb
+    section: Regulators
+    issuer: Petroleum and Natural Gas Regulatory Board
+    health_rules:
+      expect: any
+      min_items: 100
+      stale_after_hours: 504
+    enabled: true
+
+  - id: ppac
+    label: PPAC
+    event_name: Notification
+    country: IN
+    tier: 2
+    kind: stream
+    feed_type: html
+    urls:
+      home: https://ppac.gov.in/     # "Important News" + "Govt. Notifications"; epoch in file name = upload time
+    poll_interval: 3600
+    tick_every_minutes: 60
+    adapter: india.regulators:Ppac
+    section: Regulators
+    issuer: Petroleum Planning & Analysis Cell
+    health_rules:
+      expect: html
+      min_items: 5
+      stale_after_hours: 120     # daily retail-price PDFs keep the newest upload within a day or two
+    enabled: true
+
+  - id: cdsco
+    label: CDSCO
+    event_name: Public notice
+    country: IN
+    tier: 2
+    kind: stream
+    feed_type: html
+    urls:
+      # The Alerts page went stale (newest 2026-Sep-18, then 2025; NSQ moved to the JSON below): not used.
+      notices: https://cdsco.gov.in/opencms/opencms/en/Notifications/Public-Notices/
+    poll_interval: 7200
+    tick_every_minutes: 120     # ~350 KB, ~3 notices a month
+    adapter: india.regulators:Cdsco
+    section: Regulators
+    issuer: Central Drugs Standard Control Organisation
+    health_rules:
+      expect: html
+      min_items: 100
+      stale_after_hours: 1080
+    enabled: true
+
+  - id: cdsco_nsq
+    label: CDSCO
+    event_name: NSQ drug alert
+    country: IN
+    tier: 2
+    kind: stream
+    feed_type: api
+    urls:
+      nsq: https://cdscoonline.gov.in/CDSCO/publicNsqDrugTable   # DataTables JSON served as text/html, latest month
+    poll_interval: 21600
+    tick_every_minutes: 360     # monthly table (month M lands around M+1)
+    adapter: india.regulators:CdscoNsq
+    section: Regulators
+    issuer: Central Drugs Standard Control Organisation
+    health_rules:
+      expect: any               # valid JSON but with cp1252 bytes (0xAE): the strict UTF-8 'json' check fails;
+      min_items: 1              # nsq_parse decodes it and raises on a non-JSON body
+    enabled: true
+
+  - id: npci
+    label: NPCI
+    event_name: Circular
+    country: IN
+    tier: 2
+    kind: stream
+    feed_type: api
+    urls:
+      circulars: https://www.npci.org.in/api/circulars/upi?pageNum=1&year=2026&sort=desc&size=10&locale=en
+    poll_interval: 86400
+    adapter: india.regulators:Npci
+    section: Regulators
+    issuer: National Payments Corporation of India
+    health_rules:
+      expect: json
+    # F-05: Akamai "Access Denied" 403 + F5 TSPD bot JS on every path (homepage, /api/*) for any non-browser
+    # client (Phase 0 2026-10-01; again HTTP 403 on 2026-11-26). Reachable only through a headless browser,
+    # which needs an explicit approval decision. Manual for now (UPI monthly stats on the 1st, ~17:00 IST).
+    enabled: false
+
+  - id: siam
+    label: SIAM
+    event_name: Auto sales
+    country: IN
+    tier: 2
+    kind: stream
+    feed_type: html
+    urls:
+      press: https://www.siam.in/news-&-updates/press-releases
+    poll_interval: 7200
+    tick_every_minutes: 120     # slow host (16-18 s per page); monthly release ~13th-15th
+    adapter: india.autosales:Siam
+    section: Industry data
+    issuer: Society of Indian Automobile Manufacturers
+    health_rules:
+      expect: html
+      min_items: 3
+      stale_after_hours: 1080
+    enabled: true
+
+  - id: fada
+    label: FADA
+    event_name: Auto retail sales
+    country: IN
+    tier: 2
+    kind: stream
+    feed_type: html
+    urls:
+      press: https://www.fada.in/press-release-list.php
+    poll_interval: 7200
+    tick_every_minutes: 120     # monthly retail data PDF ~6th-7th
+    adapter: india.autosales:Fada
+    section: Industry data
+    issuer: Federation of Automobile Dealers Associations
+    health_rules:
+      expect: html
+      min_items: 5
+      # no stale rule: the listing gives month-only dates
+    enabled: true
