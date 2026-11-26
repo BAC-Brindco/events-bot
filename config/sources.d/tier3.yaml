@@ -1,0 +1,73 @@
+# Tier 3 India sources for the Saturday 09:00 IST Weekly Digest (route 'weekly'); noise is 'drop'.
+# Verified live 2026-11-26 from an Indian IP (evidence: tests/fixtures/tier3, docs/phase0/india_t23.md).
+# Finance Commission is NOT here: F-12 (manual / drop) still holds on 2026-11-26. fincomindia.nic.in is static
+# (16th FC report tabled, nothing scheduled until the 17th FC) and /notification-and-media still serves DEA PPP
+# circulars, not FC material, so there is no listing to poll.
+
+sources:
+  - id: niti
+    label: NITI
+    event_name: Publication
+    country: IN
+    tier: 3
+    kind: stream
+    feed_type: rss
+    urls:
+      rss: https://www.niti.gov.in/rss.xml        # 200 application/rss+xml, 10 items (~2 weeks), no ETag
+    poll_interval: 21600
+    tick_every_minutes: 360       # 10-item site-wide feed: a gap of more than ~1 week loses items
+    adapter: india.niti:Niti
+    route: weekly
+    section: India policy
+    issuer: NITI Aayog
+    health_rules:
+      expect: xml
+      min_items: 5
+      stale_after_hours: 336      # NITI posts several items a week
+      max_consecutive_errors: 4
+
+  - id: prs
+    label: PRS
+    event_name: Bill
+    country: IN
+    tier: 3
+    kind: stream
+    feed_type: html
+    urls:
+      billtrack: https://prsindia.org/billtrack   # 200 text/html ~410 KB, every tracked bill on one page
+    poll_interval: 86400
+    tick_every_minutes: 1440      # bill movements are weekly news; one 410 KB page a day
+    adapter: india.prs:Prs
+    route: weekly
+    section: Legislation
+    issuer: PRS Legislative Research
+    health_rules:
+      expect: html
+      min_items: 500              # 977 rows on 2026-11-26; far fewer means the markup changed
+      max_consecutive_errors: 3
+
+  - id: eci
+    label: ECI
+    event_name: Press note
+    country: IN
+    tier: 3
+    kind: stream
+    feed_type: api
+    urls:
+      # get-file?categories=enc("11") = the site's Press Releases list, page 1 (20 rows). The token is
+      # AES-128-ECB(key from eci.gov.in main.js `yl`), see events_bot/sources/india/eci.py; it can rotate.
+      press_notes: https://www.eci.gov.in/eci-backend/public/api/get-file?categories=Y6fPfuS%2FXeuZJeu7qk0stw%3D%3D
+    poll_interval: 21600
+    tick_every_minutes: 360       # 20 rows is ~1 week deep in an election season
+    adapter: india.eci:Eci
+    route: weekly
+    section: Elections
+    issuer: Election Commission of India
+    health_rules:
+      expect: json
+      min_items: 5
+      max_consecutive_errors: 3
+    # 200 from an Indian IP on 2026-11-26 (list and PDFs), but F-17: eci.gov.in answered 406 to GitHub-runner
+    # IPs (2026-10-06) and `tick` runs on GitHub Actions. Enable once a runner probe returns 200 (or tick runs
+    # from an Indian IP); until then PIB (Election Commission, ministry id 35) is the channel.
+    enabled: false

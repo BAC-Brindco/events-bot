@@ -1,0 +1,24 @@
+# BLS real-time print alerts (CPI, Employment Situation, PPI, JOLTS). Adapter: events_bot/sources/us/bls.py.
+# Live-verified 2026-11-26 from this PC: bls.ics and cpi/empsit/ppi/jolts .nr0.htm all 200 with
+# prints_base.BROWSER_HEADERS (Akamai answers 403 to a bare UA; phase0/us_data.md flag 1). Not yet verified
+# from the GitHub runner egress.
+sources:
+  - id: bls
+    label: BLS
+    event_name: Data print
+    country: US
+    tier: 1
+    kind: scheduled
+    feed_type: ics
+    urls:
+      calendar: https://www.bls.gov/schedule/news_release/bls.ics
+    poll_interval: 43200        # calendar only; nr0 pages are polled in the event window
+    window_poll_interval: 20    # nr0 has no ETag/LM: content (embargo line) decides; 08:30 / 10:00 ET
+    adapter: us.bls:BlsPrints
+    route: realtime             # US data prints are real-time alerts (desk policy F-29)
+    section: Data
+    issuer: U.S. Bureau of Labor Statistics
+    health_rules:
+      expect: any
+      max_consecutive_errors: 3
+    enabled: true

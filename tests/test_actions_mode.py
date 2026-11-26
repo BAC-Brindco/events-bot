@@ -40,7 +40,8 @@ def test_tick_polls_every_stream_source_once_with_db_archive(db, settings):
         app.close()
     assert {"rbi_pr", "rbi_notif"} <= set(out)
     assert all("baseline 10" in out[s] for s in ("rbi_pr", "rbi_notif")), out
-    assert all(v == "error" for s, v in out.items() if s not in ("rbi_pr", "rbi_notif")), out  # isolated
+    # india_budget makes no request outside its Jan-Feb window, so a dead network is not an error for it
+    assert all(v == "error" for s, v in out.items() if s not in ("rbi_pr", "rbi_notif", "india_budget")), out
     assert sorted(h for h in hits if h in feeds) == sorted(feeds)
     assert db.one("select count(*) n from raw_blobs")["n"] == 2
     # replay reads the archived bytes back through the same backend

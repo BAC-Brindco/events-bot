@@ -30,6 +30,13 @@ env:
   SMTP_FROM: ${{ secrets.SMTP_FROM }}
   EVENTS_BOT_RECIPIENTS: ${{ secrets.EVENTS_BOT_RECIPIENTS }}
   EVENTS_BOT_OPERATOR_EMAILS: ${{ secrets.EVENTS_BOT_OPERATOR_EMAILS }}
+  # Optional agency API keys (FLAGS F-01). Every source works keyless; a key only lifts rate limits.
+  BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+  BEA_API_KEY: ${{ secrets.BEA_API_KEY }}
+  CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+  CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
+  OPENFDA_API_KEY: ${{ secrets.OPENFDA_API_KEY }}
+  API_DATA_GOV_KEY: ${{ secrets.API_DATA_GOV_KEY }}
   DRY: ${{ vars.EVENTS_BOT_LIVE != 'true' && '--dry-run' || '' }}
   LLAMA_BUILD: b11460
   LLM_GGUF_DEFAULT: bartowski/Qwen_Qwen3-4B-Instruct-2507-GGUF/Qwen_Qwen3-4B-Instruct-2507-Q4_K_M.gguf

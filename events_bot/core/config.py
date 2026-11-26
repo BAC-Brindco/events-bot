@@ -44,9 +44,12 @@ def _load_yaml(p: Path) -> dict:
 
 
 def load_sources(config_dir: Path) -> dict[str, SourceConfig]:
-    raw = _load_yaml(config_dir / "sources.yaml")
+    """sources.yaml, then every config/sources.d/*.yaml in name order (one file per source group)."""
+    entries = list(_load_yaml(config_dir / "sources.yaml").get("sources", []))
+    for extra in sorted((config_dir / "sources.d").glob("*.yaml")):
+        entries += _load_yaml(extra).get("sources", []) or []
     out: dict[str, SourceConfig] = {}
-    for entry in raw.get("sources", []):
+    for entry in entries:
         cfg = SourceConfig.model_validate(entry)
         if cfg.id in out:
             raise ValueError(f"duplicate source id {cfg.id}")
@@ -62,3 +65,20 @@ def load_keywords(config_dir: Path, name: str) -> dict:
     """config/keywords/<name>.yaml; editable without a code change."""
     p = config_dir / "keywords" / f"{name}.yaml"
     return _load_yaml(p) if p.exists() else {}
+
+
+def config_problems(sources: dict[str, SourceConfig], delivery: DeliveryConfig) -> list[str]:
+    """Settings that promise a delivery no enabled source can make. `us_realtime_prints: true` sat for seven weeks
+    with no US print source behind it, so the Nov 2026 CPI / PCE prints sent nothing and nothing complained
+    (FLAGS F-30). App logs these at start-up; tests/test_routing_and_digest_kinds.py fails on any."""
+    from .registry import resolve
+    from ..sources.us.prints_base import ScheduledPrint
+    out = []
+    prints = [s.id for s in sources.values()
+              if s.enabled and s.country == "US" and issubclass(resolve(s.adapter), ScheduledPrint)]
+    if delivery.us_realtime_prints and not prints:
+        out.append("delivery.us_realtime_prints is true but no enabled US ScheduledPrint source exists")
+    if delivery.us_realtime_keywords and not any(
+            s.enabled and s.id in ("whitehouse", "ustr") for s in sources.values()):
+        out.append("delivery.us_realtime_keywords is set but neither whitehouse nor ustr is enabled")
+    return out

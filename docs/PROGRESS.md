@@ -382,3 +382,30 @@ All new stream sources are **dry** (tick runs `--dry-run` until `EVENTS_BOT_LIVE
 - **Width:** the card stays the house 640 px (`design.py` is vendored unchanged); Gmail mobile scales it to fit.
 - **Size:** a 6-item day is 59 KB; an 18-item test day splits into 2 parts (84 KB and 79 KB) with nothing shortened.
 - **Tests:** 235 passing (verbatim clause and lead-trim checks, tidy rules, figure clustering).
+
+## US and India source expansion (2026-11-26, FLAGS F-30)
+
+Trigger: no email for the November US inflation prints. Cause: the bot had no US print source; `us_realtime_prints` was an unread setting.
+
+- **Shared plumbing:**
+  - `config/sources.d/*.yaml` (one file per source group) is merged into `sources.yaml`.
+  - Adapters declare their own scope via `meta.route_hint` (`digest/scope.py:_generic`).
+  - `sources/us/prints_base.py:ScheduledPrint` + `stage1/usprint.py` give the US print-vs-prior alert; an alert is sent only when the release page's own embargo / period matches the scheduled release.
+  - `digest/kinds.py` defines three digests on one engine: india_eod, us_morning_wrap (07:00 IST Tue-Sat), weekly (Sat 09:00 IST, with a forward calendar). `digest.yml` picks the kind from the cron entry.
+  - `core/config.py:config_problems` reports promises with no source behind them.
+- **US sources:**
+  - Realtime prints: `bls` (CPI, NFP, PPI, JOLTS), `bea` (GDP, PCE), `census` (retail, durables).
+  - Fed: `fed_press` (minutes realtime), `fed_beige`, `fed_speeches*` (Board, Richmond, Dallas, NY).
+  - Treasury: `treasury_auctions`, `treasury_press`, `treasury_debt_limit`.
+  - Policy: `whitehouse`, `ustr`, `congress`, `opm_status`.
+  - FDA: `fda_press`, `fda_recalls`, `fda_warning_letters`.
+  - Claims: `dol_claims`.
+- **India sources:**
+  - `dgft` (disabled, F-17) and `india_budget`.
+  - Tier 2 regulators and auto sales (`regulators.py`, `autosales.py`).
+  - Tier 3: `niti`, `prs`; `eci` disabled (F-17).
+  - CGA, GST Council and the borrowing calendars stay on PIB / RBI; the scope regexes were fixed so they are kept.
+- **Open:**
+  - Reachability from the GitHub runners is unverified for www.bls.gov, dol.gov, fda.gov and newyorkfed.org (all Akamai). Run `reachability.yml` before relying on them.
+  - The optional API keys (BLS, BEA, Census, api.data.gov) are unregistered; every source works keyless.
+

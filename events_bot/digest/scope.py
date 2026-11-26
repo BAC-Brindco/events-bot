@@ -33,7 +33,9 @@ _PIB_KEEP = re.compile(
     r"customs dut|excise dut|\bduty\b|\bduties\b|\btariff|anti-dumping|safeguard dut|"
     r"\bexports?\b|\bimports?\b|trade data|trade deficit|merchandise trade|foreign trade|"
     r"Free Trade|\bFTA\b|\bTEPA\b|trade agreement|"
-    r"fiscal|Accounts of (?:the )?Union Government|\bbudget\b|market borrowing|borrowing programme|"
+    r"fiscal|Accounts of (?:the )?(?:Union Government|Government of India)|Monthly review of accounts|"
+    r"\bbudget\b|market borrowing|borrowing programme|borrowing plan|Issuance Calendar|"
+    r"Calendar for Auction of Government of India Treasury Bills|"
     r"disinvestment|\bdivestment\b|\bFDI\b|\bPLI\b|"
     r"\binflation\b|Consumer Price Index|Wholesale Price Index|\bGDP\b|Index of Industrial Production|"
     r"Eight Core|core industries|Index of Services Production|"
@@ -65,6 +67,11 @@ _RBI_PR_KEEP = re.compile(
     r"\bKYC\b|Know Your Customer|payment system|\bUPI\b|"
     r"discussion paper|framework|guidelines",
     re.I)
+# The Government's half-yearly borrowing calendars come as RBI press releases; `auction` in _RBI_PR_DROP would
+# otherwise drop the T-bill calendar.
+_RBI_BORROW_CAL = re.compile(r"Issuance Calendar for Marketable Dated Securities|"
+                             r"Calendar for Auction of Government of India Treasury Bills|"
+                             r"Indicative Calendar of Market Borrowings?|borrowing (?:plan|programme|calendar)", re.I)
 _RBI_PR_DROP = re.compile(r"auction|Money Market Operations|Reserve Money|\bVRR\b|\bVRRR\b|"
                           r"surrender .*Certificates? of Registration|cancels? .*Certificate|"
                           r"monetary penalty|imposes|Second Schedule|"
@@ -105,7 +112,7 @@ def _hay(it: RawItem) -> str:
     return f"{it.title} {it.summary or ''}"
 
 
-def decide(cfg: SourceConfig, it: RawItem) -> Scope:
+def decide(cfg: SourceConfig, it: RawItem, delivery=None) -> Scope:
     sid = cfg.id
     meta = it.meta or {}
     if sid in DROPPED_SOURCES:
@@ -128,6 +135,8 @@ def decide(cfg: SourceConfig, it: RawItem) -> Scope:
     if sid == "rbi_pr":
         if _RBI_MPC_DOCS.search(it.title):
             return Scope(None, "covered by the MPC alert")
+        if _RBI_BORROW_CAL.search(it.title):
+            return Scope("india_eod", "Government borrowing calendar")
         if _RBI_PR_DROP.search(it.title):
             return Scope(None, "RBI routine operation / entity-specific action")
         if _RBI_NARROW.search(it.title):
@@ -167,4 +176,41 @@ def decide(cfg: SourceConfig, it: RawItem) -> Scope:
             ok = any(r.get("index") in BENCHMARK_INDICES for r in rows)
         return Scope("india_eod", "benchmark index change") if ok else Scope(None, "not Nifty 50 / Nifty Bank")
 
-    return Scope("default", "no desk-scope rule: the source's configured route")
+    return _generic(cfg, it, delivery)
+
+
+ROUTES = ("realtime", "india_eod", "us_morning_wrap", "weekly")
+
+
+def _keyword_hit(it: RawItem, keywords: list[str]) -> str | None:
+    hay = _hay(it)
+    return next((k for k in keywords if re.search(rf"\b{re.escape(k)}\b", hay, re.I)), None)
+
+
+def _generic(cfg: SourceConfig, it: RawItem, delivery=None) -> Scope:
+    """Sources added after F-29 (US, India Tier 2/3) decide their own scope in the adapter and say so in
+    the item's meta, so the rule sits next to the parser that understands the source:
+
+      route_hint    'drop' | 'realtime' | 'realtime_if_keyword' | 'india_eod' | 'us_morning_wrap' | 'weekly'
+      scope_reason  why, in a few words (logged to filtered_items / shown in the digest's meta)
+
+    'realtime_if_keyword' (F-08, White House / USTR) goes real time only when the item matches
+    delivery.us_realtime_keywords, else to the US morning wrap. With no hint the item goes to its
+    country's digest: India Tier 1/2 -> india_eod (F-29: only data prints alert in real time), US Tier 1/2
+    -> us_morning_wrap (F-09), Tier 3 -> weekly."""
+    meta = it.meta or {}
+    hint, reason = meta.get("route_hint"), meta.get("scope_reason") or ""
+    if hint == "drop":
+        return Scope(None, reason or f"{cfg.id}: outside desk scope")
+    if hint == "realtime_if_keyword":
+        kw = _keyword_hit(it, list(getattr(delivery, "us_realtime_keywords", None) or []))
+        if kw:
+            return Scope("realtime", f"{reason or cfg.id}; matches '{kw}' (F-08)")
+        return Scope("us_morning_wrap", reason or f"{cfg.id}: no realtime keyword")
+    if hint in ROUTES:
+        return Scope(hint, reason or f"{cfg.id}: {hint}")
+    if cfg.route is not None and cfg.route != "realtime":
+        return Scope(cfg.route, reason or f"{cfg.id}: configured route")
+    if cfg.tier == 3:
+        return Scope("weekly", reason or f"{cfg.id}: Tier 3")
+    return Scope("us_morning_wrap" if cfg.country == "US" else "india_eod", reason or f"{cfg.id}: Tier {cfg.tier}")

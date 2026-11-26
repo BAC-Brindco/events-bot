@@ -67,12 +67,17 @@ class WindowPoller:
 
 
 def digest_job(kind: str, app: App | None = None) -> None:
-    if kind == "india_eod" and app is not None:
-        from ..digest import run as dg
-        if utcnow().astimezone(IST).weekday() < 5:        # working days (F-29)
-            dg.run(app)
+    """india_eod Mon-Fri (F-29), us_morning_wrap Tue-Sat (the Mon-Fri US sessions), weekly on Saturday."""
+    if app is None:
         return
-    log.warning("digest_not_built", kind=kind, note="the US wrap and weekly digest arrive in later phases")
+    from ..digest import run as dg
+    from ..digest.kinds import KINDS
+    k = KINDS.get(kind)
+    if k is None:
+        log.warning("digest_unknown_kind", kind=kind)
+        return
+    if utcnow().astimezone(IST).weekday() in k.weekdays:
+        dg.run(app, kind=k)
 
 
 def build_scheduler(app: App) -> BlockingScheduler:

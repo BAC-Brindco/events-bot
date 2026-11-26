@@ -19,7 +19,9 @@ from ..deliver import house as hs
 FOOTER = "RAAS Research Capital · Events Desk · {ref}"
 SOURCES = {"RBI": ("Reserve Bank of India", "MPC"), "FED": ("Federal Reserve", "FOMC"),
            "MOSPI": ("Ministry of Statistics and Programme Implementation (NSO)", "MoSPI"),
-           "OEA": ("Office of the Economic Adviser, DPIIT", "OEA")}
+           "OEA": ("Office of the Economic Adviser, DPIIT", "OEA"),
+           "BLS": ("U.S. Bureau of Labor Statistics", "BLS"), "BEA": ("U.S. Bureau of Economic Analysis", "BEA"),
+           "CENSUS": ("U.S. Census Bureau", "Census"), "DOL": ("U.S. Department of Labor", "DOL")}
 
 
 @dataclass
@@ -205,4 +207,7 @@ def change(a, b) -> str:
     if d == 0:
         return "0"
     places = max(-a.value_norm.as_tuple().exponent, -b.value_norm.as_tuple().exponent, 0)
-    return f"{d.quantize(Decimal(1).scaleb(-places)):+f}"
+    q = d.quantize(Decimal(1).scaleb(-places))
+    if "," in (a.value_text or "") and "," in (b.value_text or ""):     # "159,075" style figures: keep the grouping
+        return f"{q:+,f}"
+    return f"{q:+f}"

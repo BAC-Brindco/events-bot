@@ -1,7 +1,8 @@
-"""Compile and send the Daily Macro Digest (route india_eod).
+"""Compile and send a digest: the Daily Macro Digest (india_eod), the US Morning Wrap (us_morning_wrap) or the
+Weekly Digest (weekly). The three differ only in their DigestKind (digest/kinds.py).
 
-  digest            everything queued for india_eod since the last digest; sent once per date
-                    (sends is unique on ref/stage/kind, ref 'digest:india_eod:<YYYY-MM-DD>'), then the items
+  digest            everything queued for the kind's route since the last digest; sent once per date
+                    (sends is unique on ref/stage/kind, ref 'digest:<route>:<YYYY-MM-DD>'), then the items
                     are marked digested with the digests row id.
   digest --sample   a review copy: items first seen in [since, until) from any status, re-scoped with the
                     current rules, sent only to the operator with a SAMPLE subject; nothing is marked.
@@ -21,7 +22,8 @@ from ..core.models import RawItem
 from ..core.timeutil import IST, utcnow
 from ..deliver.interface import Dispatcher, safe_name
 from . import content, scope, select
-from .render import PARA_CAP, SECTIONS, DigestItem, build
+from .kinds import INDIA_EOD, DigestKind, ordered_sections
+from .render import PARA_CAP, DigestItem, build
 
 log = structlog.get_logger()
 
@@ -31,7 +33,7 @@ MAX_AGE = timedelta(days=4)    # Friday's evening to Monday's, plus one holiday
 SECTION_WEIGHT = {"RBI": 3, "SEBI": 3, "Government": 3, "Index changes": 2, "Data": 2, "Weather": 1}
 NO_SINGLE_EFFECTIVE = {"pib", "mospi", "oea", "imd"}
 DIGEST_SOURCES = ["pib", "cbic", "rbi_pr", "rbi_notif", "sebi_circ", "sebi_pr", "mospi", "oea", "imd",
-                  "nifty_indices"]
+                  "nifty_indices"]          # the India sources of F-29; a sample of another kind uses every source
 
 
 @dataclass
@@ -52,21 +54,24 @@ def _raw(row: dict) -> RawItem:
                    document_id=row["document_id"], meta=row["meta"] or {})
 
 
-def collect(app, *, since: datetime | None = None, until: datetime | None = None, sample: bool = False) -> list[dict]:
+def collect(app, *, since: datetime | None = None, until: datetime | None = None, sample: bool = False,
+            kind: DigestKind = INDIA_EOD) -> list[dict]:
+    delivery = getattr(app, "delivery", None)
     if not sample:
-        rows = app.db.q("select * from items where status = 'queued' and route = 'india_eod' and digest_id is null "
-                        "order by first_seen_at")
+        rows = app.db.q("select * from items where status = 'queued' and route = %s and digest_id is null "
+                        "order by first_seen_at", (kind.route,))
         keep = []
-        oldest = utcnow() - MAX_AGE
+        max_age = MAX_AGE if kind is INDIA_EOD else kind.max_age
+        oldest = utcnow() - max_age
         for r in rows:
             if r["first_seen_at"] < oldest:
                 # a backlog (e.g. weeks of dry-run queueing before go-live) is logged, not mailed
                 app.db.insert_filtered(r["id"], r["source_id"], r["title"], r["url"], "stale",
-                                       f"queued more than {MAX_AGE.days} days before the digest")
+                                       f"queued more than {max_age.days} days before the digest")
                 app.db.update_item(r["id"], status="filtered")
                 continue
             cfg = app.sources.get(r["source_id"])
-            sc = scope.decide(cfg, _raw(r)) if cfg is not None else None
+            sc = scope.decide(cfg, _raw(r), delivery) if cfg is not None else None
             if sc is not None and not sc.keep and "unclassified" not in (r["tags"] or []):
                 # queued before the current scope rules (F-29): log it like any other out-of-scope item
                 app.db.insert_filtered(r["id"], r["source_id"], r["title"], r["url"], "out_of_scope", sc.reason)
@@ -76,11 +81,11 @@ def collect(app, *, since: datetime | None = None, until: datetime | None = None
         return keep
     rows = app.db.q("select * from items where first_seen_at >= %s and first_seen_at < %s and source_id = any(%s) "
                     "and status in ('routed', 'queued', 'error', 'digested') order by first_seen_at",
-                    (since, until or utcnow(), DIGEST_SOURCES))
+                    (since, until or utcnow(), DIGEST_SOURCES if kind is INDIA_EOD else list(app.sources)))
     out = []
     for r in rows:
         cfg = app.sources.get(r["source_id"])
-        if cfg is not None and scope.decide(cfg, _raw(r)).route == "india_eod":
+        if cfg is not None and scope.decide(cfg, _raw(r), delivery).route == kind.route:
             out.append(r)
     return out
 
@@ -102,11 +107,15 @@ def compile_item(app, row: dict) -> DigestItem:
                     published=row["source_published_at"], published_raw=row["published_raw"],
                     date_only=bool(meta.get("date_only")), first_seen=row["first_seen_at"],
                     tags=list(row["tags"] or []), meta=meta)
+    cfg = app.sources.get(row["source_id"])
+    if cfg is not None:
+        it.section_name, it.issuer_name = cfg.section, cfg.issuer
     if it.source_id == "pib" and meta.get("ministry"):
         it.kind = meta["ministry"]
     n = 10 if "board_outcome" in (meta.get("priority_tags") or []) else 6
     try:
-        body = content.fetch(app.ctx, _raw(row))
+        hook = getattr(app.adapter(row["source_id"]), "digest_body", None) if cfg is not None else None
+        body = hook(_raw(row)) if hook is not None else content.fetch(app.ctx, _raw(row))
         it.body = body
         if body.document_id is not None:
             app.db.set_document_text(body.document_id, body.text)
@@ -192,30 +201,34 @@ def fit(items: list[DigestItem], render) -> tuple[list, int]:
 
 def run(app, *, day: datetime | None = None, since: datetime | None = None, until: datetime | None = None,
         sample: bool = False, to_operator: bool = False, mode: str | None = None, out_dir: Path | None = None,
-        sample_label: str = "SAMPLE") -> Result:
+        sample_label: str = "SAMPLE", kind: DigestKind = INDIA_EOD) -> Result:
     now = utcnow()
     day = (day or now).astimezone(IST)
-    rows = collect(app, since=since, until=until, sample=sample)
-    ref = f"digest:india_eod:{day:%Y-%m-%d}" + (f":sample:{now:%H%M%S}" if sample else "")
-    if not rows:
+    rows = collect(app, since=since, until=until, sample=sample, kind=kind)
+    ref = f"digest:{kind.route}:{day:%Y-%m-%d}" + (f":sample:{now:%H%M%S}" if sample else "")
+    forward = (app.db.q("select ref, source_id, title, scheduled_at from events "
+                        "where scheduled_at between now() and now() + %s order by scheduled_at",
+                        (timedelta(days=kind.forward_days),)) if kind.forward_days else [])
+    if not rows and not forward:
         log.info("digest_empty", ref=ref)
         return Result(None, "empty", 0, 0, 0, ref)
     items = [compile_item(app, r) for r in rows]
-    items.sort(key=lambda i: (SECTIONS.index(i.section), -i.priority, i.first_seen))
-    p_start = since or min(r["first_seen_at"] for r in rows)
+    order = ordered_sections(kind, {i.section for i in items})
+    items.sort(key=lambda i: (order.index(i.section), -i.priority, i.first_seen))
+    p_start = since or (min(r["first_seen_at"] for r in rows) if rows else now - timedelta(days=7))
     p_end = until or now
     mode = mode or app.dispatcher.mode
     if sample and not to_operator:
         mode = "dry_run"               # a review copy never goes to the desk
 
-    counts = {s: sum(1 for i in items if i.section == s) for s in SECTIONS}
+    counts = {s: sum(1 for i in items if i.section == s) for s in order}
 
     def render(part_items, part, start, limit):
         return build(part_items, ref=ref, day=day, period_start=p_start, period_end=p_end, mode=mode, sample=sample,
                      limit=limit, part=part, start_no=start, total_items=len(items), section_counts=counts,
-                     sample_label=sample_label)
+                     sample_label=sample_label, kind=kind, forward=forward)
 
-    msgs, trimmed = fit(items, render)
+    msgs, trimmed = fit(items, render) if items else ([render([], (1, 1), 1, PARA_CAP)], 0)
     out = (out_dir or app.settings.out_dir) / "digest"
     out.mkdir(parents=True, exist_ok=True)
     paths = []
@@ -241,10 +254,10 @@ def run(app, *, day: datetime | None = None, since: datetime | None = None, unti
     log.info("digest_dispatch", ref=ref, status=status, parts=len(msgs), items=len(items), bytes=sizes,
              trimmed=trimmed, to_operator=to_operator)
     if all(s == "sent" for s in statuses) and not sample and not to_operator:
-        send = app.db.one("select id from sends where ref = %s and stage = 'digest' and kind = 'india_eod'", (ref,))
+        send = app.db.one("select id from sends where ref = %s and stage = 'digest' and kind = %s", (ref, kind.route))
         d = app.db.one("insert into digests (kind, period_start, period_end, item_ids, send_id, rendered_at) "
-                       "values ('india_eod', %s, %s, %s, %s, now()) returning id",
-                       (p_start, p_end, [i.item_id for i in items], send["id"] if send else None))
+                       "values (%s, %s, %s, %s, %s, now()) returning id",
+                       (kind.route, p_start, p_end, [i.item_id for i in items], send["id"] if send else None))
         app.db.q("update items set digest_id = %s, status = 'digested' where id = any(%s)",
                  (d["id"], [i.item_id for i in items]))
     return Result(paths[0], status, len(items), max(sizes), trimmed, ref, parts=len(msgs), paths=paths)

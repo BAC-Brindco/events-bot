@@ -1,0 +1,145 @@
+# US Tier-1 policy streams (F-08 / F-09): White House, USTR, Congress + OPM, FDA. Adapters in
+# events_bot/sources/us/{whitehouse,ustr,congress,fda}.py; each item's scope (realtime_if_keyword / us_morning_wrap /
+# drop) is set by the adapter in meta.route_hint (digest/scope.py _generic).
+# Live-verified 2026-11-26 from this PC (status 200 + expected content). Not yet verified from the GitHub runner
+# egress: www.fda.gov is Akamai-fronted (httpx -> 302 abuse-detection page; the adapters use impersonate=True).
+sources:
+  - id: whitehouse
+    label: WH
+    event_name: Presidential action
+    country: US
+    tier: 1
+    kind: stream
+    feed_type: rss
+    urls:
+      actions: https://www.whitehouse.gov/presidential-actions/feed/
+    poll_interval: 300          # ~500 KB full-text feed: always a conditional GET (ETag + LM; 304 normally)
+    adapter: us.whitehouse:WhiteHouse
+    section: White House
+    issuer: The White House
+    health_rules:
+      expect: xml
+      min_items: 10             # 30 items (~5 weeks)
+      stale_after_hours: 240    # actions most weeks; nominations alone keep it fresh
+      max_consecutive_errors: 3
+
+  - id: ustr
+    label: USTR
+    event_name: Press release
+    country: US
+    tier: 1
+    kind: stream
+    feed_type: html
+    urls:
+      press_releases: https://ustr.gov/about-us/policy-offices/press-office/press-releases
+    poll_interval: 600          # no RSS; listing has an ETag (304) and max-age 600
+    adapter: us.ustr:Ustr
+    section: Trade & tariffs
+    issuer: Office of the U.S. Trade Representative
+    health_rules:
+      expect: html
+      min_items: 10             # ~30 rows
+      stale_after_hours: 336
+      max_consecutive_errors: 3
+
+  - id: congress
+    label: CONGRESS
+    event_name: Enacted law
+    country: US
+    tier: 1
+    kind: stream
+    feed_type: api
+    urls:
+      # The adapter builds the URL for the current Congress (119 in 2025-26, 120 from Jan 2027) and sends the key
+      # in X-Api-Key (CONGRESS_API_KEY / API_DATA_GOV_KEY, else DEMO_KEY = 10 requests/hour per IP).
+      laws: https://api.congress.gov/v3/law/119?format=json&limit=250
+    poll_interval: 3600
+    tick_every_minutes: 60      # DEMO_KEY budget
+    adapter: us.congress:CongressLaws
+    section: Congress & fiscal
+    issuer: U.S. Congress
+    health_rules:
+      expect: json
+      min_items: 20
+      stale_after_hours: 1080   # laws come in bursts; recesses run for weeks
+      max_consecutive_errors: 4
+
+  - id: opm_status
+    label: OPM
+    event_name: Operating status
+    country: US
+    tier: 1
+    kind: stream
+    feed_type: api
+    urls:
+      status: https://www.opm.gov/json/operatingstatus.json
+    poll_interval: 900          # an item only when StatusSummary changes; shutdown -> realtime
+    adapter: us.congress:OpmStatus
+    section: Congress & fiscal
+    issuer: U.S. Office of Personnel Management
+    health_rules:
+      expect: json
+      max_consecutive_errors: 4  # no stale rule: the status rarely changes
+
+  - id: fda_press
+    label: FDA
+    event_name: Press release
+    country: US
+    tier: 1
+    kind: stream
+    feed_type: rss
+    urls:
+      press: https://www.fda.gov/about-fda/contact-fda/stay-informed/rss-feeds/press-releases/rss.xml
+    poll_interval: 1800
+    tick_every_minutes: 30
+    adapter: us.fda:FdaPress
+    section: FDA
+    issuer: U.S. Food and Drug Administration
+    health_rules:
+      expect: xml
+      min_items: 10             # 20 items
+      stale_after_hours: 336
+      max_consecutive_errors: 4
+
+  - id: fda_recalls
+    label: FDA
+    event_name: Drug recall
+    country: US
+    tier: 1
+    kind: stream
+    feed_type: api
+    urls:
+      india: https://api.fda.gov/drug/enforcement.json?search=country:"India"&sort=report_date:desc&limit=25
+    poll_interval: 21600        # openFDA refreshes weekly (meta.last_updated)
+    tick_every_minutes: 360
+    adapter: us.fda:FdaRecalls
+    section: FDA
+    issuer: U.S. Food and Drug Administration
+    health_rules:
+      expect: json
+      min_items: 2              # 25 records -> ~5-8 recall events
+      stale_after_hours: 1440   # Indian recalls ~2-4 a month
+      max_consecutive_errors: 4
+
+  - id: fda_warning_letters
+    label: FDA
+    event_name: Warning letter
+    country: US
+    tier: 1
+    kind: stream
+    feed_type: html
+    urls:
+      # The xlsx export (datatables-data?page&_format=xlsx) is a stale cached file (newest row posted 2026-04-28
+      # on 2026-11-26), so the server-rendered listing (newest 10 by posted date) and its page 2 are read instead.
+      listing: https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/compliance-actions-and-activities/warning-letters
+      listing_p2: https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/compliance-actions-and-activities/warning-letters?page=1
+    poll_interval: 21600
+    tick_every_minutes: 360     # letters post in weekly batches (Tuesdays), weeks after issue
+    adapter: us.fda:FdaWarningLetters
+    section: FDA
+    issuer: U.S. Food and Drug Administration
+    health_rules:
+      expect: html
+      min_items: 5              # 10 rows a page; the parser raises if the 7 column headers change
+      stale_after_hours: 336
+      max_consecutive_errors: 4

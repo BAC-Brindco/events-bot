@@ -79,7 +79,8 @@ class Settings(BaseModel):
             operator_emails=_csv(e.get("EVENTS_BOT_OPERATOR_EMAILS")),
             anthropic_api_key=e.get("ANTHROPIC_API_KEY"), fmp_api_key=e.get("FMP_API_KEY"),
             api_keys={k: e[k] for k in ("BLS_API_KEY", "BEA_API_KEY", "CENSUS_API_KEY",
-                                        "EIA_API_KEY", "API_DATA_GOV_KEY") if e.get(k)},
+                                        "EIA_API_KEY", "API_DATA_GOV_KEY", "CONGRESS_API_KEY",
+                                        "OPENFDA_API_KEY") if e.get(k)},
         )
         if e.get("SMTP_PORT"):
             kw["smtp_port"] = int(e["SMTP_PORT"])

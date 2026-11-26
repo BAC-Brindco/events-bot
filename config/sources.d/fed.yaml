@@ -1,0 +1,190 @@
+# Federal Reserve documents/speeches and U.S. Treasury (source group `fed`). FOMC decisions stay in
+# config/sources.yaml (`fomc`, us.fed:Fomc); fed_press drops the statement / SEP / implementation-note items.
+# URLs verified live 2026-11-26 (200 + expected content); evidence in docs/phase0/us_policy.md.
+sources:
+  - id: fed_press
+    label: FED
+    event_name: Press release
+    country: US
+    tier: 1
+    kind: stream
+    feed_type: rss
+    urls:
+      monetary: https://www.federalreserve.gov/feeds/press_monetary.xml
+    poll_interval: 300            # ETag+LM: 304s are cheap; minutes post at 14:00 ET (+11..81 s)
+    adapter: us.fed_docs:FedPress
+    section: Federal Reserve
+    issuer: Federal Reserve
+    health_rules:
+      expect: xml
+      min_items: 5
+      stale_after_hours: 2160     # ~8 releases a quarter; quiet stretches of 6+ weeks happen
+      max_consecutive_errors: 3
+
+  - id: fed_beige
+    label: FED
+    event_name: Beige Book
+    country: US
+    tier: 1
+    kind: stream                  # calendar.json + known-URL probe; no RSS carries the Beige Book
+    feed_type: api
+    urls:
+      calendar: https://www.federalreserve.gov/json/calendar.json
+    poll_interval: 300
+    adapter: us.fed_docs:FedBeige
+    section: Federal Reserve
+    issuer: Federal Reserve
+    health_rules:
+      expect: json
+      min_items: 8                # history rows from the calendar (56 Beige dates on 2026-11-26)
+      max_consecutive_errors: 3
+
+  - id: fed_speeches
+    label: FED
+    event_name: Speech
+    country: US
+    tier: 1
+    kind: stream
+    feed_type: rss
+    urls:
+      board: https://www.federalreserve.gov/feeds/speeches_and_testimony.xml
+    poll_interval: 600
+    adapter: us.fed_speeches:FedBoardSpeeches
+    filters:
+      always_keep_speakers: [Warsh]   # the Chair: even 'Opening Remarks' can carry policy signal
+    section: Federal Reserve
+    issuer: Federal Reserve
+    health_rules:
+      expect: xml
+      min_items: 5
+      stale_after_hours: 720
+      max_consecutive_errors: 3
+
+  - id: fed_speeches_rich
+    label: RICHMOND FED
+    event_name: Speech
+    country: US
+    tier: 1
+    kind: stream
+    feed_type: rss
+    urls:
+      speeches: https://www.richmondfed.org/press_room/speeches?cc_view=rss
+    poll_interval: 1800
+    tick_every_minutes: 30        # ~200 KB, no validators
+    adapter: us.fed_speeches:RegionalFedRss
+    filters:
+      bank: Richmond
+      tz: America/New_York        # pubDate says "EST" all year
+      body_selector: ".tmplt__content"
+    section: Federal Reserve
+    issuer: Federal Reserve Bank of Richmond
+    health_rules:
+      expect: xml
+      min_items: 20
+      stale_after_hours: 2160
+      max_consecutive_errors: 4
+
+  - id: fed_speeches_dal
+    label: DALLAS FED
+    event_name: Speech
+    country: US
+    tier: 1
+    kind: stream
+    feed_type: rss
+    urls:
+      speeches: https://www.dallasfed.org/rss/speeches.xml
+    poll_interval: 1800
+    tick_every_minutes: 30        # no validators
+    adapter: us.fed_speeches:RegionalFedRss
+    filters:
+      bank: Dallas
+      tz: America/Chicago         # pubDate says "CST" all year
+      body_selector: "#content"
+    section: Federal Reserve
+    issuer: Federal Reserve Bank of Dallas
+    health_rules:
+      expect: xml
+      min_items: 20
+      stale_after_hours: 2160
+      max_consecutive_errors: 4
+
+  - id: fed_speeches_ny
+    label: NY FED
+    event_name: Speech
+    country: US
+    tier: 1
+    kind: stream
+    feed_type: html
+    urls:
+      index: https://www.newyorkfed.org/newsevents/speeches
+    poll_interval: 3600
+    tick_every_minutes: 60        # ~600 KB, no RSS, no validators, Akamai bot manager present
+    adapter: us.fed_speeches:NyFedSpeeches
+    filters:
+      # Speaker prefixes ("Williams: ...") kept; the index also lists regional-economy officers and staff.
+      # Add the SOMA manager / markets head here when the desk wants them. Empty list = keep everyone.
+      keep_speakers: [Williams, Perli]
+    section: Federal Reserve
+    issuer: Federal Reserve Bank of New York
+    health_rules:
+      expect: html
+      min_items: 20
+      stale_after_hours: 2160
+      max_consecutive_errors: 4
+
+  - id: treasury_auctions
+    label: UST
+    event_name: Auction results
+    country: US
+    tier: 1
+    kind: stream
+    feed_type: api
+    urls:
+      auctioned: https://www.treasurydirect.gov/TA_WS/securities/auctioned?format=json&days=7
+    poll_interval: 600            # no validators; results ~3-4 min after the competitive close
+    adapter: us.treasury:TreasuryAuctions
+    section: Treasury
+    issuer: U.S. Department of the Treasury
+    health_rules:
+      expect: json
+      min_items: 3
+      stale_after_hours: 120      # auctions run every business day
+      max_consecutive_errors: 3
+
+  - id: treasury_press
+    label: TREASURY
+    event_name: Press release
+    country: US
+    tier: 1
+    kind: stream
+    feed_type: rss
+    urls:
+      govdelivery: https://public.govdelivery.com/topics/USTREAS_49/feed.rss
+    poll_interval: 900            # ETag: cheap 304s
+    adapter: us.treasury:TreasuryPress
+    section: Treasury
+    issuer: U.S. Department of the Treasury
+    health_rules:
+      expect: xml
+      min_items: 5
+      stale_after_hours: 336
+      max_consecutive_errors: 3
+
+  - id: treasury_debt_limit
+    label: TREASURY
+    event_name: Debt limit
+    country: US
+    tier: 1
+    kind: stream
+    feed_type: html
+    urls:
+      page: https://home.treasury.gov/policy-issues/financial-markets-financial-institutions-and-fiscal-service/debt-limit
+    poll_interval: 3600
+    tick_every_minutes: 60        # ETag+LM conditional GET; dormant since the 25 Jun 2025 letter
+    adapter: us.treasury:TreasuryDebtLimit
+    section: Treasury
+    issuer: U.S. Department of the Treasury
+    health_rules:
+      expect: html
+      min_items: 5
+      max_consecutive_errors: 4

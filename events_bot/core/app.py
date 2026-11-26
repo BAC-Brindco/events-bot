@@ -10,7 +10,7 @@ from ..filter.watchlist import Watchlist
 from ..ops import health
 from . import registry
 from .archive import Archive, DbArchive
-from .config import load_delivery, load_sources
+from .config import config_problems, load_delivery, load_sources
 from .db import Database
 from .fetch import FetchError, Fetcher
 from .models import SourceConfig
@@ -29,6 +29,8 @@ class App:
         self.fetcher = Fetcher(self.db, self.archive, settings.user_agent)
         self.sources = load_sources(settings.config_dir)
         self.delivery = load_delivery(settings.config_dir)
+        for problem in config_problems(self.sources, self.delivery):
+            log.error("config_problem", problem=problem)
         self.ctx = registry.Context(settings=settings, db=self.db, fetcher=self.fetcher, archive=self.archive)
         self.dispatcher = Dispatcher(self.db, [EmailChannel(settings)], mode, settings.out_dir)
         # Operator alerts (health, missed events) go only to the operator, so they are sent for real

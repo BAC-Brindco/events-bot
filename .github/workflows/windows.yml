@@ -37,6 +37,13 @@ env:
   SMTP_FROM: ${{ secrets.SMTP_FROM }}
   EVENTS_BOT_RECIPIENTS: ${{ secrets.EVENTS_BOT_RECIPIENTS }}
   EVENTS_BOT_OPERATOR_EMAILS: ${{ secrets.EVENTS_BOT_OPERATOR_EMAILS }}
+  # Optional agency API keys (FLAGS F-01). Every source works keyless; a key only lifts rate limits.
+  BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+  BEA_API_KEY: ${{ secrets.BEA_API_KEY }}
+  CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+  CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
+  OPENFDA_API_KEY: ${{ secrets.OPENFDA_API_KEY }}
+  API_DATA_GOV_KEY: ${{ secrets.API_DATA_GOV_KEY }}
   DRY: ${{ !(vars.EVENTS_BOT_LIVE == 'true' || vars.EVENTS_BOT_LIVE == 'scheduled') && '--dry-run' || '' }}
   # Data-print windows render stream items; they stay dry until the stream switch is "true".
   EVENTS_BOT_LIVE: ${{ vars.EVENTS_BOT_LIVE }}

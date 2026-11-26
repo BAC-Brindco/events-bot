@@ -19,9 +19,10 @@ from ..core.timeutil import fmt_ist, utcnow
 from ..deliver import design as dz
 from ..deliver import house as hs
 from .content import Body
+from .kinds import INDIA_EOD, DigestKind, ordered_sections
 from .select import _FIGURE_RX, Figure, sentences
 
-SECTIONS = ["Government", "RBI", "SEBI", "Data", "Weather", "Index changes"]
+SECTIONS = list(INDIA_EOD.sections)       # the Daily Macro Digest order; kinds.py holds every digest's
 SECTION_OF = {"pib": "Government", "cbic": "Government", "rbi_pr": "RBI", "rbi_notif": "RBI",
               "sebi_circ": "SEBI", "sebi_pr": "SEBI", "mospi": "Data", "oea": "Data", "imd": "Weather",
               "nifty_indices": "Index changes"}
@@ -72,10 +73,16 @@ class DigestItem:
     rows: list[dict] = field(default_factory=list)          # NSE Indices benchmark rows
     priority: int = 0
     trimmed: bool = False
+    section_name: str | None = None                       # sources.yaml `section`
+    issuer_name: str | None = None                        # sources.yaml `issuer`
 
     @property
     def section(self) -> str:
-        return SECTION_OF.get(self.source_id, "Government")
+        return self.section_name or SECTION_OF.get(self.source_id, "Other")
+
+    @property
+    def issuer(self) -> str:
+        return self.issuer_name or ISSUER.get(self.source_id, self.source_id)
 
 
 def cap(p: str, limit: int = PARA_CAP) -> str:
@@ -208,7 +215,7 @@ def _links(it: DigestItem) -> str:
 
 def item_html(it: DigestItem, n: int, limit: int = PARA_CAP) -> str:
     kind = it.kind or "Release"
-    issuer = ISSUER.get(it.source_id, it.source_id)
+    issuer = it.issuer
     head = (f'<div style="{_LABEL}">'
             f'<span style="color:{dz.GOLD};">{n}</span>{dz.badge(it.section.upper())}&nbsp;&nbsp;'
             f'{_e(issuer)}{f" &middot; {_e(kind)}" if kind and kind != issuer else ""}</div>'
@@ -245,7 +252,7 @@ def item_html(it: DigestItem, n: int, limit: int = PARA_CAP) -> str:
 
 
 def item_text(it: DigestItem, n: int, limit: int = PARA_CAP) -> list[str]:
-    lines = [f"{n}. {it.title}", f"   {ISSUER.get(it.source_id, it.source_id)} | {it.kind}"]
+    lines = [f"{n}. {it.title}", f"   {it.issuer} | {it.kind}"]
     lines.append("   Posted: " + re.sub(r"<[^>]+>", "", _posted(it)).replace("&middot;", "·"))
     if it.refs:
         lines.append("   Reference: " + " · ".join(it.refs))
@@ -306,13 +313,17 @@ SCOPE = ("Government, RBI, SEBI, statistical, weather and benchmark-index releas
 def build(items: list[DigestItem], *, ref: str, day: datetime, period_start: datetime, period_end: datetime,
           mode: str, sample: bool = False, limit: int = PARA_CAP, part: tuple[int, int] = (1, 1),
           start_no: int = 1, total_items: int | None = None, section_counts: dict[str, int] | None = None,
-          sample_label: str = "SAMPLE") -> Message:
+          sample_label: str = "SAMPLE", kind: DigestKind = INDIA_EOD,
+          forward: list[dict] | None = None) -> Message:
     """One e-mail. A long day is split into parts (each under Gmail's clip size); `part` is (i, n), the
     numbering continues across parts from `start_no`. `section_counts` covers the whole digest (all parts)."""
-    by_sec = {s: [i for i in items if i.section == s] for s in SECTIONS}
-    secs = [s for s in SECTIONS if by_sec[s]]
+    present = {i.section for i in items}
+    all_secs = ordered_sections(kind, present | set(section_counts or {}))
+    by_sec = {s: [i for i in items if i.section == s] for s in all_secs}
+    secs = [s for s in all_secs if by_sec[s]]
     n_items = total_items if total_items is not None else len(items)
-    counts = section_counts or {s: len(by_sec[s]) for s in SECTIONS}
+    counts = section_counts or {s: len(by_sec[s]) for s in all_secs}
+    counts = {s: counts.get(s, 0) for s in all_secs}
     title = f"{n_items} release{'s' if n_items != 1 else ''}"
     if part[1] == 1:
         title += f" across {len(secs)} section{'s' if len(secs) != 1 else ''}"
@@ -320,14 +331,15 @@ def build(items: list[DigestItem], *, ref: str, day: datetime, period_start: dat
         title += f" &middot; part {part[0]} of {part[1]} (items {start_no}&ndash;{start_no + len(items) - 1})"
     title_plain = title.replace("&middot;", "·").replace("&ndash;", "-")
     body = dz.masthead(
-        kicker=hs.KICKER, title="Daily Macro Digest",
+        kicker=hs.KICKER, title=kind.title,
         dateline=f"{day:%a %d-%b-%Y} &middot; {title}",
         subline=f"Releases first seen {fmt_ist(period_start)} to {fmt_ist(period_end)}")
-    body += dz.row(_glance(counts, SCOPE), pad=dz.BLOCK_PAD)
-    body += dz.row(_contents(secs, by_sec, start_no), pad=dz.BLOCK_PAD)
+    body += dz.row(_glance(counts, kind.scope if kind is not INDIA_EOD else SCOPE), pad=dz.BLOCK_PAD)
+    if secs:
+        body += dz.row(_contents(secs, by_sec, start_no), pad=dz.BLOCK_PAD)
 
     k = start_no - 1
-    lines = [f"Daily Macro Digest - {day:%a %d-%b-%Y} - {title_plain}",
+    lines = [f"{kind.title} - {day:%a %d-%b-%Y} - {title_plain}",
              "At a glance: " + " · ".join(f"{s} {c}" for s, c in counts.items() if c), ""]
     for si, s in enumerate(secs, 1):
         html = ""
@@ -336,8 +348,13 @@ def build(items: list[DigestItem], *, ref: str, day: datetime, period_start: dat
             k += 1
             html += item_html(it, k, limit)
             lines += item_text(it, k, limit)
-        body += dz.row(hs.section_caption(hs.ROMAN[si] if si < len(hs.ROMAN) else str(si), s, STANDFIRST[s]) + html,
+        body += dz.row(hs.section_caption(hs.ROMAN[si] if si < len(hs.ROMAN) else str(si), s, kind.standfirst.get(s, STANDFIRST.get(s, ""))) + html,
                        pad=f"26px {dz.PAD_X}px 4px {dz.PAD_X}px")
+
+    if forward and part[0] == 1:
+        fh, ft = forward_html(forward, kind.forward_days)
+        body += dz.row(fh, pad=f"26px {dz.PAD_X}px 4px {dz.PAD_X}px")
+        lines += ft
 
     now = utcnow()
     prov = (f"Compiled by the RAAS Events Bot at {fmt_ist(now)}. Sources: the official releases linked under each "
@@ -347,11 +364,21 @@ def build(items: list[DigestItem], *, ref: str, day: datetime, period_start: dat
     if sample:
         prov += f" &middot; {dz.value('SAMPLE for review — not sent to the desk', 'warn')}"
     body += dz.row(dz.colophon(prov, hs.DISCLAIMER), pad="20px 24px 26px 24px")
-    subject = f"[MACRO] Daily digest | {day:%d-%b-%Y} | {n_items} release{'s' if n_items != 1 else ''}"
+    subject = f"{kind.subject} | {day:%d-%b-%Y} | {n_items} release{'s' if n_items != 1 else ''}"
     if part[1] > 1:
         subject += f" | part {part[0]} of {part[1]}"
     if sample:
         subject = f"{sample_label.strip() or 'SAMPLE'} {subject}"
     html = dz.doc_open(_e(subject), _e(title_plain)) + body + dz.DOC_CLOSE
-    return Message(ref=ref if part[0] == 1 else f"{ref}:part{part[0]}", stage="digest", kind="india_eod",
+    return Message(ref=ref if part[0] == 1 else f"{ref}:part{part[0]}", stage="digest", kind=kind.route,
                    subject=subject, body_html=html, body_text="\n".join(lines))
+
+
+def forward_html(events: list[dict], days: int) -> tuple[str, list[str]]:
+    """The forward calendar: scheduled events (title and time as the calendars give them), soonest first."""
+    rows = [[_e(fmt_ist(e["scheduled_at"])), _e(e["title"]), _e(e["source_id"])] for e in events]
+    html = (hs.section_caption("", f"Next {days} days", "Scheduled releases and meetings from the official calendars")
+            + dz.datatable(["When (IST)", "Event", "Source"], rows, align=["l", "l", "l"],
+                           source="Official release calendars"))
+    text = ["", f"NEXT {days} DAYS", ""] + [f"{fmt_ist(e['scheduled_at'])}  {e['title']}" for e in events]
+    return html, text

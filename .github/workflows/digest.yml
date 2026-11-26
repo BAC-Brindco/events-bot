@@ -1,5 +1,11 @@
 name: digest
 
+# Three digests, one job (digest/kinds.py):
+#   india_eod        Daily Macro Digest, 18:30 IST Mon-Fri
+#   us_morning_wrap  US Morning Wrap, 07:00 IST Tue-Sat (the prior US session; F-09)
+#   weekly           Weekly Digest, Sat 09:00 IST (Tier 3 + the 14-day forward calendar)
+# The cron entry that fired picks the kind; a manual dispatch picks it with `kind`.
+#
 # Daily Macro Digest (F-29): 18:30 IST on working days, everything queued for india_eod since the last
 # digest, one detailed write-up per release. Sent to the desk only when the repo variable
 # EVENTS_BOT_LIVE is "true"; otherwise it is rendered (artifact) and not sent.
@@ -10,6 +16,9 @@ name: digest
 on:
   workflow_dispatch:
     inputs:
+      kind:
+        description: "india_eod | us_morning_wrap | weekly"
+        default: "india_eod"
       sample_days:
         description: "Review copy of the last N days (0 = the real digest)"
         default: "0"
@@ -24,13 +33,15 @@ on:
         description: "Subject prefix of a review copy"
         default: "SAMPLE"
   schedule:
-    - cron: "0 13 * * 1-5"      # 18:30 IST, Monday to Friday
+    - cron: "0 13 * * 1-5"      # 18:30 IST, Monday to Friday: india_eod
+    - cron: "30 1 * * 2-6"      # 07:00 IST, Tuesday to Saturday: us_morning_wrap
+    - cron: "30 3 * * 6"        # 09:00 IST, Saturday: weekly
 
 permissions:
   contents: read
 
 concurrency:
-  group: digest
+  group: digest-${{ inputs.kind || github.event.schedule }}
   cancel-in-progress: false
 
 env:
@@ -44,6 +55,13 @@ env:
   SMTP_FROM: ${{ secrets.SMTP_FROM }}
   EVENTS_BOT_RECIPIENTS: ${{ secrets.EVENTS_BOT_RECIPIENTS }}
   EVENTS_BOT_OPERATOR_EMAILS: ${{ secrets.EVENTS_BOT_OPERATOR_EMAILS }}
+  # Optional agency API keys (FLAGS F-01). Every source works keyless; a key only lifts rate limits.
+  BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+  BEA_API_KEY: ${{ secrets.BEA_API_KEY }}
+  CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+  CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
+  OPENFDA_API_KEY: ${{ secrets.OPENFDA_API_KEY }}
+  API_DATA_GOV_KEY: ${{ secrets.API_DATA_GOV_KEY }}
   DRY: ${{ vars.EVENTS_BOT_LIVE != 'true' && '--dry-run' || '' }}
 
 jobs:
@@ -63,9 +81,17 @@ jobs:
           TO_OPERATOR: ${{ inputs.to_operator && 'yes' || 'no' }}
           DAY: ${{ inputs.date }}
           SAMPLE_LABEL: ${{ inputs.sample_label || 'SAMPLE' }}
+          KIND_INPUT: ${{ inputs.kind }}
+          CRON: ${{ github.event.schedule }}
         run: |
-          args="--weekdays-only"
-          [ "$SAMPLE_DAYS" != "0" ] && args="--sample-days $SAMPLE_DAYS"
+          case "$CRON" in
+            "30 1 * * 2-6") kind=us_morning_wrap ;;
+            "30 3 * * 6")   kind=weekly ;;
+            "")             kind="${KIND_INPUT:-india_eod}" ;;
+            *)              kind=india_eod ;;
+          esac
+          args="--kind $kind --weekdays-only"
+          [ "$SAMPLE_DAYS" != "0" ] && args="--kind $kind --sample-days $SAMPLE_DAYS"
           [ "$TO_OPERATOR" = "yes" ] && args="$args --to-operator"
           [ -n "$DAY" ] && args="$args --date $DAY"
           uv run python -m events_bot.ops.cli digest $args --sample-label "$SAMPLE_LABEL" $DRY | tee -a "$GITHUB_STEP_SUMMARY"

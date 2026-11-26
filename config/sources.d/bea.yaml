@@ -1,0 +1,72 @@
+# BEA + Census real-time print alerts and DOL weekly claims (Morning Wrap). Adapters:
+# events_bot/sources/us/bea.py, census.py, dol.py. Live-verified 2026-11-26 from this PC (all 200 with the expected
+# content): BEA release_dates.json, ICS, rss.xml and both 2026-11-25 release pages; Census calendar-listview.html
+# (+ -2026.html), indicator.xml, marts_current.pdf, durgd.pdf; DOL ui/data.pdf, rss/releases.xml and
+# newsroom/releases/eta/eta20261125 (the last two 403 to a bare UA; 200 with prints_base.BROWSER_HEADERS).
+# Not yet verified from the GitHub runner egress. No API keys are used (BEA/Census APIs need keys).
+sources:
+  - id: bea
+    label: BEA
+    event_name: Data print
+    country: US
+    tier: 1
+    kind: scheduled
+    feed_type: api
+    urls:
+      release_dates: https://apps.bea.gov/API/signup/release_dates.json   # keyless; primary calendar
+      ics: https://www.bea.gov/news/schedule/ics/online-calendar-subscription.ics   # cross-check + period
+      rss: https://apps.bea.gov/rss/rss.xml                                # release detection (LM <= ~2 min)
+    poll_interval: 43200        # calendar only; the RSS + release page are polled in the event window
+    window_poll_interval: 20    # GDP / PIO at 08:30 ET; RSS LM 08:31:48 on 2026-09-30
+    adapter: us.bea:BeaPrints
+    route: realtime             # US data prints are real-time alerts (desk policy F-29)
+    section: Data
+    issuer: U.S. Bureau of Economic Analysis
+    health_rules:
+      expect: any
+      max_consecutive_errors: 3
+    enabled: true
+
+  - id: census
+    label: Census
+    event_name: Data print
+    country: US
+    tier: 1
+    kind: scheduled
+    feed_type: pdf
+    urls:
+      calendar: https://www.census.gov/economic-indicators/calendar-listview.html   # + its calendar-listview-YYYY links
+      retail_pdf: https://www.census.gov/retail/marts/www/marts_current.pdf
+      durables_pdf: https://www.census.gov/manufacturing/m3/adv/pdf/durgd.pdf
+      indicator: https://www.census.gov/economic-indicators/indicator.xml           # fallback after 10 min
+    poll_interval: 43200        # calendar only; PDFs are polled in the event window
+    window_poll_interval: 20    # durgd LM 08:30:08 on 2026-09-25; the PDF's release line + period decide
+    adapter: us.census:CensusPrints
+    route: realtime
+    section: Data
+    issuer: U.S. Census Bureau
+    health_rules:
+      expect: any
+      max_consecutive_errors: 3
+    enabled: true
+
+  - id: dol_claims
+    label: DOL
+    event_name: Weekly claims
+    country: US
+    tier: 1
+    kind: stream
+    feed_type: pdf
+    urls:
+      pdf: https://www.dol.gov/ui/data.pdf          # latest release; ETag/LM, 304 works
+      rss: https://www.dol.gov/rss/releases.xml     # backstop; non-claims DOL releases are dropped
+    poll_interval: 900          # the adapter polls only Wed-Fri ET (Thursday release, Wednesday holiday shifts)
+    adapter: us.dol:DolClaims
+    route: us_morning_wrap
+    section: Data
+    issuer: U.S. Department of Labor
+    health_rules:
+      expect: any
+      stale_after_hours: 200    # weekly
+      max_consecutive_errors: 3
+    enabled: true

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Data>
+    <TreasuryAuctionResults>
+        <OfferingDescription>
+            <Technique>Auction</Technique>
+            <PricingMethod>Single-price</PricingMethod>
+            <SecurityDescription>9-Year 8-Month TIPS</SecurityDescription>
+            <SecurityTermYear>9</SecurityTermYear>
+            <SecurityTermMonth>8</SecurityTermMonth>
+            <SecurityType>Note</SecurityType>
+            <InflationProtected>Y</InflationProtected>
+            <FloatingRate>N</FloatingRate>
+            <Reopening>Y</Reopening>
+            <CUSIP>91282CRE3</CUSIP>
+            <OfferingAmount>19000000000</OfferingAmount>
+            <AdjustedCurrentlyOutstanding>45415340943</AdjustedCurrentlyOutstanding>
+            <UnadjustedCurrentlyOutstanding>45181301800</UnadjustedCurrentlyOutstanding>
+            <CorpusCUSIP>912821UU7</CorpusCUSIP>
+            <TIINConversionFactorPerAmount>1000</TIINConversionFactorPerAmount>
+            <TIINConversionFactor>3.555711365</TIINConversionFactor>
+            <Strippable>Y</Strippable>
+            <MinimumAmountRequiredForSTRIPS>100</MinimumAmountRequiredForSTRIPS>
+            <Callable>N</Callable>
+        </OfferingDescription>
+        <Dates>
+            <AnnouncementDate>2026-11-12</AnnouncementDate>
+            <NoncompetitiveAuctionCloseDate>2026-11-19</NoncompetitiveAuctionCloseDate>
+            <NoncompetitiveAuctionCloseTime>12:00 PM ET</NoncompetitiveAuctionCloseTime>
+            <CompetitiveAuctionCloseDate>2026-11-19</CompetitiveAuctionCloseDate>
+            <CompetitiveAuctionCloseTime>01:00 PM ET</CompetitiveAuctionCloseTime>
+            <DatedDate>2026-07-15</DatedDate>
+            <OriginalDatedDate>2026-07-15</OriginalDatedDate>
+            <IssueDate>2026-11-30</IssueDate>
+            <OriginalIssueDate>2026-07-31</OriginalIssueDate>
+            <MaturityDate>2036-07-15</MaturityDate>
+        </Dates>
+        <Limits>
+            <CompetitiveBidExpression>Yield</CompetitiveBidExpression>
+            <CompetitiveBidDecimals>3</CompetitiveBidDecimals>
+            <CompetitiveYieldBidIncrements>0.001</CompetitiveYieldBidIncrements>
+            <MaximumNoncompetitiveAward>10000000</MaximumNoncompetitiveAward>
+            <MaximumCompetitiveAward>6650000000</MaximumCompetitiveAward>
+            <MaximumRecognizedBidAtASingleYield>6650000000</MaximumRecognizedBidAtASingleYield>
+            <NLPReportingThreshold>6650000000</NLPReportingThreshold>
+            <NLPExclusionAmount>13999674600</NLPExclusionAmount>
+            <MinimumToBidAmount>100</MinimumToBidAmount>
+            <MinimumToIssueAmount>100</MinimumToIssueAmount>
+            <MultipleToBidAmount>100</MultipleToBidAmount>
+            <MultipleToIssueAmount>100</MultipleToIssueAmount>
+            <AllottedAtHighPercentageDecimals>2</AllottedAtHighPercentageDecimals>
+        </Limits>
+        <Participation>
+            <PrimaryDealerBidsAccepted>Y</PrimaryDealerBidsAccepted>
+            <PrimaryDealersInsideOfOfferingAmount>Y</PrimaryDealersInsideOfOfferingAmount>
+            <DirectParticipantBidsAccepted>Y</DirectParticipantBidsAccepted>
+            <DirectParticipantsInsideOfOfferingAmount>Y</DirectParticipantsInsideOfOfferingAmount>
+            <IndirectParticipantBidsAccepted>Y</IndirectParticipantBidsAccepted>
+            <IndirectParticipantsInsideOfOfferingAmount>Y</IndirectParticipantsInsideOfOfferingAmount>
+            <SOMABidsAccepted>Y</SOMABidsAccepted>
+            <SOMAInsideOfOfferingAmount>N</SOMAInsideOfOfferingAmount>
+            <FIMANoncompetitiveBidsAccepted>Y</FIMANoncompetitiveBidsAccepted>
+            <FIMANoncompetitiveInsideOfOfferingAmount>Y</FIMANoncompetitiveInsideOfOfferingAmount>
+            <FIMACompetitiveBidsAccepted>Y</FIMACompetitiveBidsAccepted>
+            <FIMACompetitiveInsideOfOfferingAmount>Y</FIMACompetitiveInsideOfOfferingAmount>
+            <TreasuryRetailBidsAccepted>Y</TreasuryRetailBidsAccepted>
+            <TreasuryRetailInsideOfOfferingAmount>Y</TreasuryRetailInsideOfOfferingAmount>
+        </Participation>
+        <MaturingSecurities>
+            <MaturingSecuritiesType>Coupon</MaturingSecuritiesType>
+            <MaturingDate>2026-11-30</MaturingDate>
+            <TotalMarketableAmountOutstanding>158964321200</TotalMarketableAmountOutstanding>
+            <PrivateHoldings>136492652000</PrivateHoldings>
+            <SOMAHoldings>22471669200</SOMAHoldings>
+        </MaturingSecurities>
+        <Interest>
+            <FrequencyOfInterestPayments>Semi-Annual</FrequencyOfInterestPayments>
+            <InterestRate>2.375</InterestRate>
+            <FirstInterestPaymentLength>Normal</FirstInterestPaymentLength>
+            <DatedDateDifferentFromIssueDate>Y</DatedDateDifferentFromIssueDate>
+            <InterestPaymentDates>
+                <InterestPaymentDate index="1">2027-01-15</InterestPaymentDate>
+                <InterestPaymentDate index="2">2027-07-15</InterestPaymentDate>
+                <InterestPaymentDate index="3">2028-01-15</InterestPaymentDate>
+                <InterestPaymentDate index="4">2028-07-15</InterestPaymentDate>
+                <InterestPaymentDate index="5">2029-01-15</InterestPaymentDate>
+                <InterestPaymentDate index="6">2029-07-15</InterestPaymentDate>
+                <InterestPaymentDate index="7">2030-01-15</InterestPaymentDate>
+                <InterestPaymentDate index="8">2030-07-15</InterestPaymentDate>
+                <InterestPaymentDate index="9">2031-01-15</InterestPaymentDate>
+                <InterestPaymentDate index="10">2031-07-15</InterestPaymentDate>
+                <InterestPaymentDate index="11">2032-01-15</InterestPaymentDate>
+                <InterestPaymentDate index="12">2032-07-15</InterestPaymentDate>
+                <InterestPaymentDate index="13">2033-01-15</InterestPaymentDate>
+                <InterestPaymentDate index="14">2033-07-15</InterestPaymentDate>
+                <InterestPaymentDate index="15">2034-01-15</InterestPaymentDate>
+                <InterestPaymentDate index="16">2034-07-15</InterestPaymentDate>
+                <InterestPaymentDate index="17">2035-01-15</InterestPaymentDate>
+                <InterestPaymentDate index="18">2035-07-15</InterestPaymentDate>
+                <InterestPaymentDate index="19">2036-01-15</InterestPaymentDate>
+                <InterestPaymentDate index="20">2036-07-15</InterestPaymentDate>
+            </InterestPaymentDates>
+        </Interest>
+        <IndexInformation>
+            <CPIBaseReferencePeriod>1982-1984</CPIBaseReferencePeriod>
+            <ReferenceCPIOnOriginalDatedDate>333.96974</ReferenceCPIOnOriginalDatedDate>
+            <ReferenceCPIOnAnnouncementDate>335.69867</ReferenceCPIOnAnnouncementDate>
+            <ReferenceCPIOnIssueDate>336.87467</ReferenceCPIOnIssueDate>
+            <IndexRatioOnAnnouncementDate>1.00518</IndexRatioOnAnnouncementDate>
+            <IndexRatioOnIssueDate>1.00870</IndexRatioOnIssueDate>
+        </IndexInformation>
+        <Yields>
+            <HighYield>2.903</HighYield>
+            <AllottedAtHighYieldPercentage>90.74</AllottedAtHighYieldPercentage>
+            <MedianYield>2.840</MedianYield>
+            <MedianYieldThreshold>50</MedianYieldThreshold>
+            <LowYield>2.780</LowYield>
+            <LowYieldThreshold>5</LowYieldThreshold>
+        </Yields>
+        <Price>
+            <PricePerAmount>100</PricePerAmount>
+            <AdjustedPrice>96.422035</AdjustedPrice>
+            <UnadjustedPrice>95.590399</UnadjustedPrice>
+            <AccruedInterestPerAmount>1000</AccruedInterestPerAmount>
+            <AdjustedAccruedInterest>8.98373</AdjustedAccruedInterest>
+            <UnadjustedAccruedInterest>8.90625</UnadjustedAccruedInterest>
+        </Price>
+        <AuctionResultsBreakdown>
+            <PrimaryDealersNoncompetitiveParRecognized>0</PrimaryDealersNoncompetitiveParRecognized>
+            <PrimaryDealersCompetitiveParRecognized>23142000000</PrimaryDealersCompetitiveParRecognized>
+            <DirectBiddersNoncompetitiveParRecognized>0</DirectBiddersNoncompetitiveParRecognized>
+            <DirectBiddersCompetitiveParRecognized>7416000000</DirectBiddersCompetitiveParRecognized>
+            <IndirectBiddersNoncompetitiveParRecognized>55093000</IndirectBiddersNoncompetitiveParRecognized>
+            <IndirectBiddersCompetitiveParRecognized>15476292000</IndirectBiddersCompetitiveParRecognized>
+            <SOMANoncompetitiveParRecognized>1958539900</SOMANoncompetitiveParRecognized>
+            <FIMANoncompetitiveParRecognized>0</FIMANoncompetitiveParRecognized>
+            <RetailNoncompetitiveParRecognized>21794600</RetailNoncompetitiveParRecognized>
+            <SubtotalNoncompetitiveParRecognizedInsideOfOfferingAmount>76887600</SubtotalNoncompetitiveParRecognizedInsideOfOfferingAmount>
+            <SubtotalCompetitiveParRecognizedInsideOfOfferingAmount>46034292000</SubtotalCompetitiveParRecognizedInsideOfOfferingAmount>
+            <SubtotalNoncompetitiveParRecognizedOutsideOfOfferingAmount>1958539900</SubtotalNoncompetitiveParRecognizedOutsideOfOfferingAmount>
+            <SubtotalCompetitiveParRecognizedOutsideOfOfferingAmount>0</SubtotalCompetitiveParRecognizedOutsideOfOfferingAmount>
+            <TotalParRecognizedInsideOfOfferingAmount>46111179600</TotalParRecognizedInsideOfOfferingAmount>
+            <TotalParRecognizedOutsideOfOfferingAmount>1958539900</TotalParRecognizedOutsideOfOfferingAmount>
+            <GrandTotalParRecognized>48069719500</GrandTotalParRecognized>
+            <PrimaryDealersNoncompetitiveParAwarded>0</PrimaryDealersNoncompetitiveParAwarded>
+            <PrimaryDealersCompetitiveParAwarded>1140333200</PrimaryDealersCompetitiveParAwarded>
+            <DirectBiddersNoncompetitiveParAwarded>0</DirectBiddersNoncompetitiveParAwarded>
+            <DirectBiddersCompetitiveParAwarded>4808498200</DirectBiddersCompetitiveParAwarded>
+            <IndirectBiddersNoncompetitiveParAwarded>55093000</IndirectBiddersNoncompetitiveParAwarded>
+            <IndirectBiddersCompetitiveParAwarded>12974292000</IndirectBiddersCompetitiveParAwarded>
+            <SOMANoncompetitiveParAwarded>1958539900</SOMANoncompetitiveParAwarded>
+            <FIMANoncompetitiveParAwarded>0</FIMANoncompetitiveParAwarded>
+            <RetailNoncompetitiveParAwarded>21794600</RetailNoncompetitiveParAwarded>
+            <SubtotalNoncompetitiveParAwardedInsideOfOfferingAmount>76887600</SubtotalNoncompetitiveParAwardedInsideOfOfferingAmount>
+            <SubtotalCompetitiveParAwardedInsideOfOfferingAmount>18923123400</SubtotalCompetitiveParAwardedInsideOfOfferingAmount>
+            <SubtotalNoncompetitiveParAwardedOutsideOfOfferingAmount>1958539900</SubtotalNoncompetitiveParAwardedOutsideOfOfferingAmount>
+            <SubtotalCompetitiveParAwardedOutsideOfOfferingAmount>0</SubtotalCompetitiveParAwardedOutsideOfOfferingAmount>
+            <TotalParAwardedInsideOfOfferingAmount>19000011000</TotalParAwardedInsideOfOfferingAmount>
+            <TotalParAwardedOutsideOfOfferingAmount>1958539900</TotalParAwardedOutsideOfOfferingAmount>
+            <GrandTotalParAwarded>20958550900</GrandTotalParAwarded>
+            <BidToCoverRatio>2.43</BidToCoverRatio>
+        </AuctionResultsBreakdown>
+        <TreasuryAuctionResultsAdditionalDocuments>
+            <TreasuryAuctionResultsPressReleaseURL>https://www.treasurydirect.gov/instit/annceresult/press/preanre/2026/R_20261119_3.pdf</TreasuryAuctionResultsPressReleaseURL>
+            <TreasuryAuctionResultsPressReleaseFileName>R_20261119_3.pdf</TreasuryAuctionResultsPressReleaseFileName>
+            <TreasuryAuctionResultsXMLSchemaURL>https://www.treasurydirect.gov/xsd/DFS-TreasuryAuctionResults-v20260415-0837aET.xsd</TreasuryAuctionResultsXMLSchemaURL>
+        </TreasuryAuctionResultsAdditionalDocuments>
+    </TreasuryAuctionResults>
+</Data>

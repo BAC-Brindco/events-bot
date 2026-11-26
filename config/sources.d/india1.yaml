@@ -1,0 +1,58 @@
+# India Tier-1 gaps (Nov 2026 source expansion, group india1). All India items route to the daily macro
+# digest (india_eod) or are dropped; never realtime (F-29). Scope is set per item in the adapters.
+#
+# Checked and NOT added (covered by existing sources; see the group report):
+#   gst_council  PIB carried the 57th meeting on 8 Oct 2026 19:03; gstcouncil.gov.in PDF LM 9 Oct 15:08.
+#   cga          PIB carries the monthly accounts the same day (30 Oct 2026 17:02); needs a pib scope tweak.
+#   dea          borrowing calendars come via RBI press releases and PIB the same day; dea.gov.in listing is
+#                mostly weekly G-sec auction notices with reused PDF names.
+sources:
+  - id: dgft
+    label: DGFT
+    event_name: Notification / public notice / trade notice
+    country: IN
+    tier: 1
+    kind: stream
+    feed_type: html
+    urls:
+      notification: https://www.dgft.gov.in/CP/?opt=notification
+      public-notice: https://www.dgft.gov.in/CP/?opt=public-notice
+      trade-notice: https://www.dgft.gov.in/CP/?opt=trade-notice
+    poll_interval: 600
+    active_hours: {start: "09:00", end: "23:59"}    # releases land 10:00-23:30 IST
+    adapter: india.dgft:Dgft
+    section: Trade
+    issuer: Directorate General of Foreign Trade
+    health_rules:
+      expect: html
+      min_items: 150          # 3 tables x 60 newest rows; each table must parse >= 50 rows or the poll fails
+      stale_after_hours: 336
+      max_consecutive_errors: 3
+    # F-17: blocked from GitHub runners; enable on an Indian-egress runner.
+    # (dgft.gov.in is behind CloudFront and 403s runner IPs for httpx and curl_cffi; 200 from an Indian
+    # egress on 26 Nov 2026. No unblocked alternative endpoint was found.)
+    enabled: false
+
+  - id: india_budget
+    label: Budget
+    event_name: Union Budget document
+    country: IN
+    tier: 1
+    kind: stream
+    feed_type: pdf
+    urls:
+      speech: https://www.indiabudget.gov.in/doc/Budget_Speech.pdf
+      glance: https://www.indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.pdf
+    poll_interval: 900
+    tick_every_minutes: 15
+    filters:
+      # IST windows ("MM-DD..MM-DD") in which the adapter fetches; outside them a poll makes no request.
+      # Election years: add the July full-budget window, e.g. "07-01..07-31".
+      windows: ["01-15..02-15"]
+    adapter: india.budget:UnionBudget
+    section: Government
+    issuer: Ministry of Finance (Union Budget)
+    health_rules:
+      expect: pdf
+      max_consecutive_errors: 3
+    enabled: true

@@ -17,8 +17,9 @@ routes:
 
 # F-08: White House / USTR items matching these go realtime instead of the wrap.
 us_realtime_keywords: [India, Indian, tariff, Section 232, Section 301, pharmaceutical, generic drugs]
-# F-08: NFP and CPI at 18:00 IST realtime. Opt-in.
-us_realtime_prints: false
+# F-08 / F-30: US data prints (BLS CPI/NFP/PPI/JOLTS, BEA GDP/PCE, Census retail/durables) alert in real time
+# at release (08:30 ET = 18:00 IST in US summer, 19:00 IST in US winter; JOLTS 10:00 ET). Off = dry-run only.
+us_realtime_prints: true
 
 # A realtime item whose source time is older than this goes to the digest instead (outage catch-up).
 realtime_max_age_hours: 12

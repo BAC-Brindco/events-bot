@@ -1,0 +1,1094 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head id="Head1"><title>
+	Press Release Page | Press Information Bureau
+</title><link href="css/style.css?v=1" rel="stylesheet" type="text/css" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="alternate stylesheet" href="css/change.css?v=1" media="screen" title="change" /><link rel="alternate stylesheet" href="css/green.css?v=1" media="screen" title="green" /><link rel="alternate stylesheet" href="css/yellow.css" media="screen" title="yellow" /><link rel="stylesheet" type="text/css" href="css/prtint.css" media="print" /><link rel="stylesheet" href="css/style3.1.css" type="text/css" /><link id="pibA11yCss" rel="stylesheet" href="/css/accessibility.css?v=7" type="text/css" />
+    <script type="text/javascript">
+        (function (d) {
+            var t = "";
+            try {
+                t = window.localStorage.getItem("pibStyle") || "";
+            } catch (e) {
+                t = "";
+            }
+            if (t === "orange") {
+                t = "yellow";
+            }
+            var c = t === "change" ? " pib-hc"
+                : t === "green" ? " pib-theme-green"
+                : t === "yellow" ? " pib-theme-yellow" : "";
+            d.documentElement.className += c + " pib-a11y-content";
+        }(document));
+    </script>
+
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/accessibility.js?v=7"></script>
+
+    <script type="text/javascript">
+            $(document).ready(function () {
+                  function getParameterByName(name) {
+                        var url = window.location.href;
+                        name = name.replace(/[\[\]]/g, '\\$&');
+                        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                              results = regex.exec(url);
+                        if (!results) return null;
+                        if (!results[2]) return '';
+                        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                  }
+                  let prid = parseInt(getParameterByName('PRID'), 10);
+
+                  if (!isNaN(prid) && prid > 0) {
+                        $.ajax({
+                              type: "POST",
+                              url: "AjaxMethod.aspx/UpdatePRHitCount",
+                              async: false,
+                              data: JSON.stringify({ 'PermId': prid }),
+                              contentType: "application/json; charset=utf-8",
+                              dataType: "json",
+                              success: function (response) {
+                                    console.log(response);
+                              },
+                              error: function (error) {
+                                    console.log("Error in AJAX request", error);
+                              }
+                        });
+                  } else {
+                        console.log("Invalid parameters:", prid);
+                  }
+            });
+    </script>
+    <style type="text/css">
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+        }
+
+        full-width {
+            width: 100%;
+        }
+
+        .logo-left, .logo-center, .countdown {
+            display: flex;
+            align-items: center;
+        }
+
+            .logo-left img, .logo-center img {
+                height: 70px;
+            }
+
+        .countdown {
+            text-align: center;
+            background-color: var(--dbim-text, #150202);
+            border-radius: 10px;
+            padding: 10px;
+            border: 2px solid grey;
+        }
+
+        .firstnumber {
+            color: #000000;
+            position: absolute;
+            top: 50px;
+            right: 90px;
+            font-size: 30px;
+        }
+
+        .secondnumber {
+            position: absolute;
+            color: #000000;
+            right: 45px;
+            top: 50px;
+            font-size: 30px;
+        }
+
+        .countdown .days {
+            font-size: 35px;
+            color: gold;
+        }
+
+        .countdown p {
+            margin: 0;
+        }
+
+        .countdown .text {
+            font-size: 16px;
+        }
+
+        a {
+            word-break: break-all;
+        }
+
+        iframe, img {
+            max-width: 100%;
+        }
+        .innner-page-main-about-us-content-right-part ul > li, .content-area ul > li {
+  /*list-style: none !important;*/
+}
+        /* === DBIM 3.0 Option 4 Separator Line & Reading Meta Styling === */
+        .pr-share--footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            border-top: 1px solid var(--dbim-border, #d1d5db);
+            padding-top: 16px;
+            margin-top: 24px;
+        }
+
+        .pr-share__left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .pr-reading-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--dbim-text-secondary, #475569);
+            font-weight: 500;
+            white-space: nowrap;
+            margin-left: auto;
+        }
+
+        .pr-reading-meta__item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pr-reading-meta__divider {
+            color: var(--dbim-border, #cbd5e1);
+            font-weight: 300;
+        }
+
+        .pib-hc .pr-reading-meta,
+        .pib-hc .pr-reading-meta svg {
+            color: currentColor !important;
+        }
+
+        @media (max-width: 680px) {
+            .pr-share--footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .pr-reading-meta {
+                margin-left: 0;
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
+
+        @media(max-width:1199px) {
+            .firstnumber {
+                top: 40px;
+                right: 72px;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 35px;
+                top: 40px;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:990px) {
+            .firstnumber {
+                top: 25px;
+                right: 54px;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 25px;
+                top: 25px;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:768px) {
+            .countdown, .days {
+                font-size: 12px !important;
+            }
+
+            .firstnumber {
+                top: 25%;
+                right: 8%;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 4.5%;
+                top: 25%;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:475px) {
+            .countdown, .days {
+                font-size: 10px !important;
+                top: 20%;
+            }
+
+            .bannerimgdiv {
+                padding: 0 !important;
+            }
+
+            .bannerimg {
+                width: 108% !important;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+$(function () {
+    $("[id*=printPDF]").click(function () {
+        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+    });
+});
+$(function () {
+    $("[id*=printPDFEvent]").click(function () {
+        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+    });
+});
+</script>
+
+    <link id="pibConsentCss" href="/css/consent.css?v=8" rel="stylesheet" type="text/css" /><link id="pibFontsCss" href="/css/fonts-noto.css?v=6" rel="stylesheet" type="text/css" /><link id="pibDbimCss" href="/css/dbim.css?v=1120" rel="stylesheet" type="text/css" /><meta property="og:title" content="Monthly review of accounts of Government of India upto September 2026 (FY 2026-27)" /><meta property="og:url" content="https://pib.gov.in/PressReleasePage.aspx?PRID=2330455" /><meta property="og:description" content="The monthly accounts of the Government of India upto the month of September, 2026 has been consolidated and reports published. The highlights are given below: -
+
+The Government of India has received" /><meta property="og:image" content="https://static.pib.gov.in/WriteReadData/userfiles/image/2026/oct/Screenshot2026-10-30171453_20261030171538_c7e7fe.png" /><meta property="og:type" content="article" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:image" content="https://static.pib.gov.in/WriteReadData/userfiles/image/2026/oct/Screenshot2026-10-30171453_20261030171538_c7e7fe.png" />
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="C4E7H-KSCMC-422L4-W3EM5-U36MF",function(){function e(){if(!i){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.parentNode.appendChild(e),i=!0}}function t(e){i=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",o.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"C4E7H-KSCMC-422L4-W3EM5-U36MF";var o=document.currentScript||document.getElementsByTagName("script")[0],i=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!i)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="wzgtgeaxzm6542yiaihq-f-8989e064e-clientnsv4-s.akamaihd.net",o="false"=="true"?2:1,i={"ak.v":"41","ak.cp":"1825201","ak.ai":parseInt("1215205",10),"ak.ol":"0","ak.cr":207,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"570674b0","ak.r":52928,"ak.a2":n,"ak.m":"dscb","ak.n":"ff","ak.cport":52783,"ak.gh":"2.20.183.30","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1795686927","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==Dz7DUw25Owj6GPRSknOub3yRy8alw+fWcQokFgS31Fs9qgTykbTJF8/cu00zrsFrL9wxewFQm30Cpivv++YVP9TRzoW6o0+ILNPaKuSnZwfRXnDS7De32BIzSVYNWceuFr0vmwL46D/WZW58TclUHPpgvS91tLgjumjJnegLsQWIFg1fodDnlIkmwsjzbd/rARouaeoSVyfQRkTbzOHlZJcTN0GBoKVvYYpvHb+6GgDNEXJDFUqISp/1q+MLJDlY4tdZbskl3y8PuibIyW2EaY0zrFVb9Z8fQ8V39cyTsYBKhm0O1FsYBVKTAmJg0znNswuq3KP/LAPjUyL3lDC7VUv9qmB2nMm0mkE5FUPShqvE9oouZrOERmyYJO8wWdJCVlLI3vBpJGlgIZtgk9hXH9C7FGE5gQpkNbSxUI3gYvQ=","ak.pv":"9","ak.dpoabenc":"","ak.tf":o};if(""!==t)i["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))i["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"
+     style="position:absolute;width:0;height:0;overflow:hidden" id="dbim-icon-sprite">
+    <defs>
+        <symbol id="icon-angle-double-left" viewBox="0 0 24 24"><path d="M11.6 4.6 4.2 12l7.4 7.4 2.2-2.2L8.6 12l5.2-5.2z"/><path d="M19 4.6 11.6 12 19 19.4l2.2-2.2L16 12l5.2-5.2z"/></symbol>
+        <symbol id="icon-angle-double-right" viewBox="0 0 24 24"><path d="M12.4 4.6 10.2 6.8 15.4 12l-5.2 5.2 2.2 2.2L19.8 12z"/><path d="M5 4.6 2.8 6.8 8 12l-5.2 5.2L5 19.4 12.4 12z"/></symbol>
+        <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M20.8 10.6H9.6v2.8h11.2z"/><path d="M10.8 5.6 3.2 12l7.6 6.4z"/></symbol>
+        <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M3.2 10.6h11.2v2.8H3.2z"/><path d="M13.2 5.6 20.8 12l-7.6 6.4z"/></symbol>
+        <symbol id="icon-blogger" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M6.4 2.4h11.2a4 4 0 0 1 4 4v11.2a4 4 0 0 1-4 4H6.4a4 4 0 0 1-4-4V6.4a4 4 0 0 1 4-4zm2.8 5.2a2 2 0 0 0 0 4h2.4a2 2 0 0 0 0-4zm0 5.6a2 2 0 0 0 0 4h5.6a2 2 0 0 0 0-4z"/></symbol>
+        <symbol id="icon-calendar" viewBox="0 0 24 24"><path d="M7.6 2.4H10v2.4H7.6z"/><path d="M14 2.4h2.4v2.4H14z"/><path fill-rule="evenodd" d="M4 4.8h16a1.6 1.6 0 0 1 1.6 1.6v13.2a1.6 1.6 0 0 1-1.6 1.6H4a1.6 1.6 0 0 1-1.6-1.6V6.4A1.6 1.6 0 0 1 4 4.8zm.4 5.6v8.4h15.2v-8.4z"/><path d="M6.4 12.4h3.2v3.2H6.4z"/></symbol>
+        <symbol id="icon-chevron-left" viewBox="0 0 24 24"><path d="M15.4 4.6 8 12l7.4 7.4 2.2-2.2L12.4 12l5.2-5.2z"/></symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 24 24"><path d="M8.6 4.6 6.4 6.8 11.6 12l-5.2 5.2 2.2 2.2L16 12z"/></symbol>
+        <symbol id="icon-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></symbol>
+        <symbol id="icon-download" viewBox="0 0 24 24"><path d="M10.8 3h2.4v7.6h3.4L12 16.6l-4.6-6h3.4z"/><path d="M4 17.2h2.4v2.4h11.2v-2.4H20v3.2a1.4 1.4 0 0 1-1.4 1.4H5.4A1.4 1.4 0 0 1 4 20.4z"/></symbol>
+        <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M13.6 21.6v-8.4h2.8l.42-3.3h-3.22V7.8c0-.95.27-1.6 1.64-1.6h1.74V3.26a23 23 0 0 0-2.54-.13c-2.5 0-4.22 1.53-4.22 4.34v2.43H7.4v3.3h2.82v8.4z"/></symbol>
+        <symbol id="icon-fact-check" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4 3.6 5.6v6.2c0 4.6 3.4 8.6 8.4 9.8 5-1.2 8.4-5.2 8.4-9.8V5.6zm-1 13.2-3.6-3.6 1.7-1.7 1.9 1.9 4.5-4.5 1.7 1.7z"/></symbol>
+        <symbol id="icon-hashtag" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M8.8 3h2.4l-1 6h3.2l1-6h2.4l-1 6h3.4v2.4h-3.8l-.6 3.2h3.6V17h-4l-1 5h-2.4l1-5h-3.2l-1 5H5.4l1-5H3V14.6h3.8l.6-3.2H3.8V9h4zm.6 8.4-.6 3.2h3.2l.6-3.2z"/></symbol>
+        <symbol id="icon-home" viewBox="0 0 24 24"><path d="M12 3.4 2.8 11.6h2.4v8.4a1 1 0 0 0 1 1h3.3v-5.4h5v5.4h3.3a1 1 0 0 0 1-1v-8.4h2.4z"/></symbol>
+        <symbol id="icon-instagram" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7.6 2.4h8.8a5.2 5.2 0 0 1 5.2 5.2v8.8a5.2 5.2 0 0 1-5.2 5.2H7.6a5.2 5.2 0 0 1-5.2-5.2V7.6a5.2 5.2 0 0 1 5.2-5.2zm0 2.4a2.8 2.8 0 0 0-2.8 2.8v8.8a2.8 2.8 0 0 0 2.8 2.8h8.8a2.8 2.8 0 0 0 2.8-2.8V7.6a2.8 2.8 0 0 0-2.8-2.8z"/><path fill-rule="evenodd" d="M12 6.8a5.2 5.2 0 1 0 0 10.4 5.2 5.2 0 0 0 0-10.4zm0 2.4a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6z"/><circle cx="17.3" cy="6.7" r="1.3"/></symbol>
+        <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M4.8 8.8h3.6v12H4.8z"/><circle cx="6.6" cy="5.4" r="2.1"/><path d="M10.8 8.8h3.45v1.65h.05c.48-.9 1.65-1.85 3.4-1.85 3.63 0 4.3 2.35 4.3 5.4v6.6h-3.6v-5.85c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1v5.95h-3.6z"/></symbol>
+        <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M2.4 7.6v9.2a1.6 1.6 0 0 0 1.6 1.6h16a1.6 1.6 0 0 0 1.6-1.6V7.6L12 14z"/><path d="M21.2 5.4H2.8L12 11.8z"/></symbol>
+        <symbol id="icon-mail-open" viewBox="0 0 24 24"><path d="M2.4 9.8h19.2v9.6A1.6 1.6 0 0 1 20 21H4a1.6 1.6 0 0 1-1.6-1.6z"/><path d="M12 2.6 21.6 9.2h-3.8L12 5.3 6.2 9.2H2.4z"/><path d="m3.9 11.2 8.1 5.4 8.1-5.4 1.5 1.3-9.6 6.4-9.6-6.4z"/></symbol>
+        <symbol id="icon-map-marker" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4a7 7 0 0 0-7 7c0 5.2 7 12.2 7 12.2s7-7 7-12.2a7 7 0 0 0-7-7zm0 9.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2z"/></symbol>
+        <symbol id="icon-newspaper" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.8 4.4h14.8v15.2H2.8zm2 2v11.2h10.8V6.4z"/><path d="M6 7.6h8.4v1.6H6z"/><path d="M6 10.8h8.4v1.6H6z"/><path d="M6 14h5.2v1.6H6z"/><path d="M18.4 8.4h2.8v9.6a1.4 1.4 0 0 1-2.8 0z"/></symbol>
+        <symbol id="icon-pause" viewBox="0 0 24 24"><rect x="7.4" y="4" width="3.6" height="16" rx="0.9"/><rect x="13" y="4" width="3.6" height="16" rx="0.9"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24"><path d="M8 4.5v15l12-7.5z"/></symbol>
+        <symbol id="icon-picture" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.4 5.2h19.2v13.6H2.4zm2 2v9.6h15.2V7.2z"/><path d="M5.6 16.4 10 11l2.6 3 2-2.2 4 4.6z"/><circle cx="8" cy="10.4" r="1.5"/></symbol>
+        <symbol id="icon-press-conference" viewBox="0 0 24 24"><circle cx="12" cy="5.2" r="2.6"/><path d="M7.6 12.2a4.4 4.4 0 0 1 8.8 0z"/><circle cx="4.9" cy="9.6" r="2.2"/><path d="M1.8 15.2a3.1 3.1 0 0 1 6.2 0z"/><circle cx="19.1" cy="9.6" r="2.2"/><path d="M16 15.2a3.1 3.1 0 0 1 6.2 0z"/><path d="M6.6 13.6h10.8l2.2 7.8H4.4z"/></symbol>
+        <symbol id="icon-print" viewBox="0 0 24 24"><path d="M6.4 2.8h11.2v4.4H6.4z"/><path d="M4 8.4h16a1.6 1.6 0 0 1 1.6 1.6v5.6a1.6 1.6 0 0 1-1.6 1.6h-1.6v-2.8H6v2.8H4a1.6 1.6 0 0 1-1.6-1.6V10A1.6 1.6 0 0 1 4 8.4z"/><path d="M7.2 15.6h9.6v5.6H7.2z"/></symbol>
+        <symbol id="icon-rss" viewBox="0 0 24 24"><circle cx="4.8" cy="19.2" r="2.4"/><path d="M2.4 11.2v3.2a6.4 6.4 0 0 1 6.4 6.4H12A9.6 9.6 0 0 0 2.4 11.2z"/><path d="M2.4 4.8V8A13.6 13.6 0 0 1 16 21.6h3.2A16.8 16.8 0 0 0 2.4 4.8z"/></symbol>
+        <symbol id="icon-search-plus" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M10 2.8a7.2 7.2 0 1 0 0 14.4 7.2 7.2 0 0 0 0-14.4zm0 2.4a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6z"/><path d="M15.3 14.6 21.2 20.5l-1.5 1.5-5.9-5.9z"/><path d="M9.2 6.8h1.6v2.4h2.4v1.6h-2.4v2.4H9.2v-2.4H6.8V9.2h2.4z"/></symbol>
+        <symbol id="icon-share" viewBox="0 0 24 24"><circle cx="18" cy="5.6" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="18.4" r="3"/><path d="M8.3 10.9 15.7 7.2l.9 1.8-7.4 3.7z"/><path d="M9.2 13.1 16.6 16.8l-.9 1.8-7.4-3.7z"/></symbol>
+        <symbol id="icon-twitter" viewBox="0 0 24 24"><path d="M4.2 3h4.3l11.3 18h-4.3z"/><path d="M19.3 3h-2.6L4.2 21h2.6z"/></symbol>
+        <symbol id="icon-university" viewBox="0 0 24 24"><path d="M12 2.4 21.6 7.2v1.6H2.4V7.2z"/><path d="M4.8 10.4h2.4v8H4.8z"/><path d="M9.2 10.4h2.4v8H9.2z"/><path d="M13.4 10.4h2.4v8h-2.4z"/><path d="M17.6 10.4H20v8h-2.4z"/><path d="M3.2 19.8h17.6v1.8H3.2z"/></symbol>
+        <symbol id="icon-volume-up" viewBox="0 0 24 24"><path d="M3.2 9.2h3.3l5-4.2v14l-5-4.2H3.2z"/><path d="M14.6 8.4a5 5 0 0 1 0 7.2l1.6 1.6a7.2 7.2 0 0 0 0-10.4z"/><path d="M17.4 5.6a8.8 8.8 0 0 1 0 12.8l1.5 1.5a10.9 10.9 0 0 0 0-15.8z"/></symbol>
+        <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4a9.5 9.5 0 0 0-8.1 14.5L2.4 21.6l4.8-1.4A9.5 9.5 0 1 0 12 2.4zm0 2.2a7.3 7.3 0 1 1-3.8 13.5l-.4-.2-2.6.7.7-2.5-.3-.4A7.3 7.3 0 0 1 12 4.6z"/><path d="M9.4 7.8c-.2-.5-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3-1.6-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6 6 0 0 1-1.8-1.1 6.6 6.6 0 0 1-1.2-1.6c-.1-.2 0-.4.1-.5l.4-.5.3-.5v-.5z"/></symbol>
+        <symbol id="icon-youtube" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.6.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8zM10.2 15.1V8.9l5.1 3.1z"/></symbol>
+    </defs>
+</svg>
+
+    <form method="post" action="./PressReleasePage.aspx?PRID=2330455&amp;reg=3&amp;lang=1" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="sc_HiddenField" id="sc_HiddenField" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZPQet1wIx1Q48y3xJY2k25Y7qxH5RrQ9qQcN-OiTC9guZtri9w2&amp;t=639246315009809930" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=x6wALODbMJK5e0eRC_p1LdIxBJXt0U_WW5GWfJqHAqo6frgCmGRfEywglicTersO2OKrFhK1gAIp0Wk2al2YrpdR3uWqH6f4nfjBsCyRUfTUUVmb0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=P5lTttoqSeZXoYRLQMIScH645UK3RD852IErF2548Wz9Ssv0rLjB4fhVKnHcMpqkaMHpNAGOeWY02Lf4aBYN9-dVBme_SNK5KJwmFQNpMixYDZ7M0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/PressReleasePage.aspx?_TSM_HiddenField_=sc_HiddenField&amp;_TSM_CombinedScripts_=%3b%3bAjaxControlToolkit%2c+Version%3d3.5.7.123%2c+Culture%3dneutral%2c+PublicKeyToken%3d28f01b0e84b6d53e%3aen-US%3a5a4df314-b4a2-4da2-a207-9284f1b1e96c%3ade1feab2%3af2c8e708%3a8613aea7%3af9cec9bc%3a3202a5a2%3aab09e3fe%3a87104b7c%3a720a52bf%3a589eaa30%3aa67c2700%3abe6fb298" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="59B53027" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="9bcZdrX7dV2B11Rx49Dssta5KBqJ5du87oUnnK387YhjeVm9Ohjb0xD4ACdP0x740+oWaA/PmuHvBy2UAjVw3SWDIRuM3XNC61Odrb8lxpP0MP3f5Em1Nkc1ykd56oBNTNDOiWPxsBkRXKrk+kXGrVCfDUTwwUD7f+9I7W8cu4YetsY6SHbwCBXFiz3G6v/lda20BKHIAlK8uoEH/l0YEgTAlkt7hI4NmeKWwZLf0RixtMiWP0XTcrJjaAxseV1ubj3yiYljC+7Jk/nPBDFpEAufULU=" />
+</div>
+        
+        <div id="templateCss"></div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('sc', 'form1', ['tupdate12','update12'], [], [], 90, '');
+//]]>
+</script>
+
+        <input type="hidden" name="hfGridHtml" id="hfGridHtml" />
+        <div class="container" style='margin-bottom: 50px;'>
+            <div id="accessories">
+                
+                <div class="pull-right" style="display: flex">
+                    <div id="voll"></div>
+                    <div id="vollDT"></div>
+                    
+
+<span class="print-icons">
+<input type="image" name="Print1$print" id="Print1_print" aria-label="Print" src="images/printer_icon.png" alt="print page button" style="padding: 5px 10px 5px 10px;" />
+</span>
+                </div>
+            </div>
+            <input type="hidden" name="hydpermid" id="hydpermid" value="2330455" />
+            
+
+            <div class="innner-page-main-about-us-content-right-part">
+                <div id="MinistryName" class="MinistryNameSubhead text-center">
+                    Ministry of Finance
+                </div>
+                <div id="lg_g"><div class='log_oo'>  <img src='https://static.pib.gov.in/WriteReadData/specificdocs/photo/2026/sep/ph_9768_20260902_10000501.png' alt='azadi ka amrit mahotsav' /> </div></div>
+
+                <div class="text-center event-heading-background">
+                    
+                    <h1 id="Titleh2">
+                        Monthly review of accounts of Government of India upto September 2026 (FY 2026-27)
+                    </h1>
+                    <h3 id="Subtitleh3">
+                        <span id="ltrSubtitle"></span>
+                    </h3>
+                    
+                    
+                </div>
+
+                
+                
+
+                <div id="PrDateTime" class="ReleaseDateSubHeaddateTime text-center pt20">
+                    Posted On:
+                              30 OCT 2026 5:02PM by PIB Delhi
+                </div>
+                
+                <div class='pt20'>
+                </div>
+                <input type="hidden" name="hydphotoUrl" id="hydphotoUrl" />
+                
+
+                <!-- Release content wrapper for client-side zero-reflow word count -->
+                <div id="pibReleaseBody">
+                    <p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The monthly accounts of the Government of India upto the month of September, 2026 has been consolidated and reports published. The highlights are given below: -</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Government of India has received ₹18,35,422 crore (50.3% of corresponding BE 2026-27 of Total Receipts) upto September, 2026 comprising ₹12,76,088 crore of Tax Revenue (Net to Centre), ₹4,80,732 crore of Non-Tax Revenue and ₹78,602 crore of Non-Debt Capital Receipts. ₹6,99,409 crore has been transferred to State Governments as Devolution of Share of Taxes by Government of India during this period which is ₹67,658 crore higher than the previous year. </span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Total Expenditure incurred by Government of India is ₹25,49,835 crore (47.7% of corresponding BE 2026-27), out of which ₹18,95,288 crore is on Revenue Account and ₹6,54,547 crore is on Capital Account. Out of the Total Revenue Expenditure, ₹6,46,010 crore is on account of Interest Payments and ₹2,22,905 crore is on account of Major Subsidies. </span></span></p>
+
+<p style="text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><img alt="" src="https://static.pib.gov.in/WriteReadData/userfiles/image/2026/oct/Screenshot2026-10-30171453_20261030171538_c7e7fe.png" /></span></span></p>
+
+<p style="text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">****</span></span></p>
+
+<p style="text-align:justify"><strong><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">KT/SRI</span></span></strong></p>
+
+                </div>
+
+                <div id="reel_pic">
+                </div>
+
+                <br />
+                <span id="ReleaseId">(Release ID: 2330455)</span>
+                <span id="lblViews">Visitor Counter : 1143</span>
+                <div>
+                    
+                </div>
+                
+
+                <span id="lblRefPhoto"></span>
+
+                <div class="BackgroundRelease">
+                    
+                </div>
+                <div>
+                    
+                </div>
+                <div class="ReleaseLang">Read this release in: 
+                
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2330760' target="_blank">
+                            Assamese </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2330497' target="_blank">
+                            Urdu </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2330561' target="_blank">
+                            Marathi </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2330740' target="_blank">
+                            हिन्दी </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2330617' target="_blank">
+                            Tamil </a>
+                    
+                </div>
+
+                
+                
+
+                <div class="RelTag">
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <div class="clear">
+                </div>
+
+                <!-- DBIM 3.0 Option 4: Separator Line with Left Share Rail & Right Reading Metrics -->
+                <div class="pr-share pr-share--footer" role="region" aria-label="Share and reading details">
+                    <div class="pr-share__left">
+                        <span class="pr-share__label" aria-hidden="true">Share</span>
+                        <ul class="pr-share__list">
+                            <li><a class="pr-share__btn pr-share__btn--facebook"
+                                href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2330455"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on Facebook">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-facebook" xlink:href="#icon-facebook"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--twitter"
+                                href="https://twitter.com/intent/tweet?url=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2330455"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on X">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-twitter" xlink:href="#icon-twitter"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--whatsapp"
+                                href="https://api.whatsapp.com/send?text=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2330455"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on WhatsApp">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-whatsapp" xlink:href="#icon-whatsapp"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--linkedin"
+                                href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2330455"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on LinkedIn">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-linkedin" xlink:href="#icon-linkedin"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--mail"
+                                href="mailto:?subject=Press+release+from+PIB&amp;body=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2330455"
+                                aria-label="Share by email">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-mail" xlink:href="#icon-mail"></use>
+                                </svg>
+                            </a></li>
+                        </ul>
+                    </div>
+                    <div class="pr-reading-meta" id="prReadingMeta" aria-label="Reading statistics">
+                        <span class="pr-reading-meta__item">
+                            <!-- Modern Document / Word Count Icon -->
+                            <svg class="pr-reading-meta__icon" width="18" height="18" viewbox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                                <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5" />
+                                <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
+                            </svg>
+                            <span id="prWordCount">-- words</span>
+                        </span>
+
+                        <span class="pr-reading-meta__divider" aria-hidden="true">|</span>
+
+                        <span class="pr-reading-meta__item">
+                            <!-- Modern Precision Clock / Read Time Icon -->
+                            <svg class="pr-reading-meta__icon" width="18" height="18" viewbox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+                            </svg>
+                            <span id="prReadTime">-- min read</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div id="RelLink" class="RelLink">
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <center>
+                    
+                </center>
+            </div>
+
+            <div id="update12">
+	
+                    
+                    <input type="hidden" name="Hidden" id="Hidden" />
+                    <div id="P_CategoryManagement" class="ModalWindow" style="border-width:0px;height:60%;width:60%;overflow:auto;display: none">
+		
+                        <div>
+                            <input type="image" name="btnClose" id="btnClose" src="images/close_flat_icon.png" />
+                        </div>
+                        <div id="description">
+                        </div>
+                        <div class="text-center">
+                            <h2>
+                                
+                                <br>
+                                
+                            </h2>
+                        </div>
+                        <br />
+                        <div class="clear">
+                        </div>
+                        
+                    
+	</div>
+                
+</div>
+        </div>
+
+        <div id="PdfDiv" style="display: none;">
+            <table width="100%">
+                <tr>
+                    <td style="font-weight: 200; text-align: center">
+                        Ministry of Finance
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                            Monthly review of accounts of Government of India upto September 2026 (FY 2026-27)
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                            
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="text-align: center; font-size: 14px;">
+                            Posted On:
+                                          30 OCT 2026 5:02PM by PIB Delhi
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: left; font-size: 16px;">
+                            <p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The monthly accounts of the Government of India upto the month of September, 2026 has been consolidated and reports published. The highlights are given below: -</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Government of India has received ₹18,35,422 crore (50.3% of corresponding BE 2026-27 of Total Receipts) upto September, 2026 comprising ₹12,76,088 crore of Tax Revenue (Net to Centre), ₹4,80,732 crore of Non-Tax Revenue and ₹78,602 crore of Non-Debt Capital Receipts. ₹6,99,409 crore has been transferred to State Governments as Devolution of Share of Taxes by Government of India during this period which is ₹67,658 crore higher than the previous year. </span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Total Expenditure incurred by Government of India is ₹25,49,835 crore (47.7% of corresponding BE 2026-27), out of which ₹18,95,288 crore is on Revenue Account and ₹6,54,547 crore is on Capital Account. Out of the Total Revenue Expenditure, ₹6,46,010 crore is on account of Interest Payments and ₹2,22,905 crore is on account of Major Subsidies. </span></span></p>
+
+<p style="text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><img alt="" src="https://static.pib.gov.in/WriteReadData/userfiles/image/2026/oct/Screenshot2026-10-30171453_20261030171538_c7e7fe.png" /></span></span></p>
+
+<p style="text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">****</span></span></p>
+
+<p style="text-align:justify"><strong><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">KT/SRI</span></span></strong></p>
+
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 100; text-align: left; font-size: 16px;">
+                            (Release ID: 2330455)
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 200; text-align: center; font-size: 24px;"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="clearfix">
+        </div>
+
+        <div class="section1">
+            <div id="frst_t">
+                <div id="arr_rm"><div class='sticky-social_mb'><ul class='social_mb'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2330455' target='_blank'><li class='fb_b'   ></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2330455&text=Monthly review of accounts of Government of India upto September 2026 (FY 2026-27)' target='_blank'><li class='twitter_r'  > </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2330455' target='_blank'><li class='whatsapp_r'  ></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Monthly review of accounts of Government of India upto September 2026 (FY 2026-27)&body=https://pib.gov.in/PressReleasePage.aspx?PRID=2330455&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2330455&title=Monthly review of accounts of Government of India upto September 2026 (FY 2026-27)&summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ></li></a></ul></div></div>
+            </div>
+            <div id="second_t">
+                <div id="sndr_rm"><div class='sticky-social'><ul class='social'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2330455' target='_blank'><li class='fb_b'   ></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2330455&text=Monthly review of accounts of Government of India upto September 2026 (FY 2026-27)' target='_blank'><li class='twitter_r'  > </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2330455' target='_blank'><li class='whatsapp_r'  ></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Monthly review of accounts of Government of India upto September 2026 (FY 2026-27)&body=https://pib.gov.in/PressReleasePage.aspx?PRID=2330455&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2330455&title=Monthly review of accounts of Government of India upto September 2026 (FY 2026-27)&summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ></li></a></ul></div></div>
+            </div>
+        </div>
+        <input type="hidden" name="ltrTitlee" id="ltrTitlee" value="Monthly review of accounts of Government of India upto September 2026 (FY 2026-27)" />
+        <input type="hidden" name="ltrSubtitlee" id="ltrSubtitlee" />
+        <input type="hidden" name="ltrDescriptionn" id="ltrDescriptionn" value="&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The monthly accounts of the Government of India upto the month of September, 2026 has been consolidated and reports published. The highlights are given below: -&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The Government of India has received ₹18,35,422 crore (50.3% of corresponding BE 2026-27 of Total Receipts) upto September, 2026 comprising ₹12,76,088 crore of Tax Revenue (Net to Centre), ₹4,80,732 crore of Non-Tax Revenue and ₹78,602 crore of Non-Debt Capital Receipts. ₹6,99,409 crore has been transferred to State Governments as Devolution of Share of Taxes by Government of India during this period which is ₹67,658 crore higher than the previous year. &lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Total Expenditure incurred by Government of India is ₹25,49,835 crore (47.7% of corresponding BE 2026-27), out of which ₹18,95,288 crore is on Revenue Account and ₹6,54,547 crore is on Capital Account. Out of the Total Revenue Expenditure, ₹6,46,010 crore is on account of Interest Payments and ₹2,22,905 crore is on account of Major Subsidies. &lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:center&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;img alt=&quot;&quot; src=&quot;https://static.pib.gov.in/WriteReadData/userfiles/image/2026/oct/Screenshot2026-10-30171453_20261030171538_c7e7fe.png&quot; />&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:center&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>****&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;strong>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>KT/SRI&lt;/span>&lt;/span>&lt;/strong>&lt;/p>
+" />
+        <script type="text/javascript">
+                  var mPlayer = document.getElementById("background_music");
+                  var mPlayAction = document.getElementById("playbutton");
+                  var isPlaying = false;
+
+                  function playAudio() {
+                        mPlayer.play();
+                        isPlaying = true;
+                        document.getElementById('stopA').style.display = "block";
+                        document.getElementById('playA').style.display = "none";
+                  }
+
+                  function pauseAudio() {
+                        mPlayer.pause();
+                        isPlaying = false;
+                        document.getElementById('playA').style.display = "block";
+                        document.getElementById('stopA').style.display = "none";
+                  }
+        </script>
+        <script type="text/javascript">
+                  var synth = window.speechSynthesis;
+
+                  function CleanHtml(html) {
+                        html = html.replace(/<script[\s\S]*?<\/script>/gi, '');
+                        return html;
+                  }
+                  function stripHtml(html) {
+                        let tmp = document.createElement("DIV");
+                        tmp.innerHTML = CleanHtml(html);
+                        return tmp.textContent || tmp.innerText || "";
+                  }
+        </script>
+        <script type="text/javascript">
+                  $(document).ready(function () {
+                        $("table").each(function () {
+                              if (!$(this).closest(".table-responsive").length) {
+                                    $(this).wrap("<div class='table-responsive'></div>");
+                              }
+                        });
+
+                        var width = $(window).width();
+                        if (width < 768) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                        } else if (width < 991) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                        } else if (width < 1199) {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                        } else {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                        }
+                  });
+        </script>
+        <style type="text/css">
+            @media print {
+                .sticky-social, .sticky-social_mb, .pull-right, #printPDF {
+                    display: none !important;
+                }
+            }
+
+            .f_vl {
+                padding-right: 30px;
+                font-size: 17px;
+                cursor: pointer;
+            }
+
+            .log_oo {
+                display: flex;
+                justify-content: space-between;
+            }
+
+                .log_oo img {
+                    width: 150px;
+                }
+
+            .sticky-social_mb {
+                position: fixed;
+                bottom: 0px;
+                padding: 0px;
+                margin: 0px;
+                width: 100%;
+            }
+
+            .social_mb {
+                list-style: none;
+                display: flex;
+                width: 100%;
+                margin-bottom: -8px;
+            }
+
+                .social_mb a {
+                    padding: 8px 0px;
+                    font-size: 30px;
+                    transition: all 0.8s ease-in-out;
+                    width: 20% !important;
+                    text-align: center;
+                }
+        </style>
+        <style type="text/css">
+            .section1 {
+                position: relative;
+                padding: 10px 0px;
+                width: 100%;
+            }
+
+            .sticky-social {
+                position: fixed;
+                top: 20px;
+                left: 0px;
+                padding: 0px;
+                margin: 0px;
+            }
+
+            .social {
+                list-style: none;
+            }
+
+                .social a li {
+                    padding: 8px 12px;
+                    font-size: 25px;
+                    transition: all 0.8s ease-in-out;
+                }
+
+                    .social a li:hover {
+                        margin-right: -30px;
+                        box-shadow: 2px 5px 10px grey;
+                    }
+
+                        .social a li:hover .fa {
+                            margin-left: 20px;
+                        }
+
+            .fb_b {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .twitter_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .whatsapp_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .fa-envelope_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .fa-linkedin_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+        </style>
+        <style type="text/css">
+            @media only screen and (max-device-width: 767px) {
+                p span img {
+                    max-width: 90% !important;
+                    height: auto !important;
+                }
+
+                p img {
+                    max-width: 90% !important;
+                    height: auto !important;
+                }
+
+                h2 {
+                    font-size: var(--dbim-h2, 20px);
+                    font-weight: 600 !important;
+                }
+
+                h3 {
+                    font-size: var(--dbim-h3, 16px);
+                    font-weight: 600 !important;
+                }
+            }
+        </style>
+        <style type="text/css">
+            .film-roll-badge {
+                position: absolute;
+                top: 82%;
+                right: 20px;
+                width: 230px;
+                height: 70px;
+                background: repeating-linear-gradient( to right, var(--dbim-green-key, #0F5757) 0px, var(--dbim-green-key, #0F5757) 18px, var(--dbim-text, #150202) 18px, var(--dbim-text, #150202) 36px );
+                border-top: 8px solid var(--dbim-green-key, #0F5757);
+                border-bottom: 8px solid var(--dbim-green-key, #0F5757);
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+                animation: moveFilm 8s linear infinite;
+                z-index: 10;
+            }
+
+                .film-roll-badge::before,
+                .film-roll-badge::after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 10px;
+                    background: repeating-linear-gradient( to right, var(--dbim-green-key, #0F5757) 0px, var(--dbim-green-key, #0F5757) 10px, #fff 10px, #fff 20px );
+                    left: 0;
+                    z-index: 2;
+                }
+
+                .film-roll-badge::before {
+                    top: -4px;
+                }
+
+                .film-roll-badge::after {
+                    bottom: -4px;
+                }
+
+            .film-roll-inner {
+                position: relative;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation: flicker 2s infinite ease-in-out;
+            }
+
+            .countdown-text {
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: #fff;
+                text-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 10px #000;
+                white-space: nowrap;
+            }
+
+            @keyframes moveFilm {
+                0% {
+                    background-position: 0 0;
+                }
+
+                100% {
+                    background-position: 120px 0;
+                }
+            }
+
+            @keyframes flicker {
+                0%, 100% {
+                    opacity: 1;
+                }
+
+                50% {
+                    opacity: 0.9;
+                }
+
+                25% {
+                    opacity: 0.95;
+                }
+
+                75% {
+                    opacity: 0.85;
+                }
+            }
+
+            @media (max-width: 1500px) {
+                .film-roll-badge {
+                    top: 68%;
+                    right: 18px;
+                    height: 65px;
+                    font-size: 0.85rem;
+                }
+
+                .press-section {
+                    margin-top: 35px;
+                }
+            }
+
+            @media (max-width: 992px) {
+                .film-roll-badge {
+                    top: 52%;
+                    right: 10px;
+                    width: 200px;
+                    height: 60px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .film-roll-badge {
+                    top: 56%;
+                    right: 10px;
+                    width: 124px;
+                    height: 55px;
+                }
+
+                .countdown-text {
+                    font-size: 0.9rem;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .film-roll-badge {
+                    top: 59%;
+                    right: 5px;
+                    height: 50px;
+                }
+
+                .countdown-text {
+                    font-size: 0.85rem;
+                }
+            }
+        </style>
+        <script type="text/javascript">
+                  const festivalStart = new Date("2025-11-20T00:00:00").getTime();
+                  const festivalEnd = new Date("2025-11-28T23:59:59").getTime();
+                  const countdownElement = document.getElementById("countdown");
+
+                  if (countdownElement) {
+                        const interval = setInterval(() => {
+                              const now = new Date().getTime();
+
+                              if (now < festivalStart) {
+                                    const diff = festivalStart - now;
+                                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+                                    countdownElement.innerHTML = `${days} Day${days !== 1 ? 's' : ''} ${hours} Hour${hours !== 1 ? 's' : ''} to go`;
+                              } else if (now >= festivalStart && now <= festivalEnd) {
+                                    const dayNumber = Math.floor((now - festivalStart) / (1000 * 60 * 60 * 24)) + 1;
+                                    countdownElement.innerHTML = `56th IFFI - Day ${dayNumber}`;
+                              } else {
+                                    countdownElement.innerHTML = `✨ IFFI closes but never ends…`;
+                                    const elements = document.querySelectorAll('.film-roll-badge');
+                                    elements.forEach(el => el.style.width = "350px");
+                                    clearInterval(interval);
+                              }
+                        }, 1000);
+                  }
+        </script>
+        <script type="text/javascript">
+                  const miffStart = new Date("2026-06-15T00:00:00").getTime();
+                  const miffEnd = new Date("2026-06-15T23:59:59").getTime();
+                  const miffElement = document.getElementById("miff");
+
+                  if (miffElement) {
+                        const miffInterval = setInterval(() => {
+                              const now = new Date().getTime();
+
+                              if (now < miffStart) {
+                                    const diff = miffStart - now;
+                                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                                    miffElement.innerHTML = `${days} Day${days === 1 ? '' : 's'} to MIFF ...`;
+                              } else if (now >= miffStart && now <= miffEnd) {
+                                    const dayNumber = Math.floor((now - miffStart) / (1000 * 60 * 60 * 24)) + 1;
+                                    miffElement.innerHTML = `19th MIFF - Day ${dayNumber}`;
+                              } else {
+                                    miffElement.innerHTML = `✨ MIFF concludes, cinema lives on...`;
+                                    document.querySelectorAll('.film-roll-badge').forEach(el => el.style.width = "350px");
+                                    clearInterval(miffInterval);
+                              }
+                        }, 1000);
+                  }
+        </script>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("sc_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.ModalPopupBehavior, {"BackgroundCssClass":"modalBackground","PopupControlID":"P_CategoryManagement","dynamicServicePath":"/PressReleasePage.aspx","id":"mpe"}, null, null, $get("Hidden"));
+});
+//]]>
+</script>
+<input type="hidden" name="__ncforminfo" value="8MnOoxwi1myRfDodvFSxmDVZaOOq538w_Dj1aqomOW_T2sKWxy0ZWJmmGHKHweiFBTnIxgWMEXl7GIbiaLUuBdLUBWdq8FHF4uomKqYE2AtP3a1w3iC_lw=="/></form>
+    
+
+<script type="application/json" id="pibConsentConfig">{"ga4Id":"G-Q414Y0X6EE,G-QJJ6LZ8LHV","policyUrl":"/CookiePolicy.aspx","text":{"bannerLabel":"Cookie consent","title":"Cookies on this website","body":"We use essential cookies to make this website work. We also set analytics cookies when you arrive, so we can see how the site is used and improve it - you can switch these off below or at any time from the Cookie Policy page. Cookies from embedded social media content are set only if you allow them.","policyLink":"Read our Cookie Policy","accept":"Accept all","reject":"Reject optional","customize":"Customise","prefsTitle":"Cookie preferences","prefsIntro":"Choose which cookies this website may set. Essential cookies cannot be switched off because the site does not work without them. Analytics cookies are on unless you turn them off. Social media cookies stay off until you allow them. You can change these choices at any time from the Cookie Policy page.","essentialName":"Essential cookies","essentialDesc":"Needed for the site to function. These remember your session, your language and region, your text size and colour theme, and verify the security check on forms. They are always on.","analyticsName":"Analytics cookies","analyticsDesc":"Help us understand how visitors use the site - which pages are read and how long people stay - so it can be improved. The information is collected in a form that does not directly identify you. These are on when you arrive; switching them off here stops them and deletes the ones already set.","socialName":"Social media cookies","socialDesc":"Set by content embedded from X, Facebook and YouTube, such as timelines and videos. These platforms may use them to track you across websites. They stay off until you allow them.","save":"Save preferences","cancel":"Cancel"}}</script>
+<script type="text/javascript" src='/js/consent.js?v=10'></script>
+
+<script type="text/javascript" src='/js/consent-embeds.js?v=10'></script>
+
+
+    <!-- Minimal O(N) Time and O(1) Auxiliary Space Word Count & Read Time Calculation -->
+    <script type="text/javascript">
+            (function () {
+                  function calculateReadingStats() {
+                        var bodyEl = document.getElementById("pibReleaseBody");
+                        if (!bodyEl) return;
+
+                        // textContent extracts text without triggering expensive layout/reflow computations
+                        var text = bodyEl.textContent || "";
+                        var words = 0;
+                        var inWord = false;
+
+                        // O(N) single pass character code scan: achieves O(1) space with zero array allocations
+                        for (var i = 0, len = text.length; i < len; i++) {
+                              var code = text.charCodeAt(i);
+                              // Delimits on ASCII whitespace, control characters, tabs, newlines, and non-breaking spaces (160)
+                              if (code <= 32 || code === 160) {
+                                    inWord = false;
+                              } else if (!inWord) {
+                                    inWord = true;
+                                    words++;
+                              }
+                        }
+
+                        // Standard 250 WPM reading speed (e.g., 612 words yields 2 min read)
+                        var minutes = Math.max(1, Math.round(words / 250));
+
+                        var elWords = document.getElementById("prWordCount");
+                        var elTime = document.getElementById("prReadTime");
+
+                        if (elWords) elWords.textContent = words + (words === 1 ? " word" : " words");
+                        if (elTime) elTime.textContent = minutes + " min read";
+                  }
+
+                  if (document.readyState === "loading") {
+                        document.addEventListener("DOMContentLoaded", calculateReadingStats);
+                  } else {
+                        calculateReadingStats();
+                  }
+            })();
+    </script>
+
+    <script type="text/javascript">
+(function () {
+    try {
+        if (window.self === window.top) { return; }
+    } catch (e) { return; }
+    var s = document.createElement("style");
+    s.textContent = ".sticky-social, .sticky-social_mb { display: none !important; }";
+    (document.head || document.documentElement).appendChild(s);
+}());
+    </script>
+</body>
+</html>

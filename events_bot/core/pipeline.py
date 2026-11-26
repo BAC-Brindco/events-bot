@@ -4,7 +4,7 @@ Routing (desk scope, digest/scope.py, F-29):
   realtime          Stage 1 now: only the data prints (MoSPI CPI/IIP/GDP, OEA WPI/ICI)
   india_eod         queued for the 18:30 IST daily macro digest (everything else in scope)
   dropped           out of scope: logged to filtered_items, never e-mailed
-  us_morning_wrap   queued for the 07:00 IST wrap (US sources, later phases)
+  us_morning_wrap   queued for the 07:00 IST US morning wrap (US stream sources, F-09)
   weekly            queued for the Saturday digest
 
 Two guards stop floods of old items:
@@ -119,10 +119,10 @@ class Pipeline:
         tags = self.watchlist.tags(it) + list(extra_tags or []) + list(it.meta.get("priority_tags") or [])
         # Desk scope (F-29): only data prints alert in real time; the rest of the kept stream goes to the
         # daily macro digest or is dropped (logged, never e-mailed).
-        sc = scope.decide(cfg, it)
+        sc = scope.decide(cfg, it, self.delivery)
         if not sc.keep and "unclassified" in (extra_tags or []):
             # The model could not run: the item goes to the digest flagged, never silently dropped.
-            sc = scope.Scope("india_eod", f"unclassified (model down); scope rule said: {sc.reason}")
+            sc = scope.Scope(DIGEST_FOR_COUNTRY[cfg.country], f"unclassified (model down); scope rule said: {sc.reason}")
         if not sc.keep:
             self.db.insert_filtered(item_id, cfg.id, it.title, it.url, "out_of_scope", sc.reason)
             self.db.update_item(item_id, status="filtered", tags=tags, meta={**it.meta, "scope": sc.reason})

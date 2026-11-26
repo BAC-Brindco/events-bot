@@ -62,6 +62,10 @@ ministries:
 
 # Market-moving terms (SPEC seed list first).
 include_any:
+  - Monthly review of accounts
+  - accounts of Government of India
+  - Borrowing Plan
+  - Issuance Calendar
   - MSP
   - Minimum Support Price
   - subsidy

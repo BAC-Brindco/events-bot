@@ -33,7 +33,7 @@ class SourceConfig(BaseModel):
     country: Country
     tier: Literal[1, 2, 3]
     kind: Literal["scheduled", "stream", "both"]
-    feed_type: Literal["rss", "api", "ics", "html"]
+    feed_type: Literal["rss", "api", "ics", "html", "pdf", "csv"]
     urls: dict[str, str]
     poll_interval: int = Field(gt=0, description="seconds")
     # Cron-driven `tick` ignores poll_interval; this throttles heavy sources there (IMD's list is 4 MB).
@@ -48,6 +48,10 @@ class SourceConfig(BaseModel):
     label: str | None = None                      # short tag for subjects, e.g. "RBI"
     event_name: str = "Release"                   # subject noun for stream items, e.g. "Press release"
     enabled: bool = True
+    # Digest presentation (digest/render.py): section heading and issuer line. Sources that predate these
+    # fields are mapped in render.SECTION_OF / ISSUER.
+    section: str | None = None
+    issuer: str | None = None
 
     @field_validator("adapter")
     @classmethod
