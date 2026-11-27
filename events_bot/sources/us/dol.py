@@ -9,7 +9,8 @@ Sources (phase0/us_data.md):
        ext_id; every other DOL release is dropped (not macro).
 The canonical item URL is the dated release `https://www.dol.gov/newsroom/releases/eta/etaYYYYMMDD` (it
 redirects to the numbered PDF). dol.gov sits behind Akamai: the RSS and the dated URLs answer 403 to a bare
-UA, so every request sends prints_base.BROWSER_HEADERS.
+UA, so every request sends prints_base.BROWSER_HEADERS over curl_cffi (impersonate=True; httpx is 403 from
+GitHub runners whatever the headers, reachability run 45953080704).
 
 Polling is limited to Wednesday-Friday ET: Thursday is release day, Wednesday covers holiday shifts
 (Thanksgiving, Christmas, New Year, July 4 on a Thursday), Friday is the catch-up.
@@ -94,7 +95,7 @@ class DolClaims(SourceAdapter):
         items: list[RawItem] = []
         for name, url in self.cfg.urls.items():
             res = self.ctx.fetcher.get(url, source_id=self.cfg.id, doc_type=f"dol:{name}",
-                                       expect="pdf" if name == "pdf" else "xml", headers=BROWSER_HEADERS)
+                                       expect="pdf" if name == "pdf" else "xml", headers=BROWSER_HEADERS, impersonate=True)
             if res.not_modified:
                 continue
             items += self.parse(res, name)
@@ -147,12 +148,12 @@ class DolClaims(SourceAdapter):
         res, notes = None, []
         try:
             res = f.get_with_retry(it.url, tries=3, base_delay=4, source_id=self.cfg.id, doc_type="digest:dol_pdf",
-                                   expect="pdf", conditional=False, headers=BROWSER_HEADERS)
+                                   expect="pdf", conditional=False, headers=BROWSER_HEADERS, impersonate=True)
         except Exception as e:  # noqa: BLE001  fall back to the always-latest file
             log.warning("dol_dated_pdf_failed", url=it.url, error=str(e)[:200])
         if res is None or (parse_pdf(res.content) or {}).get("release_at", None) is None:
             res = f.get(self.cfg.urls["pdf"], source_id=self.cfg.id, doc_type="digest:dol_pdf", expect="pdf",
-                        conditional=False, headers=BROWSER_HEADERS)
+                        conditional=False, headers=BROWSER_HEADERS, impersonate=True)
             notes.append("Quoted from ui/data.pdf (the dated release URL did not answer).")
         p = parse_pdf(res.content)
         if p is None or p["release_at"].date() != d:

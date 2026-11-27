@@ -1,7 +1,7 @@
 """BLS real-time print alerts: CPI, Employment Situation (payrolls), PPI, JOLTS.
 
 Calendar: the BLS release ICS (`schedule/news_release/bls.ics`, TZID US-Eastern; Akamai-gated, so it is fetched
-with the full browser header set, prints_base.BROWSER_HEADERS). SUMMARY carries the release name only; the four
+with prints_base.BROWSER_HEADERS over curl_cffi, impersonate=True; httpx is 403 from GitHub runners). SUMMARY carries the release name only; the four
 names below map to kinds by exact match (so "State Job Openings and Labor Turnover" and "Employment Situation of
 Veterans" are not picked up).
 
@@ -169,7 +169,7 @@ class BlsPrints(ScheduledPrint):
     def schedule(self) -> list[ScheduledRelease]:
         url = self.cfg.urls.get("calendar", ICS_URL)
         res = self.ctx.fetcher.get(url, source_id=self.cfg.id, doc_type="bls:calendar", headers=BROWSER_HEADERS,
-                                   conditional=False)
+                                   impersonate=True, conditional=False)
         rels = parse_ics(res.content, url)
         if not rels:
             raise ValueError("BLS ICS yielded no CPI/Employment Situation/PPI/JOLTS events")
@@ -178,7 +178,7 @@ class BlsPrints(ScheduledPrint):
     def capture(self, rel: ScheduledRelease, meta: dict) -> Capture | None:
         url = nr0_url(rel.kind)
         res = self.ctx.fetcher.get(url, source_id=self.cfg.id, doc_type=f"bls:{rel.kind}", expect="html",
-                                   headers=BROWSER_HEADERS, conditional=False)
+                                   headers=BROWSER_HEADERS, impersonate=True, conditional=False)
         cap = build_capture(rel.kind, res.content, rel.release_at.astimezone(ET).date())
         if cap is None:
             log.info("bls_not_yet_posted", kind=rel.kind, release=rel.release_at.isoformat())
